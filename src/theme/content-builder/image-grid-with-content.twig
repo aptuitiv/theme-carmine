@@ -44,41 +44,42 @@
             {% endif %}
             <div class="Grid-cell {{ class }} ImageGrid-col">
                 <div class="ImageGrid-item{% if displayContent == 'Behind Image' %} ImageGrid-hover{% elseif displayContent == 'Over Image' %} ImageGrid-cover{% else %} ImageGrid-withContent{% endif %}">
-                {% if column.link %}
+                    {% if column.link %}
                     <a href="{{ column.link }}" class="ImageGrid-link{% if displayContent == 'Behind Image' %} ImageGrid-hover{% endif %}">
-                {% endif %}
-                {% if displayContent != 'Over Image' %}
-                    {% if column.title and displayTitle != 'Below Image'%}<div class="ImageGrid-title {{ titleClass }}">{{ column.title }}</div>{% endif %}
-                    {{ column.image.tag }}
-                    {% if column.title and displayTitle == 'Below Image'%}<div class="ImageGrid-title {{ titleClass }}">{{ column.title }}</div>{% endif %}
-                {% else %}
-                    {# Displaying the content over the image #}
-                    {{ column.image.tag }}
-                    <span class="ImageGrid-coverContent">
-                        <span class="ImageGrid-coverContentInner">
-                            {% if column.title %}
-                                <span class="ImageGrid-coverContentHeading">{{ column.title }}</span>
-                            {% endif %}
-                            <span class="ImageGrid-coverContentWrap">{{ column.content }}</span>
-                        </span>
-                    </span>
-                {% endif %}
-                {% if column.link %}
-                    </a>
-                {% endif %}
-                    {% if column.content %}
-                        {% if displayContent == 'Below Image' %}
-                            <div class="ImageGrid-content">{{ column.content }}</div>
-                        {% elseif displayContent == 'Behind Image' %}
-                            <div class="ImageGrid-hoverContent">
-                                <div class="ImageGrid-hoverContentInner">
-                                    {% if column.title %}
-                                        <div class="ImageGrid-hoverContentHeading">{{ column.title }}</div>
-                                    {% endif %}
-                                    <div class="ImageGrid-hoverContentWrap">{{ column.content }}</div>
-                                </div>
-                            </div>
                         {% endif %}
+                        {% if displayContent != 'Over Image' %}
+                            {% if column.title and displayTitle != 'Below Image'%}<div class="ImageGrid-title {{ titleClass }}">{{ column.title }}</div>{% endif %}
+                            {{ column.image.tag }}
+                            {% if column.title and displayTitle == 'Below Image'%}<div class="ImageGrid-title {{ titleClass }}">{{ column.title }}</div>{% endif %}
+                        {% else %}
+                            {# Displaying the content over the image #}
+                            {{ column.image.tag }}
+                            <span class="ImageGrid-coverContent">
+                            <span class="ImageGrid-coverContentInner">
+                                {% if column.title %}
+                                    <span class="ImageGrid-coverContentHeading">{{ column.title }}</span>
+                                {% endif %}
+                                <span class="ImageGrid-coverContentWrap">{{ column.content }}</span>
+                            </span>
+                        </span>
+                        {% endif %}
+
+                        {% if column.content %}
+                            {% if displayContent == 'Below Image' %}
+                                <div class="ImageGrid-content">{{ column.content }}</div>
+                            {% elseif displayContent == 'Behind Image' %}
+                                <div class="ImageGrid-hoverContent">
+                                    <div class="ImageGrid-hoverContentInner">
+                                        {% if column.title %}
+                                            <div class="ImageGrid-hoverContentHeading">{{ column.title }}</div>
+                                        {% endif %}
+                                        <div class="ImageGrid-hoverContentWrap">{{ column.content }}</div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if column.link %}
+                    </a>
                     {% endif %}
                 </div>
             </div>
