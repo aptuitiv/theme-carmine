@@ -1,0 +1,38 @@
+/* =========================================================================== *\
+    Back to Top link
+\* =========================================================================== */
+
+
+/* @define BackTop */
+
+.BackTop {
+    background: #bb6519;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: -15px;
+    width: 30px;
+    z-index: 2;
+}
+
+.BackTop::after {
+    background: #fff;
+    content: '';
+    height: 2px;
+    left: 8px;
+    position: absolute;
+    top: 13px;
+    transform: rotate(-45deg);
+    width: 10px;
+}
+
+.BackTop::before {
+    background: #fff;
+    content: '';
+    height: 2px;
+    left: 14px;
+    position: absolute;
+    top: 13px;
+    transform: rotate(45deg);
+    width: 10px;
+}

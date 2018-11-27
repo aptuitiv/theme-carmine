@@ -1,0 +1,22 @@
+/* =========================================================================== *\
+    Content
+    To be used as a wrapper around content for padding
+    <div class="Container">
+        <div class="Content">{{ _page.content() }}</div>
+    </div>
+\* =========================================================================== */
+
+
+/* @define Content */
+
+.Content {
+    background: #fff;
+    padding: 1rem var(--g-gutter) 2rem;
+}
+
+
+@media (--c-bp-sm) {
+    .Content {
+        padding: var(--g-gutter-sm);
+    }
+}

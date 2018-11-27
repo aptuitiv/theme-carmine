@@ -1,0 +1,10 @@
+{%  include 'snippets/header' %}
+{{ _page.content('header') }}
+    {% if _page.isHome == false %}
+        {{ _page.breadcrumb }}
+    {% endif %}
+    <div class="Content u-cf">
+        <main role="main">{{ _page.content() }}</main>
+    </div>
+    {{ _page.content('footer') }}
+{%  include 'snippets/footer' %}

@@ -1,0 +1,147 @@
+{% if slides %}
+    {% macro slideImage(slide) %}
+        {% if slide.image %}
+            {% set slide.image.class = 'ImageSlider-image' %}
+            {% if slide.link %}
+                <a href="{{ slide.link }}" class="ImageSlider-imageWrap">{{ slide.image.tag }}</a>
+            {% else %}
+                <div class="ImageSlider-imageWrap">{{ slide.image.tag }}</div>
+            {% endif %}
+        {% endif %}
+    {% endmacro %}
+
+    {% macro slideContent(slide, titleClass, contentClass) %}
+        {% if slide.title %}
+            {% if slide.link %}
+                <a href="{{ slide.link }}" class="ImageSlider-title ImageSlider-link {{ titleClass }}">{{ slide.title }}</a>
+            {% else %}
+                <div class="ImageSlider-title {{ titleClass }}">{{ slide.title }}</div>
+            {% endif %}
+        {% endif %}
+        {% if slide.content %}
+            <div class="ImageSlider-content {{ contentClass }}">{{ slide.content }}</div>
+        {% endif %}
+    {% endmacro %}
+
+    {% import _self as macros %}
+
+    {% set class = 'js-imageSlider' ~ random_string(8)|upper %}
+    {% set numSlides = 4 %}
+    <div class="ImageSlider {{ class }}">
+        {% for slide in slides %}
+            {% set slideClass = '' %}
+            {% if displayContent in ['Below Image', 'Over Image', 'Behind Image', 'Hide'] %}
+                {% set slideClass = slideClass ~ ' ImageSlider-slide--spaced' %}
+            {% endif %}
+            {% if displayContent == 'Over Image' %}
+                {% set slideClass = slideClass ~ ' ImageSlider-cover' %}
+            {% elseif displayContent == 'Behind Image' %}
+                {% set slideClass = slideClass ~ ' ImageSlider-hover' %}
+            {% endif %}
+            <div class="ImageSlider-slide{{ slideClass }}">
+                {% if displayContent == 'Below Image' %}
+                    {% set numSlides = 3 %}
+                    {{ macros.slideImage(slide) }}
+                    <div class="ImageSlider-contentWrap">
+                        {{ macros.slideContent(slide) }}
+                    </div>
+                {% elseif displayContent == 'Right of Image' %}
+                    {% set numSlides = 2 %}
+                    <div class="Grid Grid--equalHeight ImageSlider-grid">
+                        <div class="Grid-cell u-size1of2 u-flexCol">{{ macros.slideImage(slide) }}</div>
+                        <div class="Grid-cell u-size1of2 ImageSlider-gridContent">
+                            {{ macros.slideContent(slide) }}
+                        </div>
+                    </div>
+                {% elseif displayContent == 'Left of Image' %}
+                    {% set numSlides = 2 %}
+                    <div class="Grid Grid--equalHeight ImageSlider-grid">
+                        <div class="Grid-cell u-size1of2 ImageSlider-gridContent">
+                            {{ macros.slideContent(slide) }}
+                        </div>
+                        <div class="Grid-cell u-size1of2 u-flexCol">{{ macros.slideImage(slide) }}</div>
+                    </div>
+                {% elseif displayContent == 'Over Image' %}
+                    {% if slide.link %}
+                        {% set link = slide.link %}
+                        {% set slide.link = null %}
+                    {% endif %}
+                    {% set numSlides = 3 %}
+                    {{ macros.slideImage(slide) }}
+                    {% if link %}
+                        <a href="{{ link }}" class="ImageSlider-coverContent ImageSlider-coverLink">
+                            <div class="ImageSlider-coverContentInner">
+                                {{ macros.slideContent(slide, 'ImageSlider-coverContentHeading', 'ImageSlider-coverContentWrap') }}
+                            </div>
+                        </a>
+                    {% else %}
+                        <div class="ImageSlider-coverContent">
+                            <div class="ImageSlider-coverContentInner">
+                                {{ macros.slideContent(slide, 'ImageSlider-coverContentHeading', 'ImageSlider-coverContentWrap') }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% elseif displayContent == 'Behind Image' %}
+                    {% if slide.link %}
+                        {% set link = slide.link %}
+                        {% set slide.link = null %}
+                    {% endif %}
+                    {% set numSlides = 3 %}
+                    {{ macros.slideImage(slide) }}
+                    {% if link %}
+                        <a href="{{ link }}" class="ImageSlider-hoverContent ImageSlider-hoverLink">
+                            <div class="ImageSlider-hoverContentInner">
+                                {{ macros.slideContent(slide, 'ImageSlider-hoverContentHeading', 'ImageSlider-hoverContentWrap') }}
+                            </div>
+                        </a>
+                    {% else %}
+                        <div class="ImageSlider-hoverContent">
+                            <div class="ImageSlider-hoverContentInner">
+                                {{ macros.slideContent(slide, 'ImageSlider-hoverContentHeading', 'ImageSlider-c\hoverContentWrap') }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    {{ macros.slideImage(slide) }}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
+
+    {% if _page.js.files.hasFile('slick/slick.min.js'|theme_url) == false %}
+        {% inlinejs %}
+            loadjs.ready('main', {
+                success: function() {
+                    loadjs(['{{ 'slick/slick.min.js'|theme_url }}'], 'slickheader');
+                }
+            });
+        {% endinlinejs %}
+        {% do _page.registerJs('slick/slick.min.js'|theme_url) %}
+    {% endif %}
+
+    {% inlinejs %}
+    loadjs.ready('slickheader', {
+        success: function() {
+            $(function() {
+                $('.{{ class }}').slick({
+                    adaptiveHeight: true,
+                    arrows: true,
+                    autoplay: {{ autoPlaySlides ? 'true' : 'false' }},
+                    autoplaySpeed: {{ sliderSpeed ? sliderSpeed * 1000 : 4000 }},
+                    dots: false,
+                    dotsClass: 'ImageSlider-dots',
+                    fade: false,
+                    prevArrow: '<a href="#" class="ImageSlider-nav ImageSlider-navPrev"><svg class="ImageSlider-navIcon Icon"><use xlink:href="#icon-chevron-thin-left" /></svg></a>',
+                    nextArrow: '<a href="#" class="ImageSlider-nav ImageSlider-navNext"><svg class="ImageSlider-navIcon Icon"><use xlink:href="#icon-chevron-thin-right" /></svg></a>',
+                    speed: 500,
+                    slidesToShow: {{ numSlides }},
+                    slidesToScroll: {{ numSlides }}
+                });
+            });
+        }
+    });
+
+    {% endinlinejs %}
+{% endif %}

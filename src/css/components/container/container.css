@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Container
+   Adds styles to the Cacao Container component
+   ========================================================================== */
+
+/** @define Container */
+
+/**
+ * Used as a page container that will keep it's content constrained to a
+ * certain width.
+ */
+
+:root {
+    --Container-width: 1200px;
+}
+
+@custom-media --c-bp-container (max-width: 1200px);
+
+.Container {
+    background: #fff;
+    box-shadow: 2px 0 20px #dfdfdf;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: var(--Container-width);
+}
+
+.Container--pad {
+    padding-left: var(--g-gutter);
+    padding-right: var(--g-gutter);
+}
+
+@media (--c-bp-sm) {
+    .Container--pad {
+        padding-left: var(--g-gutter-sm);
+        padding-right: var(--g-gutter-sm);
+    }
+}

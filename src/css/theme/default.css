@@ -1,0 +1,150 @@
+/* =========================================================================== *\
+    Default Theme
+\* =========================================================================== */
+
+/* Color Config */
+
+:root {
+    --theme-primary-color: #a21514;
+    --theme-light-gray: #f2f2f2;
+}
+
+/* Body */
+
+:root {
+    --theme-body-background: #fef2ee;
+}
+
+/*
+   Core typography
+   Serif and monospace fonts from https://css-tricks.com/snippets/css/system-font-stack/#comment-1606328
+*/
+
+:root {
+    --theme-typography-color: #333;
+    --theme-typography-serif: 'Vollkorn', serif;
+    --them-typography-monospace: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+    --theme-typography-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --theme-typography-fontFamily: var(--theme-typography-sans-serif);
+}
+
+/* Links & Buttons */
+
+:root {
+    --theme-typography-link-color: var(--theme-primary-color);
+    --theme-typography-link-colorHover: #7a0504;
+    --theme-button-background: #a21514;
+    --theme-button-background-hover: #7a0504;
+    --theme-button-color: #fff;
+    --theme-button-color-hover: #fff;
+    --theme-button-background-alt: #bb6519;
+    --theme-button-background-hover-alt: #e27e25;
+    --theme-button-color-alt: #fff;
+    --theme-button-color-hover-alt: #fff;
+    --theme-button-font: var(--theme-typography-fontFamily);
+}
+
+/* Headings */
+
+:root {
+    --theme-typography-heading-color: var(--theme-primary-color);
+    --theme-typography-heading-fontFamily: var(--theme-typography-fontFamily);
+}
+
+/* Main Navigation and Navigation Bar */
+
+:root {
+    --theme-navbar-bg: var(--theme-primary-color);
+    --theme-nav-color: #fff;
+    --theme-nav-color-hover: #fff;
+    --theme-nav-item-bg: transparent;
+    --theme-nav-item-bg-hover: transparent;
+    --theme-nav-font: var(--theme-typography-fontFamily);
+    --theme-nav-font-size: 1em;
+    --theme-nav-line-height: 1.5;
+    --theme-nav-dropdown-background: color(var(--theme-primary-color) shade(15%));
+    --theme-nav-dropdown-color: #fff;
+    --theme-nav-dropdown-color-hover: #fff;
+}
+
+/* Full page slider */
+
+:root {
+    --theme-slider-caption-small-screen-background: var(--theme-primary-color);
+}
+
+/* Image Slider */
+:root {
+    --theme-image-slider-background: #f2f2f2;
+    --theme-image-slider-color: var(--theme-typography-color);
+    --theme-image-slider-title-background: var(--theme-primary-color);
+    --theme-image-slider-title-color: #fff;
+    --theme-image-slider-title-background-hover: #7a0504;
+    --theme-image-slider-title-color-hover: #fff;
+    --theme-image-slider-title-font-size: 1.2em;
+    --theme-image-slider-title-font-weight: 300;
+    --theme-image-slider-hover-background: #7a0504;
+    --theme-image-slider-hover-color: #fff;
+    --theme-image-slider-cover-background: rgba(162, 21, 20, .5);
+    --theme-image-slider-cover-color: #fff;
+}
+
+/* Page Content Header */
+
+:root {
+    --theme-content-header-background: #f2f2f2;
+    --theme-content-header-color: var(--theme-typography-color);
+}
+
+/* Featured Content */
+
+:root {
+    --theme-featured-content-background: var(--theme-primary-color);
+    --theme-featured-content-heading-color: #efdbd5;
+    --theme-featured-content-color: #fff;
+    --theme-featured-button-background: #fff;
+    --theme-featured-button-color: var(--theme-primary-color);
+    --theme-featured-button-background-hover: #7a0504;
+    --theme-featured-button-color-hover: #fff;
+}
+
+
+/* Content Grid */
+
+:root {
+    --theme-content-grid-title-color: var(--theme-primary-color);
+    --theme-content-grid-title-hover-color: var(--theme-primary-color);
+}
+
+/* Image Grid */
+
+:root {
+    --theme-image-grid-title-background: var(--theme-primary-color);
+    --theme-image-grid-title-color: #fff;
+    --theme-image-grid-title-font-size: 1.2em;
+    --theme-image-grid-title-font-weight: 300;
+    --theme-image-grid-title-hover-background: #7a0504;
+    --theme-image-grid-title-hover-color: #fff;
+    --theme-image-grid-hover-background: #7a0504;
+    --theme-image-grid-hover-color: #fff;
+    --theme-image-grid-cover-background: rgba(162, 21, 20, .5);
+    --theme-image-grid-title-cover-color: #fff;
+}
+
+/* General Component Styles */
+
+:root {
+    --theme-component-top-margin: 20px;
+}
+
+/* Footer */
+
+:root {
+    --theme-footer-bg: var(--theme-primary-color);
+    --theme-footer-color: #fff;
+    --theme-footer-font-size: 1.4rem;
+    --theme-footer-nav-font: var(--theme-typography-fontFamily);
+    --theme-footer-nav-font-size: 1em;
+    --theme-footer-nav-color: #fff;
+    --theme-footer-nav-color-hover: #fff;
+}
