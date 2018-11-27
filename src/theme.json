@@ -256,12 +256,16 @@
     },
     "contentAreas": [
         {
-            "key": "header-image",
-            "name": "Header Image"
+            "key": "header",
+            "name": "Header"
         },
         {
             "key": "sidebar",
             "name": "Sidebar"
+        },
+        {
+            "key": "footer",
+            "name": "Footer"
         }
     ],
     "contentBuilder": {
@@ -531,13 +535,6 @@
                                 "type": "iframeEmbed",
                                 "value": "",
                                 "description": "Description: Use this to embed an iframe like a Google Map iframe. Use the Media Embed element for YouTube videos or other media."
-                            },
-                            {
-                                "key": "iframe",
-                                "name": "Iframe Tag",
-                                "type": "iframeEmbed",
-                                "value": "",
-                                "description": "Use this to embed an iframe like a Google Map iframe. Use the Media Embed element for YouTube videos or other media."
                             }
                         ]
                     },
@@ -820,6 +817,10 @@
                                     {
                                         "value": "Behind Image",
                                         "default": false
+                                    },
+                                    {
+                                        "value": "Over Image",
+                                        "default": false
                                     }
                                 ]
                             },
@@ -883,6 +884,153 @@
                                                 "default": false
                                             }
                                         ]
+                                    },
+                                    {
+                                        "key": "content",
+                                        "name": "Content",
+                                        "type": "richTextEditor",
+                                        "value": "",
+                                        "description": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "key": "image-slider",
+                        "name": "Image Slider",
+                        "type": "full",
+                        "template": "image-slider",
+                        "enabled": true,
+                        "parse": true,
+                        "description": "",
+                        "fields": [
+                            {
+                                "key": "displayContent",
+                                "name": "Display Content",
+                                "type": "select",
+                                "value": "",
+                                "description": "Showing text \"Behind Image\" will have the text show when you hover over the image.",
+                                "options": [
+                                    {
+                                        "value": "Below Image",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "Right of Image",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "Left of Image",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "Over Image",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "Behind Image",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "Hide",
+                                        "default": false
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "sliderSpeed",
+                                "name": "Slider Speed",
+                                "type": "select",
+                                "configuration": {
+                                    "0": "",
+                                    "after": " seconds"
+                                },
+                                "value": "",
+                                "description": "",
+                                "options": [
+                                    {
+                                        "value": "3",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "4",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "5",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "6",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "7",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "8",
+                                        "default": false
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "autoPlaySlides",
+                                "name": "Auto play slides",
+                                "type": "selectYesNo",
+                                "configuration": {
+                                    "yesNoSelectLabels": "yesno",
+                                    "labels": "yesno",
+                                    "yesNoSelectValue": "1",
+                                    "defaultValue": "1"
+                                },
+                                "value": "",
+                                "description": ""
+                            },
+                            {
+                                "key": "slides",
+                                "name": "Slides",
+                                "type": "repeating",
+                                "configuration": {
+                                    "collectionItemSort": "1",
+                                    "collectionItemDelete": "1",
+                                    "collectionMinNumItems": "",
+                                    "collectionMaxNumItems": "",
+                                    "collectionOrientation": "vertical",
+                                    "collectionItemName": "Slide"
+                                },
+                                "value": "",
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "key": "image",
+                                        "name": "Image",
+                                        "type": "image",
+                                        "configuration": {
+                                            "path": "\/images\/slides",
+                                            "height": 600,
+                                            "width": 600
+                                        },
+                                        "value": "",
+                                        "description": ""
+                                    },
+                                    {
+                                        "key": "link",
+                                        "name": "Link",
+                                        "type": "url",
+                                        "value": "",
+                                        "description": ""
+                                    },
+                                    {
+                                        "key": "title",
+                                        "name": "Title",
+                                        "type": "text",
+                                        "configuration": {
+                                            "allowCode": "no"
+                                        },
+                                        "value": "",
+                                        "description": ""
                                     },
                                     {
                                         "key": "content",
@@ -1461,7 +1609,8 @@
             "default": true,
             "adminBar": true,
             "contentAreas": [
-                "header-image"
+                "header",
+                "footer"
             ]
         },
         {
@@ -1470,7 +1619,7 @@
             "default": false,
             "adminBar": true,
             "contentAreas": [
-                "header-image"
+                "header"
             ]
         },
         {
@@ -1650,8 +1799,12 @@
             "name": "Image Beside Content"
         },
         {
-            "key": "content-layouts\/header-image",
-            "name": "Header Image"
+            "key": "content-builder\/image-slider",
+            "name": "Image Slider"
+        },
+        {
+            "key": "content-layouts\/header",
+            "name": "Header"
         },
         {
             "key": "forms\/grid",
@@ -2614,6 +2767,70 @@
                     ]
                 },
                 {
+                    "key": "autoPlaySlides",
+                    "name": "Auto play slides",
+                    "description": "",
+                    "type": "selectYesNo",
+                    "configuration": {
+                        "yesNoSelectLabels": "yesno",
+                        "labels": "yesno",
+                        "yesNoSelectValue": "1",
+                        "defaultValue": "1"
+                    },
+                    "size": "medium",
+                    "value": ""
+                },
+                {
+                    "key": "showDots",
+                    "name": "Show dots",
+                    "description": "",
+                    "type": "selectYesNo",
+                    "configuration": {
+                        "yesNoSelectLabels": "yesno",
+                        "labels": "yesno",
+                        "yesNoSelectValue": "1",
+                        "defaultValue": "1"
+                    },
+                    "size": "medium",
+                    "value": ""
+                },
+                {
+                    "key": "dotPosition",
+                    "name": "Dot position",
+                    "description": "",
+                    "type": "select",
+                    "size": "medium",
+                    "value": "",
+                    "values": [
+                        {
+                            "value": "Left",
+                            "default": false
+                        },
+                        {
+                            "value": "Center",
+                            "default": false
+                        },
+                        {
+                            "value": "Right",
+                            "default": false
+                        }
+                    ]
+                },
+                {
+                    "key": "showArrows",
+                    "name": "Show arrows",
+                    "description": "",
+                    "type": "selectYesNo",
+                    "configuration": {
+                        "yesNoSelectLabels": "yesno",
+                        "labels": "yesno",
+                        "yesNoSelectValue": "1",
+                        "defaultValue": "1"
+                    },
+                    "size": "medium",
+                    "value": ""
+                },
+                {
                     "key": "sliderSpeed",
                     "name": "Slider speed",
                     "description": "",
@@ -2622,7 +2839,7 @@
                         "0": "",
                         "after": " seconds"
                     },
-                    "size": "medium",
+                    "size": "",
                     "value": "",
                     "values": [
                         {
@@ -2652,6 +2869,24 @@
                     ]
                 },
                 {
+                    "key": "slideTransition",
+                    "name": "Slide transition",
+                    "description": "",
+                    "type": "select",
+                    "size": "medium",
+                    "value": "",
+                    "values": [
+                        {
+                            "value": "Fade",
+                            "default": false
+                        },
+                        {
+                            "value": "Slide",
+                            "default": false
+                        }
+                    ]
+                },
+                {
                     "key": "slides",
                     "name": "Slides",
                     "description": "",
@@ -2661,20 +2896,18 @@
                         "collectionItemDelete": "1",
                         "collectionMinNumItems": "",
                         "collectionMaxNumItems": "",
-                        "collectionAllowMinNumItems": "none",
-                        "collectionAllowMaxNumItems": "none",
                         "collectionOrientation": "vertical",
                         "collectionItemName": "Slide"
                     },
-                    "size": "medium",
+                    "size": "",
                     "value": ""
                 },
                 {
-                    "key": "section14",
+                    "key": "section8",
                     "name": "Content Heading",
                     "description": "",
                     "type": "section",
-                    "size": "medium",
+                    "size": "",
                     "value": ""
                 },
                 {
@@ -2693,64 +2926,7 @@
                     "name": "Content",
                     "description": "",
                     "type": "richTextEditor",
-                    "size": "medium",
-                    "value": ""
-                }
-            ]
-        },
-        {
-            "key": "header-image",
-            "name": "Header Image",
-            "description": "",
-            "attributes": [
-                {
-                    "key": "image",
-                    "name": "Image",
-                    "description": "",
-                    "type": "imageSet",
-                    "configuration": {
-                        "imgSetSingleUpload": "single"
-                    },
-                    "size": "medium",
-                    "value": "",
-                    "attributes": [
-                        {
-                            "key": "large",
-                            "name": "Large",
-                            "description": "",
-                            "type": "image",
-                            "configuration": {
-                                "path": "\/images\/header",
-                                "height": 500,
-                                "width": 1200
-                            },
-                            "size": "medium",
-                            "value": ""
-                        },
-                        {
-                            "key": "small",
-                            "name": "Small",
-                            "description": "",
-                            "type": "image",
-                            "configuration": {
-                                "path": "\/images\/header",
-                                "height": 250,
-                                "width": 600
-                            },
-                            "size": "medium",
-                            "value": ""
-                        }
-                    ]
-                },
-                {
-                    "key": "imageAltText",
-                    "name": "Image Alt Text",
-                    "description": "The image description text. Useful for SEO",
-                    "type": "text",
-                    "configuration": {
-                        "allowCode": "no"
-                    },
-                    "size": "medium",
+                    "size": "",
                     "value": ""
                 }
             ]
