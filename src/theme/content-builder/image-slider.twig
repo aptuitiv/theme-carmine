@@ -27,90 +27,92 @@
 
     {% set class = 'js-imageSlider' ~ random_string(8)|upper %}
     {% set numSlides = 4 %}
-    <div class="ImageSlider {{ class }}">
-        {% for slide in slides %}
-            {% set slideClass = '' %}
-            {% if displayContent in ['Below Image', 'Over Image', 'Behind Image', 'Hide'] %}
-                {% set slideClass = slideClass ~ ' ImageSlider-slide--spaced' %}
-            {% endif %}
-            {% if displayContent == 'Over Image' %}
-                {% set slideClass = slideClass ~ ' ImageSlider-cover' %}
-            {% elseif displayContent == 'Behind Image' %}
-                {% set slideClass = slideClass ~ ' ImageSlider-hover' %}
-            {% endif %}
-            <div class="ImageSlider-slide{{ slideClass }}">
-                {% if displayContent == 'Below Image' %}
-                    {% set numSlides = 3 %}
-                    {{ macros.slideImage(slide) }}
-                    <div class="ImageSlider-contentWrap">
-                        {{ macros.slideContent(slide) }}
-                    </div>
-                {% elseif displayContent == 'Right of Image' %}
-                    {% set numSlides = 2 %}
-                    <div class="Grid Grid--equalHeight ImageSlider-grid">
-                        <div class="Grid-cell u-size1of2 u-flexCol">{{ macros.slideImage(slide) }}</div>
-                        <div class="Grid-cell u-size1of2 ImageSlider-gridContent">
-                            {{ macros.slideContent(slide) }}
-                        </div>
-                    </div>
-                {% elseif displayContent == 'Left of Image' %}
-                    {% set numSlides = 2 %}
-                    <div class="Grid Grid--equalHeight ImageSlider-grid">
-                        <div class="Grid-cell u-size1of2 ImageSlider-gridContent">
-                            {{ macros.slideContent(slide) }}
-                        </div>
-                        <div class="Grid-cell u-size1of2 u-flexCol">{{ macros.slideImage(slide) }}</div>
-                    </div>
-                {% elseif displayContent == 'Over Image' %}
-                    {% if slide.link %}
-                        {% set link = slide.link %}
-                        {% set slide.link = null %}
-                    {% endif %}
-                    {% set numSlides = 3 %}
-                    {{ macros.slideImage(slide) }}
-                    {% if link %}
-                        <a href="{{ link }}" class="ImageSlider-coverContent ImageSlider-coverLink">
-                            <div class="ImageSlider-coverContentInner">
-                                {{ macros.slideContent(slide, 'ImageSlider-coverContentHeading', 'ImageSlider-coverContentWrap') }}
-                            </div>
-                        </a>
-                    {% else %}
-                        <div class="ImageSlider-coverContent">
-                            <div class="ImageSlider-coverContentInner">
-                                {{ macros.slideContent(slide, 'ImageSlider-coverContentHeading', 'ImageSlider-coverContentWrap') }}
-                            </div>
-                        </div>
-                    {% endif %}
-                {% elseif displayContent == 'Behind Image' %}
-                    {% if slide.link %}
-                        {% set link = slide.link %}
-                        {% set slide.link = null %}
-                    {% endif %}
-                    {% set numSlides = 3 %}
-                    {{ macros.slideImage(slide) }}
-                    {% if link %}
-                        <a href="{{ link }}" class="ImageSlider-hoverContent ImageSlider-hoverLink">
-                            <div class="ImageSlider-hoverContentInner">
-                                {{ macros.slideContent(slide, 'ImageSlider-hoverContentHeading', 'ImageSlider-hoverContentWrap') }}
-                            </div>
-                        </a>
-                    {% else %}
-                        <div class="ImageSlider-hoverContent">
-                            <div class="ImageSlider-hoverContentInner">
-                                {{ macros.slideContent(slide, 'ImageSlider-hoverContentHeading', 'ImageSlider-c\hoverContentWrap') }}
-                            </div>
-                        </div>
-                    {% endif %}
-                {% else %}
-                    {{ macros.slideImage(slide) }}
+    <div class="ImageSlider">
+        <div class="ImageSlider-inner {{ class }}">
+            {% for slide in slides %}
+                {% set slideClass = '' %}
+                {% if displayContent in ['Below Image', 'Over Image', 'Behind Image', 'Hide'] %}
+                    {% set slideClass = slideClass ~ ' ImageSlider-slide--spaced' %}
                 {% endif %}
-            </div>
-        {% endfor %}
+                {% if displayContent == 'Over Image' %}
+                    {% set slideClass = slideClass ~ ' ImageSlider-cover' %}
+                {% elseif displayContent == 'Behind Image' %}
+                    {% set slideClass = slideClass ~ ' ImageSlider-hover' %}
+                {% endif %}
+                <div class="ImageSlider-slide{{ slideClass }}">
+                    {% if displayContent == 'Below Image' %}
+                        {% set numSlides = 3 %}
+                        {{ macros.slideImage(slide) }}
+                        <div class="ImageSlider-contentWrap">
+                            {{ macros.slideContent(slide) }}
+                        </div>
+                    {% elseif displayContent == 'Right of Image' %}
+                        {% set numSlides = 2 %}
+                        <div class="Grid Grid--equalHeight ImageSlider-grid">
+                            <div class="Grid-cell u-size1of2 u-flexCol">{{ macros.slideImage(slide) }}</div>
+                            <div class="Grid-cell u-size1of2 ImageSlider-gridContent">
+                                {{ macros.slideContent(slide) }}
+                            </div>
+                        </div>
+                    {% elseif displayContent == 'Left of Image' %}
+                        {% set numSlides = 2 %}
+                        <div class="Grid Grid--equalHeight ImageSlider-grid">
+                            <div class="Grid-cell u-size1of2 ImageSlider-gridContent">
+                                {{ macros.slideContent(slide) }}
+                            </div>
+                            <div class="Grid-cell u-size1of2 u-flexCol">{{ macros.slideImage(slide) }}</div>
+                        </div>
+                    {% elseif displayContent == 'Over Image' %}
+                        {% if slide.link %}
+                            {% set link = slide.link %}
+                            {% set slide.link = null %}
+                        {% endif %}
+                        {% set numSlides = 3 %}
+                        {{ macros.slideImage(slide) }}
+                        {% if link %}
+                            <a href="{{ link }}" class="ImageSlider-coverContent ImageSlider-coverLink">
+                                <div class="ImageSlider-coverContentInner">
+                                    {{ macros.slideContent(slide, 'ImageSlider-coverContentHeading', 'ImageSlider-coverContentWrap') }}
+                                </div>
+                            </a>
+                        {% else %}
+                            <div class="ImageSlider-coverContent">
+                                <div class="ImageSlider-coverContentInner">
+                                    {{ macros.slideContent(slide, 'ImageSlider-coverContentHeading', 'ImageSlider-coverContentWrap') }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% elseif displayContent == 'Behind Image' %}
+                        {% if slide.link %}
+                            {% set link = slide.link %}
+                            {% set slide.link = null %}
+                        {% endif %}
+                        {% set numSlides = 3 %}
+                        {{ macros.slideImage(slide) }}
+                        {% if link %}
+                            <a href="{{ link }}" class="ImageSlider-hoverContent ImageSlider-hoverLink">
+                                <div class="ImageSlider-hoverContentInner">
+                                    {{ macros.slideContent(slide, 'ImageSlider-hoverContentHeading', 'ImageSlider-hoverContentWrap') }}
+                                </div>
+                            </a>
+                        {% else %}
+                            <div class="ImageSlider-hoverContent">
+                                <div class="ImageSlider-hoverContentInner">
+                                    {{ macros.slideContent(slide, 'ImageSlider-hoverContentHeading', 'ImageSlider-c\hoverContentWrap') }}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% else %}
+                        {{ macros.slideImage(slide) }}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
     {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
 
-    {% if _page.js.files.hasFile('slick/slick.min.js'|theme_url) == false %}
+    {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
         {% inlinejs %}
             loadjs.ready('main', {
                 success: function() {

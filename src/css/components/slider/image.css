@@ -8,6 +8,12 @@
 .ImageSlider {
     background: var(--theme-image-slider-background);
     color: var(--theme-image-slider-color);
+}
+
+.ImageSlider-inner {
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: var(--Container-width);
     padding: 0 50px;
     position: relative;
 }
@@ -109,6 +115,10 @@
 .ImageSlider-gridContent .ImageSlider-link:focus,
 .ImageSlider-gridContent .ImageSlider-link:hover {
     text-decoration: underline;
+}
+
+.ImageSlider-gridContent .ImageSlider-content {
+    padding: 12px;
 }
 
 /* ------------------------------------ *\
