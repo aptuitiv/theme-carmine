@@ -48,11 +48,13 @@
                     {% endif %}
                 </div>
                 <div class="Grid-cell u-size1of2 u-md-sizeFull u-textRight u-md-textCenter">
-                    <div class="Header-line">
-                        {% for social in _core.theme.settings.social %}
-                            <a href="{{ social.url }}" title="Follow us on {{ social.name }}" class="Header-iconLink"><svg class="Icon Header-icon"><use xlink:href="#icon-{{ social.icon }}" /></svg></a>
-                        {% endfor %}
-                    </div>
+                    {% if _core.theme.settings.headerShowSocial == 'yes' %}
+                        <div class="Header-line">
+                            {% for social in _core.theme.settings.social %}
+                                <a href="{{ social.url }}" title="Follow us on {{ social.name }}" class="Header-iconLink"><svg class="Icon Header-icon"><use xlink:href="#icon-{{ social.icon }}" /></svg></a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                     {% if _core.theme.settings.headerShowAddress == 'yes' or _core.theme.settings.headerShowPhone == 'yes' or _core.theme.settings.headerShowEmail == 'yes' %}
                         {% spaceless %}
                             <div itemscope itemtype="http://schema.org/Organization" class="Header-line">
@@ -81,7 +83,7 @@
                             </div>
                         {% endspaceless %}
                     {% endif %}
-                    {% if _core.theme.settings.headerButtons %}
+                    {% if _core.theme.settings.headerShowButtons == 'yes' and _core.theme.settings.headerButtons %}
                         {% spaceless %}
                             <div class="Header-line">
                                 {% for button in _core.theme.settings.headerButtons %}
