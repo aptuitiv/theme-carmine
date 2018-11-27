@@ -17,7 +17,7 @@
 }
 
 .Header-logo {
-
+    max-width: 480px;
 }
 
 .Header-line {
