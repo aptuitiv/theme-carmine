@@ -16,14 +16,6 @@
 
 @custom-media --c-bp-container (max-width: 1200px);
 
-.Container {
-    background: #fff;
-    box-shadow: 2px 0 20px #dfdfdf;
-    box-sizing: border-box;
-    margin: 0 auto;
-    max-width: var(--Container-width);
-}
-
 .Container--pad {
     padding-left: var(--g-gutter);
     padding-right: var(--g-gutter);

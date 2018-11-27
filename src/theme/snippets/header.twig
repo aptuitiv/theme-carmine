@@ -35,8 +35,8 @@
 </head>
 <body>
     <div class="u-hiddenVisually" aria-hidden="true">{{ source('snippets/svg-icons.twig') }}</div>
-    <div class="Container">
-        <header class="Header">
+    <header class="Header">
+        <div class="Container">
             <div class="Grid Grid--withGutter Grid--alignMiddle">
                 <div class="Grid-cell u-size1of2 u-md-sizeFull u-md-margBottom2 u-md-textCenter">
                     {% if _core.theme.settings.headerLogo %}
@@ -92,8 +92,11 @@
                     {% endif %}
                 </div>
             </div>
-        </header>
-        <div class="NavBar" role="navigation" aria-label="main navigation">
+        </div>
+    </header>
+    <div class="NavBar" role="navigation" aria-label="main navigation">
+        <div class="Container">
             <button class="SmScBtn js-ssNavBtn"><span class="SmScBtn-icon"></span>Menu</button>
             {{ _api.navigation.get.key('main') }}
         </div>
+    </div>
