@@ -82,6 +82,7 @@
     box-sizing: border-box;
     color: var(--MainNav-link-color);
     display: block;
+    font-weight: 600;
     padding: .5em 1.5rem;
     position: relative;
     text-decoration: none;
