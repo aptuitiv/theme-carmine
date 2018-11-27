@@ -105,7 +105,7 @@
 
 {#  START INLINE JAVASCRIPT #}
 
-{% if _page.js.files.hasFile('js/forms.js'|theme_url) == false %}
+{% if _page.hasJs('js/forms.js'|theme_url) == false %}
     {% inlinejs %}
         loadjs.ready('main', {
             success: function() {

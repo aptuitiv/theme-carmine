@@ -43,7 +43,7 @@
 
         {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
 
-        {% if _page.js.files.hasFile('slick/slick.min.js'|theme_url) == false %}
+        {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
             {% inlinejs %}
                 loadjs.ready('main', {
                     success: function() {
