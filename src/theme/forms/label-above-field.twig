@@ -26,9 +26,17 @@
                 {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
                 {{ field.tag }}
             {% elseif field.fieldType == 'select' %}
-                <div class="SelectField u-sizeFull">
+                <div class="SelectInput u-sizeFull">
                     {{ field.tag }}
                 </div>
+            {% elseif field.fieldType == 'radio' or field.fieldType == 'multiCheckbox' %}
+                {% if field.config.separator == 'space' %}
+                    {% for option in field.options %}
+                        <label class="u-padRight2">{{ option.tagNoLabel }} {{ option.label }}</label>
+                    {% endfor %}
+                {% else %}
+                    {{ field.tag|replace({"error": "is-invalid"}) }}
+                {% endif %}
             {% else %}
                 {{ field.tag|replace({"error": "is-invalid"}) }}
             {% endif %}
