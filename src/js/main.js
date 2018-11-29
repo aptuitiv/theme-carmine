@@ -284,3 +284,21 @@ var navAccess = {
         return el.querySelector('a.js-navLink');
     }
 };
+
+/**
+ * Sets the height of all the elements to be the same
+ * @param elements
+ */
+function equalSize(elements)
+{
+    var maxHeight = 0,
+        h;
+    elements.css('height', '');
+    elements.each(function() {
+        h = $(this).height();
+        if (h > maxHeight) {
+            maxHeight = h;
+        }
+    });
+    elements.height(maxHeight);
+}

@@ -26,7 +26,10 @@
     {% import _self as macros %}
 
     {% set class = 'js-imageSlider' ~ random_string(8)|upper %}
+    {% set slideGridClass = class ~ 'Grid' %}
     {% set numSlides = 4 %}
+    {% set mdNumSlides = 3 %}
+    {% set smNumSlides = 2 %}
     <div class="ImageSlider">
         <div class="ImageSlider-inner {{ class }}">
             {% for slide in slides %}
@@ -42,25 +45,31 @@
                 <div class="ImageSlider-slide{{ slideClass }}">
                     {% if displayContent == 'Below Image' %}
                         {% set numSlides = 3 %}
+                        {% set mdNumSlides = 2 %}
+                        {% set smNumSlides = 2 %}
                         {{ macros.slideImage(slide) }}
                         <div class="ImageSlider-contentWrap">
                             {{ macros.slideContent(slide) }}
                         </div>
                     {% elseif displayContent == 'Right of Image' %}
                         {% set numSlides = 2 %}
-                        <div class="Grid Grid--equalHeight ImageSlider-grid">
-                            <div class="Grid-cell u-size1of2 u-flexCol">{{ macros.slideImage(slide) }}</div>
-                            <div class="Grid-cell u-size1of2 ImageSlider-gridContent">
+                        {% set mdNumSlides = 1 %}
+                        {% set smNumSlides = 1 %}
+                        <div class="Grid Grid--equalHeight ImageSlider-grid {{ slideGridClass }}">
+                            <div class="Grid-cell u-size1of2 u-sm-sizeFull  u-flexCol">{{ macros.slideImage(slide) }}</div>
+                            <div class="Grid-cell u-size1of2 u-sm-sizeFull ImageSlider-gridContent">
                                 {{ macros.slideContent(slide) }}
                             </div>
                         </div>
                     {% elseif displayContent == 'Left of Image' %}
                         {% set numSlides = 2 %}
-                        <div class="Grid Grid--equalHeight ImageSlider-grid">
-                            <div class="Grid-cell u-size1of2 ImageSlider-gridContent">
+                        {% set mdNumSlides = 1 %}
+                        {% set smNumSlides = 1 %}
+                        <div class="Grid Grid--equalHeight ImageSlider-grid {{ slideGridClass }}">
+                            <div class="Grid-cell u-size1of2 u-sm-sizeFull ImageSlider-gridContent">
                                 {{ macros.slideContent(slide) }}
                             </div>
-                            <div class="Grid-cell u-size1of2 u-flexCol">{{ macros.slideImage(slide) }}</div>
+                            <div class="Grid-cell u-size1of2 u-sm-sizeFull u-flexCol">{{ macros.slideImage(slide) }}</div>
                         </div>
                     {% elseif displayContent == 'Over Image' %}
                         {% if slide.link %}
@@ -68,6 +77,8 @@
                             {% set slide.link = null %}
                         {% endif %}
                         {% set numSlides = 3 %}
+                        {% set mdNumSlides = 2 %}
+                        {% set smNumSlides = 2 %}
                         {{ macros.slideImage(slide) }}
                         {% if link %}
                             <a href="{{ link }}" class="ImageSlider-coverContent ImageSlider-coverLink">
@@ -88,6 +99,8 @@
                             {% set slide.link = null %}
                         {% endif %}
                         {% set numSlides = 3 %}
+                        {% set mdNumSlides = 2 %}
+                        {% set smNumSlides = 2 %}
                         {{ macros.slideImage(slide) }}
                         {% if link %}
                             <a href="{{ link }}" class="ImageSlider-hoverContent ImageSlider-hoverLink">
@@ -127,6 +140,21 @@
     loadjs.ready('slickheader', {
         success: function() {
             $(function() {
+                {% if displayContent == 'Left of Image' or displayContent == 'Right of Image' %}
+                    $('.{{ class }}').on('init', function() {
+                        if ($(window).width() <= 450 || ($(window).width() <= 700 && 1 == {{ smNumSlides }}) || ($(window).width() <= 900 && 1 == {{ mdNumSlides }})) {
+                        } else {
+                            equalSize($('.{{ slideGridClass }}'));
+                        }
+                    });
+                    $(window).on('resize', function() {
+                        if ($(window).width() <= 450 || ($(window).width() <= 700 && 1 == {{ smNumSlides }}) || ($(window).width() <= 900 && 1 == {{ mdNumSlides }})) {
+                            $('.{{ slideGridClass }}').css('height', '');
+                        } else {
+                            equalSize($('.{{ slideGridClass }}'));
+                        }
+                    });
+                {% endif %}
                 $('.{{ class }}').slick({
                     adaptiveHeight: true,
                     arrows: true,
@@ -139,7 +167,27 @@
                     nextArrow: '<a href="#" class="ImageSlider-nav ImageSlider-navNext"><svg class="ImageSlider-navIcon Icon"><use xlink:href="#icon-chevron-thin-right" /></svg></a>',
                     speed: 500,
                     slidesToShow: {{ numSlides }},
-                    slidesToScroll: {{ numSlides }}
+                    slidesToScroll: 1,
+                    responsive: [
+                        {
+                            breakpoint: 900,
+                            settings: {
+                                slidesToShow: {{ mdNumSlides }},
+                            }
+                        },
+                        {
+                            breakpoint: 700,
+                            settings: {
+                                slidesToShow: {{ smNumSlides }},
+                            }
+                        },
+                        {
+                            breakpoint: 450,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        }
+                    ]
                 });
             });
         }
