@@ -19,7 +19,7 @@ module.exports = {
      * It should include the closing "/"
      * http://www.mysite.com/
      */
-    url: 'http://harvest-theme.branchcms.com',
+    url: 'http://carmine-theme.branchcms.com',
 
     /**
      * Paths for different asset sources and their distribution path
@@ -29,11 +29,9 @@ module.exports = {
             base: src,
             css: [
                 src + '/css/main.css',
-                src + '/css/calendar.css',
-                src + '/css/store.css'
             ],
             icon: src + '/icons/**/*.svg',
-            img: src + '/images/**/*.{png,jpg,gif,svg}',
+            img: src + '/images/**/*.{gif,jpg,jpeg,png,svg,webp}',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
             themeFolder: src + '/theme'
