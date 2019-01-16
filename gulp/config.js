@@ -30,6 +30,7 @@ module.exports = {
             css: [
                 src + '/css/main.css',
             ],
+            font: src + '/fonts/**/*',
             icon: src + '/icons/**/*.svg',
             img: src + '/images/**/*.{gif,jpg,jpeg,png,svg,webp}',
             stylelint: [src + '/css/**/*.css'],
@@ -43,6 +44,7 @@ module.exports = {
         dist: {
             base: dist,
             css: dist + '/css',
+            font: dist + '/fonts',
             img: dist + '/images',
             js: dist + '/js',
             theme: dist + '/templates',
