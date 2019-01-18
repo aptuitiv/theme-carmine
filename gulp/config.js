@@ -111,7 +111,7 @@ module.exports = {
                 dest: ''
             },
             {
-                src: 'config.js',
+                src: 'gulp/**/*',
                 dest: ''
             },
             {
