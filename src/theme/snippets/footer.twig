@@ -1,43 +1,43 @@
-    <footer class="Footer" role="complementary">
-        <div class="Container">
-            <a href="#top" class="BackTop js-btop" aria-label="Go back to top of page" title="Go back to top of page"></a>
-            {% if _core.theme.settings.footerShowNavigation == 'yes' %}
-                {{ _api.navigation.get.key('main').showSubNav('no').template('footer') }}
-            {% endif %}
-            {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' or _core.theme.settings.footerShowEmail == 'yes' %}
-                {% spaceless %}
-                    <span itemscope itemtype="http://schema.org/Organization">
-                        {% if _core.theme.settings.footerShowAddress == 'yes' %}
-                            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                {% if _core.theme.settings.address %}
-                                    <span itemprop="streetAddress">{{ _core.theme.settings.address }}</span>,
-                                {% endif %}
-                                {% if _core.theme.settings.city %}
-                                    <span itemprop="addressLocality">{{ _core.theme.settings.city }}</span>,
-                                {% endif %}
-                                {% if _core.theme.settings.state %}
-                                    <span itemprop="addressRegion">{{ _core.theme.settings.state }}</span>
-                                {% endif %}
-                                {% if _core.theme.settings.zip %}
-                                    <span itemprop="postalCode">, {{ _core.theme.settings.zip }}</span>
-                                {% endif %}
-                            </span>
-                        {% endif %}
-                        {% if _core.theme.settings.footerShowPhone == 'yes' %}
-                        {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.theme.settings.phone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}" itemprop="telephone">{{ _core.theme.settings.phone }}</a>
-                        {% endif %}
-                        {% if _core.theme.settings.footerShowEmail == 'yes' %}
-                            {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.theme.settings.email }}" itemprop="email" class="Footer-link">{{ _core.theme.settings.email }}</a>
-                        {% endif %}
-                    </span>
-                {% endspaceless %}
-            {% endif %}
-            <div>&copy; {{ _core.date.year }} {{ _core.theme.settings.company }}</div>
-            <div class="Footer-credit">
-                <a href="https://www.aptuitiv.com" target="_blank" class="Footer-link Footer-creditLink">Website by Aptuitiv</a><a href="https://www.branchcms.com" target="_blank" class="Footer-link Footer-creditLink">Powered by BranchCMS</a>
-            </div>
+<footer class="Footer" role="complementary">
+    <div class="Container">
+        <a href="#top" class="BackTop js-btop" aria-label="Go back to top of page" title="Go back to top of page"></a>
+        {% if _core.theme.settings.footerShowNavigation == 'yes' %}
+            {{ _api.navigation.get.key('main').showSubNav('no').template('footer') }}
+        {% endif %}
+        {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' or _core.theme.settings.footerShowEmail == 'yes' %}
+            {% spaceless %}
+                <span itemscope itemtype="http://schema.org/Organization">
+                    {% if _core.theme.settings.footerShowAddress == 'yes' %}
+                        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            {% if _core.theme.settings.address %}
+                                <span itemprop="streetAddress">{{ _core.theme.settings.address }}</span>,
+                            {% endif %}
+                            {% if _core.theme.settings.city %}
+                                <span itemprop="addressLocality">{{ _core.theme.settings.city }}</span>,
+                            {% endif %}
+                            {% if _core.theme.settings.state %}
+                                <span itemprop="addressRegion">{{ _core.theme.settings.state }}</span>
+                            {% endif %}
+                            {% if _core.theme.settings.zip %}
+                                <span itemprop="postalCode">, {{ _core.theme.settings.zip }}</span>
+                            {% endif %}
+                        </span>
+                    {% endif %}
+                    {% if _core.theme.settings.footerShowPhone == 'yes' %}
+                    {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.theme.settings.phone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}" itemprop="telephone">{{ _core.theme.settings.phone }}</a>
+                    {% endif %}
+                    {% if _core.theme.settings.footerShowEmail == 'yes' %}
+                        {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.theme.settings.email }}" itemprop="email" class="Footer-link">{{ _core.theme.settings.email }}</a>
+                    {% endif %}
+                </span>
+            {% endspaceless %}
+        {% endif %}
+        <div>&copy; {{ _core.date.year }} {{ _core.theme.settings.company }}</div>
+        <div class="Footer-credit">
+            <a href="https://www.aptuitiv.com" target="_blank" class="Footer-link Footer-creditLink">Website by Aptuitiv</a><a href="https://www.branchcms.com" target="_blank" class="Footer-link Footer-creditLink">Powered by BranchCMS</a>
         </div>
-    </footer>
+    </div>
+</footer>
 {{ _page.js() }}
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>
