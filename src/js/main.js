@@ -289,7 +289,7 @@ var navAccess = {
      * @returns {Element}
      */
     getLink: function (el) {
-        return el.querySelector('a.js-navLink');
+        return el ? el.querySelector('a.js-navLink') : null;
     },
 };
 
