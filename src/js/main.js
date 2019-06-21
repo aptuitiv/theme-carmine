@@ -164,16 +164,16 @@ var navAccess = {
             sibling;
         if (next) {
             if (jumping) {
-                // jump to next top level navigation link
+                // Jump to next top level navigation link
                 this.deactivateParent(el);
                 focusEl = this.getNextInLevel(this.getParent(el));
             } else {
                 if(isLast) {
-                    // deactivate this dropdown
+                    // Deactivate this dropdown
                     this.deactivateParent(el);
                 }
                 sibling = el.nextElementSibling;
-                // if next element is a dropdown, expand it
+                // If next element is a dropdown, expand it
                 if (sibling !== null && sibling.nodeName.toLowerCase() == 'ul') {
                     this.activate(el.parentNode);
                 }
@@ -181,18 +181,18 @@ var navAccess = {
             }
         } else {
             if (jumping) {
-                // jump to previous top level navigation link
+                // Jump to previous top level navigation link
                 this.deactivateParent(el);
                 focusEl = this.getPrevInLevel(this.getParent(el));
             } else {
                 if (isFirst) {
-                    // close dropdown and move to top level navigation
+                    // Close dropdown and move to top level navigation
                     this.deactivateParent(el);
                     focusEl = this.getParent(el);
                 } else {
                     sibling = el.parentNode.previousElementSibling;
                     if (sibling !== null && sibling.classList.contains('js-dropdownParent')) {
-                        return this.getPrevInLevel(el); // Link before a sibling with dropdown (skip over dropdown)
+                        focusEl = this.getPrevInLevel(el); // Link before a sibling with dropdown (skip over dropdown)
                     }else{
                         focusEl = this.getPrevLink(el); //Get the previous navLink
                     }
