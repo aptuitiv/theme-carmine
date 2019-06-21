@@ -124,7 +124,9 @@
 
     /* fly-out to the right */
 
-    .Dropdown-item:hover > .Dropdown-menu {
+    .Dropdown-item:hover > .Dropdown-menu,
+    .Dropdown-item.is-active > .Dropdown-menu {
+        display: block;
         left: 100%;
         top: 0;
         transform: none;
@@ -132,7 +134,8 @@
 
     /* fly-out to the left if root parent is last item */
 
-    .Dropdown.is-last .Dropdown-item:hover > .Dropdown-menu {
+    .Dropdown.is-last .Dropdown-item:hover > .Dropdown-menu
+    .Dropdown.is-last .Dropdown-item.is-active > .Dropdown-menu,{
         left: auto;
         right: 100%;
     }

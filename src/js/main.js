@@ -90,6 +90,7 @@ var navAccess = {
     setupMenu: function (menu) {
         var nav = menu.querySelectorAll('.js-navLink'),
             subs = menu.querySelectorAll('.js-dropdownMenu'),
+            mainnav = menu.children,
             _self = this,
             key,
             next = ['ArrowDown', 'Down', 'Tab', 'Spacebar', ' '],
@@ -102,6 +103,12 @@ var navAccess = {
                 sub.setAttribute('role', 'menu');
                 /*sub.setAttribute('aria-hidden', true);*/
             });
+        }
+        for(var li = 0; li < mainnav.length; li++){
+            mainnav[li].setAttribute('tabindex', '0');
+            mainnav[li].addEventListener('focus', function (e) {
+                this.querySelector('.js-navLink').focus();
+            }.bind(mainnav[li]));
         }
         nav.forEach(function (item) {
             // Handle the "keydown" event
@@ -133,7 +140,7 @@ var navAccess = {
 
                 } else if (key == 'Escape') {
                     // Close the menu
-                    var parentLi = _self.getParent(e.target);
+                    var parentLi = _self.getParent(e.target).parentNode;
                     if (parentLi !== null) {
                         focusEl = _self.getLink(parentLi);
                         focusEl.focus();
@@ -152,18 +159,14 @@ var navAccess = {
     focus: function (event, el, next, jumping) {
         var focusEl = null,
             isFirst = false,
-            isLast = el.parentNode.classList.contains('is-last') ? true : false,
-            isFirst = el.parentNode.classList.contains('is-first') ? true : false,
-            isParent = el.parentNode.parentNode.classList.contains('js-mainNav'),
-            parentLi,
+            isLast = this.isDropdownLast(el),
+            isFirst = this.isDropdownFirst(el),
             sibling;
-
-
         if (next) {
             if (jumping) {
                 // jump to next top level navigation link
                 this.deactivateParent(el);
-                focusEl = this.getLink(this.getNextParent(el));
+                focusEl = this.getNextInLevel(this.getParent(el));
             } else {
                 if(isLast) {
                     // deactivate this dropdown
@@ -180,18 +183,18 @@ var navAccess = {
             if (jumping) {
                 // jump to previous top level navigation link
                 this.deactivateParent(el);
-                focusEl = this.getLink(this.getPrevParent(el));
+                focusEl = this.getPrevInLevel(this.getParent(el));
             } else {
                 if (isFirst) {
                     // close dropdown and move to top level navigation
                     this.deactivateParent(el);
-                    focusEl = this.getLink(this.getParent(el));
+                    focusEl = this.getParent(el);
                 } else {
-                    if (isParent){
-                        // this is a top level link, move to previous one
-                        focusEl = this.getLink(this.getPrevParent(el));
-                    } else {
-                        focusEl = this.getPrevLink(el); // previous navLink
+                    sibling = el.parentNode.previousElementSibling;
+                    if (sibling !== null && sibling.classList.contains('js-dropdownParent')) {
+                        return this.getPrevInLevel(el); // Link before a sibling with dropdown (skip over dropdown)
+                    }else{
+                        focusEl = this.getPrevLink(el); //Get the previous navLink
                     }
                 }
             }
@@ -217,14 +220,13 @@ var navAccess = {
             }
         }
     },
-
     /**
      * Deactivates a drop down
      * @param {Element} el
      */
     deactivateParent: function (el) {
-        parent = this.getParent(el);
-        parent.classList.remove('is-active');
+        var parent = this.getParent(el);
+        parent.parentNode.classList.remove('is-active');
         // change the aria-expanded and aria-hidden values on the <ul> tag
         var ul = parent.querySelector('ul');
         if (ul !== null) {
@@ -232,40 +234,55 @@ var navAccess = {
             /*ul.setAttribute('aria-hidden', 'true');*/
         }
     },
+    // Returns returns true is the first element of a dropdown list
+    isDropdownFirst: function(el) {
+        var dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink')); // get all children links in dropdown
+        return dropdownNavs.indexOf(el) === 1; // if it is the first link (after the main navigation link)
+    },
+    // Returns true if the last element of a dropdown
+    isDropdownLast: function(el) {
+        var dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink')); // get all children links in dropdown
+        return dropdownNavs.indexOf(el) === (dropdownNavs.length - 1); // if it is the last link
+    },
     // Returns the index of this link out of all other navLinks
     getLinkIndex: function(el) {
-        return $('a.js-navLink').index(el);
+        var list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
+        return list.indexOf(el);
     },
     // Returns the index of the parent top level navigation
     getParentIndex: function(el) {
-        return $('.js-mainNav').children().index(el);
+        var list = Array.prototype.slice.call(el.parentNode.children);
+        return list.indexOf(el);
     },
     // Returns the previous navLink
     getPrevLink: function (el) {
-        return $('a.js-navLink')[this.getLinkIndex(el) - 1] || el; // return el if undefined
+        var list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
+        return list[this.getLinkIndex(el) - 1] || el; // return el if undefined
     },
     // Returns the next navLink
     getNextLink: function (el) {
-        return $('a.js-navLink')[this.getLinkIndex(el) + 1] || el; // return el if undefined
+        var list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
+        return list[this.getLinkIndex(el) + 1] || el; // return el if undefined
     },
-    // Returns the top level navigation element list element
+    // Returns the parent navigation element
     getParent: function (el) {
-        if(el.parentNode.parentNode.classList.contains('js-mainNav')){
-            return el.parentNode;
+        var node = el;
+        while(node !== document.body){
+            if(node.classList.contains('js-dropdownParent') || node.parentNode.classList.contains('js-mainNav')){
+                break;
+            }
+            node = node.parentNode;
         }
-        return $(el).parents('.js-mainNav>.js-dropdownParent').first()[0];
+        return this.getLink(node);
     },
-    // Returns the top level navigation link before the active one
-    getPrevParent: function (el) {
-        var parent = this.getParent(el);
-        return $('.js-mainNav').children()[this.getParentIndex(parent) - 1] || el; // return el if undefined
+    // Returns the direct sibling navigation link before the active one
+    getPrevInLevel: function (el) {
+        return this.getLink(el.parentNode.previousElementSibling);
     },
-    // Returns the top level navigation link after the active one
-    getNextParent: function (el) {
-        var parent = this.getParent(el);
-        return $('.js-mainNav').children()[this.getParentIndex(parent) + 1] || el; // return el if undefined
+    // Returns the direct sibling navigation link after the active one
+    getNextInLevel: function (el) {
+        return this.getLink(el.parentNode.nextElementSibling);
     },
-
     /**
      * Gets the first navigation in the element
      * @param {Element} el
