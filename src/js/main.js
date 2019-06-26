@@ -264,7 +264,7 @@ var navAccess = {
         var list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
         return list[this.getLinkIndex(el) + 1] || el; // return el if undefined
     },
-    // Returns the parent navigation element
+    // Returns the parent navigation link
     getParent: function (el) {
         var node = el;
         while(node !== document.body){

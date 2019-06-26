@@ -1,0 +1,44 @@
+{# Set the column classes based on the number of columns #}
+{% set count = columns|length %}
+{% if count % 4 == 0 %}
+    {% set class = 'u-size1of4 u-md-size1of2 u-sm-sizeFull u-margBottom5' %}
+{% elseif count % 3 == 0 %}
+    {% set class = 'u-size1of3 u-md-sizeFull u-margBottom5' %}
+{% elseif count == 2 %}
+    {% set class = 'u-size1of2 u-sm-size1of2 u-sm-sizeFull u-margBottom5' %}
+{% elseif count > 4 %}
+    {% set class = 'u-size1of4 u-md-size1of2 u-sm-sizeFull u-margBottom5' %}
+{% elseif count == 1 %}
+    {% set class = 'u-sizeFull u-margBottom5' %}
+{% endif %}
+
+<div class="ColumnFeature">
+    <div class="Grid Grid--withGutterLg Grid--equalHeight">
+        {% for column in columns %}
+            <div class="Grid-cell {{ class }} u-flexCol">
+                {% if column.heading %}
+                    <div class="ColumnFeature-title">{% if column.link %}<a href="{{ column.link }}" class="u-linkSubtle">{% endif %}{{ column.heading }}{% if column.link %}</a>{% endif %}</div>
+                {% endif %}
+                <div class="ColumnFeature-item">
+                    {% if column.image %}
+                        {% if column.image.alt|length == 0 %}
+                            {% set column.image.alt = column.heading %}
+                        {% endif %}
+                        {% set column.image.class = 'u-sizeFull' %}
+                        {% if column.link %}
+                            <a href="{{ column.link }}">{{ column.image.tag }}</a>
+                        {% else %}
+                            {{ column.image.tag }}
+                        {% endif %}
+                    {% endif %}
+                    {% if column.content %}
+                        <div class="ColumnFeature-content">{{ column.content }}</div>
+                    {% endif %}
+                </div>
+                {% if column.link %}
+                    <a href="{{ column.link }}" class="Button Button--outline Button--lg">{{ column.buttonText ?: 'Learn More' }}<svg class="Icon" aria-hidden="true"><use xlink:href="#icon-chevron-small-right" /></svg></a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
