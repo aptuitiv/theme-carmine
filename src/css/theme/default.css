@@ -137,6 +137,12 @@
     --theme-component-top-margin: 20px;
 }
 
+/* Featured Content */
+
+:root {
+    --theme-feature-top-margin: 60px;
+}
+
 /* Footer */
 
 :root {
