@@ -1,3 +1,5 @@
+{% import 'macros/macros' as macros %}
+
 {% macro slide(slide) %}
     {% if slide.altText %}
         {% set slide.images.large.alt = slide.altText %}
@@ -17,7 +19,7 @@
 {% endmacro %}
 
 {% if slides and displayType != 'Hide' %}
-    {% import _self as macros %}
+    {% import _self as slide_macros %}
     {% if slides|length == 1 and displayType == 'Slideshow' %}
         {% set displayType = 'Single slide' %}
     {% endif %}
@@ -29,14 +31,14 @@
         {% endif %}
         <div class="Slider">
             <div class="Slider-slide">
-                {{ macros.slide(slide) }}
+                {{ slide_macros.slide(slide) }}
             </div>
         </div>
     {% elseif displayType == 'Slideshow' %}
         <div class="Slider js-slider">
             {% for slide in slides %}
                 <div class="Slider-slide{% if loop.index > 1 %} Slider-slide--hidden{% endif %}">
-                    {{ macros.slide(slide) }}
+                    {{ slide_macros.slide(slide) }}
                 </div>
             {% endfor %}
         </div>
@@ -66,8 +68,8 @@
                         dots: {{ showDots ? 'true' : 'false' }},
                         dotsClass: 'Slider-dots Slider-dots--{{ dotPosition|lower }}',
                         fade: {{ slideTransition == 'Fade' ? 'true' : 'false' }},
-                        prevArrow: '<a href="#" class="Slider-nav Slider-navPrev"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-left" /></svg></a>',
-                        nextArrow: '<a href="#" class="Slider-nav Slider-navNext"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-right" /></svg></a>',
+                        prevArrow: '<a href="#" class="Slider-nav Slider-navPrev"> {{ macros.iconImg("chevron-thin-left", "Slide Left", "Slider-navIcon Icon") }} </a>',
+                        nextArrow: '<a href="#" class="Slider-nav Slider-navNext">{{ macros.iconImg("chevron-thin-right", "Slide Right", "Slider-navIcon Icon") }}</a>',
                         speed: 500
                     });
                 });
