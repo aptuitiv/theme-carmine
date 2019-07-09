@@ -52,7 +52,7 @@
                     {% if _core.theme.settings.headerShowSocial == 'yes' %}
                         <div class="Header-line">
                             {% for social in _core.theme.settings.social %}
-                                <a href="{{ social.url }}" title="Follow us on {{ social.name }}" class="Header-iconLink"> {{ macros.iconImg(social.icon, social.name, "Icon Header-icon") }} </a>
+                                <a href="{{ social.url }}" title="Follow us on {{ social.name }}" class="Header-iconLink"> {{ macros.iconImg(social.icon, social.name, "Header-icon") }}</a>
                             {% endfor %}
                         </div>
                     {% endif %}

@@ -38,7 +38,7 @@
                     {% endif %}
                 </div>
                 {% if column.link %}
-                    <a href="{{ column.link }}" class="Button Button--outline Button--lg">{{ column.buttonText ?: 'Learn More' }} {{ macros.iconAriaHidden("chevron-small-right", "Icon") }}</a>
+                    <a href="{{ column.link }}" class="Button Button--outline Button--lg">{{ column.buttonText ?: 'Learn More' }} {{ macros.iconAriaHidden("chevron-small-right") }}</a>
                 {% endif %}
             </div>
         {% endfor %}
