@@ -11,8 +11,8 @@
 }
 
 .Breadcrumb-link {
-    color: #888;
-    text-decoration: none;
+    color: #6f6f6f;
+    text-decoration: underline;
 }
 
 @media (--c-bp-sm) {
