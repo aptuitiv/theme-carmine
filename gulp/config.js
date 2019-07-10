@@ -112,7 +112,7 @@ module.exports = {
             },
             {
                 src: 'gulp/**/*',
-                dest: ''
+                dest: 'gulp'
             },
             {
                 src: 'gulpfile.js',
