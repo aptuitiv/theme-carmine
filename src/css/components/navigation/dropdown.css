@@ -16,6 +16,7 @@
     --Dropdown-item-padding-small-screen: .8em 30px .8em 1em;
     --Dropdown-link-color: var(--theme-nav-dropdown-color);
     --Dropdown-link-colorHover: var(--theme-nav-dropdown-color-hover);
+    --Dropdown-link-backgroundHover: var(--theme-primary-color);
 }
 
 .Dropdown {
@@ -89,6 +90,7 @@
     .Dropdown-link:hover,
     .Dropdown-link.is-current,
     .Dropdown-link.is-currentParent {
+        background-color: var(--Dropdown-link-backgroundHover);
         color: var(--Dropdown-link-colorHover);
     }
 
