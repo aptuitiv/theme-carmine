@@ -4,6 +4,7 @@
     {% macro slideImage(slide) %}
         {% if slide.image %}
             {% set slide.image.class = 'ImageSlider-image' %}
+            {% set slide.image.alt = slide.title ?: 'Slider Image' %}
             {% if slide.link %}
                 <a href="{{ slide.link }}" class="ImageSlider-imageWrap">{{ slide.image.tag }}</a>
             {% else %}
