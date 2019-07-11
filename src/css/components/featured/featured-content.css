@@ -30,6 +30,10 @@
     color: var(--theme-featured-content-heading-color);
 }
 
+.FeaturedContent a:hover {
+    color: var(--theme-featured-link-color-hover);
+}
+
 /* postcss-bem-linter: ignore */
 
 .FeaturedContent .Button {
