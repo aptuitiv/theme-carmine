@@ -8,7 +8,7 @@
                     {# Duplicate the navigation item for the mobile menu #}
                     {% set item.parent.link.class = "Dropdown-link" %}
                     {% set item.parent.link.id = '' %}
-                    <li class="Dropdown-item Dropdown-item--smallScreen js-skip" {{ item.parent.link.tag }}</li>
+                    <li class="Dropdown-item Dropdown-item--smallScreen js-skip"> {{ item.parent.link.tag }}</li>
                 {% endif %}
             {% endif %}
             {# ASSIGN SUB MENU ITEM CLASS #}
