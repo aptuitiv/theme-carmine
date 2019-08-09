@@ -1,14 +1,12 @@
 {%  include 'snippets/header' %}
-<main id="main">
-    {{ _page.content('header') }}
-    <div class="Container">
-        {% if _page.isHome == false %}
-            {{ _page.breadcrumb }}
-        {% endif %}
-        <div class="Content u-cf">
-            <main>{{ _page.content() }}</main>
-        </div>
+{{ _page.content('header') }}
+<div class="Container">
+    {% if _page.isHome == false %}
+        {{ _page.breadcrumb }}
+    {% endif %}
+    <div class="Content u-cf">
+        <main id="main">{{ _page.content() }}</main>
     </div>
-</main>
+</div>
 {{ _page.content('footer') }}
 {%  include 'snippets/footer' %}
