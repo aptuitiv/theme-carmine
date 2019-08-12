@@ -1,4 +1,4 @@
-{% extends 'two-column-right-sidebar' %}
+{% extends 'two-column' %}
 
 {% block main %}
     <h1>{{ category.categoryName }}</h1>
@@ -13,7 +13,7 @@
 
     {% if category.posts %}
         {% for post in category.posts %}
-            {% include 'blog/post-list-item' %}
+            {% include 'blog/post-list-item-simple' %}
         {% endfor %}
         {% include 'snippets/pagination' %}
     {% endif %}

@@ -12,5 +12,6 @@
 @import './navigation';
 @import './pagination';
 @import './search';
+@import './sidebar';
 @import './slider';
 @import './staff';
