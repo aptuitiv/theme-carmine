@@ -49,7 +49,9 @@
 {% endif %}
 
 <div class="js-pageForm">
+    {#  Disabled form action
     {{ form.openTag }}
+    #}
 
     {# Show form errors if there are any #}
     <div id="errorContainer" class="FormError {% if form.errors is empty %} u-hidden{% endif %}">
@@ -69,12 +71,12 @@
     </div>
 
     {# Show the CAPTCHA field if necessary #}
-        <div class="Grid Grid--withGutter u-margBottom2">
-            <div class="Grid-cell u-size3of4 u-push1of4">
-                <strong>Please check the box below before submitting.</strong>
-                {{ form.captcha.tag }}
-            </div>
+    <div class="Grid Grid--withGutter u-margBottom2">
+        <div class="Grid-cell u-size3of4 u-push1of4">
+            <strong>Please check the box below before submitting.</strong>
+            {{ form.captcha.tag }}
         </div>
+    </div>
 
 
     <div class="Grid Grid--withGutter u-margBottom2">
@@ -84,7 +86,9 @@
             <p><button type="submit" class="Button Button--lg">Submit My Comments</button></p>
         </div>
     </div>
+    {#  Disabled form action
     {{ form.closeTag }}
+    #}
 </div>
 
 {# JAVASCRIPT FILES #}
@@ -94,49 +98,49 @@
 {#  START INLINE JAVASCRIPT #}
 
 {% inlinejs %}
-$(document).ready(function(){
+    $(document).ready(function(){
     $('.js-pageForm form').validate({
-        rules: {
-            'email': {
-                email: true
-            }
-        },
-        messages: {
-            {% set i = 0 %}
-            {% for field in form.fields %}
-                {% if field.isFormField %}{% for rule in field.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ field.name }}': '{{ rule.message|escape }}'
-                {% endif %}{% endfor %}{% else %}{% if field.fieldType == "fieldGroup" %}{% for child in field.childFields %}{% if child.isFormField %}{% for rule in child.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ child.name }}': '{{ rule.message|escape }}'
-                {% endif %}{% endfor %}{% endif %}{% endfor %}{% endif %}{% endif %}
-            {% endfor %}
-        },
-        errorClass: 'is-invalid',
-        errorElement: "li",
-        errorLabelContainer: "#errorContainer > ul",
-        showErrors: function(errorMap, errorList) {
-            $('.js-successContainer').hide();
-            if (this.numberOfInvalids() > 0) {
-                $('#errorContainer').removeClass('u-hidden');
-            } else {
-                $('#errorContainer').addClass('u-hidden');
-            }
-            $('.js-serverError').remove();
-            this.defaultShowErrors();
-            $('#errorContainer li').addClass('FormError-listItem');
-        }
+    rules: {
+    'email': {
+    email: true
+    }
+    },
+    messages: {
+    {% set i = 0 %}
+    {% for field in form.fields %}
+        {% if field.isFormField %}{% for rule in field.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ field.name }}': '{{ rule.message|escape }}'
+        {% endif %}{% endfor %}{% else %}{% if field.fieldType == "fieldGroup" %}{% for child in field.childFields %}{% if child.isFormField %}{% for rule in child.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ child.name }}': '{{ rule.message|escape }}'
+        {% endif %}{% endfor %}{% endif %}{% endfor %}{% endif %}{% endif %}
+    {% endfor %}
+    },
+    errorClass: 'is-invalid',
+    errorElement: "li",
+    errorLabelContainer: "#errorContainer > ul",
+    showErrors: function(errorMap, errorList) {
+    $('.js-successContainer').hide();
+    if (this.numberOfInvalids() > 0) {
+    $('#errorContainer').removeClass('u-hidden');
+    } else {
+    $('#errorContainer').addClass('u-hidden');
+    }
+    $('.js-serverError').remove();
+    this.defaultShowErrors();
+    $('#errorContainer li').addClass('FormError-listItem');
+    }
     });
 
     {% if form.captcha.type == 'image' %}
         $('.js-pageForm form .js-captchaReload').on('click', function(e) {
-            e.preventDefault();
-            $.getJSON(this.href, function(data) {
-                try {
-                    $('.js-pageForm form input[name="ap-form-captcha[id]"]').val(data.captchaId);
-                    $('.js-pageForm form .captcha-img').attr('src', data.src);
-                } catch(e) {
-                    alert('There was a problem refreshing the captcha image. ' + e);
-                }
-            });
+        e.preventDefault();
+        $.getJSON(this.href, function(data) {
+        try {
+        $('.js-pageForm form input[name="ap-form-captcha[id]"]').val(data.captchaId);
+        $('.js-pageForm form .captcha-img').attr('src', data.src);
+        } catch(e) {
+        alert('There was a problem refreshing the captcha image. ' + e);
+        }
+        });
         });
     {% endif %}
-});
+    });
 {% endinlinejs %}
