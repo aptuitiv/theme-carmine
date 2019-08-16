@@ -32,7 +32,17 @@
 
 .ImageGrid-image {
     height: auto;
+    margin: auto;
+}
+
+.ImageGrid-image--scale {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    right: 0;
     width: 100%;
+    z-index: 0;
 }
 
 @supports (object-fit: cover) {
@@ -73,6 +83,7 @@
     text-align: center;
     text-transform: uppercase;
     width: 100%;
+    z-index: 1;
 }
 
 @media (--c-bp-lg) {

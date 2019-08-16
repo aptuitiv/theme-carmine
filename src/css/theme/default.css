@@ -124,11 +124,11 @@
     --theme-image-grid-title-color: #fff;
     --theme-image-grid-title-font-size: 1.2em;
     --theme-image-grid-title-font-weight: 300;
-    --theme-image-grid-title-hover-background: #7a0504;
+    --theme-image-grid-title-hover-background: var(--theme-primary-color);
     --theme-image-grid-title-hover-color: #fff;
-    --theme-image-grid-hover-background: #7a0504;
+    --theme-image-grid-hover-background: color(var(--theme-primary-color) shade(20%));
     --theme-image-grid-hover-color: #fff;
-    --theme-image-grid-cover-background: rgba(162, 21, 20, .5);
+    --theme-image-grid-cover-background: color(var(--theme-primary-color) a(50%));
     --theme-image-grid-title-cover-color: #fff;
 }
 
