@@ -2,6 +2,7 @@
 <main id="main">
     {{ _page.content('header') }}
     <div class="Container">
+        {% block header %}{% endblock %}
         {% if _page.isHome == false %}
             {{ _page.breadcrumb }}
         {% endif %}
