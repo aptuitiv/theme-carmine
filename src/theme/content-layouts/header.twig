@@ -7,6 +7,15 @@
     {% set slide.images.large.class = 'Slider-image' %}
     {% set slide.images.large.srcset = slide.images.large.src ~ ' 1200w, ' ~ slide.images.small.src ~ ' 600w' %}
     {% set slide.images.large.sizes = '100vw' %}
+    {% if slide.imageEffect == 'Blur Small' %}
+        {% set slide.images.large.class = slide.images.large.class ~ ' u-imageBlurSm' %}
+    {% elseif slide.imageEffect == 'Blur Medium' %}
+        {% set slide.images.large.class = slide.images.large.class ~ ' u-imageBlurMd' %}
+    {% elseif slide.imageEffect == 'Blur Large' %}
+        {% set slide.images.large.class = slide.images.large.class ~ ' u-imageBlurLg' %}
+    {% elseif slide.imageEffect == 'Grayscale' %}
+        {% set slide.images.large.class = slide.images.large.class ~ ' u-imageGrayscale' %}
+    {% endif %}
     {% if slide.link %}<a href="{{ slide.link }}" class="Slider-link">{% endif %}
     {{ slide.images.large.tag }}
     {% if slide.captionTitle or slide.caption  %}
