@@ -125,20 +125,9 @@
             {% endfor %}
         </div>
     </div>
-    {#
-    {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
 
-    {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
-        {% inlinejs %}
-            loadjs.ready('main', {
-                success: function() {
-                    loadjs(['{{ 'slick/slick.min.js'|theme_url }}'], 'slickheader');
-                }
-            });
-        {% endinlinejs %}
-        {% do _page.registerJs('slick/slick.min.js'|theme_url) %}
-    {% endif %}
-    #}
+    {{ macros.loadSlick() }}
+
     {% inlinejs %}
     loadjs.ready('slickheader', {
         success: function() {
