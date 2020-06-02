@@ -86,7 +86,6 @@
         });
         {% endinlinejs %}
     {% endif %}
-
     {# Load lightbox library #}
     {% do _page.addCss('/magnific/magnific-popup.css'|theme_url, {'preload': true}) %}
     {% inlinejs %}
@@ -97,7 +96,6 @@
         });
     {% endinlinejs %}
     {% do _page.registerJs('magnific/jquery.magnific-popup.min.js'|theme_url) %}
-
     {% inlinejs %}
     loadjs.ready('magnific', {
         success: function() {

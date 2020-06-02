@@ -125,7 +125,7 @@
             {% endfor %}
         </div>
     </div>
-
+    {#
     {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
 
     {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
@@ -138,7 +138,7 @@
         {% endinlinejs %}
         {% do _page.registerJs('slick/slick.min.js'|theme_url) %}
     {% endif %}
-
+    #}
     {% inlinejs %}
     loadjs.ready('slickheader', {
         success: function() {

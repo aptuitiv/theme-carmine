@@ -1,4 +1,5 @@
 {% import 'macros/macros' as macros %}
+{% import 'macros/slickloader' as slickloader %}
 
 {% macro slide(slide) %}
     {% if slide.altText %}
@@ -52,6 +53,7 @@
             {% endfor %}
         </div>
 
+        {#
         {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
 
         {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
@@ -64,6 +66,7 @@
             {% endinlinejs %}
             {% do _page.registerJs('slick/slick.min.js'|theme_url) %}
         {% endif %}
+        #}
 
         {% inlinejs %}
         loadjs.ready('slickheader', {
