@@ -6,6 +6,7 @@
 $(function() {
     smallScreenNav.init();
     navAccess.init();
+    setupNotifications();
 
     var link = document.querySelector('.js-btop');
     link.addEventListener('click', function(e) {
@@ -291,4 +292,45 @@ function equalSize(elements)
         }
     });
     elements.height(maxHeight);
+}
+
+/**
+ * Set up the notifications bar functionality
+ */
+function setupNotifications() {
+    var id, parent;
+    $('.js-notificationClose').on('click', function(e) {
+        e.preventDefault();
+        parent = $(this).parents('.js-notification:first');
+        parent.hide();
+        id = this.getAttribute('data-id');
+        setCookie('notificationMsgHide', id, 10);
+    });
+}
+
+/**
+ * Set a cookie
+ * @param {string} cname Cookie name
+ * @param {string} cvalue Cookie value
+ * @param {number} exdays Number of days to set cookie for
+ */
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date(),
+        existing = getCookieValue(cname);
+    if (existing.length > 0) {
+        cvalue = existing + '-' + cvalue;
+    }
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires + ';path=/';
+}
+
+/**
+ * Get a cookie value
+ * @param {string} cname Cookie name
+ * @returns string
+ */
+function getCookieValue(cname) {
+    var b = document.cookie.match('(^|;)\\s*' + cname + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
 }
