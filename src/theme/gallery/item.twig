@@ -41,8 +41,7 @@
         {% endfor %}
     </div>
     {% if item.images|length > 1 %}
-        {# Mulitple Images #}
-        {# Load the Slick Slider library #}
+
         {{ macros.loadSlick() }}
 
         {% inlinejs %}
@@ -76,18 +75,9 @@
         });
         {% endinlinejs %}
     {% endif %}
-    {# Load lightbox library #}
+
     {{ macros.loadMagnific() }}
-{#{% do _page.addCss('/magnific/magnific-popup.css'|theme_url, {'preload': true}) %}
-    {% inlinejs %}
-        loadjs.ready('main', {
-            success: function() {
-                loadjs(['{{ 'magnific/jquery.magnific-popup.min.js'|theme_url }}'], 'magnific');
-            }
-        });
-    {% endinlinejs %}
-    {% do _page.registerJs('magnific/jquery.magnific-popup.min.js'|theme_url) %}
-    #}
+
     {% inlinejs %}
     loadjs.ready('magnific', {
         success: function() {

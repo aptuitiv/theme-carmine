@@ -47,29 +47,21 @@
                         </a>
                     {% endif %}
 
-                    {% do _page.addCss('/magnific/magnific-popup.css'|theme_url, {'preload': true}) %}
-                    {% inlinejs %}
-                        loadjs.ready('main', {
-                        success: function() {
-                        loadjs(['{{ 'magnific/jquery.magnific-popup.min.js'|theme_url }}'], 'magnific');
-                        }
-                        });
-                    {% endinlinejs %}
-                    {% do _page.registerJs('magnific/jquery.magnific-popup.min.js'|theme_url) %}
+                    {{ macros.loadMagnific() }}
 
                     {% inlinejs %}
-                        loadjs.ready('magnific', {
+                    loadjs.ready('magnific', {
                         success: function() {
-                        $(function() {
-                        $('.js-lightbox').magnificPopup({
-                        disableOn: 700,
-                        gallery:{
-                        enabled:true
+                            $(function() {
+                                $('.js-lightbox').magnificPopup({
+                                disableOn: 700,
+                                    gallery:{
+                                        enabled:true
+                                    }
+                                });
+                            });
                         }
-                        });
-                        });
-                        }
-                        });
+                    });
                     {% endinlinejs %}
                 </div>
             {% endfor %}
