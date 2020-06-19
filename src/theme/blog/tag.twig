@@ -6,7 +6,7 @@
 
     {% if tag.posts %}
         {% for post in tag.posts %}
-            {% include 'blog/post-list-item' %}
+            {% include 'blog/post-list-item-simple' %}
         {% endfor %}
         {% include 'snippets/pagination' %}
     {% endif %}
