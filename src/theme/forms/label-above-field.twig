@@ -69,7 +69,27 @@
     {# Loop through and show each form field #}
     <div class="js-fieldsContainer">
         {% for field in form.fields %}
-            {% if field.isFormField %}
+            {% if field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
+                <div class="Grid Grid--withGutter">
+                    {% for column in field.columns %}
+                        {% set class = 'u-size1of' ~ loop.length  %}
+                        {% if column.class %}
+                            {% if 'u-size' in column.class %}
+                                {% set class = column.class %}
+                            {% else %}
+                                {% set class = class ~ ' ' ~ column.class %}
+                            {% endif %}
+                        {% endif %}
+                        {% set class = class ~ ' u-md-sizeFull' %}
+                        <div class="Grid-cell {{ class }}">
+                            {% import _self as macros %}
+                            {% for child in column.childFields %}
+                                {{ macros.buildField(child) }}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% elseif field.isFormField %}
                 {{ macros.buildField(field) }}
             {% else %}
                 {# Handle field groups separately as they have child fields to loop through #}
