@@ -46,13 +46,15 @@ function runStylelint() {
         .pipe(plumber({errorHandler: util.onError}))
         .pipe(gulpStylelint({
             failAfterError: false,
+            fix: true,
             reporters: [
                 {
                     formatter: 'string',
                     console: true
                 }
             ]
-        }));
+        }))
+        .pipe(gulp.dest(config.paths.src.cssBase));
 }
 
 // Set the display properties of the stylelint function
