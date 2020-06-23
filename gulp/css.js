@@ -38,7 +38,7 @@ const tap = require('gulp-tap');
  * but with "xs-" added in.
  */
 function runStylelint() {
-    return gulp.src(config.paths.src.stylelint)
+    return gulp.src(config.paths.src.stylelint, {base: './'})
         .pipe(cached('Stylelint'))
         .pipe(tap((file) => {
             util.logFile(file, 'Linting');
@@ -54,7 +54,7 @@ function runStylelint() {
                 }
             ]
         }))
-        .pipe(gulp.dest(config.paths.src.cssBase));
+        .pipe(gulp.dest('./'));
 }
 
 // Set the display properties of the stylelint function

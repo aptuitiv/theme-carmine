@@ -30,7 +30,6 @@ module.exports = {
             css: [
                 src + '/css/main.css',
             ],
-            cssBase: src + '/css',
             font: src + '/fonts/**/*.{eot,ttf,woff,woff2}',
             icon: src + '/icons/**/*.svg',
             img: src + '/images/**/*.{gif,jpg,jpeg,png,svg,webp}',
