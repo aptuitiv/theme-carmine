@@ -30,6 +30,7 @@
         "gulp-postcss": "^8.0.0",
         "gulp-remember": "^1.0.1",
         "gulp-rename": "^1.4.0",
+        "gulp-stylelint": "^13.0.0",
         "gulp-svgmin": "^2.2.0",
         "gulp-svgstore": "^7.0.1",
         "gulp-tap": "^1.0.1",
@@ -37,11 +38,10 @@
         "merge-stream": "^2.0.0",
         "moment": "^2.24.0",
         "penthouse": "^2.2.0",
-        "postcss-bem-linter": "^3.3.0",
         "postcss-cssnext": "^3.1.0",
         "postcss-import": "^12.0.1",
-        "stylelint": "^10.1.0",
-        "stylelint-order": "^3.0.0"
+        "stylelint-order": "^3.0.0",
+        "stylelint-selector-bem-pattern": "^2.1.0"
     },
     "dependencies": {
         "cacao-css": "^3.6.1",
