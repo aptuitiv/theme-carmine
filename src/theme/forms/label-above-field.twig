@@ -12,8 +12,11 @@
             {% if field.fieldType in ['email', 'number', 'text', 'url'] %}
                 {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
                 {{ field.tag }}
-            {%  elseif field.fieldType in ['date'] %}
+            {%  elseif field.fieldType in ['date','time','month'] %}
                 {% set field.class = field.class ~ ' TextInput' %}
+                {{ field.tag }}
+            {% elseif field.fieldType == 'button' %}
+                {% set field.class = field.class ~ ' Button' %}
                 {{ field.tag }}
             {% elseif field.fieldType == 'textarea' %}
                 {% if field.size == 'small' %}
@@ -176,11 +179,11 @@ loadjs.ready('form', {
                     $('.js-serverError').remove();
                     this.defaultShowErrors();
                     $('#errorContainer li').addClass('FormError-listItem');
-                }
-            });
+                    }
+                });
 
-            {% if form.captcha.type == 'image' %}
-                $('.js-pageForm form .js-captchaReload').on('click', function(e) {
+                {% if form.captcha.type == 'image' %}
+                    $('.js-pageForm form .js-captchaReload').on('click', function(e) {
                     e.preventDefault();
                     $.getJSON(this.href, function(data) {
                         try {

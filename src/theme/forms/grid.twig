@@ -25,8 +25,11 @@
     {% if field.fieldType in ['email', 'number', 'text', 'url'] %}
         {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
         {{ field.tag }}
-    {%  elseif field.fieldType in ['date','time'] %}
+    {%  elseif field.fieldType in ['date','time','month'] %}
         {% set field.class = field.class ~ ' TextInput' %}
+        {{ field.tag }}
+    {% elseif field.fieldType == 'button' %}
+        {% set field.class = field.class ~ ' Button' %}
         {{ field.tag }}
     {% elseif field.fieldType == 'textarea' %}
         {% if field.size == 'small' %}
@@ -177,44 +180,44 @@ loadjs.ready('form', {
         $(function(){
             $('.js-pageForm form').validate({
                 rules: {
-                    'email': {
-                        email: true
-                    }
-                },
-                messages: {
-                    {% set i = 0 %}
-                    {% for field in form.fields %}
-                        {% if field.isFormField %}{% for rule in field.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ field.name }}': '{{ rule.message|escape }}'
-                        {% endif %}{% endfor %}{% else %}{% if field.fieldType == "fieldGroup" %}{% for child in field.childFields %}{% if child.isFormField %}{% for rule in child.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ child.name }}': '{{ rule.message|escape }}'
-                        {% endif %}{% endfor %}{% endif %}{% endfor %}{% endif %}{% endif %}
-                    {% endfor %}
-                },
-                errorClass: 'is-invalid',
-                errorElement: "li",
-                errorLabelContainer: "#errorContainer > ul",
-                showErrors: function(errorMap, errorList) {
-                    $('.js-successContainer').hide();
-                    if (this.numberOfInvalids() > 0) {
-                        $('#errorContainer').removeClass('u-hidden');
-                    } else {
-                        $('#errorContainer').addClass('u-hidden');
-                    }
-                    $('.js-serverError').remove();
-                    this.defaultShowErrors();
-                    $('#errorContainer li').addClass('FormError-listItem');
+                'email': {
+                    email: true
+                }
+            },
+            messages: {
+                {% set i = 0 %}
+                {% for field in form.fields %}
+                    {% if field.isFormField %}{% for rule in field.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ field.name }}': '{{ rule.message|escape }}'
+                    {% endif %}{% endfor %}{% else %}{% if field.fieldType == "fieldGroup" %}{% for child in field.childFields %}{% if child.isFormField %}{% for rule in child.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ child.name }}': '{{ rule.message|escape }}'
+                    {% endif %}{% endfor %}{% endif %}{% endfor %}{% endif %}{% endif %}
+                {% endfor %}
+            },
+            errorClass: 'is-invalid',
+            errorElement: "li",
+            errorLabelContainer: "#errorContainer > ul",
+            showErrors: function(errorMap, errorList) {
+                $('.js-successContainer').hide();
+                if (this.numberOfInvalids() > 0) {
+                    $('#errorContainer').removeClass('u-hidden');
+                } else {
+                    $('#errorContainer').addClass('u-hidden');
+                }
+                $('.js-serverError').remove();
+                this.defaultShowErrors();
+                $('#errorContainer li').addClass('FormError-listItem');
                 }
             });
 
             {% if form.captcha.type == 'image' %}
                 $('.js-pageForm form .js-captchaReload').on('click', function(e) {
-                    e.preventDefault();
-                    $.getJSON(this.href, function(data) {
-                        try {
-                            $('.js-pageForm form input[name="ap-form-captcha[id]"]').val(data.captchaId);
-                            $('.js-pageForm form .captcha-img').attr('src', data.src);
-                        } catch(e) {
-                            alert('There was a problem refreshing the captcha image. ' + e);
-                        }
+                e.preventDefault();
+                $.getJSON(this.href, function(data) {
+                    try {
+                        $('.js-pageForm form input[name="ap-form-captcha[id]"]').val(data.captchaId);
+                        $('.js-pageForm form .captcha-img').attr('src', data.src);
+                    } catch(e) {
+                        alert('There was a problem refreshing the captcha image. ' + e);
+                    }
                     });
                 });
             {% endif %}
