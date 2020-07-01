@@ -47,6 +47,7 @@
         "cacao-css": "^3.6.1",
         "jquery": "^3.4.1",
         "jquery-form": "^4.2.2",
+        "jquery-lazy": "^1.7.10",
         "jquery-validation": "^1.19.1",
         "magnific-popup": "^1.1.0",
         "masonry-layout": "^4.2.2",
