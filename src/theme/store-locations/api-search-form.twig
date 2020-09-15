@@ -1,0 +1,24 @@
+<div class="StoreLocationSearch">
+    {% set searchForm.class = 'js-slSearchForm' %}
+    {{ searchForm.openTag }}
+        <div class="Grid Grid--withGutter">
+            <div class="Grid-cell u-size2of5 u-md-sizeFull u-md-margBottom1">
+                <input type="text" name="location" class="TextInput u-sizeFull js-slSearchLocation" id="slfLocation" placeholder="Enter street address, city, state, or zip code">
+            </div>
+            <div class="Grid-cell u-size2of5 u-md-sizeFull">
+                <div class="SelectInput u-sizeFull">
+                    <select name="{{ searchForm.fields.mapLocationFilterGeoDistance.name }}" class="js-searchDistance" id="slfDistance">
+                        <option value="10">10 miles</option>
+                        <option value="20" selected>20 miles</option>
+                        <option value="50">50 miles</option>
+                        <option value="100">100 miles</option>
+                    </select>
+                </div>
+            </div>
+            <div class="Grid-cell u-size1of5"><button class="Button u-sizeFull js-slSearchButton" type="submit">Search</button></div>
+        </div>
+        <input type="hidden" name="{{ searchForm.fields.mapLocationFilterGeoLat.name }}" class="js-geoLocationLat">
+        <input type="hidden" name="{{ searchForm.fields.mapLocationFilterGeoLon.name }}" class="js-geoLocationLon">
+{#        {{ searchForm.fields.term.tag }}#}
+    {{ searchForm.closeTag }}
+</div>

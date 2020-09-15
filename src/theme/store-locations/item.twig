@@ -1,0 +1,31 @@
+{% extends 'one-column' %}
+
+{% block main %}
+    <h1>{{ item.itemName }}</h1>
+    <div class="Grid Grid--withGutter u-margBottom3">
+        <div class="Grid-cell u-size1of3 u-lg-size1of2 u-md-sizeFull u-push1of3 u-lg-push1of2 u-md-pushNone">
+            {{ item.streetAddress }}<br>{{ item.city }}, {{ item.state }} {{ item.zipCode }} {{ item.country }}
+            <p><a href="tel:{{ item.phone }}">{{ item.phone }}</a></p>
+
+        </div>
+        <div class="Grid-cell u-size1of3 u-lg-size1of2 u-md-sizeFull u-pull1of3 u-lg-pull1of2 u-md-pullNone">{{ item.image.tag }}</div>
+        <div class="Grid-cell u-size1of3 u-lg-sizeFull">
+            {% if item.hours %}
+                <h2>Hours of Operation</h2>
+                <div class="Grid Grid--withGutter">
+                    {% for hour in item.hours %}
+                        <div class="Grid-cell u-size1of3">{{ hour.day }}</div>
+                        <div class="Grid-cell u-size2of3">{{ hour.hours }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="FlexEmbed u-margBottom3">
+        <div class="FlexEmbed-ratio FlexEmbed-ratio--3by2"></div>
+        {% set address = (item.streetAddress ~ ' ' ~ item.city ~ ', ' ~ item.state ~ ' ' ~ item.zipCode ~ ' ' ~ item.country)|trim|url_encode %}
+        <iframe class="FlexEmbed-content" title="Map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPMOoxh8o5fQnyJUjwzbhXSGU1Zf7kdO8&q={{ address }}" allowfullscreen></iframe>
+    </div>
+    {{ item.description }}
+{% endblock %}

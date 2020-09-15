@@ -1,0 +1,14 @@
+{# Set the correct content type for the page #}
+{% spaceless %}
+    {% do header('Content-Type: application/json; charset=utf-8') %}
+    {# This is the normal store locations search results #}
+    {% if items|length > 0 %}
+        {% set data = {
+            'total': pagination.totalItemCount,
+            'ids':allIds|join(','),
+        } %}
+    {% else %}
+        {% set data = {'total': '0'} %}
+    {% endif %}
+    {{ data|json }}
+{% endspaceless %}

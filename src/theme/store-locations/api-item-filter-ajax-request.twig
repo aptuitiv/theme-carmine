@@ -1,0 +1,30 @@
+{% spaceless %}
+    {% set itemPoints = [] %}
+    {% for item in items %}
+        {# Set the item point JSON data #}
+        {% if item.type is iterable %}
+            {% set type = item.type %}
+        {% else %}
+            {% set type = [item.type] %}
+        {% endif %}
+        {% set itemPoint = {
+            'addr': item.streetAddress,
+            'city': item.city,
+            'desc': item.description|striptags|truncate(100),
+            'id': item.id,
+            'img': item.image.src,
+            'imgH': item.image.height,
+            'imgW': item.image.width,
+            'lat': item.mapLocation.latitude,
+            'lng': item.mapLocation.longitude,
+            'name': item.itemName,
+            'state': item.state,
+            'url': item.url,
+            'zip': item.zipCode,
+            't': '0'
+        }
+        %}
+        {% set itemPoints = itemPoints|merge([itemPoint]) %}
+    {% endfor %}
+    {{ itemPoints|json }}
+{% endspaceless %}

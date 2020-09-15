@@ -1,0 +1,40 @@
+{% spaceless %}
+    {# loads store locations for the map #}
+
+    {# Set the correct content type for the page #}
+    {% do header('Content-Type: application/json; charset=utf-8') %}
+
+
+    {# See if this is a search. Could be a POST or GET request #}
+    {% if _page.request.post.id %}
+        {% if _page.request.post.id is iterable %}
+            {% set id = _page.request.post.id|join(',') %}
+        {% else %}
+            {% set id = _page.request.post.id %}
+        {% endif %}
+    {% elseif _page.request.get.id %}
+        {% if _page.request.get.id is iterable %}
+            {% set id = _page.request.get.id|join(',') %}
+        {% else %}
+            {% set id = _page.request.get.id %}
+        {% endif %}
+    {% endif %}
+    {% if id %}
+        {# This is a search #}
+        {{ _app.items.template('api-item-filter-ajax-request').getCategories('no').getCustomAttributes('yes').attr({'id': id}) }}
+    {% else %}
+        {# This is the request to get all store locations for the main item or item list pages #}
+        {# Tell the browser to cache this page for 10 days #}
+        {% set expiry = now|date_modify('+1 day') %}
+        {% do header('Cache-Control: max-age=' ~ (expiry.timestamp - now.timestamp)) %}
+        {% do header('Pragma: cache') %}
+        {% do header('Expires: ' ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ ' GMT') %}
+
+        {% if _page.request.get.l %}
+            {% set startAt = _page.request.get.p ?: 0 %}
+            {{ _app.items.template('api-item-filter-ajax-request').getCategories('no').getCustomAttributes('yes').limit(_page.request.get.l).startAt(startAt) }}
+        {% else %}
+            {{ _app.items.template('api-item-filter-ajax-request').getCategories('no').getCustomAttributes('yes') }}
+        {% endif %}
+    {% endif %}
+{% endspaceless %}

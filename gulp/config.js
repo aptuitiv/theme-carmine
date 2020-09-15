@@ -154,6 +154,21 @@ module.exports = {
                 'node_modules/jquery-form/src/jquery.form.js',
                 src + '/js/forms.js'
             ]
+        },
+        {
+            name: 'store-locations.js',
+            src: [
+                src + '/js/map/ap.js',
+                src + '/js/map/plugins/google.maps.infobox.js',
+                src + '/js/map/plugins/google.maps.tiptool.js',
+                src + '/js/map/plugins/markerclusterer.js',
+                src + '/js/map/utilities.js',
+                src + '/js/map/types.js',
+                src + '/js/map/map.js',
+                src + '/js/store-locations/list-map.js',
+                src + '/js/store-locations/list-page.js',
+                'node_modules/jquery-form/src/jquery.form.js',
+            ]
         }
     ]
 };
