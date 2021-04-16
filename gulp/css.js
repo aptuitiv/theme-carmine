@@ -23,7 +23,7 @@ const penthouse = require('penthouse');
 const plumber = require('gulp-plumber');
 const postcss = require('gulp-postcss');
 const postcssImport = require('postcss-import');
-const postcssCssNext = require('postcss-cssnext');
+const autoprefixer = require('autoprefixer');
 const gulpStylelint = require('gulp-stylelint');
 const rename = require('gulp-rename');
 const tap = require('gulp-tap');
@@ -69,7 +69,7 @@ runStylelint.description = 'Runs the CSS linter';
  */
 const processors = [
     postcssImport,
-    postcssCssNext()
+    autoprefixer()
 ];
 
 /**
