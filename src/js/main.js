@@ -2,20 +2,19 @@
     Global Javascript for all pages
 \* =========================================================================== */
 
-
-$(function() {
+$(() => {
     smallScreenNav.init();
     navAccess.init();
     setupNotifications();
 
-    var link = document.querySelector('.js-btop');
-    link.addEventListener('click', function(e) {
+    const link = document.querySelector('.js-btop');
+    link.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
         window.scrollTo({
             top: 0,
             left: 0,
-            behavior: 'smooth'
+            behavior: 'smooth',
         });
     });
 });
@@ -42,24 +41,24 @@ var smallScreenNav = {
     /**
      * Initialization
      */
-    init: function() {
-        var self = this;
+    init() {
+        const self = this;
         this.button = $('.js-ssNavBtn');
         this.nav = $('.js-mainNav');
 
-        this.button.on('click', function(e) {
+        this.button.on('click', (e) => {
             e.preventDefault();
             self.button.toggleClass('is-active');
             self.nav.toggle();
         });
 
-        $('.js-dropdown').on('click', function(e) {
+        $('.js-dropdown').on('click', function (e) {
             if ($(window).width() <= self.width) {
                 e.preventDefault();
                 $(this).toggleClass('is-active').parent().toggleClass('is-active');
             }
         });
-    }
+    },
 };
 
 /**
@@ -74,11 +73,11 @@ var smallScreenNav = {
  * Add "js-dropdown" to any link tags that have a drop down.
  */
 var navAccess = {
-    init: function () {
-        var menus = document.querySelectorAll('[data-access-nav]'),
-            _self = this;
+    init() {
+        const menus = document.querySelectorAll('[data-access-nav]');
+        const _self = this;
         if (menus.length > 0) {
-            menus.forEach(function (menu) {
+            menus.forEach((menu) => {
                 _self.setupMenu(menu);
             });
         }
@@ -88,20 +87,20 @@ var navAccess = {
      * Sets up the menu for accessibility
      * @param {Element} menu
      */
-    setupMenu: function (menu) {
-        var nav = menu.querySelectorAll('.js-navLink'),
-            subs = menu.querySelectorAll('.js-dropdownMenu'),
-            mainnav = menu.children,
-            _self = this,
-            key,
-            next = ['ArrowDown', 'Down', 'Tab', 'Spacebar', ' '],
-            prev = ['ArrowUp', 'Up', 'Tab', 'Spacebar', ' '],
-            left = ['ArrowLeft', 'Left'],
-            right = ['ArrowRight', 'Right'],
-            focusEl;
-        nav.forEach(function (item) {
+    setupMenu(menu) {
+        const nav = menu.querySelectorAll('.js-navLink');
+        const subs = menu.querySelectorAll('.js-dropdownMenu');
+        const mainnav = menu.children;
+        const _self = this;
+        let key;
+        const next = ['ArrowDown', 'Down', 'Tab', 'Spacebar', ' '];
+        const prev = ['ArrowUp', 'Up', 'Tab', 'Spacebar', ' '];
+        const left = ['ArrowLeft', 'Left'];
+        const right = ['ArrowRight', 'Right'];
+        let focusEl;
+        nav.forEach((item) => {
             // Handle the "keydown" event
-            item.addEventListener('keydown', function (e) {
+            item.addEventListener('keydown', (e) => {
                 key = e.key;
                 if (next.indexOf(key) >= 0) {
                     // Going forwards
@@ -126,10 +125,9 @@ var navAccess = {
                 } else if (right.indexOf(key) >= 0) {
                     // Jumping forwards
                     _self.focus(e, e.target, true, true);
-
                 } else if (key == 'Escape') {
                     // Close the menu
-                    var parentLi = _self.getParent(e.target).parentNode;
+                    const parentLi = _self.getParent(e.target).parentNode;
                     if (parentLi !== null) {
                         focusEl = _self.getLink(parentLi);
                         focusEl.focus();
@@ -145,19 +143,19 @@ var navAccess = {
      * @param {Element} el The target of the keydown event
      * @param {boolean} [next] Whether or not moving to the next item
      */
-    focus: function (event, el, next, jumping) {
-        var focusEl = null,
-            isFirst = false,
-            isLast = this.isDropdownLast(el),
-            isFirst = this.isDropdownFirst(el),
-            sibling;
+    focus(event, el, next, jumping) {
+        let focusEl = null;
+        var isFirst = false;
+        const isLast = this.isDropdownLast(el);
+        var isFirst = this.isDropdownFirst(el);
+        let sibling;
         if (next) {
             if (jumping) {
                 // Jump to next top level navigation link
                 this.deactivateParent(el);
                 focusEl = this.getNextInLevel(this.getParent(el));
             } else {
-                if(isLast) {
+                if (isLast) {
                     // Deactivate this dropdown
                     this.deactivateParent(el);
                 }
@@ -168,24 +166,20 @@ var navAccess = {
                 }
                 focusEl = this.getNextLink(el); // next navLink
             }
+        } else if (jumping) {
+            // Jump to previous top level navigation link
+            this.deactivateParent(el);
+            focusEl = this.getPrevInLevel(this.getParent(el));
+        } else if (isFirst) {
+            // Close dropdown and move to top level navigation
+            this.deactivateParent(el);
+            focusEl = this.getParent(el);
         } else {
-            if (jumping) {
-                // Jump to previous top level navigation link
-                this.deactivateParent(el);
-                focusEl = this.getPrevInLevel(this.getParent(el));
+            sibling = el.parentNode.previousElementSibling;
+            if (sibling !== null && sibling.classList.contains('js-dropdownParent')) {
+                focusEl = this.getPrevInLevel(el); // Link before a sibling with dropdown (skip over dropdown)
             } else {
-                if (isFirst) {
-                    // Close dropdown and move to top level navigation
-                    this.deactivateParent(el);
-                    focusEl = this.getParent(el);
-                } else {
-                    sibling = el.parentNode.previousElementSibling;
-                    if (sibling !== null && sibling.classList.contains('js-dropdownParent')) {
-                        focusEl = this.getPrevInLevel(el); // Link before a sibling with dropdown (skip over dropdown)
-                    }else{
-                        focusEl = this.getPrevLink(el); //Get the previous navLink
-                    }
-                }
+                focusEl = this.getPrevLink(el); // Get the previous navLink
             }
         }
         if (focusEl) {
@@ -200,7 +194,7 @@ var navAccess = {
      * Activates a drop down
      * @param {Element} el
      */
-    activate: function (el) {
+    activate(el) {
         if (el.classList.contains('js-dropdownParent')) {
             el.classList.add('is-active');
             // change the aria-expanded and aria-hidden values on the <ul> tag
@@ -211,47 +205,47 @@ var navAccess = {
      * Deactivates a drop down
      * @param {Element} el
      */
-    deactivateParent: function (el) {
-        var parent = this.getParent(el);
+    deactivateParent(el) {
+        const parent = this.getParent(el);
         parent.parentNode.classList.remove('is-active');
         // change the aria-expanded and aria-hidden values on the <ul> tag
         parent.setAttribute('aria-expanded', 'false');
     },
     // Returns returns true is the first element of a dropdown list
-    isDropdownFirst: function(el) {
-        var dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink')); // get all children links in dropdown
+    isDropdownFirst(el) {
+        const dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink')); // get all children links in dropdown
         return dropdownNavs.indexOf(el) === 1; // if it is the first link (after the main navigation link)
     },
     // Returns true if the last element of a dropdown
-    isDropdownLast: function(el) {
-        var dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink')); // get all children links in dropdown
+    isDropdownLast(el) {
+        const dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink')); // get all children links in dropdown
         return dropdownNavs.indexOf(el) === (dropdownNavs.length - 1); // if it is the last link
     },
     // Returns the index of this link out of all other navLinks
-    getLinkIndex: function(el) {
-        var list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
+    getLinkIndex(el) {
+        const list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
         return list.indexOf(el);
     },
     // Returns the index of the parent top level navigation
-    getParentIndex: function(el) {
-        var list = Array.prototype.slice.call(el.parentNode.children);
+    getParentIndex(el) {
+        const list = Array.prototype.slice.call(el.parentNode.children);
         return list.indexOf(el);
     },
     // Returns the previous navLink
-    getPrevLink: function (el) {
-        var list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
+    getPrevLink(el) {
+        const list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
         return list[this.getLinkIndex(el) - 1];
     },
     // Returns the next navLink
-    getNextLink: function (el) {
-        var list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
-        return list[this.getLinkIndex(el) + 1] ;
+    getNextLink(el) {
+        const list = Array.prototype.slice.call(document.querySelectorAll('.js-navLink'));
+        return list[this.getLinkIndex(el) + 1];
     },
     // Returns the parent navigation link
-    getParent: function (el) {
-        var node = el;
-        while(node !== document.body){
-            if(node.classList.contains('js-dropdownParent') || node.parentNode.classList.contains('js-mainNav')){
+    getParent(el) {
+        let node = el;
+        while (node !== document.body) {
+            if (node.classList.contains('js-dropdownParent') || node.parentNode.classList.contains('js-mainNav')) {
                 break;
             }
             node = node.parentNode;
@@ -259,11 +253,11 @@ var navAccess = {
         return this.getLink(node);
     },
     // Returns the direct sibling navigation link before the active one
-    getPrevInLevel: function (el) {
+    getPrevInLevel(el) {
         return this.getLink(el.parentNode.previousElementSibling);
     },
     // Returns the direct sibling navigation link after the active one
-    getNextInLevel: function (el) {
+    getNextInLevel(el) {
         return this.getLink(el.parentNode.nextElementSibling);
     },
     /**
@@ -271,7 +265,7 @@ var navAccess = {
      * @param {Element} el
      * @returns {Element}
      */
-    getLink: function (el) {
+    getLink(el) {
         return el ? el.querySelector('a.js-navLink') : null;
     },
 };
@@ -280,12 +274,11 @@ var navAccess = {
  * Sets the height of all the elements to be the same
  * @param elements
  */
-function equalSize(elements)
-{
-    var maxHeight = 0,
-        h;
+function equalSize(elements) {
+    let maxHeight = 0;
+    let h;
     elements.css('height', '');
-    elements.each(function() {
+    elements.each(function () {
         h = $(this).height();
         if (h > maxHeight) {
             maxHeight = h;
@@ -298,8 +291,9 @@ function equalSize(elements)
  * Set up the notifications bar functionality
  */
 function setupNotifications() {
-    var id, parent;
-    $('.js-notificationClose').on('click', function(e) {
+    let id; let
+        parent;
+    $('.js-notificationClose').on('click', function (e) {
         e.preventDefault();
         parent = $(this).parents('.js-notification:first');
         parent.hide();
@@ -315,14 +309,14 @@ function setupNotifications() {
  * @param {number} exdays Number of days to set cookie for
  */
 function setCookie(cname, cvalue, exdays) {
-    var d = new Date(),
-        existing = getCookieValue(cname);
+    const d = new Date();
+    const existing = getCookieValue(cname);
     if (existing.length > 0) {
-        cvalue = existing + '-' + cvalue;
+        cvalue = `${existing}-${cvalue}`;
     }
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires + ';path=/';
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    const expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${cname}=${cvalue}; ${expires};path=/`;
 }
 
 /**
@@ -331,6 +325,6 @@ function setCookie(cname, cvalue, exdays) {
  * @returns string
  */
 function getCookieValue(cname) {
-    var b = document.cookie.match('(^|;)\\s*' + cname + '\\s*=\\s*([^;]+)');
+    const b = document.cookie.match(`(^|;)\\s*${cname}\\s*=\\s*([^;]+)`);
     return b ? b.pop() : '';
 }

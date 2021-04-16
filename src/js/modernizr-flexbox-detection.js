@@ -22,12 +22,10 @@
  * of control over the experience.
  */
 
-;(function (window, document, undefined) {
-    var classes = [];
+(function (window, document, undefined) {
+    const classes = [];
 
-
-    var tests = [];
-
+    const tests = [];
 
     /**
      *
@@ -37,55 +35,53 @@
      * @access public
      */
 
-    var ModernizrProto = {
+    const ModernizrProto = {
         // The current version, dummy
         _version: '3.2.0',
 
         // Any settings that don't work as separate modules
         // can go in here as configuration.
         _config: {
-            'classPrefix': '',
-            'enableClasses': true,
-            'enableJSClass': true,
-            'usePrefixes': true
+            classPrefix: '',
+            enableClasses: true,
+            enableJSClass: true,
+            usePrefixes: true,
         },
 
         // Queue of tests
         _q: [],
 
         // Stub these for people who are listening
-        on: function (test, cb) {
+        on(test, cb) {
             // I don't really think people should do this, but we can
             // safe guard it a bit.
             // -- NOTE:: this gets WAY overridden in src/addTest for actual async tests.
             // This is in case people listen to synchronous tests. I would leave it out,
             // but the code to *disallow* sync tests in the real version of this
             // function is actually larger than this.
-            var self = this;
-            setTimeout(function () {
+            const self = this;
+            setTimeout(() => {
                 cb(self[test]);
             }, 0);
         },
 
-        addTest: function (name, fn, options) {
-            tests.push({name: name, fn: fn, options: options});
+        addTest(name, fn, options) {
+            tests.push({ name, fn, options });
         },
 
-        addAsyncTest: function (fn) {
-            tests.push({name: null, fn: fn});
-        }
+        addAsyncTest(fn) {
+            tests.push({ name: null, fn });
+        },
     };
 
-
     // Fake some of Object.create so we can force non test results to be non "own" properties.
-    var Modernizr = function () {
+    let Modernizr = function () {
     };
     Modernizr.prototype = ModernizrProto;
 
     // Leak modernizr globally when you `require` it rather than force it here.
     // Overwrite name so constructor name is nicer :D
     Modernizr = new Modernizr();
-
 
     /**
      * is returns a boolean if the typeof an obj is exactly type.
@@ -100,7 +96,6 @@
     function is(obj, type) {
         return typeof obj === type;
     }
-    ;
 
     /**
      * Run through all tests and detect their support in the current UA.
@@ -109,15 +104,15 @@
      */
 
     function testRunner() {
-        var featureNames;
-        var feature;
-        var aliasIdx;
-        var result;
-        var nameIdx;
-        var featureName;
-        var featureNameSplit;
+        let featureNames;
+        let feature;
+        let aliasIdx;
+        let result;
+        let nameIdx;
+        let featureName;
+        let featureNameSplit;
 
-        for (var featureIdx in tests) {
+        for (const featureIdx in tests) {
             if (tests.hasOwnProperty(featureIdx)) {
                 featureNames = [];
                 feature = tests[featureIdx];
@@ -141,7 +136,6 @@
 
                 // Run the test, or use the raw value if it's not a function
                 result = is(feature.fn, 'function') ? feature.fn() : feature.fn;
-
 
                 // Set each of the names on the Modernizr object
                 for (nameIdx = 0; nameIdx < featureNames.length; nameIdx++) {
@@ -171,7 +165,6 @@
             }
         }
     }
-    ;
 
     /**
      * docElement is a convenience wrapper to grab the root element of the document
@@ -180,8 +173,7 @@
      * @returns {HTMLElement|SVGElement} The root element of the document
      */
 
-    var docElement = document.documentElement;
-
+    const docElement = document.documentElement;
 
     /**
      * A convenience helper to check if the document we are running in is an SVG document
@@ -190,8 +182,7 @@
      * @returns {boolean}
      */
 
-    var isSVG = docElement.nodeName.toLowerCase() === 'svg';
-
+    const isSVG = docElement.nodeName.toLowerCase() === 'svg';
 
     /**
      * setClasses takes an array of class names and adds them to the root element
@@ -204,8 +195,8 @@
     // Pass in an and array of class names, e.g.:
     //  ['no-webp', 'borderradius', ...]
     function setClasses(classes) {
-        var className = docElement.className;
-        var classPrefix = Modernizr._config.classPrefix || '';
+        let { className } = docElement;
+        const classPrefix = Modernizr._config.classPrefix || '';
 
         if (isSVG) {
             className = className.baseVal;
@@ -214,19 +205,16 @@
         // Change `no-js` to `js` (independently of the `enableClasses` option)
         // Handle classPrefix on this too
         if (Modernizr._config.enableJSClass) {
-            var reJS = new RegExp('(^|\\s)' + classPrefix + 'no-js(\\s|$)');
-            className = className.replace(reJS, '$1' + classPrefix + 'js$2');
+            const reJS = new RegExp(`(^|\\s)${classPrefix}no-js(\\s|$)`);
+            className = className.replace(reJS, `$1${classPrefix}js$2`);
         }
 
         if (Modernizr._config.enableClasses) {
             // Add the new classes
-            className += ' ' + classPrefix + classes.join(' ' + classPrefix);
+            className += ` ${classPrefix}${classes.join(` ${classPrefix}`)}`;
             isSVG ? docElement.className.baseVal = className : docElement.className = className;
         }
-
     }
-
-    ;
 
     /**
      * If the browsers follow the spec, then they would expose vendor-specific style as:
@@ -244,12 +232,10 @@
      * @returns {string} The string representing the vendor-specific style properties
      */
 
-    var omPrefixes = 'Moz O ms Webkit';
+    const omPrefixes = 'Moz O ms Webkit';
 
-
-    var cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
+    const cssomPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.split(' ') : []);
     ModernizrProto._cssomPrefixes = cssomPrefixes;
-
 
     /**
      * List of JavaScript DOM values used for tests
@@ -269,9 +255,8 @@
      * ```
      */
 
-    var domPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : []);
+    const domPrefixes = (ModernizrProto._config.usePrefixes ? omPrefixes.toLowerCase().split(' ') : []);
     ModernizrProto._domPrefixes = domPrefixes;
-
 
     /**
      * contains checks to see if a string contains another string
@@ -284,10 +269,8 @@
      */
 
     function contains(str, substr) {
-        return !!~('' + str).indexOf(substr);
+        return !!~(`${str}`).indexOf(substr);
     }
-
-    ;
 
     /**
      * createElement is a convenience wrapper around document.createElement. Since we
@@ -305,14 +288,11 @@
             // This is the case in IE7, where the type of createElement is "object".
             // For this reason, we cannot call apply() as Object is not a Function.
             return document.createElement(arguments[0]);
-        } else if (isSVG) {
+        } if (isSVG) {
             return document.createElementNS.call(document, 'http://www.w3.org/2000/svg', arguments[0]);
-        } else {
-            return document.createElement.apply(document, arguments);
         }
+        return document.createElement.apply(document, arguments);
     }
-
-    ;
 
     /**
      * cssToDOM takes a kebab-case string and converts it to camelCase
@@ -325,11 +305,8 @@
      */
 
     function cssToDOM(name) {
-        return name.replace(/([a-z])-([a-z])/g, function (str, m1, m2) {
-            return m1 + m2.toUpperCase();
-        }).replace(/^-/, '');
+        return name.replace(/([a-z])-([a-z])/g, (str, m1, m2) => m1 + m2.toUpperCase()).replace(/^-/, '');
     }
-    ;
 
     /**
      * fnBind is a super small [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) polyfill.
@@ -347,18 +324,15 @@
         };
     }
 
-    ;
-
     /**
      * testDOMProps is a generic DOM property test; if a browser supports
      *   a certain property, it won't return undefined for it.
      */
     function testDOMProps(props, obj, elem) {
-        var item;
+        let item;
 
-        for (var i in props) {
+        for (const i in props) {
             if (props[i] in obj) {
-
                 // return the property name as a string
                 if (elem === false) {
                     return props[i];
@@ -379,8 +353,6 @@
         return false;
     }
 
-    ;
-
     /**
      * domToCSS takes a camelCase string and converts it to kebab-case
      * e.g. boxSizing -> box-sizing
@@ -392,11 +364,8 @@
      */
 
     function domToCSS(name) {
-        return name.replace(/([A-Z])/g, function (str, m1) {
-            return '-' + m1.toLowerCase();
-        }).replace(/^ms-/, '-ms-');
+        return name.replace(/([A-Z])/g, (str, m1) => `-${m1.toLowerCase()}`).replace(/^ms-/, '-ms-');
     }
-    ;
 
     /**
      * Create our "modernizr" element that we do most feature tests on.
@@ -404,26 +373,24 @@
      * @access private
      */
 
-    var modElem = {
-        elem: createElement('modernizr')
+    const modElem = {
+        elem: createElement('modernizr'),
     };
 
     // Clean up this element
-    Modernizr._q.push(function () {
+    Modernizr._q.push(() => {
         delete modElem.elem;
     });
 
-
-    var mStyle = {
-        style: modElem.elem.style
+    const mStyle = {
+        style: modElem.elem.style,
     };
 
     // kill ref for gc, must happen before mod.elem is removed, so we unshift on to
     // the front of the queue.
-    Modernizr._q.unshift(function () {
+    Modernizr._q.unshift(() => {
         delete mStyle.style;
     });
-
 
     /**
      * getBody returns the body of a document, or an element that can stand in for
@@ -437,7 +404,7 @@
 
     function getBody() {
         // After page load injecting a fake body doesn't work so check if body exists
-        var body = document.body;
+        let { body } = document;
 
         if (!body) {
             // Can't use the real body create a fake one.
@@ -447,8 +414,6 @@
 
         return body;
     }
-
-    ;
 
     /**
      * injectElementWithStyles injects an element with style element and some CSS rules
@@ -463,13 +428,13 @@
      */
 
     function injectElementWithStyles(rule, callback, nodes, testnames) {
-        var mod = 'modernizr';
-        var style;
-        var ret;
-        var node;
-        var docOverflow;
-        var div = createElement('div');
-        var body = getBody();
+        const mod = 'modernizr';
+        let style;
+        let ret;
+        let node;
+        let docOverflow;
+        const div = createElement('div');
+        const body = getBody();
 
         if (parseInt(nodes, 10)) {
             // In order not to give false positives we create a node for each test
@@ -483,7 +448,7 @@
 
         style = createElement('style');
         style.type = 'text/css';
-        style.id = 's' + mod;
+        style.id = `s${mod}`;
 
         // IE6 will false positive on some tests due to the style element inside the test div somehow interfering offsetHeight, so insert it into body or fakebody.
         // Opera will act all quirky when injecting elements in documentElement when page is served as xml, needs fakebody too. #270
@@ -498,9 +463,9 @@
         div.id = mod;
 
         if (body.fake) {
-            //avoid crashing IE8, if background image is used
+            // avoid crashing IE8, if background image is used
             body.style.background = '';
-            //Safari 5.13/5.1.4 OSX stops loading if ::-webkit-scrollbar is used and scrollbars are visible
+            // Safari 5.13/5.1.4 OSX stops loading if ::-webkit-scrollbar is used and scrollbars are visible
             body.style.overflow = 'hidden';
             docOverflow = docElement.style.overflow;
             docElement.style.overflow = 'hidden';
@@ -519,10 +484,7 @@
         }
 
         return !!ret;
-
     }
-
-    ;
 
     /**
      * nativeTestProps allows for us to use native feature detection functionality if available.
@@ -538,7 +500,7 @@
     // Accepts a list of property names and a single value
     // Returns `undefined` if native detection not available
     function nativeTestProps(props, value) {
-        var i = props.length;
+        let i = props.length;
         // Start with the JS API: http://www.w3.org/TR/css3-conditional/#the-css-interface
         if ('CSS' in window && 'supports' in window.CSS) {
             // Try every prefixed variant of the property
@@ -550,20 +512,17 @@
             return false;
         }
         // Otherwise fall back to at-rule (for Opera 12.x)
-        else if ('CSSSupportsRule' in window) {
+        if ('CSSSupportsRule' in window) {
             // Build a condition string for every prefixed variant
-            var conditionText = [];
+            let conditionText = [];
             while (i--) {
-                conditionText.push('(' + domToCSS(props[i]) + ':' + value + ')');
+                conditionText.push(`(${domToCSS(props[i])}:${value})`);
             }
             conditionText = conditionText.join(' or ');
-            return injectElementWithStyles('@supports (' + conditionText + ') { #modernizr { position: absolute; } }', function (node) {
-                return getComputedStyle(node, null).position == 'absolute';
-            });
+            return injectElementWithStyles(`@supports (${conditionText}) { #modernizr { position: absolute; } }`, (node) => getComputedStyle(node, null).position == 'absolute');
         }
         return undefined;
     }
-    ;
 
     // testProps is a generic CSS / DOM property test.
 
@@ -583,14 +542,15 @@
 
         // Try native detect first
         if (!is(value, 'undefined')) {
-            var result = nativeTestProps(props, value);
+            const result = nativeTestProps(props, value);
             if (!is(result, 'undefined')) {
                 return result;
             }
         }
 
         // Otherwise do it properly
-        var afterInit, i, propsLength, prop, before;
+        let afterInit; let i; let propsLength; let prop; let
+            before;
 
         // If we don't have a style element, that means we're running async or after
         // the core tests, so we'll need to create our own elements to use
@@ -598,7 +558,7 @@
         // inside of an SVG element, in certain browsers, the `style` element is only
         // defined for valid tags. Therefore, if `modernizr` does not have one, we
         // fall back to a less used element and hope for the best.
-        var elems = ['modernizr', 'tspan'];
+        const elems = ['modernizr', 'tspan'];
         while (!mStyle.style) {
             afterInit = true;
             mStyle.modElem = createElement(elems.shift());
@@ -623,12 +583,10 @@
             }
 
             if (mStyle.style[prop] !== undefined) {
-
                 // If value to test has been passed in, do a set-and-check test.
                 // 0 (integer) is a valid property value, so check that `value` isn't
                 // undefined, rather than just checking it's truthy.
                 if (!skipValueTest && !is(value, 'undefined')) {
-
                     // Needs a try catch block because of old IE. This is slow, but will
                     // be avoided in most cases because `skipValueTest` will be used.
                     try {
@@ -657,8 +615,6 @@
         return false;
     }
 
-    ;
-
     /**
      * testPropsAll tests a list of DOM properties we want to check against.
      * We specify literally ALL possible (known and/or likely) properties on
@@ -666,19 +622,17 @@
      * compatibility.
      */
     function testPropsAll(prop, prefixed, elem, value, skipValueTest) {
-
-        var ucProp = prop.charAt(0).toUpperCase() + prop.slice(1),
-            props = (prop + ' ' + cssomPrefixes.join(ucProp + ' ') + ucProp).split(' ');
+        const ucProp = prop.charAt(0).toUpperCase() + prop.slice(1);
+        let props = (`${prop} ${cssomPrefixes.join(`${ucProp} `)}${ucProp}`).split(' ');
 
         // did they call .prefixed('boxSizing') or are we just testing a prop?
         if (is(prefixed, 'string') || is(prefixed, 'undefined')) {
             return testProps(props, prefixed, value, skipValueTest);
 
             // otherwise, they called .prefixed('requestAnimationFrame', window[, elem])
-        } else {
-            props = (prop + ' ' + (domPrefixes).join(ucProp + ' ') + ucProp).split(' ');
-            return testDOMProps(props, prefixed, elem);
         }
+        props = (`${prop} ${(domPrefixes).join(`${ucProp} `)}${ucProp}`).split(' ');
+        return testDOMProps(props, prefixed, elem);
     }
 
     // Modernizr.testAllProps() investigates whether a given style property,
@@ -687,7 +641,6 @@
     // Note that the property names must be provided in the camelCase variant.
     // Modernizr.testAllProps('boxSizing')
     ModernizrProto.testAllProps = testPropsAll;
-
 
     /**
      * testAllProps determines whether a given CSS property is supported in the browser
@@ -746,7 +699,7 @@
      "A `true` result for this detect does not imply that the `flex-wrap` property is supported; see the `flexwrap` detect."
      ]
      }
-     !*/
+     ! */
     /* DOC
      Detects support for the Flexible Box Layout model, a.k.a. Flexbox, which allows easy manipulation of layout order and sizing within a container.
      */
@@ -766,7 +719,7 @@
      "Does not imply a modern implementation – see documentation."
      ]
      }
-     !*/
+     ! */
     /* DOC
      Detects support for the `flex-wrap` CSS property, part of Flexbox, which isn’t present in all Flexbox implementations (notably Firefox).
 
@@ -784,7 +737,6 @@
 
     Modernizr.addTest('flexwrap', testAllProps('flexWrap', 'wrap', true));
 
-
     // Run each test
     testRunner();
 
@@ -795,15 +747,10 @@
     delete ModernizrProto.addAsyncTest;
 
     // Run the things that are supposed to run after the tests
-    for (var i = 0; i < Modernizr._q.length; i++) {
+    for (let i = 0; i < Modernizr._q.length; i++) {
         Modernizr._q[i]();
     }
 
     // Leak Modernizr namespace
     window.Modernizr = Modernizr;
-
-
-    ;
-
-})(window, document);
-
+}(window, document));
