@@ -65,7 +65,7 @@ lintJs.description = 'Lint Javascript files with eslint';
  */
 function scripts() {
     let tasks = config.scripts.map(function (entry, index) {
-        return gulp.src(entry.src)
+        return gulp.src(entry.src, { base: 'src' })
             .pipe(newer(config.paths.dist.js + '/' + entry.name))
             // Lint the script using eslint
             .pipe(tap((file) => {
