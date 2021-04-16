@@ -25,9 +25,7 @@
 * 0.2 initialize as hidden, thanks Rod
 * 0.1 first release
 */
-var TIPTOOL_VERSION = "0.2";
-
-
+const TIPTOOL_VERSION = '0.2';
 
 /**
 * @constructor TipTool()
@@ -37,50 +35,50 @@ var TIPTOOL_VERSION = "0.2";
 * @param {Object} opt_options Optional object.
 */
 function TipTool(map, point, opt_options) {
- this.opts = opt_options || {};
- this.point = point;
- this.setMap(map);
- this.map = map;
-};
+    this.opts = opt_options || {};
+    this.point = point;
+    this.setMap(map);
+    this.map = map;
+}
 
-//subclass of OverlayView()
+// subclass of OverlayView()
 TipTool.prototype = new google.maps.OverlayView();
 
 /**
 * onAdd(). Called internally by API when added on map.
 * to be called just once
 */
-TipTool.prototype.onAdd = function() {
- this.div_ = document.createElement('div');
- this.div_.style.position = "absolute";
- this.div_.style.overflow = "hidden";
- this.zIndex = this.opts.zIndex || 0;
- this.div_.className = this.opts.cssClass || this.opts.className || 'tiptool';
- this.div_.innerHTML = this.opts.html || "";
- google.maps.event.addDomListener(this.div_, "click", function(event) {
-   google.maps.event.trigger(me, "click", event);
- });
- var panes = this.getPanes();
- var paneId = this.opts.pane || "floatPane";
- panes[paneId].appendChild(this.div_);
- this.opacity = this.opts.opacity * 1 || 1;
- this.div_.style.filter = 'alpha(opacity:' + this.opacity*100 + ')';
- this.div_.style.opacity = this.opacity;
- this.div_.style.display = "none";
-}
+TipTool.prototype.onAdd = function () {
+    this.div_ = document.createElement('div');
+    this.div_.style.position = 'absolute';
+    this.div_.style.overflow = 'hidden';
+    this.zIndex = this.opts.zIndex || 0;
+    this.div_.className = this.opts.cssClass || this.opts.className || 'tiptool';
+    this.div_.innerHTML = this.opts.html || '';
+    google.maps.event.addDomListener(this.div_, 'click', (event) => {
+        google.maps.event.trigger(me, 'click', event);
+    });
+    const panes = this.getPanes();
+    const paneId = this.opts.pane || 'floatPane';
+    panes[paneId].appendChild(this.div_);
+    this.opacity = this.opts.opacity * 1 || 1;
+    this.div_.style.filter = `alpha(opacity:${this.opacity * 100})`;
+    this.div_.style.opacity = this.opacity;
+    this.div_.style.display = 'none';
+};
 
 /**
 * called internally by API when map moves.
 */
-TipTool.prototype.draw = function() {
- var pixPoint = this.getProjection().fromLatLngToDivPixel(this.point);
- this.div_.style.left = pixPoint.x + 'px';
- this.div_.style.top = pixPoint.y + 'px';
- var SEx = pixPoint.x + this.div_.offsetWidth;
- var SEy = pixPoint.y + this.div_.offsetHeight;
- var pixSE = new google.maps.Point(SEx, SEy);
- this.opts.SE = this.getProjection().fromDivPixelToLatLng(pixSE);
- this.opts.point = this.point;
+TipTool.prototype.draw = function () {
+    const pixPoint = this.getProjection().fromLatLngToDivPixel(this.point);
+    this.div_.style.left = `${pixPoint.x}px`;
+    this.div_.style.top = `${pixPoint.y}px`;
+    const SEx = pixPoint.x + this.div_.offsetWidth;
+    const SEy = pixPoint.y + this.div_.offsetHeight;
+    const pixSE = new google.maps.Point(SEx, SEy);
+    this.opts.SE = this.getProjection().fromDivPixelToLatLng(pixSE);
+    this.opts.point = this.point;
 };
 
 /**
@@ -88,39 +86,39 @@ TipTool.prototype.draw = function() {
 * @param {LatLng} point The location where the TipTool shall be moved
 */
 
-TipTool.prototype.setPosition = function(pint) {
- if(!this.div_) return false;
- this.point = pint;
- this.draw();
- return true
+TipTool.prototype.setPosition = function (pint) {
+    if (!this.div_) return false;
+    this.point = pint;
+    this.draw();
+    return true;
 };
 /**
 * Removes the div from DOM
 * @returns true if success, false if the div was not found
 */
-TipTool.prototype.onRemove = function() {
- if(!this.div_) return false;
- this.div_.parentNode.removeChild(this.div_);
- this.div_ = null;
- return true;
+TipTool.prototype.onRemove = function () {
+    if (!this.div_) return false;
+    this.div_.parentNode.removeChild(this.div_);
+    this.div_ = null;
+    return true;
 };
 /**
 * Sets the div display:none
 * @returns true if success, false if the div was not found
 */
-TipTool.prototype.hide = function() {
- if(!this.div_) return false;
- this.div_.style.display = "none";
- return true;
+TipTool.prototype.hide = function () {
+    if (!this.div_) return false;
+    this.div_.style.display = 'none';
+    return true;
 };
 /**
 * Sets the div display: block
 * @returns true if success, false if the div was not found
 */
-TipTool.prototype.show = function() {
- if(!this.div_) return false;
- this.div_.style.display = "block";
- return true;
+TipTool.prototype.show = function () {
+    if (!this.div_) return false;
+    this.div_.style.display = 'block';
+    return true;
 };
 
 /**
@@ -128,10 +126,10 @@ TipTool.prototype.show = function() {
 * @param {String}
 * @returns true if success, false if the div was not found
 */
-TipTool.prototype.setContent = function(html) {
- if(!this.div_) return false;
- this.div_.innerHTML = html;
- return true;
+TipTool.prototype.setContent = function (html) {
+    if (!this.div_) return false;
+    this.div_.innerHTML = html;
+    return true;
 };
 
 /**
@@ -139,42 +137,40 @@ TipTool.prototype.setContent = function(html) {
 * @param optional object
 * @returns the updated internal this.opts object
 */
-TipTool.prototype.props = function(options) {  // needs work for more properties
- var opts = options || {};
- for(var prop in opts){
-   this.opts[prop] = opts[prop];
- }
- return this.opts;
+TipTool.prototype.props = function (options) { // needs work for more properties
+    const opts = options || {};
+    for (const prop in opts) {
+        this.opts[prop] = opts[prop];
+    }
+    return this.opts;
 };
 /**
 * @returns The location of the div
 * @type LatLng object (null if the div was not found)
 */
-TipTool.prototype.getPosition = function() {
- if(!this.div_) return null;
- return this.bounds_.getCenter();
+TipTool.prototype.getPosition = function () {
+    if (!this.div_) return null;
+    return this.bounds_.getCenter();
 };
 /**
 * @returns True if TipTool is in viewport
 * @type boolean
 */
-TipTool.prototype.isVisible = function() {
- var bounds = this.map.getBounds();
- var visible = (bounds.contains(this.opts.point) && bounds.contains(this.opts.SE));
- return visible;
+TipTool.prototype.isVisible = function () {
+    const bounds = this.map.getBounds();
+    const visible = (bounds.contains(this.opts.point) && bounds.contains(this.opts.SE));
+    return visible;
 };
 /**
 * pans map to bring TipTool in viewport
 */
-TipTool.prototype.bringVisible = function() {
- if(this.isVisible()){
-   this.map.setCenter(this.map.getCenter());
- }else{
-   this.map.panTo(this.opts.point);
- }
+TipTool.prototype.bringVisible = function () {
+    if (this.isVisible()) {
+        this.map.setCenter(this.map.getCenter());
+    } else {
+        this.map.panTo(this.opts.point);
+    }
 };
-
-
 
 /**
 * attachTipTool() binds TipTool to a Marker
@@ -184,35 +180,35 @@ TipTool.prototype.bringVisible = function() {
 * @author Esa 2009
 */
 
-google.maps.Marker.prototype.attachTipTool = function (html, opt_options){
- var map_ = this.getMap();
- var position = this.getPosition();
- map_.tiptool_ = map_.tiptool_ || new TipTool(map_, position, opt_options);  // todo
- google.maps.event.addListener(this, 'mouseover', function () {
-   map_.tiptool_.setPosition(position);
-   map_.tiptool_.setContent(html);
-   map_.tiptool_.show();
-   clearTimeout(map_.tiptool_.timer);
- });
- google.maps.event.addListener(this, 'mouseout', function () {
-   clearTimeout(map_.tiptool_.timer);
-   map_.tiptool_.timer = setTimeout(function(){
-     map_.tiptool_.hide();
-   }, 200);
- });
-}
+google.maps.Marker.prototype.attachTipTool = function (html, opt_options) {
+    const map_ = this.getMap();
+    const position = this.getPosition();
+    map_.tiptool_ = map_.tiptool_ || new TipTool(map_, position, opt_options); // todo
+    google.maps.event.addListener(this, 'mouseover', () => {
+        map_.tiptool_.setPosition(position);
+        map_.tiptool_.setContent(html);
+        map_.tiptool_.show();
+        clearTimeout(map_.tiptool_.timer);
+    });
+    google.maps.event.addListener(this, 'mouseout', () => {
+        clearTimeout(map_.tiptool_.timer);
+        map_.tiptool_.timer = setTimeout(() => {
+            map_.tiptool_.hide();
+        }, 200);
+    });
+};
 
 /**
 * accessTipTool()
 * @extends Map
 * @returns {TipTool} reference to the TipTool object instance
 */
-google.maps.Map.prototype.accessTipTool = function (){
- var ret =  this.tiptool_ || {};
- return ret;
-}
+google.maps.Map.prototype.accessTipTool = function () {
+    const ret = this.tiptool_ || {};
+    return ret;
+};
 
-/////////////////////////////////////////////////////////////////////////////////////////////////
+/// //////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
 * attachInfoWindow() binds InfoWindow to a Marker
@@ -222,18 +218,18 @@ google.maps.Map.prototype.accessTipTool = function (){
 * @author Esa 2009
 */
 
-google.maps.Marker.prototype.attachInfoWindow = function (options){
- var map_ = this.getMap();
- map_.bubble_ = map_.bubble_ || new google.maps.InfoWindow();
- google.maps.event.addListener(this, 'click', function () {
-   map_.bubble_.setOptions(options);
-   map_.bubble_.open(map_, this);
+google.maps.Marker.prototype.attachInfoWindow = function (options) {
+    const map_ = this.getMap();
+    map_.bubble_ = map_.bubble_ || new google.maps.InfoWindow();
+    google.maps.event.addListener(this, 'click', function () {
+        map_.bubble_.setOptions(options);
+        map_.bubble_.open(map_, this);
+    });
+    map_.infoWindowClickShutter = map_.infoWindowClickShutter
+ || google.maps.event.addListener(map_, 'click', () => {
+     map_.bubble_.close();
  });
- map_.infoWindowClickShutter = map_.infoWindowClickShutter ||
- google.maps.event.addListener(map_, 'click', function () {
-   map_.bubble_.close();
- });
-}
+};
 
 /**
 * accessInfoWindow()
@@ -242,7 +238,7 @@ google.maps.Marker.prototype.attachInfoWindow = function (options){
 * Creates an InfoWindow instance if it does not exist already
 * @author Esa 2009
 */
-google.maps.Map.prototype.accessInfoWindow = function (){
- this.bubble_ = this.bubble_ || new google.maps.InfoWindow();
- return this.bubble_;
-}
+google.maps.Map.prototype.accessInfoWindow = function () {
+    this.bubble_ = this.bubble_ || new google.maps.InfoWindow();
+    return this.bubble_;
+};

@@ -6,20 +6,20 @@ storeLocationsListMap = {
     loadLimit: 50,
     location: {
         lat: '',
-        lng: ''
+        lng: '',
     },
     locationIcon: '',
     markers: {
         data: [],
         icon: '',
-        loading: false
+        loading: false,
     },
     list: {
         hasData: false,
         loading: false,
         pagesLoaded: 0, // Number of "pages" of trails already loaded
         pagesNeeded: 0, // Total number of "pages" of trails to load
-        total: 0 // Total number of trails available
+        total: 0, // Total number of trails available
     },
     search: {
         form: null,
@@ -27,13 +27,13 @@ storeLocationsListMap = {
         total: 0,
         type: '',
         ields: {},
-        fromUrl: false
+        fromUrl: false,
     },
     searching: false,
     cluster: {
         sm: '',
         md: '',
-        lg: ''
+        lg: '',
     },
     // Viewing the original full list or search results
     // 'full' or 'search'
@@ -95,7 +95,7 @@ storeLocationsListMap = {
      * Sets the latitude center point
      * @param {Number} latitude
      */
-    setLatitude: function(latitude) {
+    setLatitude(latitude) {
         this.latitude = latitude;
     },
 
@@ -103,7 +103,7 @@ storeLocationsListMap = {
      * Sets the longitude center point
      * @param {Number} longitude
      */
-    setLongitude: function(longitude) {
+    setLongitude(longitude) {
         this.longitude = longitude;
     },
 
@@ -115,7 +115,7 @@ storeLocationsListMap = {
      * @param {Number} latitude
      * @param {Number} longitude
      */
-    setFocusLocation: function(latitude, longitude) {
+    setFocusLocation(latitude, longitude) {
         this.setLatitude(latitude);
         this.setLongitude(longitude);
         this.fitToBounds = false;
@@ -126,7 +126,7 @@ storeLocationsListMap = {
      * Sets the initial zoom
      * @param {Number} zoom
      */
-    setZoom: function(zoom) {
+    setZoom(zoom) {
         this.zoom = zoom;
     },
 
@@ -134,7 +134,7 @@ storeLocationsListMap = {
      * Sets the image path to the small marker cluster image
      * @param {string} image
      */
-    setMarkerClusterSmImage: function(image) {
+    setMarkerClusterSmImage(image) {
         this.cluster.sm = image;
     },
 
@@ -142,7 +142,7 @@ storeLocationsListMap = {
      * Sets the image path to the medum marker cluster image
      * @param {string} image
      */
-    setMarkerClusterMdImage: function(image) {
+    setMarkerClusterMdImage(image) {
         this.cluster.md = image;
     },
 
@@ -150,7 +150,7 @@ storeLocationsListMap = {
      * Sets the image path to the large marker cluster image
      * @param {string} image
      */
-    setMarkerClusterLgImage: function(image) {
+    setMarkerClusterLgImage(image) {
         this.cluster.lg = image;
     },
 
@@ -158,7 +158,7 @@ storeLocationsListMap = {
      * Sets the path to the marker icon to show a trail on the map
      * @param {string} icon
      */
-    setMarkerIcon: function(icon) {
+    setMarkerIcon(icon) {
         this.markers.icon = icon;
     },
 
@@ -166,7 +166,7 @@ storeLocationsListMap = {
      * Sets the path to the icon to show the user's location
      * @param {string} icon
      */
-    setLocationIcon: function(icon) {
+    setLocationIcon(icon) {
         this.locationIcon = icon;
     },
 
@@ -174,17 +174,16 @@ storeLocationsListMap = {
      * Sets the total number of trails available for the trail list
      * @param {Number} total
      */
-    setListTotal: function(total) {
+    setListTotal(total) {
         this.list.pagesNeeded = Math.ceil(total / this.loadLimit);
         this.list.total = total;
-
     },
 
     /**
      * Sets whether or not to fit the map to the bounds of the displayed markers
      * @param {bool} fit
      */
-    setFitToBounds: function(fit) {
+    setFitToBounds(fit) {
         if (fit === true) {
             this.fitToBounds = true;
         } else {
@@ -195,8 +194,8 @@ storeLocationsListMap = {
     /**
      * Main method to call to setup the map
      */
-    run: function() {
-        var _self = this;
+    run() {
+        const _self = this;
         this.mapObj = new map();
         this.search.form = $('.js-searchForm');
         this._setupSearch();
@@ -218,16 +217,16 @@ storeLocationsListMap = {
          * Get the size from the custom "iconSize" attribute to determine how much
          * of a height offset to have
          */
-        this.mapObj.config.infoBox.trailMarkerInfoBoxPositionCallback = function(width, height) {
-            var returnVal = {
-                width: width,
-                height: height
+        this.mapObj.config.infoBox.trailMarkerInfoBoxPositionCallback = function (width, height) {
+            const returnVal = {
+                width,
+                height,
             };
             // "this" is the marker object
-            var iconHeight = this.icon.iconSize.h;
+            const iconHeight = this.icon.iconSize.h;
 
             // The desired difference between the offset height and the icon height
-            var diff = 18;
+            let diff = 18;
 
             // Offset height is smaller for smaller screens so set the difference to be less
             if (height == -55) {
@@ -238,19 +237,19 @@ storeLocationsListMap = {
             returnVal.height = -1 * (iconHeight + diff);
 
             return returnVal;
-        }
+        };
 
         // Trail marker callback
-        this.mapObj.config.trailMarker.iconCallback = function(item) {
-            var width = 27,
-                height = 42;
+        this.mapObj.config.trailMarker.iconCallback = function (item) {
+            const width = 27;
+            const height = 42;
 
-            var marker = {
+            const marker = {
                 // SVG must have height and width properties set
                 url: _self.markers.icon,
                 size: new google.maps.Size(width, height),
                 scaledSize: new google.maps.Size(width, height),
-                iconSize: {w: width, h: height} // Custom attribute used when calculating the offset size in trailMarkerInfoBoxPositionCallback
+                iconSize: { w: width, h: height }, // Custom attribute used when calculating the offset size in trailMarkerInfoBoxPositionCallback
             };
             return marker;
         };
@@ -258,8 +257,8 @@ storeLocationsListMap = {
             url: _self.locationIcon,
             size: new google.maps.Size(45, 45),
             scaledSize: new google.maps.Size(25, 25),
-            anchor: new google.maps.Point(12,25) // Set the anchor point from 0, 0 to the bottom center. This fixes issues with the marker "moving" when zooming out
-        }
+            anchor: new google.maps.Point(12, 25), // Set the anchor point from 0, 0 to the bottom center. This fixes issues with the marker "moving" when zooming out
+        };
         this.mapObj.config.trailMarker.height = 35;
         this.mapObj.config.trailMarker.width = 27;
         // Allow zooming out to any value
@@ -273,26 +272,26 @@ storeLocationsListMap = {
         // Set whether or not the map should zoom to fit all markers within the viewport
         this.mapObj.config.fitToBoundsMarker = this.fitToBounds;
         // Adjust the initial zoom level after fitBounds() is called
-        this.mapObj.config.fitToBoundsCallback = function() {
+        this.mapObj.config.fitToBoundsCallback = function () {
             // 'this' is the map object
             _self.initialZoom = this.getZoom();
             _self.center = this.getCenter();
-        }
+        };
 
         // Build the map
-        this.mapObj.run('map-canvas', function() {
+        this.mapObj.run('map-canvas', () => {
             $('.js-mapLoading').fadeOut(300);
             _self.center = _self.mapObj.map.getCenter();
             _self.zoom = _self.mapObj.map.getZoom();
             mapTypes.run();
-            _self.mapObj.setupGeoLocation(function(lat, lng) {
+            _self.mapObj.setupGeoLocation((lat, lng) => {
                 storeLocations.setLatitude(lat);
                 storeLocations.setLongitude(lng);
                 _self.location.lat = lat;
                 _self.location.lng = lng;
             });
-            //_self.setupPlacesSearch();
-            //_self.setupResetButton();
+            // _self.setupPlacesSearch();
+            // _self.setupResetButton();
 
             // Setup marker clustering
             _self.setupMarkerClusters();
@@ -301,7 +300,7 @@ storeLocationsListMap = {
         });
 
         if (supportsHistoryApi()) {
-            window.addEventListener('popstate', function(e) {
+            window.addEventListener('popstate', (e) => {
                 urlQueryValues.reset();
                 if (!urlQueryValues.hasValues()) {
                     _self._resetSearch();
@@ -316,38 +315,37 @@ storeLocationsListMap = {
      * Loads the initial data for the page
      * @private
      */
-    _loadContent: function() {
-
+    _loadContent() {
         // First test for specific values to search by
-        var _self = this,
-            searchFromUrl = false,
-            searchGeo = false,
-            params,
-            paramKey,
-            paramVal,
-            term = null;
+        const _self = this;
+        let searchFromUrl = false;
+        let searchGeo = false;
+        let params;
+        let paramKey;
+        let paramVal;
+        let term = null;
         this.search.fromUrl = false;
         this.search.fields = {};
         if (urlQueryValues.hasValues()) {
-            this._getQueryValue('type', function(value) {
+            this._getQueryValue('type', function (value) {
                 return this._validateStringParameter(value);
             });
-            this._getQueryValue('sponsor', function(value) {
+            this._getQueryValue('sponsor', function (value) {
                 return this._validateStringParameter(value);
             });
-            this._getQueryValue('geo', function(value) {
+            this._getQueryValue('geo', function (value) {
                 return this._validateStringParameter(value);
             });
-            this._getQueryValue('status', function(value) {
+            this._getQueryValue('status', function (value) {
                 return this._validateStringParameter(value);
             });
-            this._getQueryValue('town', function(value) {
+            this._getQueryValue('town', function (value) {
                 return this._validateIntParameter(value);
             });
-            this._getQueryValue('distance', function(value) {
+            this._getQueryValue('distance', function (value) {
                 return this._validateIntParameter(value);
             });
-            this._getQueryValue('item', function(value) {
+            this._getQueryValue('item', function (value) {
                 return this._validateItemIdParameter(value);
             });
 
@@ -377,7 +375,7 @@ storeLocationsListMap = {
              */
             $('.js-searchSponsor').prop('checked', false);
             params = Object.entries(this.search.fields);
-            for (var i = 0, l = params.length; i < l; i++) {
+            for (let i = 0, l = params.length; i < l; i++) {
                 paramKey = params[i][0];
                 paramVal = params[i][1];
                 if (paramKey == 'type') {
@@ -399,10 +397,10 @@ storeLocationsListMap = {
                     $('.js-searchDistance').val(paramVal);
                 } else if (paramKey == 'item') {
                     if (typeof paramVal === 'string') {
-                        $('.js-searchItemIds').append('<input type="hidden" name="field[appItemId]" value="' + paramVal + '">');
+                        $('.js-searchItemIds').append(`<input type="hidden" name="field[appItemId]" value="${paramVal}">`);
                     } else if (Array.isArray(paramVal)) {
-                        paramVal.forEach(function (val) {
-                            $('.js-searchItemIds').append('<input type="hidden" name="field[appItemId][]" value="' + val + '">');
+                        paramVal.forEach((val) => {
+                            $('.js-searchItemIds').append(`<input type="hidden" name="field[appItemId][]" value="${val}">`);
                         });
                     }
                 }
@@ -419,7 +417,7 @@ storeLocationsListMap = {
                     this._submitSearch();
                 } else {
                     // The location value hasn't been set yet. Wait a bit and try again
-                    setTimeout(function() {
+                    setTimeout(() => {
                         if (typeof _self.location.lat !== 'number') {
                             // The location still hasn't been retrieved. Remove the geo search and submit
                             $('.js-searchGeo').attr('checked', false).change();
@@ -437,7 +435,7 @@ storeLocationsListMap = {
      * Submits the search form
      * @private
      */
-    _submitSearch: function() {
+    _submitSearch() {
         this.search.form.submit();
         this._hideSearch();
     },
@@ -448,8 +446,8 @@ storeLocationsListMap = {
      * @param {function=} callback
      * @private
      */
-    _getQueryValue: function(key, callback) {
-        var value = urlQueryValues.get(key);
+    _getQueryValue(key, callback) {
+        let value = urlQueryValues.get(key);
         if (typeof value !== 'undefined') {
             if (typeof callback === 'function') {
                 value = callback.call(this, value);
@@ -466,11 +464,11 @@ storeLocationsListMap = {
      * @returns {*}
      * @private
      */
-    _validateItemIdParameter: function(value) {
-        var returnValue = null,
-            ids,
-            numIds,
-            id;
+    _validateItemIdParameter(value) {
+        let returnValue = null;
+        let ids;
+        let numIds;
+        let id;
         if (typeof value === 'string') {
             ids = value.split(',');
             numIds = ids.length;
@@ -506,7 +504,7 @@ storeLocationsListMap = {
      * @returns {Number|*}
      * @private
      */
-    _validateIntParameter: function(value) {
+    _validateIntParameter(value) {
         value = parseInt(value);
         if (value > 0) {
             return value;
@@ -519,28 +517,27 @@ storeLocationsListMap = {
      * @returns {string}
      * @private
      */
-    _validateStringParameter: function(value) {
+    _validateStringParameter(value) {
         if (typeof value === 'string') {
             return value;
         }
     },
 
-
     /**
      * Sets up the trail search functionality
      * @private
      */
-    _setupSearch: function() {
-        var _self = this;
-        $('.js-searchClose').on('click', function(e) {
+    _setupSearch() {
+        const _self = this;
+        $('.js-searchClose').on('click', (e) => {
             e.preventDefault();
             _self._hideSearch();
         });
 
         // Show/hide search box
-        $('.js-serviceNavSearch').on('click', function(e) {
+        $('.js-serviceNavSearch').on('click', function (e) {
             e.preventDefault();
-            var link = $(this);
+            const link = $(this);
             if (link.hasClass('is-active')) {
                 // Search is shown. Hide it.
                 _self._hideSearch();
@@ -550,17 +547,15 @@ storeLocationsListMap = {
             link.blur();
         });
 
-
-
         // Reset the form
-        $('.js-formReset').on('click', function(e) {
+        $('.js-formReset').on('click', function (e) {
             e.preventDefault();
             $(this).blur();
             _self._resetSearch();
         });
 
         // Submit the form
-        this.search.form.submit(function(e) {
+        this.search.form.submit(function (e) {
             e.preventDefault();
 
             if (_self.search.fromUrl === false) {
@@ -585,10 +580,10 @@ storeLocationsListMap = {
 
             $(this).ajaxSubmit({
                 dataType: 'json',
-                success: function (data) {
-                    var total,
-                        heading,
-                        ids;
+                success(data) {
+                    let total;
+                    let heading;
+                    let ids;
                     $('.js-searchTotalTrails').hide();
                     $('.js-totalTrails').hide();
                     _self.search.total = 0;
@@ -597,7 +592,7 @@ storeLocationsListMap = {
                         _self.search.total = total;
                         _self.hideNotFound();
 
-                        heading = total + ' Trailside Service';
+                        heading = `${total} Trailside Service`;
                         if (total > 1) {
                             heading += 's';
                         }
@@ -612,14 +607,14 @@ storeLocationsListMap = {
                             ids = ids.split(',');
                         }
 
-                        for (var i = ids.length - 1; i >= 0; i--) {
+                        for (let i = ids.length - 1; i >= 0; i--) {
                             _self.itemIds.push(ids[i]);
                         }
                         _self.loadSearchItems();
                     } else {
                         _self.showNotFound();
                     }
-                }
+                },
             });
         });
     },
@@ -628,9 +623,9 @@ storeLocationsListMap = {
      * Reset the search form
      * @private
      */
-    _resetSearch: function() {
-        var url,
-            searching = this.searching;
+    _resetSearch() {
+        let url;
+        const { searching } = this;
 
         if (supportsHistoryApi()) {
             url = '/store-locations';
@@ -668,38 +663,38 @@ storeLocationsListMap = {
      * Sets the search parameters in the URL
      * @private
      */
-    _setSearchInUrl: function() {
+    _setSearchInUrl() {
         if (supportsHistoryApi()) {
-            var formValues = this.search.form.serializeArray(),
-                name,
-                nameNoBrackets,
-                value,
-                ids = [],
-                params = [],
-                map = {
-                    'field[type]': 'type',
-                    'field[summitSponsor]': 'sponsor',
-                    'x': 'geo',
-                    'field[towns]': 'town',
-                    'field[appItemId]': 'item',
-                    'field[closureStatus.raw]': 'status',
-                    'geoDistance[geolocation][distance]': 'distance',
-                    'term': 'term'
-                };
+            const formValues = this.search.form.serializeArray();
+            let name;
+            let nameNoBrackets;
+            let value;
+            const ids = [];
+            let params = [];
+            const map = {
+                'field[type]': 'type',
+                'field[summitSponsor]': 'sponsor',
+                x: 'geo',
+                'field[towns]': 'town',
+                'field[appItemId]': 'item',
+                'field[closureStatus.raw]': 'status',
+                'geoDistance[geolocation][distance]': 'distance',
+                term: 'term',
+            };
             if (Array.isArray(formValues)) {
-                for (var i = 0, l = formValues.length; i < l; i ++) {
-                    name = formValues[i]['name'];
-                    value = formValues[i]['value'];
+                for (let i = 0, l = formValues.length; i < l; i++) {
+                    name = formValues[i].name;
+                    value = formValues[i].value;
                     if (typeof value === 'string' && value.length > 0) {
                         if (!name.match(/\[(\d+)?\]$/)) {
                             if (typeof map[name] !== 'undefined') {
-                                params.push(map[name] + '=' + encodeURIComponent(value));
+                                params.push(`${map[name]}=${encodeURIComponent(value)}`);
                             }
                         } else {
                             nameNoBrackets = name.replace(/\[(\d+)?\]/, '');
                             if (typeof map[nameNoBrackets] !== 'undefined') {
                                 if (nameNoBrackets !== 'field[appItemId]') {
-                                    params.push(map[nameNoBrackets] + '=' + encodeURIComponent(value));
+                                    params.push(`${map[nameNoBrackets]}=${encodeURIComponent(value)}`);
                                 } else {
                                     ids.push(value);
                                 }
@@ -708,13 +703,13 @@ storeLocationsListMap = {
                     }
                 }
                 if (ids.length > 0) {
-                    params.push('item=' + ids.join(','));
+                    params.push(`item=${ids.join(',')}`);
                 }
             }
             if (params.length > 0) {
-                params = '?' + params.join('&');
+                params = `?${params.join('&')}`;
                 if (params != window.location.search) {
-                    window.history.pushState(null, null, '/store-locations' + params);
+                    window.history.pushState(null, null, `/store-locations${params}`);
                     urlQueryValues.reset();
                 }
             }
@@ -724,7 +719,7 @@ storeLocationsListMap = {
     /**
      * Shows the not found message
      */
-    showNotFound: function() {
+    showNotFound() {
         $('.js-mapOverlay').hide();
         $('.js-mapCanvas').hide();
         $('.js-searchNoResults').show();
@@ -739,7 +734,7 @@ storeLocationsListMap = {
     /**
      * Hides the not found message
      */
-    hideNotFound: function() {
+    hideNotFound() {
         $('.js-mapCanvas').show();
         $('.js-searchNoResults').hide();
         if (!$('.js-loadItems').hasClass('u-hidden')) {
@@ -750,7 +745,7 @@ storeLocationsListMap = {
     /**
      * Clears the map of info boxes and markers
      */
-    clearMap: function() {
+    clearMap() {
         this.mapObj.removeInfoBoxes();
         this.mapObj.removeMarkers();
     },
@@ -760,7 +755,7 @@ storeLocationsListMap = {
      * instead of the map view
      * @private
      */
-    _showMapView: function() {
+    _showMapView() {
         $('.js-searchTotalTrails').hide();
         $('.js-totalTrails').show();
         if (this.markers.data.length == 0) {
@@ -777,7 +772,7 @@ storeLocationsListMap = {
      * Show the search panel
      * @private
      */
-    _showSearch: function() {
+    _showSearch() {
         $('.js-serviceNavSearch').addClass('is-active');
         $('.js-search').show();
         if (window.innerWidth > 350) {
@@ -789,7 +784,7 @@ storeLocationsListMap = {
      * Hide the search panel
      * @private
      */
-    _hideSearch: function() {
+    _hideSearch() {
         $('.js-serviceNavSearch').removeClass('is-active');
         $('.js-search').hide();
         $('.js-searchClose').hide();
@@ -798,26 +793,26 @@ storeLocationsListMap = {
     /**
      * Sets up the marker clusters
      */
-    setupMarkerClusters: function() {
+    setupMarkerClusters() {
         /**
          * Add the marker cluster styles (i.e. the cluster icons to show).
          * You can call map.addMarkerClusterStyle() to add as many as you want.
          */
         this.mapObj.addMarkerClusterStyle({
-            'url': this.cluster.sm,
-            'width': '41',
-            'height': '41'
+            url: this.cluster.sm,
+            width: '41',
+            height: '41',
         });
         this.mapObj.addMarkerClusterStyle({
-            'url': this.cluster.md,
-            'width': '54',
-            'height': '54'
+            url: this.cluster.md,
+            width: '54',
+            height: '54',
         });
         this.mapObj.addMarkerClusterStyle({
-            'url': this.cluster.lg,
-            'width': '67',
-            'height': '67',
-            textSize: 16
+            url: this.cluster.lg,
+            width: '67',
+            height: '67',
+            textSize: 16,
         });
 
         /**
@@ -828,7 +823,7 @@ storeLocationsListMap = {
          */
         this.mapObj.setupMarkerCluster(null, {
             maxZoom: 18,
-            minimumClusterSize: 2
+            minimumClusterSize: 2,
         });
     },
 
@@ -836,8 +831,8 @@ storeLocationsListMap = {
      * Loads all of the trail markers for the trail list pages
      * @param {boolean=} showLoading Whether or not to show the loading message
      */
-    loadItems: function(showLoading, fitToBounds) {
-        var _self = this;
+    loadItems(showLoading, fitToBounds) {
+        const _self = this;
         if (showLoading) {
             $('.js-mapOverlay').show();
         }
@@ -846,7 +841,7 @@ storeLocationsListMap = {
         }
         if (this.markers.loading === false && this.markers.data.length == 0) {
             this.markers.loading = true;
-            $.getJSON('/store-locations/map-items', function (data) {
+            $.getJSON('/store-locations/map-items', (data) => {
                 _self.markers.loading = false;
                 _self.markers.data = data;
                 _self.mapObj.setupTrailMarkers(data);
@@ -859,29 +854,27 @@ storeLocationsListMap = {
         }
     },
 
-
-
     /**
      * Loads trails for search results
      */
-    loadSearchItems: function() {
-        var _self = this;
+    loadSearchItems() {
+        const _self = this;
         this.search.markers = [];
         if (this.itemIds.length > 0) {
             $.ajax({
                 type: 'POST',
                 url: '/store-locations/map-items',
-                data: {'id': _self.itemIds},
+                data: { id: _self.itemIds },
                 dataType: 'json',
-                success: function (data) {
+                success(data) {
                     _self.clearMap();
                     _self.search.markers = data;
                     _self.mapObj.setupTrailMarkers(data);
                     _self.mapObj.fitToBounds();
                     _self.mapObj.repaintMarkerCluster();
                     $('.js-mapOverlay').hide();
-                }
+                },
             });
         }
-    }
+    },
 };

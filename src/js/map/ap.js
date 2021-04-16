@@ -101,13 +101,14 @@ ap.event = {
      * @param {string|Function} selector The selector to delegate the event to or the callback function
      * @param {Function} [callback] The callback function
      */
-    add: function (element, event, selector, callback) {
+    add(element, event, selector, callback) {
         // Setup a new callback method to handle event delegation
-        var callbackNew = function(e) {
+        const callbackNew = function (e) {
             if (ap.isFunction(selector)) {
                 selector.call(this, e);
             } else if (ap.isFunction(callback)) {
-                var el = e.target, found;
+                let el = e.target; let
+                    found;
                 // Traverse the event target's parent nodes to find the element control element
                 while (el && el.nodeType === 1 && !(found = el.classList.contains(selector))) {
                     el = el.parentElement;
@@ -119,10 +120,10 @@ ap.event = {
         };
 
         // Add the event listener
-        if (element.addEventListener) {  // W3C DOM
+        if (element.addEventListener) { // W3C DOM
             element.addEventListener(event, callbackNew, false);
         } else if (element.attachEvent) { // IE < 9 DOM
-            element.attachEvent('on' + event, callbackNew);
+            element.attachEvent(`on${event}`, callbackNew);
         }
     },
 
@@ -141,24 +142,25 @@ ap.event = {
      * @param {bool} [immediate] Whether or not to trigger the function on the leading edge, instead of the trailing
      * @returns {Function}
      */
-    debounce: function (func, wait, immediate) {
-        var timeout;
+    debounce(func, wait, immediate) {
+        let timeout;
         return function () {
-            var context = this, args = arguments;
-            var later = function () {
+            const context = this; const
+                args = arguments;
+            const later = function () {
                 timeout = null;
                 if (!immediate) {
                     func.apply(context, args);
                 }
             };
-            var callNow = immediate && !timeout;
+            const callNow = immediate && !timeout;
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
             if (callNow) {
                 func.apply(context, args);
             }
         };
-    }
+    },
 };
 /**
  * Extends the properties of the first object with the properties of the second
@@ -168,7 +170,7 @@ ap.event = {
  * @returns {Object}
  */
 ap.extend = function (dest, source) {
-    for (var prop in source) {
+    for (const prop in source) {
         dest[prop] = source[prop];
     }
     return dest;
@@ -180,9 +182,9 @@ ap.extend = function (dest, source) {
  * @returns {Number}
  */
 ap.getWindowWidth = function () {
-    var d = document,
-        e = d.documentElement,
-        g = d.getElementsByTagName('body')[0],
-        w = window.innerWidth || e.clientWidth || g.clientWidth;
+    const d = document;
+    const e = d.documentElement;
+    const g = d.getElementsByTagName('body')[0];
+    const w = window.innerWidth || e.clientWidth || g.clientWidth;
     return w;
 };

@@ -13,7 +13,7 @@ function supportsHistoryApi() {
 /**
  * Provides methods for working with URL query parameters
  */
-var urlQueryValues = {
+const urlQueryValues = {
     /**
      * The URL query parameter values
      * @var {object|URLSearchParams}
@@ -26,9 +26,9 @@ var urlQueryValues = {
      * @param {string} key The name of the parameter to get
      * @returns {string}
      */
-    get: function(key) {
+    get(key) {
         this.init();
-        var returnValue = null;
+        let returnValue = null;
         if (typeof this.values[key] !== 'undefined') {
             returnValue = this.values[key];
             // If return value is an array with only one value, return just the one value
@@ -44,7 +44,7 @@ var urlQueryValues = {
      * Gets whether or not there are any query parameters
      * @returns {boolean}
      */
-    hasValues: function() {
+    hasValues() {
         this.init();
         return Object.keys(this.values).length > 0;
     },
@@ -53,7 +53,7 @@ var urlQueryValues = {
      * Gets the query parameter values if they don't already exist
      * @private
      */
-    init: function() {
+    init() {
         if (this.values === null) {
             // This is the first time. Get the URL parameters if they exist.
             this.values = this._getAllUrlParams();
@@ -63,7 +63,7 @@ var urlQueryValues = {
     /**
      * Resets the parameters to match what's in the URL now
      */
-    reset: function() {
+    reset() {
         this.values = this._getAllUrlParams();
     },
 
@@ -72,7 +72,7 @@ var urlQueryValues = {
      * @param {string} key
      * @param {string|Array} value
      */
-    set: function(key, value) {
+    set(key, value) {
         this.reset();
         this.values[key] = value;
     },
@@ -82,15 +82,15 @@ var urlQueryValues = {
      * @params {string=} The parameter key to skip
      * @returns {string}
      */
-    toString: function(skip) {
-        var returnValue = '',
-            values,
-            key,
-            val;
+    toString(skip) {
+        let returnValue = '';
+        let values;
+        let key;
+        let val;
         if (this.hasValues()) {
             returnValue = '?';
             values = Object.entries(this.values);
-            for (var i = 0, l = values.length; i < l; i++) {
+            for (let i = 0, l = values.length; i < l; i++) {
                 key = values[i][0];
                 if (typeof skip === 'undefined' || key != skip) {
                     val = values[i][1];
@@ -98,13 +98,13 @@ var urlQueryValues = {
                         returnValue += '&';
                     }
                     if (typeof val === 'string') {
-                        returnValue += key + '=' + val;
+                        returnValue += `${key}=${val}`;
                     } else if (Array.isArray(val)) {
-                        val.forEach(function (thisVal, index) {
+                        val.forEach((thisVal, index) => {
                             if (index > 0) {
                                 returnValue += '&';
                             }
-                            returnValue += key + '[]' + thisVal;
+                            returnValue += `${key}[]${thisVal}`;
                         });
                     }
                 }
@@ -124,46 +124,44 @@ var urlQueryValues = {
      * @returns {{}}
      * @private
      */
-    _getAllUrlParams: function(url) {
+    _getAllUrlParams(url) {
         // get query string from url (optional) or window
-        var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+        let queryString = url ? url.split('?')[1] : window.location.search.slice(1);
 
         // we'll store the parameters here
-        var obj = {};
+        const obj = {};
 
         // if query string exists
         if (queryString) {
-
             // stuff after # is not part of query string, so get rid of it
             queryString = queryString.split('#')[0];
 
             // split our query string into its component parts
-            var arr = queryString.split('&');
+            const arr = queryString.split('&');
 
-            for (var i = 0; i < arr.length; i++) {
+            for (let i = 0; i < arr.length; i++) {
                 // separate the keys and the values
-                var a = arr[i].split('=');
+                const a = arr[i].split('=');
 
                 // set parameter name and value (use 'true' if empty)
-                var paramName = a[0];
-                var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+                const paramName = a[0];
+                let paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
 
                 // (optional) keep case consistent
-                //paramName = paramName.toLowerCase();
-                //if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+                // paramName = paramName.toLowerCase();
+                // if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
                 if (typeof paramValue === 'string') paramValue = decodeURIComponent(paramValue);
 
                 // if the paramName ends with square brackets, e.g. colors[] or colors[2]
                 if (paramName.match(/\[(\d+)?\]$/)) {
-
                     // create key if it doesn't exist
-                    var key = paramName.replace(/\[(\d+)?\]/, '');
+                    const key = paramName.replace(/\[(\d+)?\]/, '');
                     if (!obj[key]) obj[key] = [];
 
                     // if it's an indexed array e.g. colors[2]
                     if (paramName.match(/\[\d+\]$/)) {
                         // get the index value and add the entry at the appropriate position
-                        var index = /\[(\d+)\]/.exec(paramName)[1];
+                        const index = /\[(\d+)\]/.exec(paramName)[1];
                         obj[key][index] = paramValue;
                     } else {
                         // otherwise add the value to the end of the array
@@ -174,7 +172,7 @@ var urlQueryValues = {
                     if (!obj[paramName]) {
                         // if it doesn't exist, create property
                         obj[paramName] = paramValue;
-                    } else if (obj[paramName] && typeof obj[paramName] === 'string'){
+                    } else if (obj[paramName] && typeof obj[paramName] === 'string') {
                         // if property does exist and it's a string, convert it to an array
                         obj[paramName] = [obj[paramName]];
                         obj[paramName].push(paramValue);
@@ -186,8 +184,8 @@ var urlQueryValues = {
             }
         }
         return obj;
-    }
-}
+    },
+};
 
 var storeLocations = {
     fieldDistance: null,
@@ -200,18 +198,18 @@ var storeLocations = {
     latitude: 45,
     longitude: -69,
 
-    init: function() {
+    init() {
         this.form = document.querySelector('.js-slSearchForm');
         this.fieldDistance = document.querySelector('.js-searchDistance');
         this.fieldLat = document.querySelector('.js-geoLocationLat');
         this.fieldLon = document.querySelector('.js-geoLocationLon');
         this.fieldLocation = document.querySelector('.js-slSearchLocation');
-        this.geocoder = new google.maps.Geocoder;
+        this.geocoder = new google.maps.Geocoder();
 
         this.setupSearch();
 
-        var locations = document.querySelector('.js-locations');
-        locations.addEventListener('click', function (e) {
+        const locations = document.querySelector('.js-locations');
+        locations.addEventListener('click', (e) => {
             e.preventDefault();
             if (e.target.classList.contains('js-locationBtn')) {
                 storeLocationsListMap.mapObj.clickMarker(e.target.getAttribute('data-id'));
@@ -223,16 +221,16 @@ var storeLocations = {
      * Set up the search form
      * @private
      */
-    setupSearch: function() {
-        var _self = this;
+    setupSearch() {
+        const _self = this;
         // Set up the search form
-        this.form.addEventListener('submit', function(e) {
+        this.form.addEventListener('submit', (e) => {
             e.preventDefault();
 
             _self.itemIds = [];
             $('.js-locations').html('<p>SEARCHING...</p>');
 
-            _self.getLocation(function() {
+            _self.getLocation(() => {
                 _self.search();
             });
         });
@@ -241,13 +239,13 @@ var storeLocations = {
     /**
      * Perform the actual search
      */
-    search: function() {
-        var _self = this;
+    search() {
+        const _self = this;
         $(this.form).ajaxSubmit({
             dataType: 'json',
-            success: function (data) {
-                var total,
-                    ids;
+            success(data) {
+                let total;
+                let ids;
                 total = parseInt(data.total);
                 console.log('Total: ', total);
                 if (total > 0) {
@@ -257,7 +255,7 @@ var storeLocations = {
                 } else {
                     _self.showNotFound();
                 }
-            }
+            },
         });
     },
 
@@ -266,7 +264,7 @@ var storeLocations = {
      * @private
      * @param string|number ids The ids from the search results. Either a single number or a comma separated string of numbers
      */
-    setItemIds: function(ids) {
+    setItemIds(ids) {
         this.itemIds = [];
         if (typeof ids === 'number') {
             ids = [ids];
@@ -274,7 +272,7 @@ var storeLocations = {
             ids = ids.split(',');
         }
 
-        for (var i = ids.length - 1; i >= 0; i--) {
+        for (let i = ids.length - 1; i >= 0; i--) {
             this.itemIds.push(ids[i]);
         }
     },
@@ -282,16 +280,16 @@ var storeLocations = {
     /**
      * Load the items that were returned in the search results
      */
-    loadSearchItems: function() {
-        var _self = this;
+    loadSearchItems() {
+        const _self = this;
         storeLocationsListMap.search.markers = [];
         if (this.itemIds.length > 0) {
             $.ajax({
                 type: 'POST',
                 url: '/store-locations/map-items',
-                data: {'id': _self.itemIds},
+                data: { id: _self.itemIds },
                 dataType: 'json',
-                success: function (data) {
+                success(data) {
                     $('.js-locations').empty();
                     storeLocationsListMap.clearMap();
                     storeLocationsListMap.search.markers = data;
@@ -302,25 +300,26 @@ var storeLocations = {
                     // Show items in sidebar
 
                     if (ap.isArray(data)) {
-                        var item, el;
-                        for (var key in data) {
+                        let item; let
+                            el;
+                        for (const key in data) {
                             if (data.hasOwnProperty(key)) {
                                 item = data[key];
                                 el = '<div class="StoreLocations-item">';
-                                el += '<div class="StoreLocations-title"><a href="' + item.url + '" target="_blank" class="u-linkSubtle">' + item.name + '</a></div>';
+                                el += `<div class="StoreLocations-title"><a href="${item.url}" target="_blank" class="u-linkSubtle">${item.name}</a></div>`;
                                 el += '<div class="StoreLocations-address">';
-                                el += item.addr + '<br>' + item.city + ', ' + item.state + ' ' + item.zip;
+                                el += `${item.addr}<br>${item.city}, ${item.state} ${item.zip}`;
                                 el += '</div>'; // End StoreLocations-address
                                 el += '<div class="StoreLocations-buttons">';
                                 el += '<button type="button" class="StoreLocations-button">View on Map</button>';
-                                el += '<a href="' + item.url + '" class="StoreLocations-button" target="_blank">View Details</a>';
+                                el += `<a href="${item.url}" class="StoreLocations-button" target="_blank">View Details</a>`;
                                 el += '</div>'; // End StoreLocations-buttons
                                 el += '</div>'; // End StoreLocations-item
                                 $('.js-locations').append(el);
                             }
                         }
                     }
-                }
+                },
             });
         }
     },
@@ -328,7 +327,7 @@ var storeLocations = {
     /**
      * Shows the not found message
      */
-    showNotFound: function() {
+    showNotFound() {
         $('.js-locations').html('<p><b>No locations were found near you</b>');
         // $('.js-mapOverlay').hide();
         // $('.js-mapCanvas').hide();
@@ -341,28 +340,28 @@ var storeLocations = {
         // }
     },
 
-    setLatitude: function (latitude) {
+    setLatitude(latitude) {
         this.latitude = latitude;
         this.fieldLat.value = latitude;
     },
-    setLongitude: function (longitude) {
+    setLongitude(longitude) {
         this.longitude = longitude;
         this.fieldLon.value = longitude;
     },
 
-    getLocation: function(callback) {
-        var address = this.fieldLocation.value;
+    getLocation(callback) {
+        const address = this.fieldLocation.value;
         if (address.length > 0) {
             this.geocoder.geocode({
                 address: encodeURI(address),
                 // componentRestrictions: {
                 //     'country': 'US'
                 // }
-            }, function(results, status){
+            }, (results, status) => {
                 if (status == 'OK' && results.length > 0) {
                     console.log(results);
                     storeLocations.setLocation(results[0].geometry.location);
-                    if (typeof callback == 'function') {
+                    if (typeof callback === 'function') {
                         callback.apply();
                     }
                 }
@@ -370,9 +369,9 @@ var storeLocations = {
         }
     },
 
-    setLocation: function(latlng) {
-        var lat = latlng.lat(),
-            lng = latlng.lng();
+    setLocation(latlng) {
+        const lat = latlng.lat();
+        const lng = latlng.lng();
 
         // Set the latitude and longitude values
         this.setLatitude(lat);
@@ -391,24 +390,22 @@ var storeLocations = {
         // this.locationSet = true;
     },
 
-    getAddress: function() {
-        var i,
-            l,
-            addr,
-            addrPart;
+    getAddress() {
+        let i;
+        let l;
+        let addr;
+        let addrPart;
         this.geocoder.geocode({
-            'location': {
-                'lat': this.latitude,
-                'lng': this.longitude
-            }
-        }, function(results, status) {
+            location: {
+                lat: this.latitude,
+                lng: this.longitude,
+            },
+        }, (results, status) => {
             if (status == 'OK') {
                 // A valid response was returned
                 for (i = 0, l = results.length; i < l; i++) {
                     addr = results[i];
-                    if (addr.types.some(function(val) {
-                        return val == 'street_address'
-                    })
+                    if (addr.types.some((val) => val == 'street_address')
                     ) {
                         storeLocations.fieldLocation.value = addr.formatted_address;
                         break;
@@ -416,5 +413,5 @@ var storeLocations = {
                 }
             }
         });
-    }
-}
+    },
+};

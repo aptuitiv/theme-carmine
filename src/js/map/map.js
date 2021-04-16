@@ -31,7 +31,7 @@
 /**
  * Map object to setup the trail map
  */
-map = function() {
+map = function () {
     /**
      * Set initial property values. This makes sure that they
      * are unique for each map instance that is using it.
@@ -47,7 +47,7 @@ map = function() {
         // Maximum zoom level when fitting to bounds
         fitToBoundsMazZoom: 13,
         // Callback for when fitBounds() is run
-        fitToBoundsCallback: function() {},
+        fitToBoundsCallback() {},
         // Full screen
         fullScreen: true,
         // Optional callback to set the full screen control options
@@ -59,25 +59,25 @@ map = function() {
             enable: true,
             position: 'BOTTOM_LEFT',
             src: '/theme/custom/images/gps-zoom.png',
-            title: 'Zoom to location'
+            title: 'Zoom to location',
         },
         // Whether or not to support tracking the user's location as they move
         geoLocationTrack: {
             enable: true,
             icon: '/theme/custom/images/gps-dot.png',
-            title: 'Your Location'
+            title: 'Your Location',
         },
         infoBox: {
             // Image path for the close icon
             closeIcon: '/theme/custom/images/close.png',
             // Callback function to get the InfoBox content for a POI
-            poiCallback: function() {},
+            poiCallback() {},
             // POI InfoBox width
             poiWidth: 250,
             // Callback for when the "domready" InfoBox even
-            readyCallback: function() {},
+            readyCallback() {},
             // Callback function to get the InfoBox content for a segment
-            segmentCallback: function() {},
+            segmentCallback() {},
             // Segment InfoBox width when window width > 800
             segmentWidth: 350,
             // Segment InfoBox width when window width < 800
@@ -87,11 +87,11 @@ map = function() {
             // Segment InfoBox width when window width < 400
             segmentWidthXs: 250,
             // Callback function to get the InfoBox content for trail markers
-            trailMarkerCallback: function() {},
+            trailMarkerCallback() {},
             // Callback to adjust the InfoBox offset position for trail markers
-            trailMarkerInfoBoxPositionCallback: function() {},
+            trailMarkerInfoBoxPositionCallback() {},
             // Callback function for the trail marker when the infobox dom is ready
-            trailMarkerReadyCallback: function() {},
+            trailMarkerReadyCallback() {},
             // Trail marker InfoBox width when window width > 800
             trailMarkerWidth: 350,
             // Trail marker InfoBox width when window width < 800
@@ -99,7 +99,7 @@ map = function() {
             // Trail marker InfoBox width when window width < 600
             trailMarkerWidthSm: 300,
             // Trail marker InfoBox width when window width < 400
-            trailMarkerWidthXs: 250
+            trailMarkerWidthXs: 250,
         },
         // Holds the callback function to call once the map is loaded
         loadedCallback: null,
@@ -117,7 +117,7 @@ map = function() {
         poiImage: {
             enable: false,
             icon: '/images/trails/feature-markers/photo.png',
-            title: 'Photo'
+            title: 'Photo',
         },
         // Holds the link class for the related trails
         relatedTrailslinkClass: 'js-rtShowHide',
@@ -180,14 +180,14 @@ map = function() {
             iconCallback: null,
             // Trail marker icon width
             width: 25,
-        }
+        },
     };
     this.controlCallbacks = [];
     this.fullScreen = {
         in: false,
         inCenter: null,
         out: true,
-        outCenter: null
+        outCenter: null,
     };
     this.geoLocationIcon = null;
     this.geoLocationDisplayed = false;
@@ -363,7 +363,7 @@ map.prototype = {
      * @param {Number} latitude
      * @param {Number} longitude
      */
-    setCenter: function(latitude, longitude) {
+    setCenter(latitude, longitude) {
         this.center = new google.maps.LatLng(latitude, longitude);
     },
 
@@ -371,8 +371,8 @@ map.prototype = {
      * Sets the map zoom value
      * @param {int} zoom The default zoom value
      */
-    setZoom: function(zoom) {
-        this.zoom = this._getZoom(zoom)
+    setZoom(zoom) {
+        this.zoom = this._getZoom(zoom);
     },
 
     /**
@@ -381,15 +381,15 @@ map.prototype = {
      * @param {string} canvasId The canvas element id
      * @param {Function} callback A callback function to call when the map is setup
      */
-    run: function (canvasId, callback) {
+    run(canvasId, callback) {
         this.canvas = document.getElementById(canvasId);
         // wait for the map to load before initializing
-        google.maps.event.addDomListener(window, 'load', function () {
+        google.maps.event.addDomListener(window, 'load', () => {
             this._setupMap();
             if (ap.isFunction(callback)) {
                 callback.call();
             }
-        }.bind(this));
+        });
     },
 
     /**
@@ -397,7 +397,7 @@ map.prototype = {
      *
      * @param {string} type The map type
      */
-    setMapType: function(type) {
+    setMapType(type) {
         if (ap.isObject(this.map)) {
             this.map.setMapTypeId(this._getMapType(type));
         } else {
@@ -409,7 +409,7 @@ map.prototype = {
      * Sets a custom map type
      * @param {string} type The custom map type
      */
-    setCustomMapType: function(type) {
+    setCustomMapType(type) {
         this.map.setMapTypeId(type);
     },
 
@@ -417,18 +417,18 @@ map.prototype = {
      * Sets up the Google map object.
      * Called from the Google load callback.
      */
-    _setupMap: function () {
-        var _self = this;
-        var mapOptions = {
+    _setupMap() {
+        const _self = this;
+        const mapOptions = {
             center: this.center,
             cursor: 'pointer',
             fullscreenControl: this.config.fullScreen,
             fullscreenControlOptions: {
-                position: google.maps.ControlPosition.LEFT_CENTER
+                position: google.maps.ControlPosition.LEFT_CENTER,
             },
             mapTypeControl: this.config.mapTypeControl,
             mapTypeControlOptions: {
-                position: google.maps.ControlPosition.BOTTOM_CENTER
+                position: google.maps.ControlPosition.BOTTOM_CENTER,
             },
             mapTypeId: this._getMapType(),
             minZoom: this.config.minZoom,
@@ -441,85 +441,85 @@ map.prototype = {
             },
             styles: [
                 {
-                    "featureType": "administrative.province",
-                    "elementType": "geometry.stroke",
-                    "stylers": [
-                        { "saturation": 15 },
-                        { "lightness": -25 },
-                        { "weight": 1.5 }
-                    ]
+                    featureType: 'administrative.province',
+                    elementType: 'geometry.stroke',
+                    stylers: [
+                        { saturation: 15 },
+                        { lightness: -25 },
+                        { weight: 1.5 },
+                    ],
                 },
                 {
-                    "featureType": "poi",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        { "color": "#C5E3BF" }
-                    ]
+                    featureType: 'poi',
+                    elementType: 'geometry.fill',
+                    stylers: [
+                        { color: '#C5E3BF' },
+                    ],
                 },
                 {
                     featureType: 'poi.business',
                     elementType: 'all',
-                    stylers: [{"visibility": "off"}]
+                    stylers: [{ visibility: 'off' }],
                 },
                 {
-                    "featureType": "road",
-                    "elementType": "geometry",
-                    "stylers": [
-                        { "lightness": 100 },
-                        { "visibility": "simplified" }
-                    ]
+                    featureType: 'road',
+                    elementType: 'geometry',
+                    stylers: [
+                        { lightness: 100 },
+                        { visibility: 'simplified' },
+                    ],
                 },
                 {
-                    "featureType": "road",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        { "color": "#D1D1B8" }
-                    ]
+                    featureType: 'road',
+                    elementType: 'geometry.fill',
+                    stylers: [
+                        { color: '#D1D1B8' },
+                    ],
                 },
                 {
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [
-                        { "color": "#C6E2FF" },
-                        { "visibility": "on" }
-                    ]
+                    featureType: 'water',
+                    elementType: 'geometry',
+                    stylers: [
+                        { color: '#C6E2FF' },
+                        { visibility: 'on' },
+                    ],
                 },
                 {
-                    "featureType": "water",
-                    "elementType": "geometry.fill",
-                    "stylers": [
-                        { "color": "#409fff" },
-                        { "saturation": 15 },
-                        { "lightness": 40 }
-                    ]
+                    featureType: 'water',
+                    elementType: 'geometry.fill',
+                    stylers: [
+                        { color: '#409fff' },
+                        { saturation: 15 },
+                        { lightness: 40 },
+                    ],
                 },
                 {
-                    "featureType": "water",
-                    "elementType": "labels.text",
-                    "stylers": [
-                        { "color": "#0073e6" },
-                        { "saturation": 35 },
-                        { "lightness": 60 }
-                    ]
+                    featureType: 'water',
+                    elementType: 'labels.text',
+                    stylers: [
+                        { color: '#0073e6' },
+                        { saturation: 35 },
+                        { lightness: 60 },
+                    ],
                 },
                 {
-                    "featureType": "water",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        { "color": "#359aff" },
-                        { "saturation": 40 }
-                    ]
-                }
+                    featureType: 'water',
+                    elementType: 'labels.text.fill',
+                    stylers: [
+                        { color: '#359aff' },
+                        { saturation: 40 },
+                    ],
+                },
             ],
             zoom: this.zoom,
             zoomControl: true,
             zoomControlOptions: {
-                position: verge.isSmallScreen() ? google.maps.ControlPosition.RIGHT_TOP : google.maps.ControlPosition.LEFT_TOP
-            }
+                position: verge.isSmallScreen() ? google.maps.ControlPosition.RIGHT_TOP : google.maps.ControlPosition.LEFT_TOP,
+            },
         };
 
         if (typeof this.config.fullScreenControlOptionsCallback === 'function') {
-            mapOptions.fullscreenControlOptions = this.config.fullScreenControlOptionsCallback.call()
+            mapOptions.fullscreenControlOptions = this.config.fullScreenControlOptionsCallback.call();
         }
 
         this.map = new google.maps.Map(this.canvas, mapOptions);
@@ -533,29 +533,29 @@ map.prototype = {
         this.map.getStreetView().setOptions({
             // Address control shows in street view
             addressControlOptions: {
-                position: google.maps.ControlPosition.LEFT_BOTTOM
+                position: google.maps.ControlPosition.LEFT_BOTTOM,
             },
             fullscreenControl: true,
             fullscreenControlOptions: {
-                position: google.maps.ControlPosition.LEFT_CENTER
+                position: google.maps.ControlPosition.LEFT_CENTER,
             },
             panControlOptions: {
-                position: google.maps.ControlPosition.LEFT_CENTER
+                position: google.maps.ControlPosition.LEFT_CENTER,
             },
             zoomControlOptions: {
-                position: google.maps.ControlPosition.LEFT_CENTER
-            }
+                position: google.maps.ControlPosition.LEFT_CENTER,
+            },
         });
 
         /**
          * Setup a one time event to simulate the 'load' event for the map when it first loads.
          */
-        google.maps.event.addListenerOnce(this.map, 'idle', function() {
+        google.maps.event.addListenerOnce(this.map, 'idle', () => {
             if (ap.isFunction(_self.config.loadedCallback)) {
                 _self.config.loadedCallback.call(map);
             }
             if (_self.controlCallbacks.length > 0) {
-                for (var key in _self.controlCallbacks) {
+                for (const key in _self.controlCallbacks) {
                     if (_self.controlCallbacks.hasOwnProperty(key)) {
                         if (ap.isFunction(_self.controlCallbacks[key])) {
                             _self.controlCallbacks[key].call(_self);
@@ -570,11 +570,11 @@ map.prototype = {
          * The 'idle' event is triggered when the map stops panning or zooming. It gets the new
          * center values to be used with the window resize event to recenter the map.
          */
-        google.maps.event.addDomListener(this.map, 'idle', function () {
+        google.maps.event.addDomListener(this.map, 'idle', () => {
             /**
              * Get the full screen element to test and see if the map is in full screen mode
              */
-            var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            const fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
 
             // IE will be null and other browsers will be undefined if not in full screen
             if (ap.isDefined(fullscreenElement) && fullscreenElement !== null) {
@@ -603,18 +603,18 @@ map.prototype = {
                 this.fullScreen.in = false;
                 this.fullScreen.outCenter = this.map.getCenter();
             }
-        }.bind(this));
+        });
 
         /**
          * Try to keep the map in its original center point when resizing (i.e. mobile or full screen)
          */
-        google.maps.event.addDomListener(window, 'resize', function () {
-            var center = this.map.getCenter();
+        google.maps.event.addDomListener(window, 'resize', () => {
+            let center = this.map.getCenter();
             /**
              * Get the full screen element to test and see if the map is in full screen mode.
              * If so, then depending on when it went into full screen then the center point might be overwritten.
              */
-            var fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+            const fullscreenElement = document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
 
             // IE will be null and other browsers will be undefined if not in full screen
             if (ap.isDefined(fullscreenElement) && fullscreenElement !== null) {
@@ -657,7 +657,7 @@ map.prototype = {
 
             // Set the new center
             this.map.setCenter(center);
-        }.bind(this));
+        });
 
         /**
          * Setup the latitude/longitude bounds if necessary
@@ -669,10 +669,10 @@ map.prototype = {
         /**
          * Setup events to track the mouse. Used to help with showing/hiding lines
          */
-        google.maps.event.addListener(this.map, 'mouseup', function() {
+        google.maps.event.addListener(this.map, 'mouseup', () => {
             _self.mouseDown = false;
         });
-        google.maps.event.addListener(this.map, 'mousedown', function() {
+        google.maps.event.addListener(this.map, 'mousedown', () => {
             _self.mouseDown = true;
         });
 
@@ -684,23 +684,23 @@ map.prototype = {
              * Setup the getBounds() method
              * @returns {google.maps.LatLngBounds}
              */
-            google.maps.Polyline.prototype.getBounds = function() {
-                var bounds = new google.maps.LatLngBounds();
-                this.getPath().forEach(function(e) {
+            google.maps.Polyline.prototype.getBounds = function () {
+                const bounds = new google.maps.LatLngBounds();
+                this.getPath().forEach((e) => {
                     bounds.extend(e);
                 });
                 return bounds;
             };
 
-            google.maps.event.addListener(this.map, 'zoom_changed', function () {
+            google.maps.event.addListener(this.map, 'zoom_changed', () => {
                 _self._showHideSegmentsOnZoom();
             });
-            google.maps.event.addListener(this.map, 'center_changed', function() {
+            google.maps.event.addListener(this.map, 'center_changed', () => {
                 if (_self.mouseDown === false) {
                     _self._showSegmentsWithinBounds();
                 }
             });
-            google.maps.event.addListener(this.map, 'dragend', function () {
+            google.maps.event.addListener(this.map, 'dragend', () => {
                 _self._showSegmentsWithinBounds();
             });
         }
@@ -716,7 +716,7 @@ map.prototype = {
      * @param {HTMLElement} control The control element
      * @param {function=} callback Optional callback for once the map is initialized
      */
-    addCustomControl: function(position, control, callback) {
+    addCustomControl(position, control, callback) {
         this.map.controls[position].push(control);
         if (ap.isFunction(callback)) {
             this.controlCallbacks.push(callback);
@@ -726,7 +726,7 @@ map.prototype = {
     /**
      * Centers the map
      */
-    centerMap: function() {
+    centerMap() {
         this.map.setCenter(this.center);
     },
 
@@ -734,7 +734,7 @@ map.prototype = {
      * Zooms to a certain value
      * @param {Number} zoom
      */
-    zoomTo: function(zoom) {
+    zoomTo(zoom) {
         if (ap.isNumber(zoom)) {
             this.map.setZoom(zoom);
         }
@@ -744,7 +744,7 @@ map.prototype = {
      * Gets the zoom value
      * @returns {Number}
      */
-    getZoom: function() {
+    getZoom() {
         return this.map.getZoom();
     },
 
@@ -752,8 +752,8 @@ map.prototype = {
      * Gets the center value
      * @returns {string}
      */
-    getCenter: function() {
-        var c = this.map.getCenter();
+    getCenter() {
+        const c = this.map.getCenter();
         return c.toString();
     },
 
@@ -762,9 +762,9 @@ map.prototype = {
      *
      * @param {Array} segments
      */
-    setupSegments: function (segments) {
+    setupSegments(segments) {
         if (ap.isArray(segments)) {
-            for (var key in segments) {
+            for (const key in segments) {
                 if (segments.hasOwnProperty(key)) {
                     this._addPolyline(segments[key]);
                 }
@@ -785,25 +785,25 @@ map.prototype = {
      * Sets up the related trails functionality
      * @param {Array} segments The related trail segments
      */
-    setupRelatedTrails: function(segments) {
-        var _self = this;
+    setupRelatedTrails(segments) {
+        const _self = this;
         if (ap.isArray(segments)) {
-            for (var key in segments) {
+            for (const key in segments) {
                 if (segments.hasOwnProperty(key)) {
                     this._addPolyline(segments[key], {
                         map: null,
-                        relatedTrailId: segments[key].trailId
+                        relatedTrailId: segments[key].trailId,
                     }, true);
                 }
             }
 
             // Setup the click event for the show/hide classes
-            $(document).ready(function() {
-                $('.' + _self.config.relatedTrailslinkClass).on('click', function (e) {
+            $(document).ready(() => {
+                $(`.${_self.config.relatedTrailslinkClass}`).on('click', function (e) {
                     e.preventDefault();
                     _self.closeAllInfoBoxes();
-                    var status = $(this).data('showing');
-                    var trailId = $(this).data('trailid');
+                    const status = $(this).data('showing');
+                    const trailId = $(this).data('trailid');
 
                     if (status == 'hidden') {
                         $(this).data('showing', 'showing').text('Hide');
@@ -811,7 +811,7 @@ map.prototype = {
                         $(this).data('showing', 'hidden').text('Show');
                     }
 
-                    for (var key in _self.lines) {
+                    for (const key in _self.lines) {
                         if (_self.lines.hasOwnProperty(key)) {
                             if (_self.lines[key].related === true) {
                                 line = _self.lines[key].line;
@@ -857,20 +857,20 @@ map.prototype = {
      * @private
      * @returns {Array}
      */
-    _addPolyline: function (segment, additionalData, related) {
+    _addPolyline(segment, additionalData, related) {
         related = related || false;
-        var _self = this;
+        const _self = this;
         if (ap.isObject(segment.json)) {
             // Set that the map has segments
             this.hasSegments = true;
 
             // Holds the hovered poly line
-            var lineHover = null,
-                loc;
+            let lineHover = null;
+            let loc;
 
             // Create an array of LatLng objects for polyline use
-            var coords = [];
-            for (var key in segment.json) {
+            const coords = [];
+            for (const key in segment.json) {
                 if (segment.json.hasOwnProperty(key)) {
                     loc = new google.maps.LatLng(segment.json[key].lat, segment.json[key].lng);
                     coords.push(loc);
@@ -881,14 +881,14 @@ map.prototype = {
             }
 
             // Create the regular line
-            var pObj = {
+            let pObj = {
                 clickable: this.config.segmentClick,
                 map: this.map,
                 path: coords,
                 strokeColor: this._getSegmentColor(segment, related, false),
                 strokeOpacity: 1.0,
                 strokeWeight: related === false ? this.config.segmentWeight : this.config.relatedSegmentWeight,
-                zIndex: related === false ? 3 : 5
+                zIndex: related === false ? 3 : 5,
             };
             if (ap.isObject(additionalData)) {
                 pObj = ap.extend(pObj, additionalData);
@@ -898,8 +898,7 @@ map.prototype = {
                 pObj = this.config.segmentCallback.call(this, pObj, segment, related);
             }
 
-
-            var line = new google.maps.Polyline(pObj);
+            const line = new google.maps.Polyline(pObj);
 
             /**
              * Hide the line initially if it's only supposed to be shown when
@@ -910,9 +909,9 @@ map.prototype = {
             }
 
             // Add this line to the array of all segment lines
-            var lineObj = {
-                line: line,
-                related: related
+            const lineObj = {
+                line,
+                related,
             };
             if (ap.isString(segment.type)) {
                 lineObj.type = segment.type;
@@ -922,21 +921,21 @@ map.prototype = {
             /**
              * Add the hover effect on the segments if necessary
              */
-            var hoverConfig = this.config.segmentHover;
-            var clickConfig = this.config.segmentClick;
+            let hoverConfig = this.config.segmentHover;
+            let clickConfig = this.config.segmentClick;
             if (related === true) {
                 hoverConfig = this.config.relatedSegmentHover;
                 clickConfig = this.config.relatedSegmentClick;
             }
             if (hoverConfig === true) {
                 // create the hover polyline
-                var hObj = {
+                let hObj = {
                     path: coords,
                     strokeColor: this._getSegmentColor(segment, related, true),
                     strokeOpacity: 0,
-                    strokeWeight: related === false ?  this.config.segmentHoverWeight : this.config.relatedSegmentHoverWeight,
+                    strokeWeight: related === false ? this.config.segmentHoverWeight : this.config.relatedSegmentHoverWeight,
                     map: this.map,
-                    zIndex: related === false ? 2 : 4
+                    zIndex: related === false ? 2 : 4,
                 };
                 if (ap.isObject(additionalData)) {
                     hObj = ap.extend(hObj, additionalData);
@@ -953,9 +952,9 @@ map.prototype = {
                 }
 
                 // Add this line to the array of all segment lines
-                var lineHoverObj = {
+                const lineHoverObj = {
                     line: lineHover,
-                    related: related
+                    related,
                 };
                 if (ap.isString(segment.type)) {
                     lineHoverObj.type = segment.type;
@@ -963,41 +962,41 @@ map.prototype = {
                 this.lines.push(lineHoverObj);
 
                 // setup hover listeners
-                google.maps.event.addListener(line, 'mouseover', function (e) {
-                    lineHover.setOptions({strokeOpacity: .5});
+                google.maps.event.addListener(line, 'mouseover', (e) => {
+                    lineHover.setOptions({ strokeOpacity: 0.5 });
                     if ((!related && _self.config.segmentHoverTooltip) || (related && _self.config.relatedSegmentHoverTooltip)) {
                         if (typeof segment.name !== 'undefined') {
-                            var point = _self.getPixelsFromLocation(_self.map, e.latLng);
+                            const point = _self.getPixelsFromLocation(_self.map, e.latLng);
                             _self.tooltip.innerHTML = segment.name;
                             _self.tooltip.style.display = 'block';
-                            _self.tooltip.style.left = point.x + 'px';
-                            _self.tooltip.style.top = (point.y + 30) + 'px';
+                            _self.tooltip.style.left = `${point.x}px`;
+                            _self.tooltip.style.top = `${point.y + 30}px`;
                         }
                     }
                 });
-                google.maps.event.addListener(line, 'mouseout', function () {
+                google.maps.event.addListener(line, 'mouseout', () => {
                     if (_self.segmentSelected !== segment.id) {
-                        lineHover.setOptions({strokeOpacity: 0});
+                        lineHover.setOptions({ strokeOpacity: 0 });
                     }
                     if ((!related && _self.config.segmentHoverTooltip) || (related && _self.config.relatedSegmentHoverTooltip)) {
                         _self.tooltip.style.display = 'none';
                     }
                 });
-                google.maps.event.addListener(lineHover, 'mouseover', function (e) {
-                    lineHover.setOptions({strokeOpacity: .5});
+                google.maps.event.addListener(lineHover, 'mouseover', (e) => {
+                    lineHover.setOptions({ strokeOpacity: 0.5 });
                     if ((!related && _self.config.segmentHoverTooltip) || (related && _self.config.relatedSegmentHoverTooltip)) {
                         if (typeof segment.name !== 'undefined') {
-                            var point = _self.getPixelsFromLocation(_self.map, e.latLng);
+                            const point = _self.getPixelsFromLocation(_self.map, e.latLng);
                             _self.tooltip.innerHTML = segment.name;
                             _self.tooltip.style.display = 'block';
-                            _self.tooltip.style.left = point.x + 'px';
-                            _self.tooltip.style.top = (point.y + 30) + 'px';
+                            _self.tooltip.style.left = `${point.x}px`;
+                            _self.tooltip.style.top = `${point.y + 30}px`;
                         }
                     }
                 });
-                google.maps.event.addListener(lineHover, 'mouseout', function () {
+                google.maps.event.addListener(lineHover, 'mouseout', () => {
                     if (_self.segmentSelected !== segment.id) {
-                        lineHover.setOptions({strokeOpacity: 0});
+                        lineHover.setOptions({ strokeOpacity: 0 });
                     }
                     if ((!related && _self.config.segmentHoverTooltip) || (related && _self.config.relatedSegmentHoverTooltip)) {
                         _self.tooltip.style.display = 'none';
@@ -1008,7 +1007,7 @@ map.prototype = {
                  * Add the click event for the segments if necessary
                  */
                 if (clickConfig === true) {
-                    google.maps.event.addListener(lineHover, 'click', function(e) {
+                    google.maps.event.addListener(lineHover, 'click', (e) => {
                         _self.setupSegmentInfoBox(e, segment, lineHover);
                         if ((!related && _self.config.segmentHoverTooltip) || (related && _self.config.relatedSegmentHoverTooltip)) {
                             _self.tooltip.style.display = 'none';
@@ -1021,7 +1020,7 @@ map.prototype = {
              * Add the click event for the segments if necessary
              */
             if (this.config.segmentClick === true) {
-                google.maps.event.addListener(line, 'click', function(e) {
+                google.maps.event.addListener(line, 'click', (e) => {
                     _self.setupSegmentInfoBox(e, segment, lineHover);
                     if ((!related && _self.config.segmentHoverTooltip) || (related && _self.config.relatedSegmentHoverTooltip)) {
                         _self.tooltip.style.display = 'none';
@@ -1039,8 +1038,8 @@ map.prototype = {
      * @returns {string}
      * @private
      */
-    _getSegmentColor: function(segment, related, hover) {
-        var color = this.config.segmentColor;
+    _getSegmentColor(segment, related, hover) {
+        let color = this.config.segmentColor;
         related = related || false;
         hover = hover || false;
 
@@ -1061,12 +1060,12 @@ map.prototype = {
      * @param {Object} segment The segment data
      * @param {google.maps.PolyLine} lineHover The hover line
      */
-    setupSegmentInfoBox: function(e, segment, lineHover) {
-        var _self = this;
+    setupSegmentInfoBox(e, segment, lineHover) {
+        const _self = this;
 
-        var w = ap.getWindowWidth();
-        var width = _self.config.infoBox.segmentWidth;
-        var offsetH = -25;
+        const w = ap.getWindowWidth();
+        let width = _self.config.infoBox.segmentWidth;
+        let offsetH = -25;
         if (w < 400) {
             width = _self.config.infoBox.segmentWidthXs;
         } else if (w < 600) {
@@ -1075,7 +1074,7 @@ map.prototype = {
             offsetH = -23;
             width = _self.config.infoBox.segmentWidthMd;
         }
-        var offsetW = -1 * (width / 2);
+        const offsetW = -1 * (width / 2);
 
         // Close all open infoboxes (which should only be one.)
         this.closeAllInfoBoxes();
@@ -1084,24 +1083,24 @@ map.prototype = {
         this.segmentSelected = segment.id;
 
         if (lineHover !== null) {
-            lineHover.setOptions({ strokeOpacity: .25 });
+            lineHover.setOptions({ strokeOpacity: 0.25 });
         }
 
         // InfoBox docs: https://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/docs/reference.html
-        var infobox = new InfoBox({
+        const infobox = new InfoBox({
             alignBottom: true, // Put the infobox on the top of the marker.
             closeBoxURL: _self.config.infoBox.closeIcon,
             boxClass: 'MapPopup',
             boxStyle: {
-                width: width + 'px'
+                width: `${width}px`,
             },
             content: _self.config.infoBox.segmentCallback.call(this, segment),
             disableAutoPan: false,
             position: e.latLng,
             infoBoxClearance: new google.maps.Size(50, 20),
-            pixelOffset: new google.maps.Size(offsetW, offsetH)
+            pixelOffset: new google.maps.Size(offsetW, offsetH),
         });
-        infobox.onRemove = function() {
+        infobox.onRemove = function () {
             if (this.div_) {
                 this.div_.parentNode.removeChild(this.div_);
                 this.div_ = null;
@@ -1113,7 +1112,6 @@ map.prototype = {
         };
         google.maps.event.addListener(infobox, 'domready', function () {
             _self.config.infoBox.readyCallback.call(this, segment);
-
         });
         infobox.open(_self.map);
 
@@ -1135,9 +1133,9 @@ map.prototype = {
      * }
      * @param {Array} pois The array of points of interests
      */
-    setupPointsOfInterest: function(pois) {
+    setupPointsOfInterest(pois) {
         if (ap.isArray(pois)) {
-            for (var key in pois) {
+            for (const key in pois) {
                 if (pois.hasOwnProperty(key)) {
                     this._addPOIMarker(pois[key]);
                 }
@@ -1150,16 +1148,16 @@ map.prototype = {
      * @param {Object} poi The data for a single point of interest
      * @private
      */
-    _addPOIMarker: function(poi) {
-        var _self = this;
+    _addPOIMarker(poi) {
+        const _self = this;
 
-        var latLng = new google.maps.LatLng(poi.lat, poi.lng),
-            opt,
-            title;
+        const latLng = new google.maps.LatLng(poi.lat, poi.lng);
+        let opt;
+        let title;
         opt = {
             map: this.map,
             position: latLng,
-            zIndex: 2
+            zIndex: 2,
         };
 
         this._addMarkerBounds(latLng);
@@ -1170,28 +1168,28 @@ map.prototype = {
         if (ap.isString(poi.title) && poi.title.length > 0) {
             title = poi.title;
             if (ap.isString(poi.subtitle) && poi.subtitle.length > 0) {
-                title += '<br>' + poi.subtitle;
+                title += `<br>${poi.subtitle}`;
             }
         }
 
-        var marker = new google.maps.Marker(opt);
+        const marker = new google.maps.Marker(opt);
 
         // Add the 'click' event to show the info box
-        google.maps.event.addListener(marker, 'click', function() {
+        google.maps.event.addListener(marker, 'click', function () {
             // Close all open infoboxes (which should only be one.)
             _self.closeAllInfoBoxes();
 
-            var infobox = new InfoBox({
+            const infobox = new InfoBox({
                 alignBottom: true, // Put the infobox on the top of the marker.
                 closeBoxURL: _self.config.infoBox.closeIcon,
                 boxClass: 'MapPopup',
                 boxStyle: {
-                    width: _self.config.infoBox.poiWidth + 'px'
+                    width: `${_self.config.infoBox.poiWidth}px`,
                 },
                 content: _self.config.infoBox.poiCallback.call(this, poi),
                 disableAutoPan: false,
                 infoBoxClearance: new google.maps.Size(50, 20),
-                pixelOffset: new google.maps.Size(-125, -65)
+                pixelOffset: new google.maps.Size(-125, -65),
             });
             google.maps.event.addListener(infobox, 'domready', function () {
                 _self.config.infoBox.readyCallback.call(this, poi);
@@ -1203,19 +1201,19 @@ map.prototype = {
             _self.infoBoxes.push(infobox);
         });
 
-        google.maps.event.addListener(marker, 'mouseover', function(e) {
-            var point = _self.getPixelsFromLocation(_self.map, e.latLng);
+        google.maps.event.addListener(marker, 'mouseover', (e) => {
+            const point = _self.getPixelsFromLocation(_self.map, e.latLng);
             _self.tooltip.innerHTML = poi.title;
             _self.tooltip.style.display = 'block';
-            _self.tooltip.style.left = point.x + 'px';
-            _self.tooltip.style.top = (point.y + 16) + 'px';
+            _self.tooltip.style.left = `${point.x}px`;
+            _self.tooltip.style.top = `${point.y + 16}px`;
         });
-        google.maps.event.addListener(marker, 'mouseout', function() {
+        google.maps.event.addListener(marker, 'mouseout', () => {
             _self.tooltip.style.display = 'none';
         });
 
         // Add the tool tip
-        //marker.attachTipTool(title, {'cssClass': 'Tiptool'});
+        // marker.attachTipTool(title, {'cssClass': 'Tiptool'});
 
         // Add to the markers array. This will allow markers to be shown/hidden via the legend
         this._addMarker(marker, poi.title);
@@ -1225,9 +1223,9 @@ map.prototype = {
      * Sets up the trail image points of interest
      * @param {Array} images The trail images
      */
-    setupImagePointsOfInterest: function(images) {
+    setupImagePointsOfInterest(images) {
         if (this.config.poiImage.enable === true && ap.isArray(images)) {
-            for (var key in images) {
+            for (const key in images) {
                 if (images.hasOwnProperty(key)) {
                     this._addPOIImageMarker(images[key]);
                 }
@@ -1240,65 +1238,63 @@ map.prototype = {
      * @param {Object} image The image data
      * @private
      */
-    _addPOIImageMarker: function(image) {
-        var _self = this;
+    _addPOIImageMarker(image) {
+        const _self = this;
 
-        var latLng = new google.maps.LatLng(image.lat, image.lng),
-            opt;
+        const latLng = new google.maps.LatLng(image.lat, image.lng);
+        let opt;
         opt = {
             position: latLng,
             map: this.map,
             icon: this.config.poiImage.icon,
-            zIndex: 1
-        }
+            zIndex: 1,
+        };
 
         this._addMarkerBounds(latLng);
 
-        var marker = new google.maps.Marker(opt);
+        const marker = new google.maps.Marker(opt);
 
-        google.maps.event.addListener(marker, 'click', function () {
+        google.maps.event.addListener(marker, 'click', () => {
             // Close all open infoboxes (if there are any)
             _self.closeAllInfoBoxes();
             // Open image popup
             $.magnificPopup.open({
                 items: {
-                    src: image.src
+                    src: image.src,
                 },
                 type: 'image',
                 image: {
-                    titleSrc: function() {
-                        var title = '';
-                        if (image.caption)
-                            title += image.caption;
-                        if (image.credit)
-                            title += ' - Photo courtesy: ' + image.credit;
+                    titleSrc() {
+                        let title = '';
+                        if (image.caption) title += image.caption;
+                        if (image.credit) title += ` - Photo courtesy: ${image.credit}`;
                         return title;
-                    }
-                }
+                    },
+                },
             }, 0);
         });
 
-        google.maps.event.addListener(marker, 'mouseover', function(e) {
-            var point = _self.getPixelsFromLocation(_self.map, e.latLng);
+        google.maps.event.addListener(marker, 'mouseover', (e) => {
+            const point = _self.getPixelsFromLocation(_self.map, e.latLng);
             _self.tooltip.innerHTML = _self.config.poiImage.title;
             _self.tooltip.style.display = 'block';
-            _self.tooltip.style.left = point.x + 'px';
-            _self.tooltip.style.top = (point.y + 16) + 'px';
+            _self.tooltip.style.left = `${point.x}px`;
+            _self.tooltip.style.top = `${point.y + 16}px`;
         });
-        google.maps.event.addListener(marker, 'mouseout', function() {
+        google.maps.event.addListener(marker, 'mouseout', () => {
             _self.tooltip.style.display = 'none';
         });
 
-        //marker.attachTipTool(this.config.poiImage.title, {'cssClass': 'Tiptool'});
+        // marker.attachTipTool(this.config.poiImage.title, {'cssClass': 'Tiptool'});
     },
 
     /**
      * Sets up the markers for marking individual trails on a map showing multiple trails
      * @param {Array} trails
      */
-    setupTrailMarkers: function(trails) {
+    setupTrailMarkers(trails) {
         if (ap.isArray(trails)) {
-            for (var key in trails) {
+            for (const key in trails) {
                 if (trails.hasOwnProperty(key)) {
                     this._addTrailMarker(trails[key]);
                 }
@@ -1311,19 +1307,19 @@ map.prototype = {
      * @param {Object} trail The data for a trail
      * @private
      */
-    _addTrailMarker: function(trail) {
-        var _self = this;
+    _addTrailMarker(trail) {
+        const _self = this;
 
         // Get the latitude / longitude point for the trail
-        var latLng = new google.maps.LatLng(trail.lat, trail.lng);
+        const latLng = new google.maps.LatLng(trail.lat, trail.lng);
         this._addMarkerBounds(latLng);
 
         // Setup the marker options
-        var opt = {
+        const opt = {
             map: this.map,
             optimized: false,
             position: latLng,
-            zIndex: 99
+            zIndex: 99,
         };
         /**
          * Get the marker icon if possible
@@ -1334,13 +1330,13 @@ map.prototype = {
             // opt.width = this.config.trailMarker.width;
         }
 
-        var marker = new google.maps.Marker(opt);
+        const marker = new google.maps.Marker(opt);
 
         // Add the 'click' event to show the info box
-        google.maps.event.addListener(marker, 'click', function() {
-            var w = ap.getWindowWidth();
-            var width = _self.config.infoBox.trailMarkerWidth;
-            var offsetH = -58;
+        google.maps.event.addListener(marker, 'click', function () {
+            const w = ap.getWindowWidth();
+            let width = _self.config.infoBox.trailMarkerWidth;
+            let offsetH = -58;
             if (w < 400) {
                 width = _self.config.infoBox.trailMarkerWidthXs;
             } else if (w < 600) {
@@ -1349,27 +1345,27 @@ map.prototype = {
                 offsetH = -55;
                 width = _self.config.infoBox.trailMarkerWidthMd;
             }
-            var offsetW = -1 * (width / 2);
+            let offsetW = -1 * (width / 2);
 
-            if (typeof _self.config.infoBox.trailMarkerInfoBoxPositionCallback == 'function') {
-                var offset = _self.config.infoBox.trailMarkerInfoBoxPositionCallback.call(this, offsetW, offsetH);
+            if (typeof _self.config.infoBox.trailMarkerInfoBoxPositionCallback === 'function') {
+                const offset = _self.config.infoBox.trailMarkerInfoBoxPositionCallback.call(this, offsetW, offsetH);
                 if (typeof offset !== 'undefined' && typeof offset.width !== 'undefined' && typeof offset.height !== 'undefined') {
                     offsetW = offset.width;
                     offsetH = offset.height;
                 }
             }
 
-            var infobox = new InfoBox({
+            const infobox = new InfoBox({
                 alignBottom: true, // Put the infobox on the top of the marker.
                 closeBoxURL: _self.config.infoBox.closeIcon,
                 boxClass: 'MapPopup',
                 boxStyle: {
-                    width: width + 'px'
+                    width: `${width}px`,
                 },
                 content: _self.config.infoBox.trailMarkerCallback.call(this, trail),
                 disableAutoPan: false,
                 infoBoxClearance: new google.maps.Size(50, 45),
-                pixelOffset: new google.maps.Size(offsetW, offsetH)
+                pixelOffset: new google.maps.Size(offsetW, offsetH),
             });
             google.maps.event.addListener(infobox, 'domready', function () {
                 _self.config.infoBox.readyCallback.call(this, trail);
@@ -1384,20 +1380,20 @@ map.prototype = {
         });
 
         if (!verge.isTouch()) {
-            google.maps.event.addListener(marker, 'mouseover', function (e) {
-                var point = _self.getPixelsFromLocation(_self.map, e.latLng);
+            google.maps.event.addListener(marker, 'mouseover', (e) => {
+                const point = _self.getPixelsFromLocation(_self.map, e.latLng);
                 _self.tooltip.innerHTML = trail.name;
                 _self.tooltip.style.display = 'block';
-                _self.tooltip.style.left = point.x + 'px';
-                _self.tooltip.style.top = (point.y + 16) + 'px';
+                _self.tooltip.style.left = `${point.x}px`;
+                _self.tooltip.style.top = `${point.y + 16}px`;
             });
-            google.maps.event.addListener(marker, 'mouseout', function () {
+            google.maps.event.addListener(marker, 'mouseout', () => {
                 _self.tooltip.style.display = 'none';
             });
         }
 
         // Add the tool tip
-        //marker.attachTipTool(trail.name, {'cssClass': 'Tiptool'});
+        // marker.attachTipTool(trail.name, {'cssClass': 'Tiptool'});
 
         // Add to the markers array.
         this._addMarker(marker, 'Trail', trail.id);
@@ -1407,13 +1403,13 @@ map.prototype = {
         }
     },
 
-    getPixelsFromLocation: function(map, latLng) {
-        var projection = map.getProjection(),
-            bounds = map.getBounds(),
-            topRight = projection.fromLatLngToPoint(bounds.getNorthEast()),
-            bottomLeft = projection.fromLatLngToPoint(bounds.getSouthWest()),
-            scale = Math.pow(2, map.getZoom()),
-            worldPoint = projection.fromLatLngToPoint(latLng);
+    getPixelsFromLocation(map, latLng) {
+        const projection = map.getProjection();
+        const bounds = map.getBounds();
+        const topRight = projection.fromLatLngToPoint(bounds.getNorthEast());
+        const bottomLeft = projection.fromLatLngToPoint(bounds.getSouthWest());
+        const scale = Math.pow(2, map.getZoom());
+        const worldPoint = projection.fromLatLngToPoint(latLng);
         return new google.maps.Point((worldPoint.x - bottomLeft.x) * scale, (worldPoint.y - topRight.y) * scale);
     },
 
@@ -1422,8 +1418,8 @@ map.prototype = {
      * Do this before a new info box is opened.
      * @private
      */
-    closeAllInfoBoxes: function() {
-        for (var i = this.infoBoxes.length - 1; i >= 0; i--) {
+    closeAllInfoBoxes() {
+        for (let i = this.infoBoxes.length - 1; i >= 0; i--) {
             this.infoBoxes[i].close();
         }
         this.infoBoxes = [];
@@ -1432,7 +1428,7 @@ map.prototype = {
     /**
      * Close info boxes if their type is "segment"
      */
-    closeSegmentInfoBoxes: function() {
+    closeSegmentInfoBoxes() {
         if (this.infoBoxType == 'segment') {
             this.closeAllInfoBoxes();
         }
@@ -1446,10 +1442,10 @@ map.prototype = {
      * The callback method should accept two parameters: latitude, longitude
      * @param {Function} [callback] Optional callback function to call while the location is being watched
      */
-    setupGeoLocation: function (callback) {
+    setupGeoLocation(callback) {
         if (this.config.geoLocationIcon.enable === true && this.config.geoLocationTrack.enable === true) {
             if (navigator.geolocation) {
-                var _self = this;
+                const _self = this;
 
                 /**
                  * Setup the geo location tracking icon.
@@ -1462,17 +1458,17 @@ map.prototype = {
                     map: null,
                     optimized: false,
                     title: _self.config.geoLocationTrack.title,
-                    zIndex: 0
+                    zIndex: 0,
                 });
 
-                google.maps.event.addListener(this.myLocationMarker, 'mouseover', function(e) {
-                    var point = _self.getPixelsFromLocation(_self.map, e.latLng);
+                google.maps.event.addListener(this.myLocationMarker, 'mouseover', (e) => {
+                    const point = _self.getPixelsFromLocation(_self.map, e.latLng);
                     _self.tooltip.innerHTML = 'My location';
                     _self.tooltip.style.display = 'block';
-                    _self.tooltip.style.left = point.x + 'px';
-                    _self.tooltip.style.top = (point.y + 16) + 'px';
+                    _self.tooltip.style.left = `${point.x}px`;
+                    _self.tooltip.style.top = `${point.y + 16}px`;
                 });
-                google.maps.event.addListener(this.myLocationMarker, 'mouseout', function() {
+                google.maps.event.addListener(this.myLocationMarker, 'mouseout', () => {
                     _self.tooltip.style.display = 'none';
                 });
 
@@ -1488,13 +1484,13 @@ map.prototype = {
                         }
                     },
                     // Error
-                    function (error) {
+                    (error) => {
                         // Handle error here
                     },
                     // Configuration options
                     {
-                        enableHighAccuracy: true
-                    }
+                        enableHighAccuracy: true,
+                    },
                 );
 
                 /**
@@ -1515,7 +1511,7 @@ map.prototype = {
                         this.geoLocationIcon.style.zIndex = '1';
                     }
 
-                    ap.event.add(this.geoLocationIcon, 'click', function() {
+                    ap.event.add(this.geoLocationIcon, 'click', () => {
                         _self.map.getStreetView().setVisible(false);
                         _self.myLocationMarker.setPosition(_self.myLocation);
                         _self.myLocationMarker.setMap(_self.map);
@@ -1529,7 +1525,7 @@ map.prototype = {
     /**
      * Shows the geo location icon if geo location is supported and being watched
      */
-    _showGeoLocationIcon: function() {
+    _showGeoLocationIcon() {
         if (this.config.geoLocationIcon.enable === true) {
             if (this.geoLocationDisplayed === false) {
                 this.addCustomControl(google.maps.ControlPosition[this.config.geoLocationIcon.position], this.geoLocationIcon);
@@ -1541,7 +1537,7 @@ map.prototype = {
     /**
      * Shows the user's current geo location on the map
      */
-    _showGeoLocation: function() {
+    _showGeoLocation() {
         if (this.config.geoLocationTrack.enable === true && this.myLocation !== null) {
             this.myLocationMarker.setPosition(this.myLocation);
             this.myLocationMarker.setMap(this.map);
@@ -1564,13 +1560,13 @@ map.prototype = {
      *
      * @param {Object} options The style options object
      */
-    addMarkerClusterStyle: function(options) {
-        var style = {
-            url: "/layout/images/cluster/cluster-md.png",
+    addMarkerClusterStyle(options) {
+        let style = {
+            url: '/layout/images/cluster/cluster-md.png',
             width: 45,
             height: 45,
             textSize: 14,
-            textColor: "white"
+            textColor: 'white',
         };
         style = ap.extend(style, options);
         this.markerClusterStyles.push(style);
@@ -1607,15 +1603,15 @@ map.prototype = {
      * @param {object} [options] Cluster options to set
      *
      */
-    setupMarkerCluster: function(calculatorCallback, options) {
+    setupMarkerCluster(calculatorCallback, options) {
         // MarkerClustererOptions - see http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclustererplus/docs/reference.html#MarkerClustererOptions
-        var mcOpts = {
+        const mcOpts = {
             // The size of the square grid in pixels to look for markers in. The larger the number the more markers included in a cluster.
             gridSize: 40,
             // The maximum zoom level at which clustering is enabled or null if clustering is to be enabled at all zoom levels.
             maxZoom: null,
             // The minimum number of markers to include in a cluster. A larger number will result in fewer clusters.
-            minimumClusterSize: 2
+            minimumClusterSize: 2,
         };
         if (ap.isObject(options)) {
             ap.extend(mcOpts, options);
@@ -1624,7 +1620,7 @@ map.prototype = {
         mcOpts.styles = this.markerClusterStyles;
 
         // Convert the markers object to an array. That is how the cluster class needs them.
-        var markers = [];
+        const markers = [];
         // for (var key in this.markers) {
         //     if (this.markers.hasOwnProperty(key)) {
         //         for (var sk in this.markers[key]) {
@@ -1664,9 +1660,7 @@ map.prototype = {
              * markers: {Array} the markers that are being considered for the cluster
              * numClusterIconStyles: {Number} The number of available cluster styles.
              */
-            this.markerClusterer.setCalculator(function (markers, numberStyles) {
-                return calculatorCallback.call(map, markers.length, numberStyles);
-            });
+            this.markerClusterer.setCalculator((markers, numberStyles) => calculatorCallback.call(map, markers.length, numberStyles));
             this.markerClusterer.repaint();
         }
     },
@@ -1674,7 +1668,7 @@ map.prototype = {
     /**
      * Resets and repaints the marker clustering
      */
-    repaintMarkerCluster: function() {
+    repaintMarkerCluster() {
         if (typeof this.markerClusterer === 'object' && this.markerClusterer != null) {
             this.markerClusterer.resetViewport();
         }
@@ -1683,14 +1677,14 @@ map.prototype = {
     /**
      * Shows all markers
      */
-    showAllMarkers: function() {
+    showAllMarkers() {
         this._showHideAllMarkers(true);
     },
 
     /**
      * Hides all markers
      */
-    hideAllMarkers: function() {
+    hideAllMarkers() {
         this._showHideAllMarkers(false);
     },
 
@@ -1699,8 +1693,8 @@ map.prototype = {
      * @param {bool} visible Whether or not the markers should be visible
      * @private
      */
-    _showHideAllMarkers: function(visible) {
-        for (var key in this.markers) {
+    _showHideAllMarkers(visible) {
+        for (const key in this.markers) {
             if (this.markers.hasOwnProperty(key)) {
                 this._setMarkersVisibility(this.markers[key], visible);
             }
@@ -1711,7 +1705,7 @@ map.prototype = {
      * Shows markers of a specific type
      * @param {string} type The marker type
      */
-    showMarkers: function(type) {
+    showMarkers(type) {
         this._showHideMarkers(type, true);
     },
 
@@ -1719,7 +1713,7 @@ map.prototype = {
      * Hides markers of a specific type
      * @param {string} type The marker type
      */
-    hideMarkers: function(type) {
+    hideMarkers(type) {
         this._showHideMarkers(type, false);
     },
 
@@ -1729,8 +1723,8 @@ map.prototype = {
      * @param {bool} visible Whether or not to show the marker
      * @private
      */
-    _showHideMarkers: function(type, visible) {
-        for (var key in this.markers) {
+    _showHideMarkers(type, visible) {
+        for (const key in this.markers) {
             if (this.markers.hasOwnProperty(key)) {
                 if (key === type) {
                     this._setMarkersVisibility(this.markers[key], visible);
@@ -1745,8 +1739,8 @@ map.prototype = {
      * @param {bool} visible Whether or not the markers are visible
      * @private
      */
-    _setMarkersVisibility: function(markers, visible) {
-        for (var i = markers.length - 1; i >= 0; i--) {
+    _setMarkersVisibility(markers, visible) {
+        for (let i = markers.length - 1; i >= 0; i--) {
             markers[i].setVisible(visible);
         }
     },
@@ -1754,12 +1748,12 @@ map.prototype = {
     /**
      * Removes all markers from the map
      */
-    removeMarkers: function() {
-        var markers;
-        for (var key in this.markers) {
+    removeMarkers() {
+        let markers;
+        for (const key in this.markers) {
             if (this.markers.hasOwnProperty(key)) {
                 markers = this.markers[key];
-                for (var i = markers.length - 1; i >= 0; i--) {
+                for (let i = markers.length - 1; i >= 0; i--) {
                     markers[i].setMap(null);
                 }
             }
@@ -1781,7 +1775,7 @@ map.prototype = {
      * @param {string} id The unique identifider for the marker
      * @private
      */
-    _addMarker: function(marker, title, id) {
+    _addMarker(marker, title, id) {
         if (!ap.isString(id) || id.length === 0) {
             id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
         }
@@ -1800,13 +1794,13 @@ map.prototype = {
      * @param {string} id The marker id
      * @param {string} title The marker type
      */
-    clickMarker: function(id, title) {
+    clickMarker(id, title) {
         if (!ap.isString(title) || title.length === 0) {
             title = 'Trail';
         }
         if (ap.isDefined(this.markers[title]) && ap.isDefined(this.markers[title][id])) {
-            var marker = this.markers[title][id],
-                pos = marker.getPosition();
+            const marker = this.markers[title][id];
+            const pos = marker.getPosition();
             this.map.setCenter(pos);
             google.maps.event.trigger(marker, 'click');
         }
@@ -1817,15 +1811,15 @@ map.prototype = {
      * @param {int} defaultZoom The default zoom value
      * @private
      */
-    _getZoom: function (defaultZoom) {
-        var zoom = defaultZoom;
-        var width = window.innerWidth;
+    _getZoom(defaultZoom) {
+        let zoom = defaultZoom;
+        const width = window.innerWidth;
 
         // If the window is smaller get different zoom values than the default
         if (width <= 480) {
             zoom = 13;
         } else if (width <= 650) {
-            zoom = 14
+            zoom = 14;
         }
         return zoom;
     },
@@ -1837,7 +1831,7 @@ map.prototype = {
      * @returns {string}
      * @private
      */
-    _getMapType: function (type) {
+    _getMapType(type) {
         type = type || this.config.mapType.toLowerCase();
         if (type === 'hybrid') {
             type = google.maps.MapTypeId.HYBRID;
@@ -1858,7 +1852,7 @@ map.prototype = {
      * @param {google.maps.LatLng} latLng
      * @private
      */
-    _addMarkerBounds: function(latLng) {
+    _addMarkerBounds(latLng) {
         if (this.config.fitToBoundsMarker === true) {
             this.bounds.extend(latLng);
         }
@@ -1869,9 +1863,9 @@ map.prototype = {
      * @param {boolean} callback
      * @private
      */
-    fitToBounds: function(callback) {
+    fitToBounds(callback) {
         callback = callback || false;
-        var _self = this;
+        const _self = this;
         if (
             (this.config.fitToBoundsMarker === true && Object.keys(this.markers).length > 0)
             || (this.config.fitToBoundsSegments === true && this.hasSegments === true)
@@ -1881,7 +1875,7 @@ map.prototype = {
                  * Event to confirm that you haven't zoomed in to far. If there is
                  * only a small number of markers then it could zoom in really far
                  */
-                google.maps.event.addListenerOnce(this.map, 'idle', function() {
+                google.maps.event.addListenerOnce(this.map, 'idle', function () {
                     if (_self.map.getZoom() > _self.config.fitToBoundsMazZoom) {
                         _self.map.setZoom(_self.config.fitToBoundsMazZoom);
                     }
@@ -1892,7 +1886,6 @@ map.prototype = {
                     }
                 });
                 this.map.fitBounds(this.bounds);
-
             }
         }
     },
@@ -1901,7 +1894,7 @@ map.prototype = {
      * Shows or hides segments when zooming
      * @private
      */
-    _showHideSegmentsOnZoom: function() {
+    _showHideSegmentsOnZoom() {
         if (this.config.segmentShowOnZoom == true) {
             if (this.getZoom() >= this.config.segmentShowOnZoomLevel) {
                 // Mark segments as shown
@@ -1932,7 +1925,7 @@ map.prototype = {
      * Shows segments within bounds if necesary
      * @private
      */
-    _showSegmentsWithinBounds: function() {
+    _showSegmentsWithinBounds() {
         if (this.config.segmentShowWithinBounds === true && this.segmentsShown === true) {
             this._showBoundedLines();
         }
@@ -1942,8 +1935,8 @@ map.prototype = {
      * Shows or hides line segments depending on their current visibility
      * @return boolean
      */
-    showHideSegments: function() {
-        var isVisible = false;
+    showHideSegments() {
+        let isVisible = false;
         if (this.segmentsShown) {
             // Segments are already shown. Hide them now
             isVisible = this._setLinesVisibility(false);
@@ -1962,7 +1955,7 @@ map.prototype = {
     /**
      * Hides all line segments
      */
-    hideSegments: function() {
+    hideSegments() {
         this._setLinesVisibility(false);
     },
 
@@ -1971,10 +1964,10 @@ map.prototype = {
      * @param {boolean} visible
      * @private
      */
-    _setLinesVisibility: function(visible) {
+    _setLinesVisibility(visible) {
         this.changingSegmentVisibility = true;
-        var line;
-        for (var key in this.lines) {
+        let line;
+        for (const key in this.lines) {
             if (this.lines.hasOwnProperty(key)) {
                 line = this.lines[key].line;
                 line.setVisible(visible);
@@ -1988,11 +1981,11 @@ map.prototype = {
      * Handles showing only the line segments that are within the viewport of the map
      * @private
      */
-    _showBoundedLines: function() {
+    _showBoundedLines() {
         this.changingSegmentVisibility = true;
-        var bounds = this.map.getBounds();
-        var line;
-        for (var key in this.lines) {
+        const bounds = this.map.getBounds();
+        let line;
+        for (const key in this.lines) {
             if (this.lines.hasOwnProperty(key)) {
                 line = this.lines[key].line;
                 if (bounds.intersects(line.getBounds())) {
@@ -2006,9 +1999,9 @@ map.prototype = {
     /**
      * Removes all segments from the map
      */
-    removeSegments: function() {
-        var line;
-        for (var key in this.lines) {
+    removeSegments() {
+        let line;
+        for (const key in this.lines) {
             if (this.lines.hasOwnProperty(key)) {
                 line = this.lines[key].line;
                 line.setMap(null);
@@ -2021,8 +2014,8 @@ map.prototype = {
     /**
      * Removes all info boxes from the map
      */
-    removeInfoBoxes: function() {
+    removeInfoBoxes() {
         this.closeAllInfoBoxes();
         this.infoBoxes = [];
-    }
+    },
 };
