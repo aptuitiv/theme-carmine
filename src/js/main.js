@@ -2,23 +2,6 @@
     Global Javascript for all pages
 \* =========================================================================== */
 
-$(() => {
-    smallScreenNav.init();
-    navAccess.init();
-    setupNotifications();
-
-    const link = document.querySelector('.js-btop');
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: 'smooth',
-        });
-    });
-});
-
 /**
  * Small screen navigation
  */
@@ -52,7 +35,7 @@ var smallScreenNav = {
             self.nav.toggle();
         });
 
-        $('.js-dropdown').on('click', function (e) {
+        $('.js-dropdown').on('click', function onClick(e) {
             if ($(window).width() <= self.width) {
                 e.preventDefault();
                 $(this).toggleClass('is-active').parent().toggleClass('is-active');
@@ -67,7 +50,8 @@ var smallScreenNav = {
  *
  * Add "data-access-nav" attribute to the navigation menu.
  * Add "js-navLink" class to the navigation link tags.
- * Add "js-skip" class to any items that should be skipped. Useful for items that are hidden for small screens.
+ * Add "js-skip" class to any items that should be skipped.
+ * Useful for items that are hidden for small screens.
  * Add "js-dropdownMenu" class to the <ul> tag that contains the sub navigation
  * Add "js-dropdownParent" class to a <li> tag that contains a sub list for a drop down.
  * Add "js-dropdown" to any link tags that have a drop down.
@@ -75,10 +59,10 @@ var smallScreenNav = {
 var navAccess = {
     init() {
         const menus = document.querySelectorAll('[data-access-nav]');
-        const _self = this;
+        const self = this;
         if (menus.length > 0) {
             menus.forEach((menu) => {
-                _self.setupMenu(menu);
+                self.setupMenu(menu);
             });
         }
     },
@@ -89,9 +73,7 @@ var navAccess = {
      */
     setupMenu(menu) {
         const nav = menu.querySelectorAll('.js-navLink');
-        const subs = menu.querySelectorAll('.js-dropdownMenu');
-        const mainnav = menu.children;
-        const _self = this;
+        const self = this;
         let key;
         const next = ['ArrowDown', 'Down', 'Tab', 'Spacebar', ' '];
         const prev = ['ArrowUp', 'Up', 'Tab', 'Spacebar', ' '];
@@ -106,30 +88,30 @@ var navAccess = {
                     // Going forwards
                     if (e.shiftKey) {
                         // Shift key was down
-                        _self.focus(e, e.target);
+                        self.focus(e, e.target);
                     } else {
                         // Moving forward
-                        _self.focus(e, e.target, true);
+                        self.focus(e, e.target, true);
                     }
                 } else if (prev.indexOf(key) >= 0) {
                     // Going backwards
                     if (e.shiftKey) {
                         // Negating going backwards so going forwards
-                        _self.focus(e, e.target, true);
+                        self.focus(e, e.target, true);
                     } else {
-                        _self.focus(e, e.target);
+                        self.focus(e, e.target);
                     }
                 } else if (left.indexOf(key) >= 0) {
                     // Jumping backwards
-                    _self.focus(e, e.target, false, true);
+                    self.focus(e, e.target, false, true);
                 } else if (right.indexOf(key) >= 0) {
                     // Jumping forwards
-                    _self.focus(e, e.target, true, true);
-                } else if (key == 'Escape') {
+                    self.focus(e, e.target, true, true);
+                } else if (key === 'Escape') {
                     // Close the menu
-                    const parentLi = _self.getParent(e.target).parentNode;
+                    const parentLi = self.getParent(e.target).parentNode;
                     if (parentLi !== null) {
-                        focusEl = _self.getLink(parentLi);
+                        focusEl = self.getLink(parentLi);
                         focusEl.focus();
                     }
                 }
@@ -145,9 +127,9 @@ var navAccess = {
      */
     focus(event, el, next, jumping) {
         let focusEl = null;
-        var isFirst = false;
+        let isFirst = false;
         const isLast = this.isDropdownLast(el);
-        var isFirst = this.isDropdownFirst(el);
+        isFirst = this.isDropdownFirst(el);
         let sibling;
         if (next) {
             if (jumping) {
@@ -161,7 +143,7 @@ var navAccess = {
                 }
                 sibling = el.nextElementSibling;
                 // If next element is a dropdown, expand it
-                if (sibling !== null && sibling.nodeName.toLowerCase() == 'ul') {
+                if (sibling !== null && sibling.nodeName.toLowerCase() === 'ul') {
                     this.activate(el.parentNode);
                 }
                 focusEl = this.getNextLink(el); // next navLink
@@ -177,7 +159,8 @@ var navAccess = {
         } else {
             sibling = el.parentNode.previousElementSibling;
             if (sibling !== null && sibling.classList.contains('js-dropdownParent')) {
-                focusEl = this.getPrevInLevel(el); // Link before a sibling with dropdown (skip over dropdown)
+                // Link before a sibling with dropdown (skip over dropdown)
+                focusEl = this.getPrevInLevel(el); 
             } else {
                 focusEl = this.getPrevLink(el); // Get the previous navLink
             }
@@ -213,8 +196,10 @@ var navAccess = {
     },
     // Returns returns true is the first element of a dropdown list
     isDropdownFirst(el) {
-        const dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink')); // get all children links in dropdown
-        return dropdownNavs.indexOf(el) === 1; // if it is the first link (after the main navigation link)
+         // get all children links in dropdown
+        const dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink'));
+        // if it is the first link (after the main navigation link)
+        return dropdownNavs.indexOf(el) === 1; 
     },
     // Returns true if the last element of a dropdown
     isDropdownLast(el) {
@@ -271,35 +256,13 @@ var navAccess = {
 };
 
 /**
- * Sets the height of all the elements to be the same
- * @param elements
+ * Get a cookie value
+ * @param {string} cname Cookie name
+ * @returns string
  */
-function equalSize(elements) {
-    let maxHeight = 0;
-    let h;
-    elements.css('height', '');
-    elements.each(function () {
-        h = $(this).height();
-        if (h > maxHeight) {
-            maxHeight = h;
-        }
-    });
-    elements.height(maxHeight);
-}
-
-/**
- * Set up the notifications bar functionality
- */
-function setupNotifications() {
-    let id; let
-        parent;
-    $('.js-notificationClose').on('click', function (e) {
-        e.preventDefault();
-        parent = $(this).parents('.js-notification:first');
-        parent.hide();
-        id = this.getAttribute('data-id');
-        setCookie('notificationMsgHide', id, 10);
-    });
+ function getCookieValue(cname) {
+    const b = document.cookie.match(`(^|;)\\s*${cname}\\s*=\\s*([^;]+)`);
+    return b ? b.pop() : '';
 }
 
 /**
@@ -308,23 +271,46 @@ function setupNotifications() {
  * @param {string} cvalue Cookie value
  * @param {number} exdays Number of days to set cookie for
  */
-function setCookie(cname, cvalue, exdays) {
+ function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     const existing = getCookieValue(cname);
+    let cookievalue = cvalue;
     if (existing.length > 0) {
-        cvalue = `${existing}-${cvalue}`;
+        cookievalue = `${existing}-${cvalue}`;
     }
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     const expires = `expires=${d.toUTCString()}`;
-    document.cookie = `${cname}=${cvalue}; ${expires};path=/`;
+    document.cookie = `${cname}=${cookievalue}; ${expires};path=/`;
 }
 
 /**
- * Get a cookie value
- * @param {string} cname Cookie name
- * @returns string
+ * Set up the notifications bar functionality
  */
-function getCookieValue(cname) {
-    const b = document.cookie.match(`(^|;)\\s*${cname}\\s*=\\s*([^;]+)`);
-    return b ? b.pop() : '';
+function setupNotifications() {
+    let id; let
+        parent;
+    $('.js-notificationClose').on('click', function onClick(e) {
+        e.preventDefault();
+        parent = $(this).parents('.js-notification:first');
+        parent.hide();
+        id = this.getAttribute('data-id');
+        setCookie('notificationMsgHide', id, 10);
+    });
 }
+
+$(() => {
+    smallScreenNav.init();
+    navAccess.init();
+    setupNotifications();
+
+    const link = document.querySelector('.js-btop');
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+    });
+});
