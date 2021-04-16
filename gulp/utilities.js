@@ -46,6 +46,7 @@ function deleteFile(file, src, dest, type) {
 
     // Delete the file
     del.sync(destPath);
+    log(dest + '/' + srcPath, 'Finished Deleting ' + type);
 }
 
 

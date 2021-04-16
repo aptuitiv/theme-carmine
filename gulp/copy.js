@@ -18,6 +18,7 @@ const tap = require('gulp-tap');
 
 /**
  * Copy Static assets
+ * @param {function} cb Gulp callback function
  */
 function copy(cb) {
     if (config.copy.length > 0) {

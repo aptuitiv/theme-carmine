@@ -10,11 +10,6 @@ var dist = 'dist/theme/custom';
  */
 module.exports = {
     /**
-     * Holds the name of the CSS file to be generated
-     */
-    cssName: 'main.css',
-
-    /**
      * Holds the base URL for the site to use within the gulp scripts.
      * It should include the closing "/"
      * http://www.mysite.com/
@@ -33,6 +28,8 @@ module.exports = {
             font: src + '/fonts/**/*.{eot,ttf,woff,woff2}',
             icon: src + '/icons/**/*.svg',
             img: src + '/images/**/*.{gif,jpg,jpeg,png,svg,webp}',
+            js: src + '/js',
+            jslint: src + '/js/**/*.js',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
             themeFolder: src + '/theme'
@@ -40,6 +37,9 @@ module.exports = {
         build: {
             base: build,
             css: build + '/css'
+        },
+        criticalCss: {
+            src: dist + '/css/main.css'
         },
         dist: {
             base: dist,
@@ -90,9 +90,7 @@ module.exports = {
      * 'url' is a sample URL of a page using that template to generate the critical CSS from
      */
     criticalCss: [
-        {'template': 'one-column', 'url': '/contact'},
-        {'template': 'one-column-full-width-header', 'url': ''},
-        {'template': 'two-column', 'url': '/who-we-are'},
+        {'template': 'default', 'url': ''},
     ],
 
     /**
@@ -111,7 +109,23 @@ module.exports = {
                 dest: ''
             },
             {
+                src: '.eslintignore',
+                dest: ''
+            },
+            {
+                src: '.eslintrc.js',
+                dest: ''
+            },
+            {
                 src: '.gitignore',
+                dest: ''
+            },
+            {
+                src: '.prettierignore',
+                dest: ''
+            },
+            {
+                src: '.prettierrc.js',
                 dest: ''
             },
             {

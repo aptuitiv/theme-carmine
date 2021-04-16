@@ -47,7 +47,7 @@ function watch(done) {
     // Theme
     gulp.watch(config.paths.src.theme, {events: ['add', 'change']}, theme.theme)
         .on('unlink', function(file) {
-            util.deleteFile(file, config.paths.src.img, config.paths.dist.img, 'image');
+            util.deleteFile(file, config.paths.src.theme, config.paths.dist.theme, 'template');
         });
 
     // Theme configuration JSON
@@ -85,6 +85,7 @@ module.exports = {
     exportTheme: theme.exportTheme,
     font: font.font,
     images: image.images,
+    jslint: js.jslint,
     pullTheme: theme.pull,
     pushTheme: theme.push,
     scripts: js.scripts,
