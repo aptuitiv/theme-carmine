@@ -45,6 +45,7 @@
         "moment": "^2.29.1",
         "penthouse": "^2.3.2",
         "postcss": "^8.2.10",
+        "postcss-custom-media": "^8.0.0",
         "postcss-import": "^14.0.1",
         "stylelint-order": "^4.1.0",
         "stylelint-selector-bem-pattern": "^2.1.0"
