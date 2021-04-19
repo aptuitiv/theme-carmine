@@ -28,7 +28,7 @@ module.exports = {
             font: src + '/fonts/**/*.{eot,ttf,woff,woff2}',
             icon: src + '/icons/**/*.svg',
             img: src + '/images/**/*.{gif,jpg,jpeg,png,svg,webp}',
-            js: src + '/js',
+            js: src + '/',
             jslint: src + '/js/**/*.js',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
@@ -46,7 +46,7 @@ module.exports = {
             css: dist + '/css',
             font: dist + '/fonts',
             img: dist + '/images',
-            js: dist + '/',
+            js: dist + '/js',
             theme: dist + '/templates',
             themeFiles: dist + '/templates/**/*.twig'
         },
