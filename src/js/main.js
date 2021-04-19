@@ -5,7 +5,7 @@
 /**
  * Small screen navigation
  */
-var smallScreenNav = {
+const smallScreenNav = {
     button: null,
     /**
      * Holds the navigation object
@@ -56,7 +56,7 @@ var smallScreenNav = {
  * Add "js-dropdownParent" class to a <li> tag that contains a sub list for a drop down.
  * Add "js-dropdown" to any link tags that have a drop down.
  */
-var navAccess = {
+const navAccess = {
     init() {
         const menus = document.querySelectorAll('[data-access-nav]');
         const self = this;
@@ -160,7 +160,7 @@ var navAccess = {
             sibling = el.parentNode.previousElementSibling;
             if (sibling !== null && sibling.classList.contains('js-dropdownParent')) {
                 // Link before a sibling with dropdown (skip over dropdown)
-                focusEl = this.getPrevInLevel(el); 
+                focusEl = this.getPrevInLevel(el);
             } else {
                 focusEl = this.getPrevLink(el); // Get the previous navLink
             }
@@ -196,10 +196,10 @@ var navAccess = {
     },
     // Returns returns true is the first element of a dropdown list
     isDropdownFirst(el) {
-         // get all children links in dropdown
+        // get all children links in dropdown
         const dropdownNavs = Array.prototype.slice.call(this.getParent(el).parentNode.querySelectorAll('.js-navLink'));
         // if it is the first link (after the main navigation link)
-        return dropdownNavs.indexOf(el) === 1; 
+        return dropdownNavs.indexOf(el) === 1;
     },
     // Returns true if the last element of a dropdown
     isDropdownLast(el) {
@@ -260,7 +260,7 @@ var navAccess = {
  * @param {string} cname Cookie name
  * @returns string
  */
- function getCookieValue(cname) {
+function getCookieValue(cname) {
     const b = document.cookie.match(`(^|;)\\s*${cname}\\s*=\\s*([^;]+)`);
     return b ? b.pop() : '';
 }
@@ -271,7 +271,7 @@ var navAccess = {
  * @param {string} cvalue Cookie value
  * @param {number} exdays Number of days to set cookie for
  */
- function setCookie(cname, cvalue, exdays) {
+function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     const existing = getCookieValue(cname);
     let cookievalue = cvalue;

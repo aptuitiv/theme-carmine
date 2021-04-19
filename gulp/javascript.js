@@ -84,8 +84,7 @@ function scripts() {
                 outdir: config.paths.dist.js,
                 bundle: true,
                 minify: true
-            }
-            ))
+            }))
             .pipe(remember('scripts' + index))
             .pipe(concat(entry.name))
             .pipe(header(util.banner))
