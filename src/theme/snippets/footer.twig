@@ -38,6 +38,17 @@
         </div>
     </div>
 </footer>
+{# Do this before you output any inline Javascript in the footer #}
+{% if _core.service.recaptchaV3.isUsable %}
+    {% if _page.hasJs('recaptchaV3') == false %}
+        {% do _page.registerJs('recaptchaV3') %}
+        {{ _core.service.recaptchaV3.js.tag }}
+        {{ _core.service.recaptchaV3.script.tag }}
+    {% endif %}
+    {% inlinecss %}
+        .grecaptcha-badge { visibility: hidden; }
+    {% endinlinecss %}
+{% endif %}
 {{ _page.js() }}
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
     <script>

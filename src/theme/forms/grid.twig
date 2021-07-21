@@ -1,8 +1,9 @@
 {# Display regular form fields #}
 {% macro buildFieldRow(field) %}
     {% if field.fieldType != "hidden" %}
+        {% import _self as macros %}
         {% set field.class = field.class|replace({"error": "is-invalid"}) %}
-        <div class="Grid Grid--withGutter u-margBottom2">
+        <div class="Grid Grid--withGutter u-margBottom2{% if field.wrapperClass %} {{ field.wrapperClass }}{% endif %}">
             <div class="Grid-cell u-size1of4 u-md-sizeFull">
                 {% set field.label.class = field.label.class ~ ' FormLabel' %}
                 {% if field.isRequired %}
@@ -12,7 +13,7 @@
                 {{ field.label.tag }}
             </div>
             <div class="Grid-cell u-size3of4 u-md-sizeFull">
-                {{ _self.buildField(field) }}
+                {{ macros.buildField(field) }}
             </div>
         </div>
     {% else %}
@@ -22,10 +23,10 @@
 
 {# Build out each field #}
 {% macro buildField(field) %}
-    {% if field.fieldType in ['email', 'number', 'text', 'url'] %}
+    {% if field.fieldType in ['email', 'number', 'password', 'tel', 'text', 'url'] %}
         {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
         {{ field.tag }}
-    {%  elseif field.fieldType in ['date','time','month'] %}
+    {%  elseif field.fieldType in ['date', 'datetime-local', 'month', 'time', 'week'] %}
         {% set field.class = field.class ~ ' TextInput' %}
         {{ field.tag }}
     {% elseif field.fieldType == 'button' %}
@@ -45,7 +46,7 @@
         <div class="SelectInput u-sizeFull">
             {{ field.tag }}
         </div>
-    {% elseif field.fieldType == 'radio' %}
+    {% elseif field.fieldType == 'radio' or field.fieldType == 'multiCheckbox' %}
         {% if field.config.separator == 'space' %}
             {% for option in field.options %}
                 <label class="u-padRight2">{{ option.tagNoLabel }} {{ option.label }}</label>
@@ -54,6 +55,7 @@
             {{ field.tag|replace({"error": "is-invalid"}) }}
         {% endif %}
     {% elseif field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
+        {% import _self as macros %}
         <div class="Grid Grid--withGutter">
             {% for column in field.columns %}
                 {% set class = 'u-size1of' ~ loop.length  %}
@@ -69,13 +71,40 @@
                     {% for child in column.childFields %}
                         <div class="u-margBottom2">
                             {% set child.label.class = child.label.class ~ ' FormLabel FormLabel--block' %}
+                            {% if child.isRequired %}
+                                {% set child.required = true %}
+                                {% set child.label.text = child.label.text ~ ' <span class="FormRequired">*</span>' %}
+                            {% endif %}
                             {{ child.label.tag }}
-                            {{ _self.buildField(child) }}
+                            {{ macros.buildField(child) }}
                         </div>
                     {% endfor %}
                 </div>
             {% endfor %}
         </div>
+    {% elseif field.fieldType == 'likert' %}
+        <table class="LikertTbl" cellpadding="0" cellspacing="0">
+            <thead>
+            <tr>
+                <th class="LikertTbl-heading"><!--empty--></th>
+                {% for option in field.options %}
+                    <th class="LikertTbl-heading">{{ option.value }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for likertField in field.childFields %}
+                <tr class="LikertTbl-row">
+                    <td class="LikertTbl-item">{{ likertField.label }}</td>
+                    {% for option in likertField.options %}
+                        <td class="LikertTbl-choice">
+                            <label>{{  option.tagNoLabel }}<span class="u-hiddenVisually">{{ likertField.label }}: {{ option.label }}</span></label>
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
     {% else %}
         {{ field.tag|replace({"error": "is-invalid"}) }}
     {% endif %}
@@ -126,12 +155,22 @@
     </div>
 
     {# Show the CAPTCHA field if necessary #}
-    {% if form.captcha.type == 'recaptcha' %}
-        <div class="Grid Grid--withGutter u-margBottom2">
-            <div class="Grid-cell u-size3of4 u-md-sizeFull u-push1of4 u-md-pushNone">
-                <strong>Please check the box below before submitting.</strong>
-                {{ form.captcha.tag }}
-            </div>
+    {% if form.captcha.type == 'recaptchaV3' %}
+        {# Recaptcha V3 #}
+        {# Because there can be multiple reCAPTCHAs on the page, make the input class unique #}
+        {% do form.captcha.makeInputUnique() %}
+        {% if _page.hasJs('recaptchaV3') == false %}
+            {# Include the hidden input tag, reCAPTCHA Javascript file and the Javascript promise function #}
+            {{ form.captcha.tag }}
+            {% do _page.registerJs('recaptchaV3') %}
+        {% else %}
+            {# Only output the hidden input tag as the reCAPTCHA Javascript file and the Javascript promise function have already been included on the page. #}
+            {{ form.captcha.input.tag }}
+        {% endif %}
+    {% elseif form.captcha.type == 'recaptcha' %}
+        <div class="u-margBottom2">
+            <strong>Please check the box below before submitting.</strong>
+            {{ form.captcha.tag }}
         </div>
     {% elseif form.captcha.type == 'image' %}
         <div class="Grid Grid--withGutter u-margBottom2">
@@ -160,7 +199,7 @@
     {{ form.closeTag }}
 </div>
 
-{#  START INLINE JAVASCRIPT #}
+{# FORM JAVASCRIPT #}
 
 {% if _page.hasJs('js/forms.js'|theme_url) == false %}
     {% inlinejs %}
@@ -174,37 +213,47 @@
 {% endif %}
 
 {% inlinejs %}
-
 loadjs.ready('form', {
     success: function() {
         $(function(){
             $('.js-pageForm form').validate({
                 rules: {
-                'email': {
-                    email: true
-                }
-            },
-            messages: {
-                {% set i = 0 %}
-                {% for field in form.fields %}
-                    {% if field.isFormField %}{% for rule in field.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ field.name }}': '{{ rule.message|escape }}'
-                    {% endif %}{% endfor %}{% else %}{% if field.fieldType == "fieldGroup" %}{% for child in field.childFields %}{% if child.isFormField %}{% for rule in child.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ child.name }}': '{{ rule.message|escape }}'
-                    {% endif %}{% endfor %}{% endif %}{% endfor %}{% endif %}{% endif %}
-                {% endfor %}
-            },
-            errorClass: 'is-invalid',
-            errorElement: "li",
-            errorLabelContainer: "#errorContainer > ul",
-            showErrors: function(errorMap, errorList) {
-                $('.js-successContainer').hide();
-                if (this.numberOfInvalids() > 0) {
-                    $('#errorContainer').removeClass('u-hidden');
-                } else {
-                    $('#errorContainer').addClass('u-hidden');
-                }
-                $('.js-serverError').remove();
-                this.defaultShowErrors();
-                $('#errorContainer li').addClass('FormError-listItem');
+                    'email': {
+                        email: true
+                    }
+                },
+                messages: {
+                    {% set i = 0 %}
+                    {% for field in form.fields %}
+                        {% if field.isFormField %}{% for rule in field.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ field.name }}': '{{ rule.message|escape }}'
+                        {% endif %}{% endfor %}{% else %}{% if field.fieldType == "fieldGroup" %}{% for child in field.childFields %}{% if child.isFormField %}{% for rule in child.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ child.name }}': '{{ rule.message|escape }}'
+                        {% endif %}{% endfor %}{% endif %}{% endfor %}{% endif %}{% endif %}
+                    {% endfor %}
+                },
+                errorClass: 'is-invalid',
+                errorElement: "li",
+                errorLabelContainer: "#errorContainer > ul",
+                showErrors: function(errorMap, errorList) {
+                    $('.js-successContainer').hide();
+                    if (this.numberOfInvalids() > 0) {
+                        $('#errorContainer').removeClass('u-hidden');
+                    } else {
+                        $('#errorContainer').addClass('u-hidden');
+                    }
+                    $('.js-serverError').remove();
+                    this.defaultShowErrors();
+                    $('#errorContainer li').addClass('FormError-listItem');
+                },
+                submitHandler: function(form) {
+                    $('.js-formOverlay').show();
+                    {% if form.captcha.type == 'recaptchaV3' %}
+                        {# Call the Javascript Promise function to execute the reCAPTCHA #}
+                        {{ form.captcha.script.function }}(grecaptcha, {inputSelector: '.{{ form.captcha.input.class }}'}).then(function() {
+                            form.submit();
+                        });
+                    {% else %}
+                        form.submit();
+                    {% endif %}
                 }
             });
 
