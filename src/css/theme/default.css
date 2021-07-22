@@ -58,11 +58,11 @@
     --theme-nav-color: #fff;
     --theme-nav-color-hover: #fff;
     --theme-nav-item-bg: transparent;
-    --theme-nav-item-bg-hover: color(var(--theme-primary-color) shade(15%));
+    --theme-nav-item-bg-hover: #600303;
     --theme-nav-font: var(--theme-typography-fontFamily);
     --theme-nav-font-size: 1em;
     --theme-nav-line-height: 1.5;
-    --theme-nav-dropdown-background: color(var(--theme-primary-color) shade(15%));
+    --theme-nav-dropdown-background: #600303;
     --theme-nav-dropdown-color: #fff;
     --theme-nav-dropdown-color-hover: #fff;
 }
@@ -126,9 +126,9 @@
     --theme-image-grid-title-font-weight: 300;
     --theme-image-grid-title-hover-background: var(--theme-primary-color);
     --theme-image-grid-title-hover-color: #fff;
-    --theme-image-grid-hover-background: color(var(--theme-primary-color) shade(20%));
+    --theme-image-grid-hover-background: #600303;
     --theme-image-grid-hover-color: #fff;
-    --theme-image-grid-cover-background: color(var(--theme-primary-color) a(50%));
+    --theme-image-grid-cover-background: #600303;
     --theme-image-grid-title-cover-color: #fff;
 }
 
