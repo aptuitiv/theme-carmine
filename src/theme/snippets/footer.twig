@@ -5,7 +5,7 @@
             {{ _api.navigation.get.key('main').showSubNav('no').template('footer') }}
         {% endif %}
         {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' or _core.theme.settings.footerShowEmail == 'yes' %}
-            {% spaceless %}
+            {% apply spaceless %}
                 <span itemscope itemtype="http://schema.org/Organization">
                     {% if _core.theme.settings.footerShowAddress == 'yes' %}
                         <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -30,7 +30,7 @@
                         {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.theme.settings.email }}" itemprop="email" class="Footer-link">{{ _core.theme.settings.email }}</a>
                     {% endif %}
                 </span>
-            {% endspaceless %}
+            {% endapply %}
         {% endif %}
         <div>&copy; {{ _core.date.year }} {{ _core.theme.settings.company }}</div>
         <div class="Footer-credit">

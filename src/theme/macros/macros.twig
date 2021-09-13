@@ -1,18 +1,18 @@
 {# Macro to build an accessible icon with a title #}
 {% macro iconImg(icon, title, class) %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% set class = (class ~ ' Icon')|trim %}
         {% set id = 'iconTitle-' ~ random_string(6) %}
         <svg class="{{ class }}" role="img" alt="{{ title }}" aria-labelledby="{{ id }}" focusable="false"><title id="{{ id }}">{{ title }}</title><use xlink:href="#icon-{{ icon }}" /></svg>
-    {% endspaceless %}
+    {% endapply %}
 {% endmacro %}
 
 {# Macro to build an icon that should be hidden from screen readers #}
 {% macro iconAriaHidden(icon, class) %}
-    {% spaceless %}
+    {% apply spaceless %}
         {% set class = (class ~ ' Icon')|trim %}
         <svg class="{{ class }}" aria-hidden="true" focusable="false"><use xlink:href="#icon-{{ icon }}" /></svg>
-    {% endspaceless %}
+    {% endapply %}
 {% endmacro %}
 
 {# Macro to load Slick Slider #}

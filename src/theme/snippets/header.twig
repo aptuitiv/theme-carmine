@@ -59,7 +59,7 @@
                         </div>
                     {% endif %}
                     {% if _core.theme.settings.headerShowAddress == 'yes' or _core.theme.settings.headerShowPhone == 'yes' or _core.theme.settings.headerShowEmail == 'yes' %}
-                        {% spaceless %}
+                        {% apply spaceless %}
                             <div itemscope itemtype="http://schema.org/Organization" class="Header-line">
                                 {% if _core.theme.settings.headerShowAddress == 'yes' %}
                                     <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="Header-line">
@@ -84,16 +84,16 @@
                                     <div class="Header-line"><a href="mailto:{{ _core.theme.settings.email }}" itemprop="email">{{ _core.theme.settings.email }}</a></div>
                                 {% endif %}
                             </div>
-                        {% endspaceless %}
+                        {% endapply %}
                     {% endif %}
                     {% if _core.theme.settings.headerShowButtons == 'yes' and _core.theme.settings.headerButtons %}
-                        {% spaceless %}
+                        {% apply spaceless %}
                             <div class="Header-line">
                                 {% for button in _core.theme.settings.headerButtons %}
                                     <a href="{{ button.url }}" class="Button Header-button">{{ button.text }}</a>
                                 {% endfor %}
                             </div>
-                        {% endspaceless %}
+                        {% endapply %}
                     {% endif %}
                 </div>
             </div>

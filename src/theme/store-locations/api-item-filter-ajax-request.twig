@@ -1,4 +1,4 @@
-{% spaceless %}
+{% apply spaceless %}
     {% set itemPoints = [] %}
     {% for item in items %}
         {# Set the item point JSON data #}
@@ -27,4 +27,4 @@
         {% set itemPoints = itemPoints|merge([itemPoint]) %}
     {% endfor %}
     {{ itemPoints|json }}
-{% endspaceless %}
+{% endapply %}

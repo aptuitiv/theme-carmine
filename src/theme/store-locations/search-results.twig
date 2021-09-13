@@ -1,5 +1,5 @@
 {# Set the correct content type for the page #}
-{% spaceless %}
+{% apply spaceless %}
     {% do header('Content-Type: application/json; charset=utf-8') %}
     {# This is the normal store locations search results #}
     {% if items|length > 0 %}
@@ -11,4 +11,4 @@
         {% set data = {'total': '0'} %}
     {% endif %}
     {{ data|json }}
-{% endspaceless %}
+{% endapply %}

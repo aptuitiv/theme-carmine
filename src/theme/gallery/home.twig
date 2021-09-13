@@ -14,7 +14,7 @@
         <a href="{{ appUrls.itemList }}">Alternate view</a>
         | <a href="{{ appUrls.categoryList }}">Categories</a>
     </div>
-    {% spaceless %}
+    {% apply spaceless %}
         <div class="js-masonryGrid">
             <div class="MasonryGrid-columnWidth"></div>
             <div class="MasonryGrid-gutterWidth"></div>
@@ -101,7 +101,7 @@
     });
     {% endinlinejs %}
 
-    {% endspaceless %}
+    {% endapply %}
     {% include 'snippets/pagination' %}
 
 {% endblock %}

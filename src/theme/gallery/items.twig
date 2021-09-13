@@ -16,7 +16,7 @@
         | <a href="{{ appUrls.categoryList }}">Categories</a>
     </div>
     {% if items %}
-        {% spaceless %}
+        {% apply spaceless %}
         <div class="Gallery Grid Grid--withGutterSm">
             {% for item in items %}
                 {% set image = attribute(item.images|first, 'image') %}
@@ -82,7 +82,7 @@
                 });
             {% endinlinejs %}
 
-        {% endspaceless %}
+        {% endapply %}
         {% include 'snippets/pagination' %}
     {% endif %}
 
