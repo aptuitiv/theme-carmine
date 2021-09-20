@@ -1,0 +1,20 @@
+
+{% extends "one-column.twig" %}
+
+{% block header %}
+    <div class="ContentHeader">
+        <div class="Container">
+            <h1 class="ContentHeader-title">Calendar Tag</h1>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main %}
+    {% if tagCount > 0 %}
+        <ul>
+            {% for tag in tags %}
+                <li><a href="{{ tag.url }}">{{ tag.tagName }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
