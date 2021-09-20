@@ -1,0 +1,24 @@
+
+{% set events = _api.calendar.events.limit(numberOfEvents) %}
+
+<div class="u-flex u-flexJustifyCenter">
+
+    <div class="List">
+
+        <div class="List-header">
+            <h2 class="List-header-title">{{ title }}</h2>
+            <div class="List-header-button">
+                <a href="/calendar" class="List-header-link">View All</a>
+            </div>
+        </div>
+
+        <div class="List-body Grid">
+            {% for event in events %}
+                <div class="List-body-item Grid-cell u-size1of4">{{ event.dateTimestamp|date('M j') }}</div>
+                <div class="List-body-item Grid-cell u-size3of4"><a href="{{ event.url }}">{{ event.title }}</a></div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>

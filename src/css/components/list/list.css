@@ -1,0 +1,50 @@
+/* =========================================================================== *\
+    List styles (mostly used in recent calendar events list CBE
+\* =========================================================================== */
+
+/* ------------------------------------ *\
+    List
+\* ------------------------------------ */
+
+.List {
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgb(4 43 55 / 25%);
+}
+
+/* ------------------------------------ *\
+    List header
+\* ------------------------------------ */
+
+.List-header {
+    align-items: center;
+    background-color: var(--theme-primary-color);
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.List-header-title {
+    color: #fff;
+    margin: 0;
+}
+
+.List-header-link {
+    color: #fff;
+}
+
+.List-header-link:hover {
+    color: var(--theme-button-background-alt);
+}
+
+/* ------------------------------------ *\
+    List body
+\* ------------------------------------ */
+
+.List-body {
+    padding: 20px;
+}
+
+.List-body-item {
+    margin-bottom: 10px;
+}
