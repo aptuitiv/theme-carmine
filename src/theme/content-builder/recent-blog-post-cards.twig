@@ -1,0 +1,30 @@
+
+{% set posts = _api.blog.posts.limit(numberOfPosts) %}
+
+<h2 class="Cards-title">{{ title }}</h2>
+
+<div class="Grid Grid--equalHeight Grid--withGutter u-flexJustifyCenter">
+    {% for post in posts %}
+        <div class="Grid-cell u-margBottom4 u-md-sizeFull {% if postsPerRow != '1' %}u-size1of{{ postsPerRow }}{% else %}u-sizeFull{% endif %}">
+            <div class="Card">
+                <div class="Card-date">{{ post.publishedOnDate }}</div>
+                {# {% if post.categories is iterable %}
+                    <div class="Card-category">{{ post.categories|first.categoryName }}</div>
+                {% endif %} #}
+                <div class="Card-title">{{ post.postTitle }}</div>
+                {% if post.abstract or post.content %}
+                    <div class="Card-abstract">
+                        {% if post.abstract %}
+                            {{ post.abstract|striptags|truncate(250) }}
+                        {% else %}
+                            {{ post.content|striptags|truncate(250) }}
+                        {% endif %}
+                    </div>
+                {% endif %}
+                <div class="Card-buttonContainer">
+                    <a href="{{ post.url }}" class="Card-button">Read More ></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
