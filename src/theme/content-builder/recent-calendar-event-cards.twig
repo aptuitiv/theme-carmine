@@ -1,0 +1,26 @@
+
+{% set events = _api.calendar.events.limit(numberOfEvents) %}
+
+<h2 class="Cards-title">{{ title }}</h2>
+
+<div class="Grid Grid--equalHeight Grid--withGutter u-flexJustifyCenter">
+    {% for event in events %}
+        <div class="Grid-cell u-margBottom4 u-md-sizeFull {% if eventsPerRow != '1' %}u-size1of{{ eventsPerRow }}{% else %}u-sizeFull{% endif %}">
+            <div class="Card">
+                <div class="Card-date">{{ event.publishedOnDate }}</div>
+                {# {% if event.categories is iterable %}
+                    <div class="Card-category">{{ event.categories|first.categoryName }}</div>
+                {% endif %} #}
+                <div class="Card-title">{{ event.title }}</div>
+                {% if event.description %}
+                    <div class="Card-abstract">
+                        {{ event.description|striptags|truncate(250) }}
+                    </div>
+                {% endif %}
+                <div class="Card-buttonContainer">
+                    <a href="{{ event.url }}" class="Card-button">Read More ></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
