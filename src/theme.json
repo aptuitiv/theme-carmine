@@ -251,6 +251,25 @@
                         "default": "yes"
                     }
                 ]
+            },
+            {
+                "name": "Blog",
+                "description": "Settings for the blog app",
+                "fields": [
+                    {
+                        "name": "blogSlidebarItems",
+                        "label": "Blog sidebar items",
+                        "type": "checkbox",
+                        "default": ["category-filter", "tag-filter", "recent-posts", "recent-comments", "post-archive"],
+                        "options": {
+                            "category-filter": "Category filter",
+                            "tag-filter": "Tag filter",
+                            "recent-posts": "Recent posts",
+                            "recent-comments": "Recent comments",
+                            "post-archive": "Post archive"
+                        }
+                    }
+                ]
             }
         ]
     },
