@@ -10,7 +10,7 @@
 
 :root {
     --TextInput-background: #fff;
-    --TextInput-border: 1px solid #777 transparent transparent transparent;
+    --TextInput-border: 1px solid #777;
     --TextInput-padding: .25em .5em;
     --TextInput-color: inherit;
     --TextInput-errorColor: #f00;
