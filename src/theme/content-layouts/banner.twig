@@ -1,0 +1,89 @@
+
+{% macro slide(slide) %}
+    {% if slide.altText %}
+        {% set slide.images.medium.alt = slide.altText %}
+    {% endif %}
+    {% set slide.images.medium.class = 'Slider-image' %}
+    {% set slide.images.medium.srcset = slide.images.large.src ~ ' 2000w, ' ~ slide.images.medium.src ~ ' 1200w, ' ~ slide.images.small.src ~ ' 600w' %}
+    {% set slide.images.medium.sizes = '100vw' %}
+    {% if slide.link %}<a href="{{ slide.link }}" class="Slider-link">{% endif %}
+    {{ slide.images.medium.tag }}
+    {% if slide.captionTitle or slide.caption  %}
+        <span class="Slider-content Slider-content--{{ slide.captionPosition|camel }}">
+            {% if slide.captionTitle %}
+                {% if slide.captionHeading != false %}
+                    <h1 class="Slider-captionTitle">{{ slide.captionTitle }}</h1>
+                {% else %}
+                    <span class="Slider-captionTitle">{{ slide.captionTitle }}</span>
+                {% endif %}
+            {% endif %}
+            {% if slide.caption %}<span class="Slider-caption">{{ slide.caption }}</span>{% endif %}
+        </span>
+    {% endif %}
+    {% if slide.link %}</a>{% endif %}
+{% endmacro %}
+
+{% if slides and displayType != 'Hide' %}
+    {% import _self as macros %}
+    {% if slides|length == 1 and displayType == 'Slideshow' %}
+        {% set displayType = 'Single slide' %}
+    {% endif %}
+    {% if displayType == 'Single slide' || displayType == 'Random slide' %}
+        {% if displayType == 'Single slide' %}
+            {% set slide = slides|first %}
+        {% else %}
+            {% set slide = random(slides) %}
+        {% endif %}
+        <div class="Slider">
+            <div class="Slider-slide">
+                {{ macros.slide(slide) }}
+            </div>
+        </div>
+    {% elseif displayType == 'Slideshow' || displayType == 'Random slideshow' %}
+        {% if displayType == 'Random slideshow' %}
+            {% set slides = slides|shuffle %}
+        {% endif %}
+
+        <div class="Slider js-slider">
+            {% for slide in slides %}
+                <div class="Slider-slide{% if loop.index > 1 %} Slider-slide--hidden{% endif %}">
+                    {{ macros.slide(slide) }}
+                </div>
+            {% endfor %}
+        </div>
+
+        {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
+
+        {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
+            {% inlinejs %}
+                loadjs.ready('main', {
+                    success: function() {
+                        loadjs(['{{ 'slick/slick.min.js'|theme_url }}'], 'slickheader');
+                    }
+                });
+            {% endinlinejs %}
+            {% do _page.registerJs('slick/slick.min.js'|theme_url) %}
+        {% endif %}
+
+        {% inlinejs %}
+            loadjs.ready('slickheader', {
+                success: function() {
+                    $(function() {
+                        $('.js-slider').slick({
+                            adaptiveHeight: true,
+                            arrows: {{ showArrows ? 'true' : 'false' }},
+                            autoplay: {{ autoPlaySlides ? 'true' : 'false' }},
+                            autoplaySpeed: {{ sliderSpeed ? sliderSpeed * 1000 : 4000 }},
+                            dots: {{ showDots ? 'true' : 'false' }},
+                            dotsClass: 'Slider-dots Slider-dots--{{ dotPosition|lower }}',
+                            fade: {{ slideTransition == 'Fade' ? 'true' : 'false' }},
+                            prevArrow: '<a href="#" class="Slider-nav Slider-navPrev"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-left" /></svg></a>',
+                            nextArrow: '<a href="#" class="Slider-nav Slider-navNext"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-right" /></svg></a>',
+                            speed: 500
+                        });
+                    });
+                }
+            });
+        {% endinlinejs %}
+    {% endif %}
+{% endif %}

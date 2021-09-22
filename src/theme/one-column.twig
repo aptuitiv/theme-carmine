@@ -1,10 +1,11 @@
+
 {% include 'snippets/header' %}
 
-{{ _page.content('header') }}
+{% block banner %}
+    {{ _page.content('banner') }}
+{% endblock %}
 
 <div class="Container">
-    {% block header %}{% endblock %}
-
     {% if _page.isHome == false %}
         {{ _page.breadcrumb }}
     {% endif %}
