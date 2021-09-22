@@ -281,10 +281,6 @@
         {
             "key": "sidebar",
             "name": "Sidebar"
-        },
-        {
-            "key": "footer",
-            "name": "Footer"
         }
     ],
     "contentBuilder": {
