@@ -4458,6 +4458,10 @@
                             "default": false
                         },
                         {
+                            "value": "Random slideshow",
+                            "default": false
+                        },
+                        {
                             "value": "Single slide",
                             "default": false
                         },
@@ -4743,6 +4747,20 @@
                             "configuration": {
                                 "allowCode": "no"
                             }
+                        },
+                        {
+                            "key": "captionHeading",
+                            "name": "Caption title is a heading",
+                            "description": "",
+                            "type": "selectYesNo",
+                            "configuration": {
+                                "yesNoSelectLabels": "yesno",
+                                "labels": "yesno",
+                                "yesNoSelectValue": "1",
+                                "defaultValue": "1"
+                            },
+                            "size": "medium",
+                            "value": ""
                         },
                         {
                             "key": "caption",
