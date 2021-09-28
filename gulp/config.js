@@ -81,6 +81,10 @@ module.exports = {
         {
             src: ['node_modules/jquery-lazy/*.{lazy.min.js, min.js}'],
             dest: 'lazy'
+        },
+        {
+            src: ['node_modules/drift-zoom/dist/*.{min.css,min.js}'],
+            dest: 'drift'
         }
     ],
 

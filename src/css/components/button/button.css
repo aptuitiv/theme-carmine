@@ -114,3 +114,7 @@
 .Button--square[href^=tel] {
     border-radius: 0;
 }
+
+.Button--wide {
+    width: 100% !important;
+}
