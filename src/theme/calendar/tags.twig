@@ -1,15 +1,8 @@
 
 {% extends "one-column.twig" %}
 
-{% block header %}
-    <div class="ContentHeader">
-        <div class="Container">
-            <h1 class="ContentHeader-title">Calendar Tag</h1>
-        </div>
-    </div>
-{% endblock %}
-
 {% block main %}
+    <h1>Calendar Tags</h1>
     {% if tagCount > 0 %}
         <ul>
             {% for tag in tags %}
