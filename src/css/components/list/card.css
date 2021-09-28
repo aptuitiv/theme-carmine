@@ -9,6 +9,7 @@
 .ListCard {
     border-radius: 10px;
     box-shadow: 0 15px 30px rgb(4 43 55 / 25%);
+    width: 100%;
 }
 
 /* ------------------------------------ *\
