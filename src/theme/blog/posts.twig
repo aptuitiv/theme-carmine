@@ -1,12 +1,7 @@
 {% extends 'two-column' %}
 
 {% block main %}
-    <div class="ContentHeader">
-        <div class="Container">
-            <h1 class="ContentHeader-title">Blog</h1>
-            {{ header }}
-        </div>
-    </div>
+    <h1 class="u-textCenter">Blog</h1>
     {% if posts %}
         {% for post in posts %}
             {% include 'blog/post-list-item-simple' %}
