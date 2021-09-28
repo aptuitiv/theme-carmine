@@ -1,21 +1,21 @@
 /* =========================================================================== *\
-    List styles (mostly used in recent calendar events list CBE
+    ListCard styles (mostly used in recent calendar events list CBE
 \* =========================================================================== */
 
 /* ------------------------------------ *\
-    List
+    ListCard
 \* ------------------------------------ */
 
-.List {
+.ListCard {
     border-radius: 10px;
     box-shadow: 0 15px 30px rgb(4 43 55 / 25%);
 }
 
 /* ------------------------------------ *\
-    List header
+    ListCard header
 \* ------------------------------------ */
 
-.List-header {
+.ListCard-header {
     align-items: center;
     background-color: var(--theme-primary-color);
     border-radius: 10px 10px 0 0;
@@ -24,27 +24,27 @@
     padding: 10px 20px;
 }
 
-.List-header-title {
+.ListCard-header-title {
     color: #fff;
     margin: 0;
 }
 
-.List-header-link {
+.ListCard-header-link {
     color: #fff;
 }
 
-.List-header-link:hover {
+.ListCard-header-link:hover {
     color: var(--theme-button-background-alt);
 }
 
 /* ------------------------------------ *\
-    List body
+    ListCard body
 \* ------------------------------------ */
 
-.List-body {
+.ListCard-body {
     padding: 20px;
 }
 
-.List-body-item {
+.ListCard-body-item {
     margin-bottom: 10px;
 }
