@@ -28,7 +28,7 @@
                     {% case "tag-filter" %}
                         {{ _api.blog.postArchive.template('api-tag-filter') }}
                     {% case "recent-posts" %}
-                        {{ _api.blog.recentPosts.template('api-recent-posts') }}
+                        {{ _api.blog.recentPosts.template('api-recent-posts').limit(_core.theme.settings.blogSidebarRecentPostsNumber) }}
                     {% case "recent-comments" %}
                         {{ _api.blog.recentComments.template('api-recent-comments') }}
                     {% case "post-archive" %}
@@ -38,7 +38,7 @@
         {% else %}
             {{ _api.blog.categoryFilter.template('api-category-filter') }}
             {{ _api.blog.postArchive.template('api-tag-filter') }}
-            {{ _api.blog.recentPosts.template('api-recent-posts') }}
+            {{ _api.blog.recentPosts.template('api-recent-posts').limit(_core.theme.settings.blogSidebarRecentPostsNumber) }}
             {{ _api.blog.recentComments.template('api-recent-comments') }}
             {{ _api.blog.postArchive.template('api-post-archive') }}
         {% endif %}

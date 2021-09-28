@@ -268,6 +268,12 @@
                             "recent-comments": "Recent comments",
                             "post-archive": "Post archive"
                         }
+                    },
+                    {
+                        "name": "blogSidebarRecentPostsNumber",
+                        "label": "Number of recent posts to show in the sidebar",
+                        "type": "number",
+                        "default": "5"
                     }
                 ]
             }
