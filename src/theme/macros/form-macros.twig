@@ -15,9 +15,11 @@
         {% else %}
             {# Handle field groups separately as they have child fields to loop through #}
             {% if field.fieldType == "fieldGroup" %}
+                {# Output the field group heading #}
+                {{ field.tag }}
                 {% for child in field.childFields %}
                     {% if child.isFormField %}
-                        {{ _self.buildGridFieldRow(field) }}
+                        {{ _self.buildGridFieldRow(child) }}
                     {% else %}
                         {# The child field is not an actual form field or a field group. It could be an HTML, Content or Section Heading field. Just output the tag. #}
                         {{ child.tag }}
