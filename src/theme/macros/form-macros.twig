@@ -10,7 +10,6 @@
 {# Build the grid form fields #}
 {% macro buildGridFormFields(form) %}
     {% for field in form.fields %}
-        {# {{ field|debug('field') }} #}
         {% if field.isFormField %}
             {{ _self.buildGridFieldRow(field) }}
         {% else %}
@@ -222,7 +221,6 @@
     message: (string) OPTIONAL A custom message to show above the error list.
 #}
 {% macro formErrorContainer(errorContainerId, form, message) %}
-    {# {{ form|debug('form') }} #}
     <div id="{{ errorContainerId }}" class="FormError {% if form.errors is empty and form.paymentErrors is empty %} u-hidden{% endif %}">
         {% set errorMessage = form.paymentErrors is empty ? 'There was a problem with your submission. Please correct the issues below' : 'Could not process your payment' %}
         {% set errorMessage = message ? message : errorMessage %}
