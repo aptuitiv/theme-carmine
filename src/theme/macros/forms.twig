@@ -1,3 +1,4 @@
+
 {# Show a success message if necessary #}
 {# form.success only used if you don't redirect to another page after a successful submission #}
 {% macro formSuccessMessage(form, message) %}
@@ -9,6 +10,7 @@
 {# Build the grid form fields #}
 {% macro buildGridFormFields(form) %}
     {% for field in form.fields %}
+        {# {{ field|debug('field') }} #}
         {% if field.isFormField %}
             {{ _self.buildGridFieldRow(field) }}
         {% else %}
@@ -101,6 +103,10 @@
                     {% for child in column.childFields %}
                         <div class="u-margBottom2">
                             {% set child.label.class = child.label.class ~ ' FormLabel FormLabel--block' %}
+                            {% if child.isRequired %}
+                                {% set child.required = true %}
+                                {% set child.label.text = child.label.text ~ ' <span class="FormRequired">*</span>' %}
+                            {% endif %}
                             {{ child.label.tag }}
                             {{ _self.buildGridField(child) }}
                         </div>
@@ -216,6 +222,7 @@
     message: (string) OPTIONAL A custom message to show above the error list.
 #}
 {% macro formErrorContainer(errorContainerId, form, message) %}
+    {# {{ form|debug('form') }} #}
     <div id="{{ errorContainerId }}" class="FormError {% if form.errors is empty and form.paymentErrors is empty %} u-hidden{% endif %}">
         {% set errorMessage = form.paymentErrors is empty ? 'There was a problem with your submission. Please correct the issues below' : 'Could not process your payment' %}
         {% set errorMessage = message ? message : errorMessage %}
@@ -234,6 +241,7 @@
 {#
     Sets the error container to show only a single message. This will not loop through errors.
     Instead, it simply outputs a single error message. Useful for a login page.
+
     errorContainerId: (string) The unique ID for the error container div
     form: (object) The Twig form variable
     message: (string) The error message to show
@@ -269,6 +277,7 @@
     filesToLoad: (array) Array of additional Javascript files to load
     submitHandler: (string) (optional) Name of a function to call after the form is validated and captcha has run.
             It is used to do additional processing on the form. Example is preparing Stripe payment data for submission
+
     Examples:
     Basic:
     {{ macros.formValidateHandlerJs(form, errorContainerId) }}
@@ -294,7 +303,7 @@
     {% endif %}
 
     {% inlinejs %}
-    {% if filesToLoad is iterable and filesToLoad|length > 0%}
+    {% if filesToLoad is iterable and filesToLoad|length > 0 %}
         loadjs.ready('forms', {
             success: function() {
                 loadjs([{% for file in filesToLoad %}{% if loop.first == false and loop.lsat == false %},{% endif %}'{{ file }}'{% endfor %}], 'formExtraFiles');
@@ -312,12 +321,53 @@
                     }
                 },
                 messages: {
-                    {% set i = 0 %}
-                    {% for field in form.fields %}
-                        {% if field.isFormField %}{% for rule in field.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ field.name }}': '{{ rule.message|escape }}'
-                        {% endif %}{% endfor %}{% else %}{% if field.fieldType == "fieldGroup" %}{% for child in field.childFields %}{% if child.isFormField %}{% for rule in child.rules %}{% if rule.type == 'required' %}{% set i = i + 1 %}{% if i > 1 %},{% endif %}'{{ child.name }}': '{{ rule.message|escape }}'
-                        {% endif %}{% endfor %}{% endif %}{% endfor %}{% endif %}{% endif %}
-                    {% endfor %}
+                    {% apply spaceless %}
+                        {% set i = 0 %}
+                        {% for field in form.fields %}
+                            {% if field.isFormField %}
+                                {% for rule in field.rules %}
+                                    {% if rule.type == 'required' %}
+                                        {% set i = i + 1 %}
+                                        {% if i > 1 %}
+                                            ,
+                                        {% endif %}
+                                        '{{ field.name }}': '{{ rule.message|escape }}'
+                                    {% endif %}
+                                {% endfor %}
+                                {% if field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
+                                    {% for column in field.columns %}
+                                        {% for child in column.childFields %}
+                                            {% for rule in child.rules %}
+                                                {% if rule.type == 'required' %}
+                                                    {% set i = i + 1 %}
+                                                    {% if i > 1 %}
+                                                        ,
+                                                    {% endif %}
+                                                    '{{ child.name }}': '{{ rule.message|escape }}'
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% else %}
+                                {% if field.fieldType == "fieldGroup" %}
+                                    {% for child in field.childFields %}
+                                        {% if child.isFormField %}
+                                            {% for rule in child.rules %}
+                                                {% if rule.type == 'required' %}
+                                                    {% set i = i + 1 %}
+                                                    {% if i > 1 %}
+                                                        ,
+                                                    {% endif %}
+                                                    '{{ child.name }}': '{{ rule.message|escape }}'
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endapply %}
                 },
                 errorClass: 'is-invalid',
                 errorElement: "li",
