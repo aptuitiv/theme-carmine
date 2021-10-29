@@ -7,7 +7,9 @@
     {% set slide.images.medium.srcset = slide.images.large.src ~ ' 2000w, ' ~ slide.images.medium.src ~ ' 1200w, ' ~ slide.images.small.src ~ ' 600w' %}
     {% set slide.images.medium.sizes = '100vw' %}
     {% if slide.link %}<a href="{{ slide.link }}" class="Slider-link">{% endif %}
-    {{ slide.images.medium.tag }}
+    <div class="ImageConstrain ImageConstrain--banner">
+        {{ slide.images.medium.tag }}
+    </div>
     {% if slide.captionTitle or slide.caption  %}
         <span class="Slider-content Slider-content--{{ slide.captionPosition|camel }}">
             {% if slide.captionTitle %}
