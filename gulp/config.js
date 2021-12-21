@@ -8,7 +8,7 @@ var dist = 'dist/theme/custom';
 /**
  * Data that is set to the config variable in gulpfile.js
  */
-module.exports = {
+const config = {
     /**
      * Holds the base URL for the site to use within the gulp scripts.
      * It should include the closing "/"
@@ -28,7 +28,7 @@ module.exports = {
             font: src + '/fonts/**/*.{eot,ttf,woff,woff2}',
             icon: src + '/icons/**/*.svg',
             img: src + '/images/**/*.{gif,jpg,jpeg,png,svg,webp}',
-            js: src + '/',
+            js: src + '/js',
             jslint: src + '/js/**/*.js',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
@@ -190,3 +190,4 @@ module.exports = {
         // }
     ]
 };
+export {config};
