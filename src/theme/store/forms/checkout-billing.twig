@@ -1,0 +1,59 @@
+{{ form.openTag }}
+    {% if billing.form.fields.shippingOptions.options|length > 0 %}
+        <h2>Shipping Method</h2>
+        {{ billing.form.fields.shippingOptions.tag }}
+    {% endif %}
+
+
+    <h2>Billing Information</h2>
+    <p><em>*</em> = required field </p>
+
+    <div class="Grid Grid--withGutter u-margBottom2">
+        <div class="Grid-cell u-size3of4 u-push1of4">
+            <label>
+                <input type="checkbox" name="populateinfo" value="1" class="js-copyShipping">
+                My billing information is the same as my shipping information
+            </label>
+        </div>
+    </div>
+    {% for field in form.fields %}
+        <div class="Grid Grid--withGutter u-margBottom2">
+            <div class="Grid-cell u-size1of4">
+                {% set field.label.class = field.label.class ~ ' FormLabel' %}
+                {% if field.isRequired %}
+                    {% set field.required = true %}
+                    {% set field.label.text = field.label.text ~ ' <span class="FormRequired">*</span>' %}
+                {% endif %}
+                {{ field.label.tag }}
+            </div>
+            <div class="Grid-cell u-size3of4">
+                {% if field.fieldType in ['email', 'text', 'url'] %}
+                    {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
+                    {{ field.tag }}
+                {% elseif field.fieldType == 'textarea' %}
+                    {% if field.size == 'small' %}
+                        {% set field.rows = 2 %}
+                    {% elseif field.size == 'medium' %}
+                        {% set field.rows = 5 %}
+                    {% elseif field.size == 'large' %}
+                        {% set field.rows = 10 %}
+                    {% endif %}
+                    {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
+                    {{ field.tag }}
+                {% elseif field.fieldType == 'select' %}
+                    <div class="SelectField u-sizeFull">
+                        {{ field.tag }}
+                    </div>
+                {% else %}
+                    {{ field.tag|replace({"error": "is-invalid"}) }}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="Grid Grid--withGutter u-margBottom2">
+        <div class="Grid-cell u-size3of4 u-push1of4">
+            <p><button type="submit" class="Button Button--lg">Continue &raquo;</button></p>
+        </div>
+    </div>
+{{ form.closeTag }}
