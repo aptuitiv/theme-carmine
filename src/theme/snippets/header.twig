@@ -35,6 +35,7 @@
     {{ _page.head() }}
 </head>
 <body>
+    {{ _page.bodyStartCode() }}
     {{ _api.widgets.collection.get('notification-bar') }}
     <div class="u-hiddenVisually" aria-hidden="true">{{ source('snippets/svg-icons.twig') }}</div>
     <header class="Header">
