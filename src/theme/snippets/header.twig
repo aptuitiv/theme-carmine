@@ -61,28 +61,28 @@
                     {% endif %}
                     {% if _core.theme.settings.headerShowAddress == 'yes' or _core.theme.settings.headerShowPhone == 'yes' or _core.theme.settings.headerShowEmail == 'yes' %}
                         {% apply spaceless %}
-                            <div itemscope itemtype="http://schema.org/Organization" class="Header-line">
+                            <div class="Header-line">
                                 {% if _core.theme.settings.headerShowAddress == 'yes' %}
-                                    <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress" class="Header-line">
+                                    <div class="Header-line">
                                         {% if _core.settings.companyAddressStreet %}
-                                            <span itemprop="streetAddress">{{ _core.settings.companyAddressStreet }}</span>,
+                                            {{ _core.settings.companyAddressStreet }},
                                         {% endif %}
                                         {% if _core.settings.companyAddressCity %}
-                                            <span itemprop="addressLocality">{{ _core.settings.companyAddressCity }}</span>,
+                                            {{ _core.settings.companyAddressCity }},
                                         {% endif %}
                                         {% if _core.settings.companyAddressState %}
-                                            <span itemprop="addressRegion">{{ _core.settings.companyAddressState }}</span>
+                                            {{ _core.settings.companyAddressState }}
                                         {% endif %}
                                         {% if _core.settings.companyAddressPostalCode %}
-                                            <span itemprop="postalCode">, {{ _core.settings.companyAddressPostalCode }}</span>
+                                            , {{ _core.settings.companyAddressPostalCode }}
                                         {% endif %}
                                     </div>
                                 {% endif %}
                                 {% if _core.theme.settings.headerShowPhone == 'yes' %}
-                                    <div itemprop="telephone" class="Header-line"><a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a></div>
+                                    <div class="Header-line"><a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a></div>
                                 {% endif %}
                                 {% if _core.theme.settings.headerShowEmail == 'yes' %}
-                                    <div class="Header-line"><a href="mailto:{{ _core.settings.companyEmail }}" itemprop="email">{{ _core.settings.companyEmail }}</a></div>
+                                    <div class="Header-line"><a href="mailto:{{ _core.settings.companyEmail }}">{{ _core.settings.companyEmail }}</a></div>
                                 {% endif %}
                             </div>
                         {% endapply %}

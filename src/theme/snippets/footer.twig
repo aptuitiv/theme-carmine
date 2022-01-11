@@ -6,30 +6,26 @@
         {% endif %}
         {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' or _core.theme.settings.footerShowEmail == 'yes' %}
             {% apply spaceless %}
-                <span itemscope itemtype="http://schema.org/Organization">
-                    {% if _core.theme.settings.footerShowAddress == 'yes' %}
-                        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                            {% if _core.settings.companyAddressStreet %}
-                                <span itemprop="streetAddress">{{ _core.settings.companyAddressStreet }}</span>,
-                            {% endif %}
-                            {% if _core.settings.companyAddressCity %}
-                                <span itemprop="addressLocality">{{ _core.settings.companyAddressCity }}</span>,
-                            {% endif %}
-                            {% if _core.settings.companyAddressState %}
-                                <span itemprop="addressRegion">{{ _core.settings.companyAddressState }}</span>
-                            {% endif %}
-                            {% if _core.settings.companyAddressPostalCode %}
-                                <span itemprop="postalCode">, {{ _core.settings.companyAddressPostalCode }}</span>
-                            {% endif %}
-                        </span>
+                {% if _core.theme.settings.footerShowAddress == 'yes' %}
+                    {% if _core.settings.companyAddressStreet %}
+                        {{ _core.settings.companyAddressStreet }},
                     {% endif %}
-                    {% if _core.theme.settings.footerShowPhone == 'yes' %}
-                    {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}" itemprop="telephone">{{ _core.settings.companyPhone }}</a>
+                    {% if _core.settings.companyAddressCity %}
+                        {{ _core.settings.companyAddressCity }},
                     {% endif %}
-                    {% if _core.theme.settings.footerShowEmail == 'yes' %}
-                        {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.settings.companyEmail }}" itemprop="email" class="Footer-link">{{ _core.settings.companyEmail }}</a>
+                    {% if _core.settings.companyAddressState %}
+                        {{ _core.settings.companyAddressState }}
                     {% endif %}
-                </span>
+                    {% if _core.settings.companyAddressPostalCode %}
+                        , {{ _core.settings.companyAddressPostalCode }}
+                    {% endif %}
+                {% endif %}
+                {% if _core.theme.settings.footerShowPhone == 'yes' %}
+                {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a>
+                {% endif %}
+                {% if _core.theme.settings.footerShowEmail == 'yes' %}
+                    {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.settings.companyEmail }}" class="Footer-link">{{ _core.settings.companyEmail }}</a>
+                {% endif %}
             {% endapply %}
         {% endif %}
         <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
