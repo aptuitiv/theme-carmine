@@ -19,7 +19,6 @@
 .Header-logo {
     max-width: 480px;
     object-fit: cover;
-    width: 100%;
 }
 
 .Header-line {
