@@ -130,7 +130,7 @@
         {{ review.shipping.email }}</p>
 
     <h2>Billing Address</h2>
-    <p><a href="{{ review.urls.checkoutBilling }}">Edit</a><br />
+    <p><a href="{{ review.urls.checkoutPayment }}">Edit</a><br />
         {{ review.billing.firstName }} {{ review.billing.lastName }}<br />
         {{ review.billing.address }}<br />
 
@@ -140,7 +140,7 @@
         {{ review.billing.email }}</p>
 
     <h2>Credit Card</h2>
-    <p><a href="{{ review.urls.checkoutBilling }}">Edit</a><br />
+    <p><a href="{{ review.urls.checkoutPayment }}">Edit</a><br />
         {{ review.creditCard.type }}<br />
         {{ review.creditCard.number }}<br />
         {{ review.creditCard.expirationMonth }}/{{ review.creditCard.expirationYear }}</p>
