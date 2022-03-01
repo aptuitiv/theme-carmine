@@ -1,7 +1,7 @@
 {{ form.openTag }}
-    {% if billing.form.fields.shippingOptions.options|length > 0 %}
+    {% if payment.form.fields.shippingOptions.options|length > 0 %}
         <h2>Shipping Method</h2>
-        {{ billing.form.fields.shippingOptions.tag }}
+        {{ payment.form.fields.shippingOptions.tag }}
     {% endif %}
 
 

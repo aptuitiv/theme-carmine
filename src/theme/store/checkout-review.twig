@@ -131,13 +131,13 @@
 
     <h2>Billing Address</h2>
     <p><a href="{{ review.urls.checkoutPayment }}">Edit</a><br />
-        {{ review.billing.firstName }} {{ review.billing.lastName }}<br />
-        {{ review.billing.address }}<br />
+        {{ review.payment.firstName }} {{ review.payment.lastName }}<br />
+        {{ review.payment.address }}<br />
 
-        {{ review.billing.city }}, {{ review.billing.state }} {{ review.billing.zipCode }}<br />
-        {{ review.billing.country }}<br />
-        {{ review.billing.phone }}<br />
-        {{ review.billing.email }}</p>
+        {{ review.payment.city }}, {{ review.payment.state }} {{ review.payment.zipCode }}<br />
+        {{ review.payment.country }}<br />
+        {{ review.payment.phone }}<br />
+        {{ review.payment.email }}</p>
 
     <h2>Credit Card</h2>
     <p><a href="{{ review.urls.checkoutPayment }}">Edit</a><br />
