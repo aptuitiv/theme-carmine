@@ -177,15 +177,15 @@
         {# Assuming jQuery is already loaded on the page #}
         $('.js-copyShipping').click(function() {
             if (this.checked) {
-                $('.js-billFirstName').val('{{ payment.shippingValues.firstName }}');
-                $('.js-billLastName').val('{{ payment.shippingValues.lastName }}');
-                $('.js-billAddress').val('{{ payment.shippingValues.address }}');
-                $('.js-billCity').val('{{ payment.shippingValues.city }}');
-                $('.js-billStateText').val('{{ payment.shippingValues.stateText }}');
-                $('.js-billZipCode').val('{{ payment.shippingValues.zipCode }}');
-                $('.js-billCountry').val('{{ payment.shippingValues.country }}');
-                $('.js-billPhone').val('{{ payment.shippingValues.phone }}');
-                $('.js-billEmail').val('{{ payment.shippingValues.email }}');
+                $('.js-paymentFirstName').val('{{ payment.shippingValues.firstName }}');
+                $('.js-paymentLastName').val('{{ payment.shippingValues.lastName }}');
+                $('.js-paymentAddress').val('{{ payment.shippingValues.address }}');
+                $('.js-paymentCity').val('{{ payment.shippingValues.city }}');
+                $('.js-paymentStateText').val('{{ payment.shippingValues.stateText }}');
+                $('.js-paymentZipCode').val('{{ payment.shippingValues.zipCode }}');
+                $('.js-paymentCountry').val('{{ payment.shippingValues.country }}');
+                $('.js-paymentPhone').val('{{ payment.shippingValues.phone }}');
+                $('.js-paymentEmail').val('{{ payment.shippingValues.email }}');
             }
         });
     {% endinlinejs %}
