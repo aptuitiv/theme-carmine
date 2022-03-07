@@ -23,19 +23,19 @@
 
     {% import _self as macros %}
 
-    {% if cart.products %}
+    {% if hasProducts %}
 
-        {% if cart.updateForm.errors %}
+        {% if updateForm.errors %}
             <div class="FormError">
                 <ul class="FormError-list">
-                    {% for error in cart.updateForm.errors %}
+                    {% for error in updateForm.errors %}
                         <li class="FormError-listItem">{{ error.message }}</li>
                     {% endfor %}
                 </ul>
             </div>
         {% endif %}
 
-        {{ cart.updateForm.openTag }}
+        {{ updateForm.openTag }}
 
         <table cellspacing="0" class="Table Table--themed">
             <thead>
@@ -48,7 +48,7 @@
                 </tr>
             </thead>
             <tbody>
-            {% for product in cart.products %}
+            {% for product in products %}
             <tr>
                 <td class="u-textCenter"><label>{{ product.fields.remove.tag }}</label></td>
                 <td>
@@ -80,12 +80,12 @@
                 <td class="u-textCenter">{{ product.totalPrice.value }}</td>
             </tr>
             {% endfor %}
-            {% if cart.coupons %}
+            {% if coupons %}
                 <tr>
                     <td class="u-textRight" colspan="4">Subtotal</td>
-                    <td>{{ cart.cartTotalBeforeDiscounts.value }}</td>
+                    <td>{{ cartTotalBeforeDiscounts.value }}</td>
                 </tr>
-                {% for coupon in cart.coupons %}
+                {% for coupon in coupons %}
                     <tr>
                         <td colspan="4">{{ coupon.name }} ({{ coupon.code }})</td>
                         <td>-{{ coupon.savingsValue }}</td>
@@ -96,15 +96,15 @@
             <tr>
                 <td colspan="2"><button class="Button Button--sm" type="submit">Update Cart</button></td>
                 <td class="u-textRight" colspan="2">Total: </td>
-                <td>{{ cart.cartTotal.value }}</td>
+                <td>{{ cartTotal.value }}</td>
             </tr>
             </tbody>
         </table>
-        {{ cart.updateForm.closeTag }}
+        {{ updateForm.closeTag }}
 
-        <div class="u-textRight"><a href="{{ cart.appUrls.checkout }}" class="Button Button--lg"><strong>Checkout &raquo;</strong></a></div>
+        <div class="u-textRight"><a href="{{ appUrls.checkout }}" class="Button Button--lg"><strong>Checkout &raquo;</strong></a></div>
     {% else %}
         <p>Your shopping cart is empty.</p>
-        <p><a href="{{ cart.appUrls.continueShopping }}" class="Button">Continue shopping</a></p>
+        <p><a href="{{ appUrls.continueShopping }}" class="Button">Continue shopping</a></p>
     {% endif %}
 {% endblock %}
