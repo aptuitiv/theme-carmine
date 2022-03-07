@@ -102,9 +102,9 @@
         </table>
         {{ cart.updateForm.closeTag }}
 
-        <div class="u-textRight"><a href="{{ cart.urls.checkout }}" class="Button Button--lg"><strong>Checkout &raquo;</strong></a></div>
+        <div class="u-textRight"><a href="{{ cart.appUrls.checkout }}" class="Button Button--lg"><strong>Checkout &raquo;</strong></a></div>
     {% else %}
         <p>Your shopping cart is empty.</p>
-        <p><a href="{{ cart.urls.continueShopping }}" class="Button">Continue shopping</a></p>
+        <p><a href="{{ cart.appUrls.continueShopping }}" class="Button">Continue shopping</a></p>
     {% endif %}
 {% endblock %}
