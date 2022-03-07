@@ -1,0 +1,15 @@
+{% extends 'one-column' %}
+
+{% block main %}
+    <h1>Checkout Shipping Option</h1>
+    <ul class="List List--arrow">
+        <li><a href="{{ appUrls.cart }}">Shopping Cart</a></li>
+        <li class="{{ appUrls.checkoutShippingAddress }}">Shipping Address</li>
+        <li class="currentstep">Shipping Options</li>
+        <li>Billing &amp; Payment</li>
+        <li>Confirmation</li>
+        <li class="last">Receipt</li>
+    </ul>
+
+    {{ form.content }}
+{% endblock %}
