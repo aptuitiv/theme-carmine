@@ -36,7 +36,7 @@
     {% endif %}
     <ul class="List List--arrow">
         <li><a href="{{ review.appUrls.cart }}">Shopping Cart</a></li>
-        <li><a href="{{ review.appUrls.checkoutShipping }}">Shipping Address</a></li>
+        <li><a href="{{ review.appUrls.checkoutShippingAddress }}">Shipping Address</a></li>
         <li><a href="{{ review.appUrls.checkingBilling }}">Billing &amp; Payment</a></li>
         <li class="u-weightBold">Confirmation</li>
         <li>Receipt</li>
@@ -120,7 +120,7 @@
 
 
     <h2>Shipping Address</h2>
-    <p><a href="{{ review.appUrls.checkoutShipping }}">Edit</a><br />
+    <p><a href="{{ review.appUrls.checkoutShippingAddress }}">Edit</a><br />
         {{ review.shipping.firstName }} {{ review.shipping.lastName }}<br />
         {{ review.shipping.address }}<br />
 
