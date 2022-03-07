@@ -4,11 +4,11 @@
 {% block main %}
     <h1>Checkout</h1>
 
-    {% if shipping.form.errors %}
+    {% if form.errors %}
         <div class="FormError">
             <p>There was a problem. Please correct the issues below</p>
             <ul class="FormError-list">
-                {% for error in shipping.form.errors %}
+                {% for error in form.errors %}
                     <li class="FormError-listItem">{{ error.message }}</li>
                 {% endfor %}
             </ul>
@@ -16,7 +16,7 @@
     {% endif %}
 
     <ul class="List List--arrow">
-        <li><a href="{{ shipping.appUrls.cart }}">Shopping Cart</a></li>
+        <li><a href="{{ appUrls.cart }}">Shopping Cart</a></li>
         <li class="u-weightBold">Shipping Address</li>
         <li>Billing &amp; Payment</li>
         <li>Confirmation</li>
@@ -26,10 +26,10 @@
     <h2>Shipping Address</h2>
     <p><em>*</em> = required field </p>
 
-    {% if shipping.form.content %}
-        {{ shipping.form.content }}
+    {% if form.content %}
+        {{ form.content }}
     {% else %}
-        {{ shipping.form.openTag }}
+        {{ form.openTag }}
             {% set fields.shipFirstName = 'First Name' %}
             {% set fields.shipLastName = 'Last Name' %}
             {% set fields.shipAddress = 'Address' %}
@@ -42,7 +42,7 @@
 
             {% set formFields = [] %}
             {% for key, label in fields %}
-                {% set thisField = attribute(shipping.form.fields, key) %}
+                {% set thisField = attribute(form.fields, key) %}
                 {% set thisField.isRequired = true %}
                 {% set thisField.label.text = label %}
                 {% set formFields = formFields|merge([thisField])  %}
@@ -88,7 +88,7 @@
                     <p><button type="submit" class="Button Button--lg">Continue &raquo;</button></p>
                 </div>
             </div>
-        {{ shipping.form.closeTag }}
+        {{ form.closeTag }}
     {% endif %}
 
 {% endblock %}

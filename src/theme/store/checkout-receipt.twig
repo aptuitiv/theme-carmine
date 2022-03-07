@@ -45,7 +45,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for product in receipt.cart.products %}
+        {% for product in cart.products %}
         <tr>
             <td>
                 {% if product.images|length > 0 %}
@@ -79,7 +79,7 @@
         {% endfor %}
         <tr>
             <td class="u-textRight" colspan="3">Subtotal: </td>
-            <td class="u-textRight">{{ receipt.cart.subtotal }}</td>
+            <td class="u-textRight">{{ cart.subtotal }}</td>
         </tr>
         {% if cart.coupons %}
             <tr>
@@ -96,42 +96,42 @@
 
         <tr>
             <td class="u-textRight" colspan="3">Shipping: </td>
-            <td class="u-textRight">{{ receipt.cart.shipping.total }}</td>
+            <td class="u-textRight">{{ cart.shipping.total }}</td>
         </tr>
         <tr>
             <td class="u-textRight" colspan="3">Tax: </td>
-            <td class="u-textRight">{{ receipt.cart.taxes.total }}</td>
+            <td class="u-textRight">{{ cart.taxes.total }}</td>
         </tr>
         <tr>
             <td class="u-textRight" colspan="3">Total: </td>
-            <td class="u-textRight">{{ receipt.cart.total }}</td>
+            <td class="u-textRight">{{ cart.total }}</td>
         </tr>
         </tbody>
     </table>
 
     <h2>Shipping Address</h2>
     <p>
-        {{ receipt.shipping.firstName }} {{ receipt.shipping.lastName }}<br />
-        {{ receipt.shipping.address }}<br />
+        {{ shipping.firstName }} {{ shipping.lastName }}<br />
+        {{ shipping.address }}<br />
 
-        {{ receipt.shipping.city }}, {{ receipt.shipping.state }} {{ receipt.shipping.zipCode }}<br />
-        {{ receipt.shipping.country }}<br />
-        {{ receipt.shipping.phone }}<br />
-        {{ receipt.shipping.email }}</p>
+        {{ shipping.city }}, {{ shipping.state }} {{ shipping.zipCode }}<br />
+        {{ shipping.country }}<br />
+        {{ shipping.phone }}<br />
+        {{ shipping.email }}</p>
 
     <h2>Billing Address</h2>
     <p>
-        {{ receipt.payment.firstName }} {{ receipt.payment.lastName }}<br />
-        {{ receipt.payment.address }}<br />
+        {{ payment.firstName }} {{ payment.lastName }}<br />
+        {{ payment.address }}<br />
 
-        {{ receipt.payment.city }}, {{ receipt.payment.state }} {{ receipt.payment.zipCode }}<br />
-        {{ receipt.payment.country }}<br />
-        {{ receipt.payment.phone }}<br />
-        {{ receipt.payment.email }}</p>
+        {{ payment.city }}, {{ payment.state }} {{ payment.zipCode }}<br />
+        {{ payment.country }}<br />
+        {{ payment.phone }}<br />
+        {{ payment.email }}</p>
 
     <h2>Credit Card</h2>
     <p>
-        {{ receipt.creditCard.type }}<br />
-        {{ receipt.creditCard.number }}<br />
-        {{ receipt.creditCard.expirationMonth }}/{{ receipt.creditCard.expirationYear }}</p>
+        {{ creditCard.type }}<br />
+        {{ creditCard.number }}<br />
+        {{ creditCard.expirationMonth }}/{{ creditCard.expirationYear }}</p>
 {% endblock %}

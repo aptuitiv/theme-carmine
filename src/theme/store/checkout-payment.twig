@@ -4,11 +4,11 @@
 {% block main %}
     <h1>Checkout</h1>
 
-    {% if payment.form.errors %}
+    {% if form.errors %}
         <div class="FormError">
             <p>There was a problem. Please correct the issues below</p>
             <ul class="FormError-list">
-                {% for error in payment.form.errors %}
+                {% for error in form.errors %}
                     <li class="FormError-listItem">{{ error.message }}</li>
                 {% endfor %}
             </ul>
@@ -16,20 +16,20 @@
     {% endif %}
 
     <ul class="List List--arrow">
-        <li><a href="{{ payment.appUrls.cart }}">Shopping Cart</a></li>
-        <li><a href="{{ payment.appUrls.checkoutShippingAddress }}">Shipping Address</a></li>
+        <li><a href="{{ appUrls.cart }}">Shopping Cart</a></li>
+        <li><a href="{{ appUrls.checkoutShippingAddress }}">Shipping Address</a></li>
         <li class="u-weightBold">Billing &amp; Payment</li>
         <li>Confirmation</li>
         <li>Receipt</li>
     </ul>
 
-    {% if payment.form.content %}
-        {{ payment.form.content }}
+    {% if form.content %}
+        {{ form.content }}
     {% else %}
-        {{ payment.form.openTag }}
-            {% if payment.form.fields.shippingOptions.options|length > 0 %}
+        {{ form.openTag }}
+            {% if form.fields.shippingOptions.options|length > 0 %}
                 <h2>Shipping Method</h2>
-                {{ payment.form.fields.shippingOptions.tag }}
+                {{ form.fields.shippingOptions.tag }}
             {% endif %}
 
 
@@ -48,7 +48,7 @@
 
             {% set formFields = [] %}
             {% for key, label in fields %}
-                {% set thisField = attribute(payment.form.fields, key) %}
+                {% set thisField = attribute(form.fields, key) %}
                 {% set thisField.isRequired = true %}
                 {% set thisField.label.text = label %}
                 {% set thisField.class = thisField.class ~ ' js-' ~ key %}
@@ -104,13 +104,13 @@
                 {# There is another billing method available besides "Credit Card" #}
                 <div class="Grid Grid--withGutter u-margBottom2">
                     <div class="Grid-cell u-size1of4">
-                        {% set payment.form.fields.billMethod.label.class = payment.form.fields.billMethod.label.class ~ ' FormLabel' %}
-                        {% set payment.form.fields.billMethod.label.text = 'Payment Method' ~ ' <span class="FormRequired">*</span>' %}
-                        {{ payment.form.fields.billMethod.label.tag }}
+                        {% set form.fields.billMethod.label.class = form.fields.billMethod.label.class ~ ' FormLabel' %}
+                        {% set form.fields.billMethod.label.text = 'Payment Method' ~ ' <span class="FormRequired">*</span>' %}
+                        {{ form.fields.billMethod.label.tag }}
                     </div>
                     <div class="Grid-cell u-size3of4">
                         <div class="SelectField u-sizeFull">
-                            {{ payment.form.fields.billMethod.tag }}
+                            {{ form.fields.billMethod.tag }}
                         </div>
                     </div>
                 </div>
@@ -118,50 +118,50 @@
 
             <div class="Grid Grid--withGutter u-margBottom2">
                 <div class="Grid-cell u-size1of4">
-                    {% set payment.form.fields.billCreditCardType.label.class = payment.form.fields.billCreditCardType.label.class ~ ' FormLabel' %}
-                    {% set payment.form.fields.billCreditCardType.label.text = 'Credit Card Type' ~ ' <span class="FormRequired">*</span>' %}
-                    {{ payment.form.fields.billCreditCardType.label.tag }}
+                    {% set form.fields.billCreditCardType.label.class = form.fields.billCreditCardType.label.class ~ ' FormLabel' %}
+                    {% set form.fields.billCreditCardType.label.text = 'Credit Card Type' ~ ' <span class="FormRequired">*</span>' %}
+                    {{ form.fields.billCreditCardType.label.tag }}
                 </div>
                 <div class="Grid-cell u-size3of4">
                     <div class="SelectField u-sizeFull">
-                        {% if payment.form.fields.billCreditCardType.options|length == 0 %}
-                            {% set payment.form.fields.billCreditCardType.options = {'Visa': 'Visa', 'MasterCard': 'MasterCard'} %}
+                        {% if form.fields.billCreditCardType.options|length == 0 %}
+                            {% set form.fields.billCreditCardType.options = {'Visa': 'Visa', 'MasterCard': 'MasterCard'} %}
                         {% endif %}
-                        {{ payment.form.fields.billCreditCardType.tag }}
+                        {{ form.fields.billCreditCardType.tag }}
                     </div>
                 </div>
             </div>
             <div class="Grid Grid--withGutter u-margBottom2">
                 <div class="Grid-cell u-size1of4">
-                    {% set payment.form.fields.billCreditCardNumber.label.class = payment.form.fields.billCreditCardNumber.label.class ~ ' FormLabel' %}
-                    {% set payment.form.fields.billCreditCardNumber.label.text = 'Card Number' ~ ' <span class="FormRequired">*</span>' %}
-                    {{ payment.form.fields.billCreditCardNumber.label.tag }}
+                    {% set form.fields.billCreditCardNumber.label.class = form.fields.billCreditCardNumber.label.class ~ ' FormLabel' %}
+                    {% set form.fields.billCreditCardNumber.label.text = 'Card Number' ~ ' <span class="FormRequired">*</span>' %}
+                    {{ form.fields.billCreditCardNumber.label.tag }}
                 </div>
                 <div class="Grid-cell u-size3of4">
-                    {% set payment.form.fields.billCreditCardNumber.class = payment.form.fields.billCreditCardNumber.class ~ ' TextInput u-sizeFull' %}
-                    {{ payment.form.fields.billCreditCardNumber.tag }}
+                    {% set form.fields.billCreditCardNumber.class = form.fields.billCreditCardNumber.class ~ ' TextInput u-sizeFull' %}
+                    {{ form.fields.billCreditCardNumber.tag }}
                 </div>
             </div>
             <div class="Grid Grid--withGutter u-margBottom2">
                 <div class="Grid-cell u-size1of4">
-                    {% set payment.form.fields.billCreditCardExpirationMonth.label.class = payment.form.fields.billCreditCardExpirationMonth.label.class ~ ' FormLabel' %}
-                    {% set payment.form.fields.billCreditCardExpirationMonth.label.text = 'Expiration' ~ ' <span class="FormRequired">*</span>' %}
-                    {{ payment.form.fields.billCreditCardExpirationMonth.label.tag }}
+                    {% set form.fields.billCreditCardExpirationMonth.label.class = form.fields.billCreditCardExpirationMonth.label.class ~ ' FormLabel' %}
+                    {% set form.fields.billCreditCardExpirationMonth.label.text = 'Expiration' ~ ' <span class="FormRequired">*</span>' %}
+                    {{ form.fields.billCreditCardExpirationMonth.label.tag }}
                 </div>
                 <div class="Grid-cell u-size3of4">
-                    {{ payment.form.fields.billCreditCardExpirationMonth.tag }}
-                    {{ payment.form.fields.billCreditCardExpirationYear.tag }}
+                    {{ form.fields.billCreditCardExpirationMonth.tag }}
+                    {{ form.fields.billCreditCardExpirationYear.tag }}
                 </div>
             </div>
             <div class="Grid Grid--withGutter u-margBottom2">
                 <div class="Grid-cell u-size1of4">
-                    {% set payment.form.fields.billCreditCardCode.label.class = payment.form.fields.billCreditCardCode.label.class ~ ' FormLabel' %}
-                    {% set payment.form.fields.billCreditCardCode.label.text = 'Security Code' ~ ' <span class="FormRequired">*</span>' %}
-                    {{ payment.form.fields.billCreditCardCode.label.tag }}
+                    {% set form.fields.billCreditCardCode.label.class = form.fields.billCreditCardCode.label.class ~ ' FormLabel' %}
+                    {% set form.fields.billCreditCardCode.label.text = 'Security Code' ~ ' <span class="FormRequired">*</span>' %}
+                    {{ form.fields.billCreditCardCode.label.tag }}
                 </div>
                 <div class="Grid-cell u-size3of4">
-                    {% set payment.form.fields.billCreditCardCode.class = payment.form.fields.billCreditCardCode.class ~ ' TextInput u-size1of5' %}
-                    {{ payment.form.fields.billCreditCardCode.tag }} (3 or 4 digit code from the back of your credit card)
+                    {% set form.fields.billCreditCardCode.class = form.fields.billCreditCardCode.class ~ ' TextInput u-size1of5' %}
+                    {{ form.fields.billCreditCardCode.tag }} (3 or 4 digit code from the back of your credit card)
                 </div>
             </div>
 
@@ -170,22 +170,22 @@
                     <p><button type="submit" class="Button Button--lg">Continue &raquo;</button></p>
                 </div>
             </div>
-        {{ payment.form.closeTag }}
+        {{ form.closeTag }}
     {% endif %}
 
     {% inlinejs %}
         {# Assuming jQuery is already loaded on the page #}
         $('.js-copyShipping').click(function() {
             if (this.checked) {
-                $('.js-paymentFirstName').val('{{ payment.shippingValues.firstName }}');
-                $('.js-paymentLastName').val('{{ payment.shippingValues.lastName }}');
-                $('.js-paymentAddress').val('{{ payment.shippingValues.address }}');
-                $('.js-paymentCity').val('{{ payment.shippingValues.city }}');
-                $('.js-paymentStateText').val('{{ payment.shippingValues.stateText }}');
-                $('.js-paymentZipCode').val('{{ payment.shippingValues.zipCode }}');
-                $('.js-paymentCountry').val('{{ payment.shippingValues.country }}');
-                $('.js-paymentPhone').val('{{ payment.shippingValues.phone }}');
-                $('.js-paymentEmail').val('{{ payment.shippingValues.email }}');
+                $('.js-paymentFirstName').val('{{ shippingValues.firstName }}');
+                $('.js-paymentLastName').val('{{ shippingValues.lastName }}');
+                $('.js-paymentAddress').val('{{ shippingValues.address }}');
+                $('.js-paymentCity').val('{{ shippingValues.city }}');
+                $('.js-paymentStateText').val('{{ shippingValues.stateText }}');
+                $('.js-paymentZipCode').val('{{ shippingValues.zipCode }}');
+                $('.js-paymentCountry').val('{{ shippingValues.country }}');
+                $('.js-paymentPhone').val('{{ shippingValues.phone }}');
+                $('.js-paymentEmail').val('{{ shippingValues.email }}');
             }
         });
     {% endinlinejs %}

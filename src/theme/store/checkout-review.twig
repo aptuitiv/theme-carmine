@@ -24,20 +24,20 @@
     {% import _self as macros %}
 
     <h1>Checkout</h1>
-    {% if review.form.errors %}
+    {% if form.errors %}
         <div class="FormError">
             <p>There was a problem. Please correct the issues below</p>
             <ul class="FormError-list">
-                {% for error in review.form.errors %}
+                {% for error in form.errors %}
                     <li class="FormError-listItem">{{ error.message }}</li>
                 {% endfor %}
             </ul>
         </div>
     {% endif %}
     <ul class="List List--arrow">
-        <li><a href="{{ review.appUrls.cart }}">Shopping Cart</a></li>
-        <li><a href="{{ review.appUrls.checkoutShippingAddress }}">Shipping Address</a></li>
-        <li><a href="{{ review.appUrls.checkingBilling }}">Billing &amp; Payment</a></li>
+        <li><a href="{{ appUrls.cart }}">Shopping Cart</a></li>
+        <li><a href="{{ appUrls.checkoutShippingAddress }}">Shipping Address</a></li>
+        <li><a href="{{ appUrls.checkingBilling }}">Billing &amp; Payment</a></li>
         <li class="u-weightBold">Confirmation</li>
         <li>Receipt</li>
     </ul>
@@ -54,7 +54,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for product in review.cart.products %}
+        {% for product in cart.products %}
             <tr>
                 <td>
                     {% if product.images|length > 0 %}
@@ -88,7 +88,7 @@
         {% endfor %}
         <tr>
             <td class="u-textRight" colspan="3">Subtotal: </td>
-            <td class="u-textRight">{{ review.cart.subtotal }}</td>
+            <td class="u-textRight">{{ cart.subtotal }}</td>
         </tr>
         {% if cart.coupons %}
             <tr>
@@ -105,47 +105,47 @@
 
         <tr>
             <td class="u-textRight" colspan="3">Shipping: </td>
-            <td class="u-textRight">{{ review.cart.shipping.total }}</td>
+            <td class="u-textRight">{{ cart.shipping.total }}</td>
         </tr>
         <tr>
             <td class="u-textRight" colspan="3">Tax: </td>
-            <td class="u-textRight">{{ review.cart.taxes.total }}</td>
+            <td class="u-textRight">{{ cart.taxes.total }}</td>
         </tr>
         <tr>
             <td class="u-textRight" colspan="3">Total: </td>
-            <td class="u-textRight">{{ review.cart.total }}</td>
+            <td class="u-textRight">{{ cart.total }}</td>
         </tr>
         </tbody>
     </table>
 
 
     <h2>Shipping Address</h2>
-    <p><a href="{{ review.appUrls.checkoutShippingAddress }}">Edit</a><br />
-        {{ review.shipping.firstName }} {{ review.shipping.lastName }}<br />
-        {{ review.shipping.address }}<br />
+    <p><a href="{{ appUrls.checkoutShippingAddress }}">Edit</a><br />
+        {{ shipping.firstName }} {{ shipping.lastName }}<br />
+        {{ shipping.address }}<br />
 
-        {{ review.shipping.city }}, {{ review.shipping.state }} {{ review.shipping.zipCode }}<br />
-        {{ review.shipping.country }}<br />
-        {{ review.shipping.phone }}<br />
-        {{ review.shipping.email }}</p>
+        {{ shipping.city }}, {{ shipping.state }} {{ shipping.zipCode }}<br />
+        {{ shipping.country }}<br />
+        {{ shipping.phone }}<br />
+        {{ shipping.email }}</p>
 
     <h2>Billing Address</h2>
-    <p><a href="{{ review.appUrls.checkoutPayment }}">Edit</a><br />
-        {{ review.payment.firstName }} {{ review.payment.lastName }}<br />
-        {{ review.payment.address }}<br />
+    <p><a href="{{ appUrls.checkoutPayment }}">Edit</a><br />
+        {{ payment.firstName }} {{ payment.lastName }}<br />
+        {{ payment.address }}<br />
 
-        {{ review.payment.city }}, {{ review.payment.state }} {{ review.payment.zipCode }}<br />
-        {{ review.payment.country }}<br />
-        {{ review.payment.phone }}<br />
-        {{ review.payment.email }}</p>
+        {{ payment.city }}, {{ payment.state }} {{ payment.zipCode }}<br />
+        {{ payment.country }}<br />
+        {{ payment.phone }}<br />
+        {{ payment.email }}</p>
 
     <h2>Credit Card</h2>
-    <p><a href="{{ review.appUrls.checkoutPayment }}">Edit</a><br />
-        {{ review.creditCard.type }}<br />
-        {{ review.creditCard.number }}<br />
-        {{ review.creditCard.expirationMonth }}/{{ review.creditCard.expirationYear }}</p>
+    <p><a href="{{ appUrls.checkoutPayment }}">Edit</a><br />
+        {{ creditCard.type }}<br />
+        {{ creditCard.number }}<br />
+        {{ creditCard.expirationMonth }}/{{ creditCard.expirationYear }}</p>
 
-    {{ review.form.openTag }}
+    {{ form.openTag }}
     <p><button type="submit" class="Button Button--lg">Submit My Order</button></p>
-    {{ review.form.closeTag }}
+    {{ form.closeTag }}
 {% endblock %}
