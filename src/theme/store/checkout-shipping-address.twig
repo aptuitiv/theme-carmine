@@ -24,9 +24,62 @@
         <li>Receipt</li>
     </ul>
 
-    <h2>Shipping Address</h2>
-    <p><em>*</em> = required field </p>
-
-{{ form.content }}
+<div class="Grid Grid--withGutterXlg">
+    <div class="Grid-cell u-size2of3 u-md-sizeFull">
+        <h2>Shipping Address</h2>
+        {{ form.content }}
+    </div>
+    <div class="Grid-cell u-size1of3 u-md-sizeFull u-md-margTop3">
+        <h2>Your Order</h2>
+        <div class="Grid Grid--withGutter Grid--alignMiddle">
+            <div class="Grid-cell u-size1of2">Subtotal: </div>
+            <div class="Grid-cell u-size1of2">{{ subtotal }}</div>
+        </div>
+        {% set hasFreeShipping = false %}
+        {% if coupons|length > 0 %}
+            Coupons:
+            <div class="Grid Grid--withGuttee Grid--alignMiddle u-fontSize2">
+            {% for coupon in coupons %}
+                <div class="Grid-cell u-size1of2">{{ coupon.name }}</div>
+                <div class="Grid-cell u-size1of2">
+                    {% if coupon.type == 'free_shipping' %}
+                        {% set hasFreeShipping = true %}
+                    {% else %}
+                        -{{ coupon.discount }}
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        <div class="Grid Grid--withGutter Grid--alignMiddle">
+            <div class="Grid-cell u-size1of2">Shipping</div>
+            <div class="Grid-cell u-size1of2{% if hasFreeShipping == false %} u-fontSize1{% endif %}">{{ hasFreeShipping ? 'Free' : 'Calculated after next step' }}</div>
+        </div>
+        <div class="Grid Grid--withGutter Grid--alignMiddle">
+            <div class="Grid-cell u-size1of2">Taxes</div>
+            <div class="Grid-cell u-size1of2 u-fontSize1">Calculated after this step</div>
+        </div>
+        <div class="Grid Grid--withGutter u-margTop Grid--alignMiddle">
+            <div class="Grid-cell u-size1of2 u-fontSize6 u-weightBold">Total</div>
+            <div class="Grid-cell u-size1of2 u-fontSize6 u-weightBold">{{ total }}</div>
+        </div>
+        <hr class="u-margTop2 u-margBottom2">
+        <div class="u-weightBold">Products</div>
+        {% for product in cartProducts %}
+            <div class="Grid Grid--withGutter u-margTop1">
+                <div class="Grid-cell u-size2of3 u-fontSize2">
+                    {{ product.productName }}<br>
+                    {% set image = product.images|first.image.small %}
+                    {% if image|length > 0 %}
+                        {% set image.style = 'max-width: 100px' %}
+                        {{ image.tag }}
+                    {% endif %}
+                </div>
+                <div class="Grid-cell u-size1of3 u-fontSize2">{{ product.totalPrice }}</div>
+            </div>
+        {% endfor %}
+        <p class="u-margTop3 u-fontSize2 u-textRight"><a href="{{ appUrls.cart }}">View cart</a></p>
+    </div>
+</div>
 
 {% endblock %}
