@@ -72,18 +72,18 @@
                         {{ macros.productOptions(product.options) }}
                     {% endif %}
                 </td>
-                <td class="u-textCenter">{{ product.currentPrice.value }}{% if product.pricePerUnit is defined && product.pricePerUnit != "None" %} / {{ product.pricePerUnit }}{% endif %}</td>
+                <td class="u-textCenter">{{ product.currentPrice }}{% if product.pricePerUnit is defined && product.pricePerUnit != "None" %} / {{ product.pricePerUnit }}{% endif %}</td>
                 <td>
                     {% set product.fields.quantity.class = product.fields.quantity.class ~ ' TextInput u-sizeFull' %}
                     {{ product.fields.quantity.tag }}
                 </td>
-                <td class="u-textCenter">{{ product.totalPrice.value }}</td>
+                <td class="u-textCenter">{{ product.totalPrice }}</td>
             </tr>
             {% endfor %}
             {% if coupons %}
                 <tr>
                     <td class="u-textRight" colspan="4">Subtotal</td>
-                    <td>{{ cartTotalBeforeDiscounts.value }}</td>
+                    <td>{{ cartTotalBeforeDiscounts }}</td>
                 </tr>
                 {% for coupon in coupons %}
                     <tr>
@@ -96,7 +96,7 @@
             <tr>
                 <td colspan="2"><button class="Button Button--sm" type="submit">Update Cart</button></td>
                 <td class="u-textRight" colspan="2">Total: </td>
-                <td>{{ cartTotal.value }}</td>
+                <td>{{ cartTotal }}</td>
             </tr>
             </tbody>
         </table>

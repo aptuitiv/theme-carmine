@@ -79,12 +79,12 @@
                     {% endif %}
                 </td>
                 <td class="u-textCenter">
-                    {{ product.currentPrice.value }}{% if product.pricePerUnit is defined && product.pricePerUnit != "None" %} / {{ product.pricePerUnit }}{% endif %}
+                    {{ product.currentPrice }}{% if product.pricePerUnit is defined && product.pricePerUnit != "None" %} / {{ product.pricePerUnit }}{% endif %}
                 </td>
                 <td class="u-textCenter">
                     {{ product.quantityTotal.withFraction }}
                 </td>
-                <td class="u-textRight">{{ product.totalPrice.value }}</td>
+                <td class="u-textRight">{{ product.totalPrice }}</td>
             </tr>
         {% endfor %}
         <tr>
@@ -94,7 +94,7 @@
         {% if cart.coupons %}
             <tr>
                 <td class="u-textRight" colspan="4">Subtotal</td>
-                <td>{{ cart.cartTotalBeforeDiscounts.value }}</td>
+                <td>{{ cart.cartTotalBeforeDiscounts }}</td>
             </tr>
             {% for coupon in cart.coupons %}
                 <tr>
