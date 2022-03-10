@@ -26,7 +26,7 @@
 
 <div class="Grid Grid--withGutterXlg">
     <div class="Grid-cell u-size2of3 u-md-sizeFull">
-    {{ form.content }}
+        {{ form.content }}
     </div>
     <div class="Grid-cell u-size1of3 u-md-sizeFull u-md-margTop3">
         <h2>Your Order</h2>
@@ -85,19 +85,21 @@
 </div>
 
     {% inlinejs %}
-        {# Assuming jQuery is already loaded on the page #}
-        $('.js-copyShipping').click(function() {
-            if (this.checked) {
-                $('.js-paymentFirstName').val('{{ shipping.firstName }}');
-                $('.js-paymentLastName').val('{{ shipping.lastName }}');
-                $('.js-paymentAddress').val('{{ shipping.address }}');
-                $('.js-paymentCity').val('{{ shipping.city }}');
-                $('.js-paymentState').val('{{ shipping.state }}');
-                $('.js-paymentPostalCode').val('{{ shipping.zipCode }}');
-                $('.js-paymentCountry').val('{{ shipping.country }}');
-                $('.js-paymentPhone').val('{{ shipping.phone }}');
-                $('.js-paymentEmail').val('{{ shipping.email }}');
-            }
+        window.addEventListener('DOMContentLoaded', () => {
+            const copyShipping = document.querySelector('.js-copyShipping');
+            copyShipping.addEventListener('change', () => {
+                if (copyShipping.checked) {
+                    $('.js-paymentFirstName').val('{{ shipping.firstName }}');
+                    $('.js-paymentLastName').val('{{ shipping.lastName }}');
+                    $('.js-paymentAddress').val('{{ shipping.address }}');
+                    $('.js-paymentCity').val('{{ shipping.city }}');
+                    $('.js-paymentState').val('{{ shipping.state }}');
+                    $('.js-paymentPostalCode').val('{{ shipping.zipCode }}');
+                    $('.js-paymentCountry').val('{{ shipping.country }}');
+                    $('.js-paymentPhone').val('{{ shipping.phone }}');
+                    $('.js-paymentEmail').val('{{ shipping.email }}');
+                }
+            });
         });
     {% endinlinejs %}
 {% endblock %}
