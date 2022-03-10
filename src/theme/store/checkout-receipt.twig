@@ -90,7 +90,7 @@
             {% for coupon in cart.coupons %}
                 <tr>
                     <td colspan="4">{{ coupon.name }} ({{ coupon.code }})</td>
-                    <td>-{{ coupon.savingsValue }}</td>
+                    <td>-{{ coupon.discount }}</td>
                 </tr>
             {% endfor %}
         {% endif %}
