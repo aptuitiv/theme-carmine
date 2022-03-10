@@ -178,15 +178,15 @@
         {# Assuming jQuery is already loaded on the page #}
         $('.js-copyShipping').click(function() {
             if (this.checked) {
-                $('.js-paymentFirstName').val('{{ shippingValues.firstName }}');
-                $('.js-paymentLastName').val('{{ shippingValues.lastName }}');
-                $('.js-paymentAddress').val('{{ shippingValues.address }}');
-                $('.js-paymentCity').val('{{ shippingValues.city }}');
-                $('.js-paymentStateText').val('{{ shippingValues.stateText }}');
-                $('.js-paymentZipCode').val('{{ shippingValues.zipCode }}');
-                $('.js-paymentCountry').val('{{ shippingValues.country }}');
-                $('.js-paymentPhone').val('{{ shippingValues.phone }}');
-                $('.js-paymentEmail').val('{{ shippingValues.email }}');
+                $('.js-paymentFirstName').val('{{ shipping.firstName }}');
+                $('.js-paymentLastName').val('{{ shipping.lastName }}');
+                $('.js-paymentAddress').val('{{ shipping.address }}');
+                $('.js-paymentCity').val('{{ shipping.city }}');
+                $('.js-paymentState').val('{{ shipping.state }}');
+                $('.js-paymentPostalCode').val('{{ shipping.zipCode }}');
+                $('.js-paymentCountry').val('{{ shipping.country }}');
+                $('.js-paymentPhone').val('{{ shipping.phone }}');
+                $('.js-paymentEmail').val('{{ shipping.email }}');
             }
         });
     {% endinlinejs %}
