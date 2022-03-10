@@ -1,12 +1,30 @@
 {{ form.openTag }}
-    {% if payment.form.fields.shippingOptions.options|length > 0 %}
+    {% if form.fields.shippingOption.options|length > 0 %}
         <h2>Shipping Method</h2>
-        {{ payment.form.fields.shippingOptions.tag }}
+        <div class="SelectInput">{{ form.fields.shippingOption.tag }}</div>
     {% endif %}
 
 
     <h2>Billing Information</h2>
-    <p><em>*</em> = required field </p>
+
+    {% set fields.paymentFirstName = 'First Name' %}
+    {% set fields.paymentLastName = 'Last Name' %}
+    {% set fields.paymentAddress = 'Address' %}
+    {% set fields.paymentCity = 'City' %}
+    {% set fields.paymentState = 'State' %}
+    {% set fields.paymentPostalCode = 'Zip Code' %}
+    {% set fields.paymentCountry = 'Country' %}
+    {% set fields.paymentPhone = 'Phone' %}
+    {% set fields.paymentEmail = 'Email' %}
+
+    {% set formFields = [] %}
+    {% for key, label in fields %}
+        {% set thisField = attribute(form.fields, key) %}
+        {% set thisField.isRequired = true %}
+        {% set thisField.label.text = label %}
+        {% set thisField.class = thisField.class ~ ' js-' ~ key %}
+        {% set formFields = formFields|merge([thisField])  %}
+    {% endfor %}
 
     <div class="Grid Grid--withGutter u-margBottom2">
         <div class="Grid-cell u-size3of4 u-push1of4">
@@ -16,7 +34,7 @@
             </label>
         </div>
     </div>
-    {% for field in form.fields %}
+    {% for field in formFields %}
         <div class="Grid Grid--withGutter u-margBottom2">
             <div class="Grid-cell u-size1of4">
                 {% set field.label.class = field.label.class ~ ' FormLabel' %}
@@ -41,7 +59,7 @@
                     {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
                     {{ field.tag }}
                 {% elseif field.fieldType == 'select' %}
-                    <div class="SelectField u-sizeFull">
+                    <div class="SelectInput u-sizeFull">
                         {{ field.tag }}
                     </div>
                 {% else %}
@@ -50,6 +68,58 @@
             </div>
         </div>
     {% endfor %}
+
+    <h2>Payment Information</h2>
+
+    {% if billingf.form.fields.paymentMethod.options|length > 1 %}
+        {# There is another billing method available besides "Credit Card" #}
+        <div class="Grid Grid--withGutter u-margBottom2">
+            <div class="Grid-cell u-size1of4">
+                {% set form.fields.paymentMethod.label.class = form.fields.paymentMethod.label.class ~ ' FormLabel' %}
+                {% set form.fields.paymentMethod.label.text = 'Payment Method' ~ ' <span class="FormRequired">*</span>' %}
+                {{ form.fields.paymentMethod.label.tag }}
+            </div>
+            <div class="Grid-cell u-size3of4">
+                <div class="SelectInput u-sizeFull">
+                    {{ form.fields.paymentMethod.tag }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="Grid Grid--withGutter u-margBottom2">
+        <div class="Grid-cell u-size1of4">
+            {% set form.fields.paymentCcNum.label.class = form.fields.paymentCcNum.label.class ~ ' FormLabel' %}
+            {% set form.fields.paymentCcNum.label.text = 'Card Number' ~ ' <span class="FormRequired">*</span>' %}
+            {{ form.fields.paymentCcNum.label.tag }}
+        </div>
+        <div class="Grid-cell u-size3of4">
+            {% set form.fields.paymentCcNum.class = form.fields.paymentCcNum.class ~ ' TextInput u-sizeFull' %}
+            {{ form.fields.paymentCcNum.tag }}
+        </div>
+    </div>
+    <div class="Grid Grid--withGutter u-margBottom2">
+        <div class="Grid-cell u-size1of4">
+            {% set form.fields.paymentCcExpm.label.class = form.fields.paymentCcExpm.label.class ~ ' FormLabel' %}
+            {% set form.fields.paymentCcExpm.label.text = 'Expiration' ~ ' <span class="FormRequired">*</span>' %}
+            {{ form.fields.paymentCcExpm.label.tag }}
+        </div>
+        <div class="Grid-cell u-size3of4">
+            <div class="SelectInput"> {{ form.fields.paymentCcExpm.tag }} </div>
+            <div class="SelectInput"> {{ form.fields.paymentCcExpy.tag }} </div>
+        </div>
+    </div>
+    <div class="Grid Grid--withGutter u-margBottom2">
+        <div class="Grid-cell u-size1of4">
+            {% set form.fields.paymentCcCvv.label.class = form.fields.paymentCcCvv.label.class ~ ' FormLabel' %}
+            {% set form.fields.paymentCcCvv.label.text = 'Security Code' ~ ' <span class="FormRequired">*</span>' %}
+            {{ form.fields.paymentCcCvv.label.tag }}
+        </div>
+        <div class="Grid-cell u-size3of4">
+            {% set form.fields.paymentCcCvv.class = form.fields.paymentCcCvv.class ~ ' TextInput u-size1of5' %}
+            {{ form.fields.paymentCcCvv.tag }} (3 or 4 digit code from the back of your credit card)
+        </div>
+    </div>
 
     <div class="Grid Grid--withGutter u-margBottom2">
         <div class="Grid-cell u-size3of4 u-push1of4">

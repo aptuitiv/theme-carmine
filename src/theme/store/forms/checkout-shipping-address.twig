@@ -1,5 +1,23 @@
 {{ form.openTag }}
-    {% for field in form.fields %}
+    {% set fields.shipFirstName = 'First Name' %}
+    {% set fields.shipLastName = 'Last Name' %}
+    {% set fields.shipAddress = 'Address' %}
+    {% set fields.shipCity = 'City' %}
+    {% set fields.shipState = 'State' %}
+    {% set fields.shipPostalCode = 'Zip Code' %}
+    {% set fields.shipCountry = 'Country' %}
+    {% set fields.shipPhone = 'Phone' %}
+    {% set fields.shipEmail = 'Email' %}
+
+    {% set formFields = [] %}
+    {% for key, label in fields %}
+        {% set thisField = attribute(form.fields, key) %}
+        {% set thisField.isRequired = true %}
+        {% set thisField.label.text = label %}
+        {% set formFields = formFields|merge([thisField])  %}
+    {% endfor %}
+
+    {% for field in formFields %}
         <div class="Grid Grid--withGutter u-margBottom2">
             <div class="Grid-cell u-size1of4">
                 {% set field.label.class = field.label.class ~ ' FormLabel' %}
@@ -24,7 +42,7 @@
                     {% set field.class = field.class ~ ' TextInput u-sizeFull' %}
                     {{ field.tag }}
                 {% elseif field.fieldType == 'select' %}
-                    <div class="SelectField u-sizeFull">
+                    <div class="SelectInput u-sizeFull">
                         {{ field.tag }}
                     </div>
                 {% else %}
