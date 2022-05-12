@@ -47,7 +47,7 @@ function setupNotifications() {
     });
 }
 
-$(() => {
+document.onreadystatechange = function () {
     smallScreenNav.init();
     navAccess.init();
     setupNotifications();
@@ -62,4 +62,4 @@ $(() => {
             behavior: 'smooth',
         });
     });
-});
+};
