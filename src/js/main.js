@@ -47,21 +47,26 @@ function setupNotifications() {
     });
 }
 
-document.onreadystatechange = function () {
-    if (document.readyState !== 'loading') {
-        smallScreenNav.init();
-        navAccess.init();
-        setupNotifications();
+// Handle the document load event
+const init = () => {
+    smallScreenNav.init();
+    navAccess.init();
+    setupNotifications();
 
-        const link = document.querySelector('.js-btop');
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth',
-            });
+    const link = document.querySelector('.js-btop');
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
         });
-    }
+    });
 };
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
