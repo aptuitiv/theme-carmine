@@ -67,14 +67,6 @@ const config = {
             dest: 'magnific'
         },
         {
-            src: ['node_modules/slick-carousel/slick/*.{css,min.js,gif}'],
-            dest: 'slick'
-        },
-        {
-            src: ['node_modules/slick-carousel/slick/fonts/*'],
-            dest: 'slick/fonts'
-        },
-        {
             src: ['node_modules/masonry-layout/dist/*.{pkgd.min.js, min.js}'],
             dest: 'masonry'
         },
@@ -85,6 +77,10 @@ const config = {
         {
             src: ['node_modules/drift-zoom/dist/*.{min.css,min.js}'],
             dest: 'drift'
+        },
+        {
+            src: 'node_modules/@splidejs/splide/dist/**/*',
+            dest: 'splide'
         }
     ],
 

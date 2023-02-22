@@ -1,4 +1,3 @@
-
 {% macro slide(slide) %}
     {% if slide.altText %}
         {% set slide.images.medium.alt = slide.altText %}
@@ -27,9 +26,12 @@
 
 {% if slides and displayType != 'Hide' %}
     {% import _self as macros %}
+    
     {% if slides|length == 1 and displayType == 'Slideshow' %}
         {% set displayType = 'Single slide' %}
     {% endif %}
+    
+    {# Build a single slide #}
     {% if displayType == 'Single slide' || displayType == 'Random slide' %}
         {% if displayType == 'Single slide' %}
             {% set slide = slides|first %}
@@ -41,49 +43,40 @@
                 {{ macros.slide(slide) }}
             </div>
         </div>
+    
+    {# Build multiple slides #}
     {% elseif displayType == 'Slideshow' || displayType == 'Random slideshow' %}
+        {% import "macros/macros" as siteMacros %}
+        
         {% if displayType == 'Random slideshow' %}
             {% set slides = slides|shuffle %}
         {% endif %}
-
-        <div class="Slider js-slider">
-            {% for slide in slides %}
-                <div class="Slider-slide{% if loop.index > 1 %} Slider-slide--hidden{% endif %}">
-                    {{ macros.slide(slide) }}
-                </div>
-            {% endfor %}
-        </div>
-
-        {% do _page.addCss('/slick/slick.css'|theme_url, {'preload': true}) %}
-
-        {% if _page.hasJs('slick/slick.min.js'|theme_url) == false %}
-            {% inlinejs %}
-                loadjs.ready('main', {
-                    success: function() {
-                        loadjs(['{{ 'slick/slick.min.js'|theme_url }}'], 'slickheader');
-                    }
-                });
-            {% endinlinejs %}
-            {% do _page.registerJs('slick/slick.min.js'|theme_url) %}
-        {% endif %}
-
+        
+        {% set sliderId = 'js-splide' ~ random_number() %}
+        <section class="splide splide__dots--{{ dotPosition|camel }} {{ sliderId }}" aria-label="Banner">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {% for slide in slides %}
+                        <li class="splide__slide">
+                            {{ macros.slide(slide) }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        
+        {{ siteMacros.loadSplide() }}
         {% inlinejs %}
-            loadjs.ready('slickheader', {
+            loadjs.ready('splide', {
                 success: function() {
-                    $(function() {
-                        $('.js-slider').slick({
-                            adaptiveHeight: true,
-                            arrows: {{ showArrows ? 'true' : 'false' }},
-                            autoplay: {{ autoPlaySlides ? 'true' : 'false' }},
-                            autoplaySpeed: {{ sliderSpeed ? sliderSpeed * 1000 : 4000 }},
-                            dots: {{ showDots ? 'true' : 'false' }},
-                            dotsClass: 'Slider-dots Slider-dots--{{ dotPosition|lower }}',
-                            fade: {{ slideTransition == 'Fade' ? 'true' : 'false' }},
-                            prevArrow: '<a href="#" class="Slider-nav Slider-navPrev"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-left" /></svg></a>',
-                            nextArrow: '<a href="#" class="Slider-nav Slider-navNext"><svg class="Slider-navIcon Icon"><use xlink:href="#icon-chevron-thin-right" /></svg></a>',
-                            speed: 500
-                        });
-                    });
+                    new Splide('.{{ sliderId }}', {
+                        arrows     : {{ showArrows ? 'true' : 'false' }},
+                        pagination : {{ showDots ? 'true' : 'false' }},
+                        autoplay   : {{ autoPlaySlides ? 'true' : 'false' }},
+                        interval   : {{ sliderSpeed ? sliderSpeed * 1000 : 4000 }},
+                        type       : '{{ slideTransition == 'Fade' ? 'fade' : 'slide' }}',
+                        rewind     : true
+                    }).mount();
                 }
             });
         {% endinlinejs %}

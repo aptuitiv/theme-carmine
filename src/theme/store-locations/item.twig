@@ -25,7 +25,7 @@
     <div class="FlexEmbed u-margBottom3">
         <div class="FlexEmbed-ratio FlexEmbed-ratio--3by2"></div>
         {% set address = (item.streetAddress ~ ' ' ~ item.city ~ ', ' ~ item.state ~ ' ' ~ item.zipCode ~ ' ' ~ item.country)|trim|url_encode %}
-        <iframe class="FlexEmbed-content" title="Map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPMOoxh8o5fQnyJUjwzbhXSGU1Zf7kdO8&q={{ address }}" allowfullscreen></iframe>
+        <iframe class="FlexEmbed-content" title="Map" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPMOoxh8o5fQnyJUjwzbhXSGU1Zf7kdO8&q={{ address }}" allowfullscreen loading="lazy"></iframe>
     </div>
     {{ item.description }}
 {% endblock %}
