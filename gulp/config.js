@@ -71,10 +71,6 @@ const config = {
             dest: 'masonry'
         },
         {
-            src: ['node_modules/jquery-lazy/*.{lazy.min.js, min.js}'],
-            dest: 'lazy'
-        },
-        {
             src: ['node_modules/drift-zoom/dist/*.{min.css,min.js}'],
             dest: 'drift'
         },
@@ -160,7 +156,6 @@ const config = {
         {
             name: 'main.js',
             src: [
-                'node_modules/jquery/dist/jquery.js',
                 src + '/js/navigation.js',
                 src + '/js/main.js'
             ]
@@ -168,8 +163,6 @@ const config = {
         {
             name: 'forms.js',
             src: [
-                'node_modules/jquery-validation/dist/jquery.validate.js',
-                'node_modules/jquery-form/src/jquery.form.js',
                 src + '/js/forms.js'
             ]
         },
