@@ -1,14 +1,19 @@
 {% macro slide(slide) %}
-    {% if slide.altText %}
-        {% set slide.images.medium.alt = slide.altText %}
+    {% if slide.link %}
+        <a href="{{ slide.link }}" class="Slider-link">
     {% endif %}
-    {% set slide.images.medium.class = 'Slider-image' %}
-    {% set slide.images.medium.srcset = slide.images.large.src ~ ' 2000w, ' ~ slide.images.medium.src ~ ' 1200w, ' ~ slide.images.small.src ~ ' 600w' %}
-    {% set slide.images.medium.sizes = '100vw' %}
-    {% if slide.link %}<a href="{{ slide.link }}" class="Slider-link">{% endif %}
+    
     <div class="ImageConstrain ImageConstrain--banner">
-        {{ slide.images.medium.tag }}
+        <picture class="Slider-image">
+            <source media="(min-width: 600px)" srcset="{{ slide.images.small.src }}">
+            <source media="(min-width: 1200px)" srcset="{{ slide.images.medium.src }}">
+            {% if slide.altText %}
+                {% set slide.images.large.alt = slide.altText %}
+            {% endif %}
+            {{ slide.images.large.tag }}
+        </picture>
     </div>
+    
     {% if slide.captionTitle or slide.caption  %}
         <span class="Slider-content Slider-content--{{ slide.captionPosition|camel }}">
             {% if slide.captionTitle %}
@@ -21,7 +26,10 @@
             {% if slide.caption %}<span class="Slider-caption">{{ slide.caption }}</span>{% endif %}
         </span>
     {% endif %}
-    {% if slide.link %}</a>{% endif %}
+    
+    {% if slide.link %}
+        </a>
+    {% endif %}
 {% endmacro %}
 
 {% if slides and displayType != 'Hide' %}
