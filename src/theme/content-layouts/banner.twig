@@ -5,8 +5,8 @@
     
     <div class="ImageConstrain ImageConstrain--banner">
         <picture class="Slider-image">
-            <source media="(min-width: 600px)" srcset="{{ slide.images.small.src }}">
-            <source media="(min-width: 1200px)" srcset="{{ slide.images.medium.src }}">
+            <source media="(max-width: 600px)" srcset="{{ slide.images.small.src }}">
+            <source media="(max-width: 1200px)" srcset="{{ slide.images.medium.src }}">
             {% if slide.altText %}
                 {% set slide.images.large.alt = slide.altText %}
             {% endif %}
