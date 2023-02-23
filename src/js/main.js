@@ -9,10 +9,10 @@
  * @param {string} cname Cookie name
  * @returns string
  */
-function getCookieValue(cname) {
+const getCookieValue = (cname) => {
     const b = document.cookie.match(`(^|;)\\s*${cname}\\s*=\\s*([^;]+)`);
     return b ? b.pop() : '';
-}
+};
 
 /**
  * Set a cookie
@@ -20,7 +20,7 @@ function getCookieValue(cname) {
  * @param {string} cvalue Cookie value
  * @param {number} exdays Number of days to set cookie for
  */
-function setCookie(cname, cvalue, exdays) {
+const setCookie = (cname, cvalue, exdays) => {
     const d = new Date();
     const existing = getCookieValue(cname);
     let cookievalue = cvalue;
@@ -30,22 +30,22 @@ function setCookie(cname, cvalue, exdays) {
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     const expires = `expires=${d.toUTCString()}`;
     document.cookie = `${cname}=${cookievalue}; ${expires};path=/`;
-}
+};
 
 /**
  * Set up the notifications bar functionality
  */
-function setupNotifications() {
-    let id; let
-        parent;
-    $('.js-notificationClose').on('click', function onClick(e) {
-        e.preventDefault();
-        parent = $(this).parents('.js-notification:first');
-        parent.hide();
-        id = this.getAttribute('data-id');
-        setCookie('notificationMsgHide', id, 10);
+const setupNotifications = () => {
+    const notificationButtons = document.querySelectorAll('.js-notificationClose');
+    notificationButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            // Hide notification
+            e.currentTarget.closest('.js-notification').classList.add('u-hidden');
+            // Set cookie to hide on load
+            setCookie('notificationMsgHide', e.currentTarget.dataset.id, 10);
+        });
     });
-}
+};
 
 // Handle the document load event
 const init = () => {
