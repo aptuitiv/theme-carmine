@@ -1,17 +1,15 @@
-
 {% extends "one-column.twig" %}
-
-{% import "macros/macros.twig" as macros %}
+{% import "macros/macros" as macros %}
 
 {% block main %}
     <h1>{{ product.productName }}</h1>
         <div class="Grid Grid--withGutter">
-
             {% if product.images %}
                 {% set colSize = 'u-size2of3 u-push1of3 u-md-sizeFull u-md-pushNone' %}
             {% else %}
                 {% set colSize = 'u-sizeFull' %}
             {% endif %}
+            
             <div class="Grid-cell {{ colSize }} js-zoomContainer u-posRelative">
                 <div class="u-fontSize5 u-weightBold u-margBottom1">
                     Price:
@@ -25,69 +23,102 @@
                 {% endif %}
                 <div class="u-margBottom2">
                     {{ product.orderForm.openTag }}
-                    {% for option in product.orderForm.fields.options %}
-                        <p>
-                            {{ option.label }}<br>
-                            {{ option.tag }}
-                        </p>
-                    {% endfor %}
-                    {% set product.orderForm.fields.quantity.class = 'TextInput Product-quantity' %}
-                    {{ product.orderForm.fields.quantity.tag }}
-                    {{ product.orderForm.fields.partialQuantity.tag }}
-                    <button type="submit" class="Button">Add to cart</button>
+                        {% for option in product.orderForm.fields.options %}
+                            <p>
+                                {{ option.label }}<br>
+                                {{ option.tag }}
+                            </p>
+                        {% endfor %}
+                        {% set product.orderForm.fields.quantity.class = 'TextInput Product-quantity' %}
+                        {{ product.orderForm.fields.quantity.tag }}
+                        {{ product.orderForm.fields.partialQuantity.tag }}
+                        <button type="submit" class="Button">Add to cart</button>
                     {{ product.orderForm.closeTag }}
                 </div>
                 {{ product.description }}
             </div>
-            {% if product.images %}
+            
+            {% if product.images|length > 1 %}
                 <div class="Grid-cell u-size1of3 u-pull2of3 u-md-sizeFull u-md-pullNone">
-                    <ul class="Product-imageList">
-                        {% for image in product.images %}
-                            <li class="Product-imageListItem js-image js-image{{ loop.index }}">
-                                {% set image.image.small.alt = product.productName %}
-                                {% set image.image.small.class = 'Product-image js-imgZoom' %}
-                                {% do image.image.small.set('data-zoom', image.image.large.src) %}
-                                <a href="{{ image.image.large.src }}" class="Product-imageLink js-imgLightbox" title="{{ product.productName }}">{{ image.image.small.tag }}</a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                    {% if product.images|length > 1 %}
-                        <div class="Grid Grid--withGutterSm">
-                        {% for image in product.images %}
-                            <div class="Grid-cell u-size1of4 u-margBottom1">
-                                <div class="Constrain Product-thumb js-imageThumb" data-num="{{ loop.index }}" style="background-image: url('{{ image.image.small.src }}')"></div>
-                            </div>
-                        {% endfor %}
+                    <div id="main-slider" role="group" class="splide" aria-label="Image Slider">
+                        <div class="splide__track">
+                                <ul class="splide__list">
+                                    {% for image in product.images %}
+                                        <li class="splide__slide">
+                                            {% set image.image.large.alt = item.itemName %}
+                                            <a data-fslightbox data-type="image" href="{{ image.image.large.src }}">
+                                                {{ image.image.large.tag }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
                         </div>
-                    {% endif %}
+                    </div>
+                    
+                    <div id="thumbnail-slider" role="group" class="splide u-margTop1" aria-label="Thumbnail Slider">
+                        <div class="splide__track">
+                                <ul class="splide__list">
+                                    {% for image in product.images %}
+                                        <li class="splide__slide">
+                                            {% set image.image.small.alt = image.altText|default(item.itemName) %}
+                                            {{ image.image.small.tag }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                {{ macros.loadSplide() }}
+                {% inlinejs %}
+                    loadjs.ready('splide', {
+                        success: function() {
+                            {# Create main slider #}
+                            var main = new Splide('#main-slider', {
+                                type       : 'fade',
+                                pagination : false
+                            });
+                            
+                            {# Create thumbnail slider #}
+                            var thumbnails = new Splide('#thumbnail-slider', {
+                                rewind          : true,
+                                fixedWidth      : 150,
+                                fixedHeight     : 100,
+                                isNavigation    : true,
+                                gap             : 10,
+                                focus           : 'center',
+                                pagination      : false,
+                                arrows          : false,
+                                cover           : true,
+                                dragMinThreshold: {
+                                    mouse: 4,
+                                    touch: 10,
+                                },
+                                breakpoints : {
+                                    640: {
+                                        fixedWidth  : 66,
+                                        fixedHeight : 38,
+                                    },
+                                },
+                            });
+                            
+                            {# Link and start the sliders #}
+                            main.sync(thumbnails);
+                            main.mount();
+                            thumbnails.mount();
+                        }
+                    });
+                {% endinlinejs %}
+            {% elseif product.images|length == 1 %}
+                <div class="Grid-cell u-size1of3 u-pull2of3 u-md-sizeFull u-md-pullNone">
+                    {% set image = product.images|first.image %}
+                    {% set image.large.alt = item.itemName %}
+                    <a data-fslightbox data-type="image" href="{{ image.large.src }}">
+                        {{ image.large.tag }}
+                    </a>
                 </div>
             {% endif %}
         </div>
-
-        {% do _page.addJs('drift/Drift.min.js'|theme_url) %}
-
-        {{ macros.loadMagnific() }}
-
-        {% inlinejs %}
-            loadjs.ready('magnific', {
-                success: function() {
-                    $('.js-imgLightbox').magnificPopup({type: 'image', gallery: {enabled: true}});
-
-                    $('.js-imageThumb').on('mouseover', function() {
-                        var num = $(this).data('num');
-                        $('.js-image').hide();
-                        $('.js-image' + num).show();
-                    });
-
-                    $('.js-imgZoom').each(function(i, el) {
-                        new Drift(el, {
-                            paneContainer: document.querySelector('.js-zoomContainer')
-                        });
-                    });
-
-                    $('.js-image').hide();
-                    $('.js-image1').show();
-                }
-            });
-        {% endinlinejs %}
+        
+        {{ macros.loadLightbox() }}
 {% endblock %}
