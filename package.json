@@ -58,6 +58,7 @@
         "jquery-form": "^4.3.0",
         "jquery-lazy": "^1.7.11",
         "jquery-validation": "^1.19.3",
+        "just-validate": "^4.2.0",
         "magnific-popup": "^1.1.0",
         "masonry-layout": "^4.2.2",
         "slick-carousel": "^1.8.1"

@@ -81,6 +81,10 @@ const config = {
         {
             src: 'node_modules/@splidejs/splide/dist/**/*',
             dest: 'splide'
+        },
+        {
+            src: 'node_modules/just-validate/dist/just-validate.production.min.js',
+            dest: 'just-validate'
         }
     ],
 
