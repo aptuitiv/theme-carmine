@@ -34,34 +34,35 @@
             <div class="u-push1of6 u-size2of3 u-md-sizeFull u-md-pushNone">{{ itemMacros.video(item) }}</div>
         {% endif %}
     {% else %}
-        <div id="main-slider" role="group" class="splide" aria-label="Image Slider">
-            <div class="splide__track">
-                    <ul class="splide__list">
-                        {% for image in item.images %}
-                            <li class="splide__slide">
-                                {% set image.image.large.alt = image.altText|default(item.itemName) %}
-                                {% set image.image.large.class = 'u-widthFull' %}
-                                {% set image.image.large.style = 'object-fit: cover;' %}
-                                {{ image.image.large.tag }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-            </div>
-        </div>
-        <div id="thumbnail-slider" role="group" class="splide u-margTop1" aria-label="Thumbnail Slider">
-            <div class="splide__track">
-                    <ul class="splide__list">
-                        {% for image in item.images %}
-                            <li class="splide__slide">
-                                {% set image.image.small.alt = image.altText|default(item.itemName) %}
-                                {{ image.image.small.tag }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-            </div>
-        </div>
-        
         {% if item.images|length > 1 %}
+            <div id="main-slider" role="group" class="splide" aria-label="Image Slider">
+                <div class="splide__track">
+                        <ul class="splide__list">
+                            {% for image in item.images %}
+                                <li class="splide__slide">
+                                    {% set image.image.large.alt = image.altText|default(item.itemName) %}
+                                    {% set image.image.large.class = 'u-widthFull' %}
+                                    {% set image.image.large.style = 'object-fit: cover;' %}
+                                    {{ image.image.large.tag }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                </div>
+            </div>
+            
+            <div id="thumbnail-slider" role="group" class="splide u-margTop1" aria-label="Thumbnail Slider">
+                <div class="splide__track">
+                        <ul class="splide__list">
+                            {% for image in item.images %}
+                                <li class="splide__slide">
+                                    {% set image.image.small.alt = image.altText|default(item.itemName) %}
+                                    {{ image.image.small.tag }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                </div>
+            </div>
+            
             {% import 'macros/macros' as macros %}
             {{ macros.loadSplide() }}
             
@@ -104,6 +105,12 @@
                     }
                 });
             {% endinlinejs %}
+        {% else %}
+            {% for image in item.images %}
+                {% set image.image.large.alt = image.altText|default(item.itemName) %}
+                {% set image.image.large.class = 'u-widthFull' %}
+                {{ image.image.large.tag }}
+            {% endfor %}
         {% endif %}
         
         {% if item.description %}

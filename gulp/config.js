@@ -63,24 +63,20 @@ const config = {
      */
     copy: [
         {
-            src: ['node_modules/magnific-popup/dist/**/*.{css,min.js}'],
-            dest: 'magnific'
-        },
-        {
-            src: ['node_modules/masonry-layout/dist/*.{pkgd.min.js, min.js}'],
-            dest: 'masonry'
-        },
-        {
-            src: ['node_modules/drift-zoom/dist/*.{min.css,min.js}'],
-            dest: 'drift'
-        },
-        {
             src: 'node_modules/@splidejs/splide/dist/**/*',
             dest: 'splide'
         },
         {
             src: 'node_modules/just-validate/dist/just-validate.production.min.js',
             dest: 'just-validate'
+        },
+        {
+            src: ['node_modules/masonry-layout/dist/*.{pkgd.min.js, min.js}'],
+            dest: 'masonry'
+        },
+        {
+            src: 'node_modules/fslightbox/index.js',
+            dest: 'fslightbox'
         }
     ],
 
