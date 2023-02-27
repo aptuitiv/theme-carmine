@@ -4,6 +4,7 @@
 
 {% set form.class = 'js-form' ~ random_string() %}
 {{ form.openTag }}
+    {{ macros.formErrorContainer(form) }}
     {{ macros.buildGridFormFields(form) }}
     {{ macros.captcha(form) }}
     

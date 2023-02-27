@@ -215,6 +215,27 @@
     {% endif %}
 {% endmacro %}
 
+{#
+    Sets the error container
+    form: (object) The Twig form variable
+    message: (string) OPTIONAL A custom message to show above the error list.
+#}
+{% macro formErrorContainer(form, message) %}
+    <div class="FormError {% if form.errors is empty and form.paymentErrors is empty %} u-hidden{% endif %}">
+        {% set errorMessage = form.paymentErrors is empty ? 'There was a problem with your submission. Please correct the issues below' : 'Could not process your payment' %}
+        {% set errorMessage = message ? message : errorMessage %}
+        <p>{{ errorMessage }}</p>
+        <ul class="FormError-list js-errorList">
+            {% for error in form.errors %}
+                <li class="FormError-listItem js-serverError">{{ error.message }}</li>
+            {% endfor %}
+            {% for error in form.paymentErrors %}
+                <li class="FormError-listItem js-serverError">{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}
+
 {# Build the reCAPTCHA tag #}
 {% macro captcha(form) %}
     {% if form.captcha.type == 'recaptchaV3' %}
