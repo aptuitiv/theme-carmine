@@ -19,7 +19,7 @@ import fs from 'fs';
 import autoprefixer from 'autoprefixer';
 import cached from 'gulp-cached';
 import changedInPlace from 'gulp-changed-in-place';
-import cleanCss from 'gulp-clean-css';
+import cleanCss from '@aptuitiv/gulp-clean-css';
 import gulpStylelint from '@ronilaukkarinen/gulp-stylelint';
 import header from 'gulp-header';
 import mergeStream from 'merge-stream';

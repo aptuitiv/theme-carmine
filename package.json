@@ -25,7 +25,7 @@
         "gulp-cached": "^1.1.1",
         "gulp-changed": "^4.0.3",
         "gulp-changed-in-place": "^2.3.0",
-        "gulp-clean-css": "^4.3.0",
+        "@aptuitiv/gulp-clean-css": "^4.4.3",
         "gulp-concat": "^2.6.1",
         "gulp-eslint": "^6.0.0",
         "gulp-header": "^2.0.9",
