@@ -9,21 +9,6 @@
     --theme-light-gray: #f2f2f2;
 }
 
-
-/* Links & Buttons */
-
-:root {
-    --theme-button-background: #a21514;
-    --theme-button-background-hover: #7a0504;
-    --theme-button-color: #fff;
-    --theme-button-color-hover: #fff;
-    --theme-button-background-alt: #bb6519;
-    --theme-button-background-hover-alt: #e27e25;
-    --theme-button-color-alt: #fff;
-    --theme-button-color-hover-alt: #fff;
-    --theme-button-font: var(--theme-typography-fontFamily);
-}
-
 /* Headings */
 
 :root {

@@ -14,6 +14,112 @@
                     }
                 }
             ]
+        },
+        {
+            "name": "Buttons",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#a21514",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-button-background"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-button-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "General (hover)",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#7a0504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-button-background-hover"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-button-color-hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Alternative Style",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundAlt",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#bb6519",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-button-background-alt"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorAlt",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-button-color-alt"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Alternative Style (hover)",
+                    "fields": [
+                        {
+                            "name": "themeButtonBackgroundHoverAlt",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#e27e25",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-button-background-hover-alt"
+                            }
+                        },
+                        {
+                            "name": "themeButtonColorHoverAlt",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-button-color-hover-alt"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Typography",
             "groups": [

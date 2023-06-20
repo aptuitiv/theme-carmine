@@ -21,7 +21,7 @@
     --Button-color: var(--theme-button-color);
     --Button-colorHover: var(--theme-button-color-hover);
     --Button-disabled-opacity: .6;
-    --Button-fontFamily: var(--theme-button-font);
+    --Button-fontFamily: var(--theme-typography-fontFamily);
     --Button-fontSize: inherit;
     --Button-letterSpacing: inherit;
     --Button-lineHeight: 1.4;
