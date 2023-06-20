@@ -9,27 +9,11 @@
     --theme-light-gray: #f2f2f2;
 }
 
-/* Headings */
-
-:root {
-    --theme-typography-heading-color: var(--theme-primary-color);
-    --theme-typography-heading-fontFamily: var(--theme-typography-fontFamily);
-}
-
 /* Main Navigation and Navigation Bar */
-
 :root {
-    --theme-navbar-bg: var(--theme-primary-color);
-    --theme-nav-color: #fff;
-    --theme-nav-color-hover: #fff;
-    --theme-nav-item-bg: transparent;
-    --theme-nav-item-bg-hover: #600303;
     --theme-nav-font: var(--theme-typography-fontFamily);
     --theme-nav-font-size: 1em;
     --theme-nav-line-height: 1.5;
-    --theme-nav-dropdown-background: #600303;
-    --theme-nav-dropdown-color: #fff;
-    --theme-nav-dropdown-color-hover: #fff;
 }
 
 /* Full page slider */

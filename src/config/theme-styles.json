@@ -121,6 +121,111 @@
             ]
         },
         {
+            "name": "Main Navigation",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "themeNavbarBg",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-navbar-bg"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Items",
+                    "fields": [
+                        {
+                            "name": "themeNavColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-nav-color"
+                            }
+                        },
+                        {
+                            "name": "themeNavItemBg",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#00000000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-nav-item-bg"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Items (hover)",
+                    "fields": [
+                        {
+                            "name": "themeNavColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-nav-color-hover"
+                            }
+                        },
+                        {
+                            "name": "themeNavItemBgHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#600303",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-nav-item-bg-hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Dropdowns",
+                    "fields": [
+                        {
+                            "name": "themeNavDropdownBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#600303",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-nav-dropdown-background"
+                            }
+                        },
+                        {
+                            "name": "themeNavDropdownColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-nav-dropdown-color"
+                            }
+                        },
+                        {
+                            "name": "themeNavDropdownColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-nav-dropdown-color-hover"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Typography",
             "groups": [
                 {
@@ -168,6 +273,30 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--theme-typography-link-colorHover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Headings",
+                    "fields": [
+                        {
+                            "name": "themeTypographyHeadingFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-typography-heading-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "themeTypographyHeadingColor",
+                            "label": "Heading color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-typography-heading-color"
                             }
                         }
                     ]
