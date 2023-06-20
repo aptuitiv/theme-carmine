@@ -1,0 +1,19 @@
+{
+    "groups": [
+        {
+            "name": "Body",
+            "fields": [
+                {
+                    "name": "themeBodyBackground",
+                    "label": "Background color",
+                    "type": "color",
+                    "default": "#fff",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--theme-body-background"
+                    }
+                }
+            ]
+        }
+    ]
+}

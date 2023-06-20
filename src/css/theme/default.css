@@ -9,12 +9,6 @@
     --theme-light-gray: #f2f2f2;
 }
 
-/* Body */
-
-:root {
-    --theme-body-background: #fff;
-}
-
 /*
    Core typography
    Serif and monospace fonts from https://css-tricks.com/snippets/css/system-font-stack/#comment-1606328
