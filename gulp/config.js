@@ -32,6 +32,7 @@ const config = {
             jslint: src + '/js/**/*.js',
             stylelint: [src + '/css/**/*.css'],
             theme: src + '/theme/**/*.twig',
+            themeConfig: src + '/config/**/*.json',
             themeFolder: src + '/theme'
         },
         build: {
@@ -48,6 +49,7 @@ const config = {
             img: dist + '/images',
             js: dist + '/js',
             theme: dist + '/templates',
+            themeConfig: dist + '/config',
             themeFiles: dist + '/templates/**/*.twig'
         },
         theme: '/theme/custom',

@@ -12,7 +12,7 @@ import {font} from './gulp/font.js';
 import {images} from './gulp/image.js';
 import {jslint, scripts} from './gulp/javascript.js';
 import {sprite} from './gulp/svg.js';
-import {processTheme, processThemeConfig, pullTheme, pushTheme} from './gulp/theme.js';
+import {processTheme, processThemeConfig, processLegacyThemeConfig, pullTheme, pushTheme} from './gulp/theme.js';
 
 
 /**
@@ -51,7 +51,13 @@ function watch(done) {
         });
 
     // Theme configuration JSON
-    gulp.watch(config.paths.src.base + '/theme.json', processThemeConfig);
+    gulp.watch(config.paths.src.themeConfig, {events: ['add', 'change']}, processThemeConfig)
+        .on('unlink', function(file) {
+            util.deleteFile(file, config.paths.src.themeConfig, config.paths.dist.themeConfig, 'theme config');
+        });
+
+    // Legacy theme.json configuration
+    gulp.watch(config.paths.src.base + '/theme.json', processLegacyThemeConfig);
 
     done();
 }
@@ -91,6 +97,7 @@ export {
     pushTheme,
     processTheme as theme,
     processThemeConfig as themeConfig,
+    processLegacyThemeConfig as themeConfigLegacy,
     scripts,
     sprite as svgSprite,
     stylelint,

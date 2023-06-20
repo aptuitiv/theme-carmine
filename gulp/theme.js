@@ -34,6 +34,21 @@ processTheme.description = 'Copies the theme files from the src directory to the
  * Processes the theme config files
  */
 function processThemeConfig() {
+    return gulp.src(config.paths.src.themeConfig)
+        .pipe(tap((file) => {
+            util.logFile(file, 'Theme Config');
+        }))
+        .pipe(gulp.dest(config.paths.dist.base + '/config'));
+}
+
+// Set the display properties of the theme process function
+processThemeConfig.description = 'Copies the theme settings file from the src directory to the dist directory it is changed';
+
+
+/**
+ * Processes the legacy theme config files
+ */
+function processLegacyThemeConfig() {
     return gulp.src(config.paths.src.base + '/theme.json')
         .pipe(tap((file) => {
             util.logFile(file, 'Theme Config');
@@ -43,6 +58,8 @@ function processThemeConfig() {
 
 // Set the display properties of the theme process function
 processThemeConfig.description = 'Copies the theme configuration file from the src directory to the dist directory it is changed';
+processLegacyThemeConfig.description = 'Copies the legacy theme configuration file from the src directory to the dist directory it is changed';
+
 
 /**
  * Push theme files from the src directory to the dist directory
@@ -68,6 +85,7 @@ pullTheme.description = 'Copies all the theme files from the dist theme director
 
 // Export
 export {
+    processLegacyThemeConfig,
     processThemeConfig,
     pullTheme,
     pushTheme,

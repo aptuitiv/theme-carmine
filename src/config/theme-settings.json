@@ -1,0 +1,237 @@
+{
+    "groups": [
+        {
+            "name": "Social Icons",
+            "description": "Set the links and icons to use for your social networks in the header or footer of each page.",
+            "fields": [
+                {
+                    "name": "social",
+                    "label": "Social Networks",
+                    "type": "repeating",
+                    "itemName": "Social Network",
+                    "children": [
+                        {
+                            "name": "name",
+                            "label": "Social network name",
+                            "type": "text"
+                        },
+                        {
+                            "name": "url",
+                            "label": "URL to your page on this social network",
+                            "type": "text"
+                        },
+                        {
+                            "name": "icon",
+                            "label": "Icon",
+                            "type": "select",
+                            "options": {
+                                "facebook": "Facebook",
+                                "instagram": "Instagram",
+                                "linkedin": "LinkedIn",
+                                "pinterest": "Pinterest",
+                                "twitter": "Twitter",
+                                "youtube": "YouTube"
+                            }
+                        }
+                    ],
+                    "default": [
+                        {
+                            "name": "Facebook",
+                            "icon": "facebook"
+                        },
+                        {
+                            "name": "Instagram",
+                            "icon": "instagram"
+                        },
+                        {
+                            "name": "LinkedIn",
+                            "icon": "linkedin"
+                        },
+                        {
+                            "name": "Pinterest",
+                            "icon": "pinterest"
+                        },
+                        {
+                            "name": "Twitter",
+                            "icon": "twitter"
+                        },
+                        {
+                            "name": "YouTube",
+                            "icon": "youtube"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Header",
+            "description": "Content for the header that is used on all pages",
+            "fields": [
+                {
+                    "name": "navigationStyle",
+                    "label": "Navigation style",
+                    "type": "radio",
+                    "options": {
+                        "left": "Left aligned",
+                        "right": "Right aligned",
+                        "centered": "Centered",
+                        "spaced": "Evenly spaced"
+                    },
+                    "default": "left"
+                },
+                {
+                    "name": "headerShowSocial",
+                    "label": "Show Social Icons",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "headerShowPhone",
+                    "label": "Show Phone Number",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "headerShowEmail",
+                    "label": "Show Email",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "headerShowAddress",
+                    "label": "Show Address",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "headerShowButtons",
+                    "label": "Show Buttons",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "no"
+                },
+                {
+                    "name": "headerLogo",
+                    "label": "Logo",
+                    "type": "image",
+                    "path": "images",
+                    "default": "/theme/custom/images/logo.jpg"
+                },
+                {
+                    "name": "headerButtons",
+                    "label": "Header Buttons",
+                    "type": "repeating",
+                    "itemName": "Button",
+                    "children": [
+                        {
+                            "name": "text",
+                            "label": "Button text",
+                            "type": "text"
+                        },
+                        {
+                            "name": "url",
+                            "label": "Button URL",
+                            "type": "url"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Footer",
+            "description": "Content for the footer that is used on all pages",
+            "fields": [
+                {
+                    "name": "footerShowNavigation",
+                    "label": "Show Navigation",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowPhone",
+                    "label": "Show Phone Number",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowEmail",
+                    "label": "Show Email",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowAddress",
+                    "label": "Show Address",
+                    "type": "radio",
+                    "options": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "default": "yes"
+                }
+            ]
+        },
+        {
+            "name": "Blog",
+            "description": "Settings for the blog app",
+            "fields": [
+                {
+                    "name": "blogSlidebarItems",
+                    "label": "Blog sidebar items",
+                    "type": "checkbox",
+                    "default": [
+                        "category-filter",
+                        "tag-filter",
+                        "recent-posts",
+                        "recent-comments",
+                        "post-archive"
+                    ],
+                    "options": {
+                        "category-filter": "Category filter",
+                        "tag-filter": "Tag filter",
+                        "recent-posts": "Recent posts",
+                        "recent-comments": "Recent comments",
+                        "post-archive": "Post archive"
+                    }
+                },
+                {
+                    "name": "blogSidebarRecentPostsNumber",
+                    "label": "Number of recent posts to show in the sidebar",
+                    "type": "number",
+                    "default": "5"
+                }
+            ]
+        }
+    ]
+}
