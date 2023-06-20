@@ -2,24 +2,14 @@
     "groups": [
         {
             "name": "Social Icons",
-            "description": "Set the links and icons to use for your social networks in the header or footer of each page.",
+            "description": "Set the links and icons to use for your social networks in the footer of each page.",
             "fields": [
                 {
                     "name": "social",
                     "label": "Social Networks",
-                    "type": "repeating",
+                    "type": "repeatingGrid",
                     "itemName": "Social Network",
                     "children": [
-                        {
-                            "name": "name",
-                            "label": "Social network name",
-                            "type": "text"
-                        },
-                        {
-                            "name": "url",
-                            "label": "URL to your page on this social network",
-                            "type": "text"
-                        },
                         {
                             "name": "icon",
                             "label": "Icon",
@@ -31,33 +21,14 @@
                                 "pinterest": "Pinterest",
                                 "twitter": "Twitter",
                                 "youtube": "YouTube"
-                            }
-                        }
-                    ],
-                    "default": [
-                        {
-                            "name": "Facebook",
-                            "icon": "facebook"
+                            },
+                            "columnWidth": "1fr"
                         },
                         {
-                            "name": "Instagram",
-                            "icon": "instagram"
-                        },
-                        {
-                            "name": "LinkedIn",
-                            "icon": "linkedin"
-                        },
-                        {
-                            "name": "Pinterest",
-                            "icon": "pinterest"
-                        },
-                        {
-                            "name": "Twitter",
-                            "icon": "twitter"
-                        },
-                        {
-                            "name": "YouTube",
-                            "icon": "youtube"
+                            "name": "url",
+                            "label": "URL to your page on this social network",
+                            "type": "text",
+                            "columnWidth": "2fr"
                         }
                     ]
                 }
@@ -66,91 +37,91 @@
         {
             "name": "Header",
             "description": "Content for the header that is used on all pages",
-            "fields": [
+            "sections": [
                 {
-                    "name": "navigationStyle",
-                    "label": "Navigation style",
-                    "type": "radio",
-                    "options": {
-                        "left": "Left aligned",
-                        "right": "Right aligned",
-                        "centered": "Centered",
-                        "spaced": "Evenly spaced"
-                    },
-                    "default": "left"
-                },
-                {
-                    "name": "headerShowSocial",
-                    "label": "Show Social Icons",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
-                    "default": "yes"
-                },
-                {
-                    "name": "headerShowPhone",
-                    "label": "Show Phone Number",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
-                    "default": "yes"
-                },
-                {
-                    "name": "headerShowEmail",
-                    "label": "Show Email",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
-                    "default": "yes"
-                },
-                {
-                    "name": "headerShowAddress",
-                    "label": "Show Address",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
-                    "default": "yes"
-                },
-                {
-                    "name": "headerShowButtons",
-                    "label": "Show Buttons",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
-                    "default": "no"
-                },
-                {
-                    "name": "headerLogo",
-                    "label": "Logo",
-                    "type": "image",
-                    "path": "images",
-                    "default": "/theme/custom/images/logo.jpg"
-                },
-                {
-                    "name": "headerButtons",
-                    "label": "Header Buttons",
-                    "type": "repeating",
-                    "itemName": "Button",
-                    "children": [
+                    "name": "Logo",
+                    "fields": [
                         {
-                            "name": "text",
-                            "label": "Button text",
-                            "type": "text"
+                            "name": "headerLogo",
+                            "label": "Logo",
+                            "type": "image",
+                            "path": "images",
+                            "default": "/theme/custom/images/logo.jpg"
+                        }
+                    ]
+                },
+                {
+                    "name": "Navigation",
+                    "fields": [
+                        {
+                            "name": "navigationStyle",
+                            "label": "Position",
+                            "type": "radio",
+                            "options": {
+                                "left": "Left aligned",
+                                "right": "Right aligned",
+                                "centered": "Centered",
+                                "spaced": "Evenly spaced"
+                            },
+                            "default": "left"
+                        }
+                    ]
+                },
+                {
+                    "name": "Information",
+                    "fields": [
+                        {
+                            "name": "headerShowSocial",
+                            "label": "Show Social Icons",
+                            "type": "switch",
+                            "default": "yes"
                         },
                         {
-                            "name": "url",
-                            "label": "Button URL",
-                            "type": "url"
+                            "name": "headerShowPhone",
+                            "label": "Show Phone Number",
+                            "type": "switch",
+                            "default": "yes"
+                        },
+                        {
+                            "name": "headerShowEmail",
+                            "label": "Show Email",
+                            "type": "switch",
+                            "default": "yes"
+                        },
+                        {
+                            "name": "headerShowAddress",
+                            "label": "Show Address",
+                            "type": "switch",
+                            "default": "yes"
+                        }
+                    ]
+                },
+                {
+                    "name": "Buttons",
+                    "fields": [
+                        {
+                            "name": "headerShowButtons",
+                            "label": "Show Buttons",
+                            "type": "switch",
+                            "default": "no"
+                        },
+                        {
+                            "name": "headerButtons",
+                            "label": "Buttons",
+                            "type": "repeatingGrid",
+                            "itemName": "Button",
+                            "children": [
+                                {
+                                    "name": "text",
+                                    "label": "Button text",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "url",
+                                    "label": "Button URL",
+                                    "type": "url"
+                                }
+                            ]
                         }
                     ]
                 }
@@ -163,41 +134,25 @@
                 {
                     "name": "footerShowNavigation",
                     "label": "Show Navigation",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
+                    "type": "switch",
                     "default": "yes"
                 },
                 {
                     "name": "footerShowPhone",
                     "label": "Show Phone Number",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
+                    "type": "switch",
                     "default": "yes"
                 },
                 {
                     "name": "footerShowEmail",
                     "label": "Show Email",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
+                    "type": "switch",
                     "default": "yes"
                 },
                 {
                     "name": "footerShowAddress",
                     "label": "Show Address",
-                    "type": "radio",
-                    "options": {
-                        "yes": "Yes",
-                        "no": "No"
-                    },
+                    "type": "switch",
                     "default": "yes"
                 }
             ]
