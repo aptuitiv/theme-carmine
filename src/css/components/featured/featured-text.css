@@ -6,7 +6,7 @@
 /* @define FeaturedText */
 
 .FeaturedText {
-    font-family: var(--theme-typography-serif);
+    font-family: var(--theme-typography-fontFamily);
     margin: 2em 0;
     padding: 10px;
     text-align: center;

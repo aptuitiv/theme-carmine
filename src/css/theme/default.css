@@ -9,24 +9,10 @@
     --theme-light-gray: #f2f2f2;
 }
 
-/*
-   Core typography
-   Serif and monospace fonts from https://css-tricks.com/snippets/css/system-font-stack/#comment-1606328
-*/
-
-:root {
-    --theme-typography-color: #333;
-    --theme-typography-serif: 'Vollkorn', serif;
-    --them-typography-monospace: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
-    --theme-typography-sans-serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    --theme-typography-fontFamily: var(--theme-typography-sans-serif);
-}
 
 /* Links & Buttons */
 
 :root {
-    --theme-typography-link-color: var(--theme-primary-color);
-    --theme-typography-link-colorHover: #7a0504;
     --theme-button-background: #a21514;
     --theme-button-background-hover: #7a0504;
     --theme-button-color: #fff;

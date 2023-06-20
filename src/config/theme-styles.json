@@ -14,6 +14,59 @@
                     }
                 }
             ]
+        {
+            "name": "Typography",
+            "groups": [
+                {
+                    "name": "Base",
+                    "fields": [
+                        {
+                            "name": "themeTypographyFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-typography-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "themeTypographyColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-typography-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "themeTypographyLinkColor",
+                            "label": "Link color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-typography-link-color"
+                            }
+                        },
+                        {
+                            "name": "themeTypographyLinkColorHover",
+                            "label": "Link color (hover)",
+                            "type": "color",
+                            "default": "#7a0504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--theme-typography-link-colorHover"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
