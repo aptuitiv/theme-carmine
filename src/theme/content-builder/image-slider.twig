@@ -8,7 +8,7 @@
             {% if slide.link %}
                 <a href="{{ slide.link }}" class="ImageSlider-imageWrap">{{ slide.image.tag }}</a>
             {% else %}
-                <div class="ImageSlider-imageWrap">{{ slide.image.tag }}</div>
+                <a data-fslightbox data-type="image" class="ImageSlider-imageWrap" href="{{ slide.image.src }}">{{ slide.image.tag }}</a>
             {% endif %}
         {% endif %}
     {% endmacro %}
@@ -127,6 +127,8 @@
     </div>
     
     {{ macros.loadSplide() }}
+    {{ macros.loadLightbox() }}
+    
     {% inlinejs %}
         loadjs.ready('splide', {
             success: function() {
