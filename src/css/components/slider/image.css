@@ -30,6 +30,7 @@
 .ImageSlider-image {
     aspect-ratio: 1 / 1;
     height: auto;
+    object-fit: cover;
     width: 100%;
 }
 
