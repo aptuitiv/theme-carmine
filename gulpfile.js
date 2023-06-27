@@ -1,19 +1,19 @@
 // Configuration and utilities
 import * as util from './gulp/utilities.js';
-import {config} from './gulp/config.js';
+import { config } from './gulp/config.js';
 
 // Load gulp
 import gulp from 'gulp';
 
 // Load gulp modules
 import copy from './gulp/copy.js';
-import {criticalCss, css, stylelint} from './gulp/css.js';
-import {font} from './gulp/font.js';
-import {images} from './gulp/image.js';
-import {jslint, scripts} from './gulp/javascript.js';
-import {sprite} from './gulp/svg.js';
-import {processTheme, processThemeConfig, processLegacyThemeConfig, pullTheme, pushTheme} from './gulp/theme.js';
-
+import { criticalCss, css, stylelint } from './gulp/css.js';
+import { deleteFile, deploy, deployFile, download } from './gulp/deploy.js';
+import { font } from './gulp/font.js';
+import { images } from './gulp/image.js';
+import { jslint, scripts } from './gulp/javascript.js';
+import { sprite } from './gulp/svg.js';
+import { processTheme, processThemeConfig, processLegacyThemeConfig, pullTheme, pushTheme } from './gulp/theme.js';
 
 /**
  * Watch for file changes and then process the files
@@ -21,39 +21,51 @@ import {processTheme, processThemeConfig, processLegacyThemeConfig, pullTheme, p
  */
 function watch(done) {
     // Copy static assets
-    gulp.watch(config.copy.reduce(util.flatten, []), {events: 'all'}, copy);
+    gulp.watch(config.copy.reduce(util.flatten, []), { events: 'all' }, copy);
 
     // CSS
-    gulp.watch(config.paths.watch.css, {events: 'all'}, css);
+    gulp.watch(config.paths.watch.css, { events: 'all' }, css);
 
     // Fonts
-    gulp.watch(config.paths.src.font, {events: ['add', 'change']}, font)
-        .on('unlink', function(file) {
+    gulp.watch(config.paths.src.font, { events: ['add', 'change'] }, font)
+        .on('unlink', function (file) {
             util.deleteFile(file, config.paths.src.font, config.paths.dist.font, 'font');
         });
 
     // Images
-    gulp.watch(config.paths.src.img, {events: ['add', 'change']}, images)
-        .on('unlink', function(file) {
+    gulp.watch(config.paths.src.img, { events: ['add', 'change'] }, images)
+        .on('unlink', function (file) {
             util.deleteFile(file, config.paths.src.img, config.paths.dist.img, 'image');
         });
 
     // Scripts
-    gulp.watch(config.scripts.reduce(util.flatten, []), {events: 'all'}, scripts);
+    gulp.watch(config.scripts.reduce(util.flatten, []), { events: 'all' }, scripts);
 
     // SVG Icons
     gulp.watch(config.paths.src.icon, sprite);
 
     // Theme
-    gulp.watch(config.paths.src.theme, {events: ['add', 'change']}, processTheme)
-        .on('unlink', function(file) {
+    gulp.watch(config.paths.src.theme, { events: ['add', 'change'] }, processTheme)
+        .on('unlink', function (file) {
             util.deleteFile(file, config.paths.src.theme, config.paths.dist.theme, 'template');
         });
 
     // Theme configuration JSON
-    gulp.watch(config.paths.src.themeConfig, {events: ['add', 'change']}, processThemeConfig)
-        .on('unlink', function(file) {
+    gulp.watch(config.paths.src.themeConfig, { events: ['add', 'change'] }, processThemeConfig)
+        .on('unlink', function (file) {
             util.deleteFile(file, config.paths.src.themeConfig, config.paths.dist.themeConfig, 'theme config');
+        });
+
+    // FTP upload
+    gulp.watch(config.paths.dist.base)
+        .on('add', function (path) {
+            deployFile(path);
+        })
+        .on('change', function (path) {
+            deployFile(path);
+        })
+        .on('unlink', function (path) {
+            deleteFile(path);
         });
 
     // Legacy theme.json configuration
@@ -90,6 +102,8 @@ export {
     criticalCss,
     css,
     defaultTask as default,
+    deploy,
+    download,
     font,
     images,
     jslint,

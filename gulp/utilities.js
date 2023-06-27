@@ -12,7 +12,7 @@ import moment from 'moment';
 import fancyLog from 'fancy-log'
 
 // Load node modules
-import * as del from 'del';
+import { deleteSync } from 'del';
 import * as path from 'path';
 
 // Banner to add to the top of files
@@ -47,7 +47,7 @@ function deleteFile(file, src, dest, type) {
     let destPath = path.resolve(dest, srcPath);
 
     // Delete the file
-    del.sync(destPath);
+    deleteSync(destPath);
     log(dest + '/' + srcPath, 'Finished Deleting ' + type);
 }
 
@@ -133,7 +133,7 @@ function logFileTo(message, file, dest) {
  * Error Handler
  * @param err
  */
-const onError = function(err) {
+const onError = function (err) {
     console.log(err);
     if (typeof this.emit === 'function') {
         this.emit('end');

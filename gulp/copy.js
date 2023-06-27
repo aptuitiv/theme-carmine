@@ -4,7 +4,7 @@
 
 
 // Configuration and utilities
-import {config} from './config.js';
+import { config } from './config.js';
 import * as util from './utilities.js';
 
 // Require gulp
@@ -26,14 +26,14 @@ import Newer from 'gulp-newer';
  */
 function copy(cb) {
     if (config.copy.length > 0) {
-        let assets = config.copy.map(function(entry) {
+        let assets = config.copy.map(function (entry) {
             return gulp.src(entry.src)
-                .pipe(Newer(config.paths.dist.base + '/' + entry.dest))
+                .pipe(Newer(config.paths.dist.baseTheme + '/' + entry.dest))
                 .pipe(tap((file) => {
-                    util.logFileTo('Copying', file, config.paths.dist.base + '/' + entry.dest);
+                    util.logFileTo('Copying', file, config.paths.dist.baseTheme + '/' + entry.dest);
                 }))
-                .pipe(plumber({errorHandler: util.onError}))
-                .pipe(gulp.dest(config.paths.dist.base + '/' + entry.dest));
+                .pipe(plumber({ errorHandler: util.onError }))
+                .pipe(gulp.dest(config.paths.dist.baseTheme + '/' + entry.dest));
         });
         return mergeStream(assets);
     } else {

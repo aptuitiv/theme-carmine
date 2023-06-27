@@ -4,7 +4,7 @@
 
 
 // Configuration and utilities
-import {config} from './config.js';
+import { config } from './config.js';
 import * as util from './utilities.js';
 
 // Require gulp
@@ -20,7 +20,7 @@ import tap from 'gulp-tap';
  */
 function processTheme() {
     return gulp.src(config.paths.src.theme)
-        .pipe(changed(config.paths.dist.theme, {hasChanged: changed.compareContents}))
+        .pipe(changed(config.paths.dist.theme, { hasChanged: changed.compareContents }))
         .pipe(tap((file) => {
             util.logFile(file, 'Theme');
         }))
@@ -38,7 +38,7 @@ function processThemeConfig() {
         .pipe(tap((file) => {
             util.logFile(file, 'Theme Config');
         }))
-        .pipe(gulp.dest(config.paths.dist.base + '/config'));
+        .pipe(gulp.dest(config.paths.dist.baseTheme + '/config'));
 }
 
 // Set the display properties of the theme process function
@@ -53,7 +53,7 @@ function processLegacyThemeConfig() {
         .pipe(tap((file) => {
             util.logFile(file, 'Theme Config');
         }))
-        .pipe(gulp.dest(config.paths.dist.base));
+        .pipe(gulp.dest(config.paths.dist.baseTheme));
 }
 
 // Set the display properties of the theme process function

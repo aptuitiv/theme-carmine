@@ -3,7 +3,8 @@ var src = 'src';
 // The base directory to build into. A temporary location for things that need to be built first before moving to distribution
 var build = '_build';
 // The full destination folder where assets (images, css, js) will be built into for distribution
-var dist = 'dist/theme/custom';
+var dist = 'dist';
+var distTheme = `${dist}/theme/custom`;
 
 /**
  * Data that is set to the config variable in gulpfile.js
@@ -40,17 +41,18 @@ const config = {
             css: build + '/css'
         },
         criticalCss: {
-            src: dist + '/css/main.css'
+            src: distTheme + '/css/main.css'
         },
         dist: {
             base: dist,
-            css: dist + '/css',
-            font: dist + '/fonts',
-            img: dist + '/images',
-            js: dist + '/js',
-            theme: dist + '/templates',
-            themeConfig: dist + '/config',
-            themeFiles: dist + '/templates/**/*.twig'
+            baseTheme: distTheme,
+            css: distTheme + '/css',
+            font: distTheme + '/fonts',
+            img: distTheme + '/images',
+            js: distTheme + '/js',
+            theme: distTheme + '/templates',
+            themeConfig: distTheme + '/config',
+            themeFiles: distTheme + '/templates/**/*.twig'
         },
         theme: '/theme/custom',
         watch: {
@@ -61,7 +63,7 @@ const config = {
     /**
      * Files to copy from another folder, typically node_modules.
      * src is the files to get
-     * dest is the folder within the root 'dist' folder to put
+     * dest is the folder within the root 'distTheme' folder to put
      */
     copy: [
         {
@@ -181,4 +183,4 @@ const config = {
         // }
     ]
 };
-export {config};
+export { config };

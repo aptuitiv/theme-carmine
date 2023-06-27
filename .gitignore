@@ -8,6 +8,7 @@
 # https://dev.to/saurabhdaware/but-what-the-hell-is-package-lock-json-b04
 
 .DS_Store
+.env
 .idea/
 .vscode/
 /_build/
