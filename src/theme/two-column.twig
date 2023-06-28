@@ -17,7 +17,9 @@
                     <aside>
                         {% block sidebar %}
                             {{ _api.navigation.getSubNavigationByUrl.key('main').getParentItem('yes').showSubNav('yes').template('sidebar') }}
+                            {% if _core.theme.settings.testimonialSidebarEnabled == "yes" %}
                                 {{ _api.widgets.collection.get('testimonials').template('testimonials-sidebar') }}
+                            {% endif %}
                         {% endblock %}
                     </aside>
                 </div>

@@ -226,6 +226,147 @@
             ]
         },
         {
+            "name": "Testimonials",
+            "description": "Styles for the Testimonial block and Testimonial sidebar content.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "testimonialSpacing",
+                            "label": "Spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-spacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "testimonialBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "1",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "testimonialBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#333333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-borderColor"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Title",
+                    "fields": [
+                        {
+                            "name": "testimonialTitleFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "22",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-title-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "testimonialTitleFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "fontFamily": "themeTypographyFontFamily",
+                            "default": "700",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-title-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "testimonialTitleMarginBottom",
+                            "label": "Bottom margin",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "10",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-title-marginBottom",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Sidebar",
+                    "fields": [
+                        {
+                            "name": "testimonialSidebarEnabled",
+                            "label": "Show testimonial in sidebar",
+                            "type": "switch",
+                            "description": "If enabled, a random testimonial will be shown in the sidebar of every page using the \"Two Column\" template. Testimonials can be added/edited under Widgets &rarr; Collections &rarr; Testimonials.",
+                            "default": "yes"
+                        },
+                        {
+                            "name": "testimonialSidebarBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-sidebar-background"
+                            }
+                        },
+                        {
+                            "name": "testimonialSidebarColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-sidebar-color"
+                            }
+                        },
+                        {
+                            "name": "testimonialSidebarPadding",
+                            "label": "Padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-sidebar-padding",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "testimonialSidebarBorderRadius",
+                            "label": "Border radius",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Testimonial-sidebar-borderRadius",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Typography",
             "groups": [
                 {
