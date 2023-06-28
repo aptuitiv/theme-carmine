@@ -1471,6 +1471,70 @@
                                 ]
                             }
                         ]
+                    },
+                    {
+                        "key": "testimonials",
+                        "name": "Testimonials",
+                        "type": "full",
+                        "template": "testimonials",
+                        "enabled": true,
+                        "parse": true,
+                        "description": "",
+                        "fields": [
+                            {
+                                "key": "amount",
+                                "name": "Number of testimonials to show",
+                                "type": "select",
+                                "value": "",
+                                "description": "",
+                                "options": [
+                                    {
+                                        "value": "All",
+                                        "default": true
+                                    },
+                                    {
+                                        "value": "10",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "9",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "8",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "7",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "6",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "5",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "4",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "3",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "2",
+                                        "default": false
+                                    },
+                                    {
+                                        "value": "1",
+                                        "default": false
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -1823,23 +1887,19 @@
         },
         {
             "key": "navigation/sidebar",
-            "name": "sidebar"
+            "name": "Sidebar"
         },
         {
             "key": "navigation/main",
-            "name": "main"
+            "name": "Main"
         },
         {
             "key": "navigation/footer",
-            "name": "footer"
+            "name": "Footer"
         },
         {
-            "key": "navigation/main-alt",
-            "name": "main-alt"
-        },
-        {
-            "key": "navigation/embeded-navigation",
-            "name": "embeded-navigation"
+            "key": "navigation/embedded-navigation",
+            "name": "Embedded Navigation"
         },
         {
             "key": "content-builder/heading-1",
@@ -2002,6 +2062,10 @@
             "name": "Recent Calendar Events List"
         },
         {
+            "key": "content-builder/testimonials",
+            "name": "Testimonials"
+        },
+        {
             "key": "content-layouts/banner",
             "name": "Banner"
         },
@@ -2018,6 +2082,18 @@
             "name": "Default",
             "collection": "notification-bar",
             "default": true
+        },
+        {
+            "key": "widgets/collections/testimonials",
+            "name": "Testimonials",
+            "collection": "testimonials",
+            "default": true
+        },
+        {
+            "key": "widgets/collections/testimonials-sidebar",
+            "name": "Testimonials Sidebar",
+            "collection": "testimonials",
+            "default": false
         },
         {
             "key": "app/home",
@@ -5046,6 +5122,29 @@
                             "height": 300,
                             "path": "/images",
                             "width": 300
+                        }
+                    }
+                ]
+            },
+            {
+                "key": "testimonials",
+                "name": "Testimonials",
+                "description": "",
+                "displayNumber": 0,
+                "orderBy": "custom",
+                "orderDirection": "asc",
+                "dateFormat": "l, F j, Y",
+                "timeFormat": "g:i a",
+                "attributes": [
+                    {
+                        "key": "testimonial",
+                        "name": "Testimonial",
+                        "description": "",
+                        "type": "textarea",
+                        "size": "medium",
+                        "value": "",
+                        "configuration": {
+                            "allowCode": "no"
                         }
                     }
                 ]
