@@ -8,16 +8,16 @@
             {% apply spaceless %}
                 {% if _core.theme.settings.footerShowAddress == 'yes' %}
                     {% if _core.settings.companyAddressStreet %}
-                        {{ _core.settings.companyAddressStreet }},
+                        {{ _core.settings.companyAddressStreet }}{{ _core.settings.companyAddressCity ? ', ' }}
                     {% endif %}
                     {% if _core.settings.companyAddressCity %}
-                        {{ _core.settings.companyAddressCity }},
+                        {{ _core.settings.companyAddressCity }}{{ _core.settings.companyAddressState ? ', ' }}
                     {% endif %}
                     {% if _core.settings.companyAddressState %}
-                        {{ _core.settings.companyAddressState }}
+                        {{ _core.settings.companyAddressState }}{{ _core.settings.companyAddressPostalCode ? ', ' }}
                     {% endif %}
                     {% if _core.settings.companyAddressPostalCode %}
-                        , {{ _core.settings.companyAddressPostalCode }}
+                        {{ _core.settings.companyAddressPostalCode }}
                     {% endif %}
                 {% endif %}
                 {% if _core.theme.settings.footerShowPhone == 'yes' %}

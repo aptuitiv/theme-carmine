@@ -66,16 +66,16 @@
                                 {% if _core.theme.settings.headerShowAddress == 'yes' %}
                                     <div class="Header-line">
                                         {% if _core.settings.companyAddressStreet %}
-                                            {{ _core.settings.companyAddressStreet }},
+                                            {{ _core.settings.companyAddressStreet }}{{ _core.settings.companyAddressCity ? ', ' }}
                                         {% endif %}
                                         {% if _core.settings.companyAddressCity %}
-                                            {{ _core.settings.companyAddressCity }},
+                                            {{ _core.settings.companyAddressCity }}{{ _core.settings.companyAddressState ? ', ' }}
                                         {% endif %}
                                         {% if _core.settings.companyAddressState %}
-                                            {{ _core.settings.companyAddressState }}
+                                            {{ _core.settings.companyAddressState }}{{ _core.settings.companyAddressPostalCode ? ', ' }}
                                         {% endif %}
                                         {% if _core.settings.companyAddressPostalCode %}
-                                            , {{ _core.settings.companyAddressPostalCode }}
+                                            {{ _core.settings.companyAddressPostalCode }}
                                         {% endif %}
                                     </div>
                                 {% endif %}
