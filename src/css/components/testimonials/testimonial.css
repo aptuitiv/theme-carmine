@@ -16,7 +16,7 @@
     --Testimonial-sidebar-background: var(--theme-primary-color);
     --Testimonial-sidebar-color: #fff;
     --Testimonial-sidebar-padding: 20px;
-    --Testimonial-sizebar-borderRadius: 5px;
+    --Testimonial-sidebar-borderRadius: 5px;
 }
 
 /* @define Testimonial */
@@ -38,3 +38,26 @@
     margin-bottom: var(--Testimonial-title-marginBottom);
 }
 
+/* ------------------------------------ *\
+    Sidebar
+\* ------------------------------------ */
+
+.Testimonial--sidebar {
+    background-color: var(--Testimonial-sidebar-background);
+    border-radius: var(--Testimonial-sidebar-borderRadius);
+    color: var(--Testimonial-sidebar-color);
+    padding: var(--Testimonial-sidebar-padding) !important;
+}
+
+/* postcss-bem-linter: ignore */
+.SidebarNav + .Testimonial--sidebar {
+    margin-top: 20px;
+}
+
+.Testimonial--sidebar .Testimonial-title {
+    font-size: 1.7rem;
+}
+
+.Testimonial--sidebar .Testimonial-content {
+    font-size: 1.5rem;
+}

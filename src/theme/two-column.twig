@@ -1,27 +1,23 @@
-
 {% include 'snippets/header' %}
 
 <main id="main">
-
     {% block banner %}
         {{ _page.content('banner') }}
     {% endblock %}
-
     <div class="Container">
-
         {% if _page.isHome == false %}
             {{ _page.breadcrumb }}
         {% endif %}
-
         <div class="Content u-cf">
             <div class="Grid Grid--withGutterXlg">
-                <div class="Grid-cell u-size3of4 u-md-sizeFull u-push1of4 u-md-pushNone">
+                <div class="Grid-cell u-size3of4 u-lg-sizeFull u-push1of4 u-lg-pushNone">
                     <main id="main">{% block main %}{{ _page.content() }}{% endblock %}</main>
                 </div>
-                <div class="Grid-cell u-size1of4 u-md-sizeFull u-pull3of4 u-md-pullNone">
+                <div class="Grid-cell u-size1of4 u-lg-sizeFull u-pull3of4 u-lg-pullNone">
                     <aside>
                         {% block sidebar %}
-                        {{ _api.navigation.getSubNavigationByUrl.key('main').getParentItem('yes').showSubNav('yes').template('sidebar') }}
+                            {{ _api.navigation.getSubNavigationByUrl.key('main').getParentItem('yes').showSubNav('yes').template('sidebar') }}
+                                {{ _api.widgets.collection.get('testimonials').template('testimonials-sidebar') }}
                         {% endblock %}
                     </aside>
                 </div>
