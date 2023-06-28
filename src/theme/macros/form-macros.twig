@@ -45,7 +45,10 @@
                 {% endif %}
                 {{ field.label.tag }}
             </div>
-            <div class="Grid-cell u-size3of4 u-md-sizeFull">
+            {% if field.fieldType in ["radio", "multiCheckbox", "checkbox"] %}
+                {% set field.groupId = "js-field--" ~ random_string() %}
+            {% endif %}
+            <div class="Grid-cell u-size3of4 u-md-sizeFull {{ field.groupId ?: '' }}">
                 {{ _self.buildGridField(field) }}
             </div>
         </div>
@@ -101,7 +104,10 @@
                 {% set class = class ~ ' u-md-sizeFull' %}
                 <div class="Grid-cell {{ class }}">
                     {% for child in column.childFields %}
-                        <div class="u-margBottom2">
+                        {% if child.fieldType in ["radio", "multiCheckbox", "checkbox"] %}
+                            {% set child.groupId = "js-field--" ~ random_string() %}
+                        {% endif %}
+                        <div class="u-margBottom2 {{ child.groupId ?: '' }}">
                             {% set child.label.class = child.label.class ~ ' FormLabel FormLabel--block' %}
                             {% if child.isRequired %}
                                 {% set child.required = true %}
@@ -167,7 +173,10 @@
 {% macro buildLabelAboveFieldField(field) %}
     {% if field.fieldType != "hidden" %}
         {% set field.class = field.class|replace({"error": "is-invalid"}) %}
-        <div class="u-margBottom2">
+        {% if field.fieldType in ["radio", "multiCheckbox", "checkbox"] %}
+            {% set field.groupId = "js-field--" ~ random_string() %}
+        {% endif %}
+        <div class="u-margBottom2 {{ field.groupId ?: '' }}">
             {% set field.label.class = field.label.class ~ ' FormLabel FormLabel--block' %}
             {% if field.isRequired %}
                 {% set field.required = true %}
@@ -197,7 +206,7 @@
                 <div class="SelectInput u-sizeFull">
                     {{ field.tag }}
                 </div>
-            {% elseif field.fieldType == 'radio' or field.fieldType == 'multiCheckbox' %}
+            {% elseif field.fieldType in ["radio", "multiCheckbox", "checkbox"] %}
                 {% if field.config.separator == 'space' %}
                     {% for option in field.options %}
                         <label class="u-padRight2">{{ option.tagNoLabel }} {{ option.label }}</label>
@@ -205,6 +214,19 @@
                 {% else %}
                     {{ field.tag|replace({"error": "is-invalid"}) }}
                 {% endif %}
+            {% elseif field.fieldType == 'rating' %}
+                <div class="Grid Grid--withGutter">
+                    <div class="Grid-cell u-size3of4 u-lg-size2of3 u-md-size1of2 u-sm-sizeFull">
+                        {{ field.label.tag }}
+                    </div>
+                    <div class="Grid-cell u-size1of4 u-lg-size1of3 u-md-size1of2 u-sm-sizeFull">
+                        <div class="u-flex u-flexJustifyEnd u-flexAlignItemsCenter u-heightFull u-sm-flexJustifyStart u-sm-flexAlignItemsStart u-sm-margTop1">
+                            {% for option in field.options %}
+                                <label class="u-padRight2">{{ option.tagNoLabel }} {{ option.label }}</label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
             {% else %}
                 {{ field.tag|replace({"error": "is-invalid"}) }}
             {% endif %}
@@ -271,7 +293,7 @@
 #}
 {% macro formValidateHandlerJs(form, formOverlayClass, filesToLoad, submitHandler) %}
     {% import _self as macros %}
-    
+
     {% set formOverlayClass = formOverlayClass ?: 'js-formOverlay' ~ random_string() %}
     <div class="FormOverlay {{ formOverlayClass }}"><div class="FormOverlay-text">Please wait&hellip;</div></div>
 
@@ -307,23 +329,23 @@
                         }
                     });
                 }
-                
+
                 {# Create validator instance #}
                 const validator = new JustValidate('.{{ form.class }}');
-                
+
                 {# Add validation rules #}
                 {% for field in form.fields %}
                     {{ macros.addValidationRule(field) }}
                 {% endfor %}
-                
+
                 {# Add event listener to handle reCAPTCHA #}
                 validator.onSuccess(e => {
                     {# Show the submission overlay #}
                     document.querySelector('.{{ formOverlayClass }}').style.display = 'block';
-                    
+
                     {# Disable the submit button #}
                     document.querySelector('.{{ form.class }} [type="submit"]').disabled = true;
-                    
+
                     {# Handle submission via either reCAPTCHA v3, a custom handler, or just a regular submission. #}
                     {% if form.captcha.type == 'recaptchaV3' %}
                         {{ form.captcha.script.function }}(grecaptcha, {
@@ -350,7 +372,7 @@
 
 {% macro addValidationRule(field) %}
     {# Handle rules for field #}
-    {% if field.rules|length > 0 %}
+    {% if field.rules|length > 0 and field.fieldType not in ["radio", "multiCheckbox", "checkbox"] %}
         {# Add rules for field to validator #}
         validator.addField('#{{ field.id }}', [
             {% for rule in field.rules %}
@@ -363,7 +385,7 @@
                 },
             {% endfor %}
         ]);
-        
+
         {# Validate field on blur #}
         document.querySelector('#{{ field.id }}').addEventListener('blur', () => {
             validator.revalidateField('#{{ field.id }}').then(isValid => {
@@ -372,8 +394,19 @@
                 }
             });
         });
+    {% elseif field.isRequired and field.fieldType in ["radio", "multiCheckbox", "checkbox"] %}
+        {# Get required text #}
+        {% set reqText = "This field is required." %}
+        {% for rule in field.rules %}
+            {% if rule.type == "required" %}
+                {% set reqText = rule.message %}
+            {% endif %}
+        {% endfor %}
+
+        {# Add rules for field to validator #}
+        validator.addRequiredGroup('.{{ field.groupId }}', '{{ reqText }}');
     {% endif %}
-    
+
     {# Handle child fields #}
     {% if field.columns|length > 0 %}
         {% import _self as macros %}
