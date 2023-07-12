@@ -766,6 +766,16 @@
                             }
                         },
                         {
+                            "name": "navDropdownBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "default": "#600303",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Dropdown-link-backgroundHover"
+                            }
+                        },
+                        {
                             "name": "themeNavDropdownColorHover",
                             "label": "Text color (hover)",
                             "type": "color",
