@@ -1,6 +1,31 @@
 {
     "groups": [
         {
+            "name": "Back to Top",
+            "fields": [
+                {
+                    "name": "backTopBackground",
+                    "label": "Background color",
+                    "type": "color",
+                    "default": "#bb6519",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--BackTop-background"
+                    }
+                },
+                {
+                    "name": "backTopColor",
+                    "label": "Arrow color",
+                    "type": "color",
+                    "default": "#fff",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--BackTop-color"
+                    }
+                }
+            ]
+        },
+        {
             "name": "Body",
             "fields": [
                 {

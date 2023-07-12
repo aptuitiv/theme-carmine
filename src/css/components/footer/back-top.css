@@ -2,11 +2,14 @@
     Back to Top link
 \* =========================================================================== */
 
+:root {
+    --BackTop-background: #bb6519;
+    --BackTop-color: #fff;
+}
 
 /* @define BackTop */
-
 .BackTop {
-    background: #bb6519;
+    background: var(--BackTop-background);
     height: 30px;
     position: absolute;
     right: 10px;
@@ -16,7 +19,7 @@
 }
 
 .BackTop::after {
-    background: #fff;
+    background: var(--BackTop-color);
     content: '';
     height: 2px;
     left: 8px;
@@ -27,7 +30,7 @@
 }
 
 .BackTop::before {
-    background: #fff;
+    background: var(--BackTop-color);
     content: '';
     height: 2px;
     left: 14px;
