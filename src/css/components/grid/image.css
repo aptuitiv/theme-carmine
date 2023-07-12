@@ -2,11 +2,30 @@
     Photo Grid component
 \* =========================================================================== */
 
+:root {
+    --ImageGrid-fontSize: 1.2em;
+    --ImageGrid-fontWeight: 300;
+    
+    /* Title */
+    --ImageGrid-title-background: var(--theme-primary-color);
+    --ImageGrid-title-color: #fff;
+    
+    /* Title (hover) */
+    --ImageGrid-title-backgroundHover: var(--theme-primary-color);
+    --ImageGrid-title-colorHover: #fff;
+    
+    /* Hover */
+    --ImageGrid-hover-background: #600303;
+    --ImageGrid-hover-color: #fff;
+    
+    /* Cover */
+    --ImageGrid-cover-background: #600303;
+    --ImageGrid-cover-color: #fff;
+}
 
 /* @define ImageGrid */
-
 .ImageGrid {
-    margin-top: var(--theme-component-top-margin);
+    margin-top: 20px;
 }
 
 .ImageGrid-col {
@@ -76,8 +95,8 @@
 
 .ImageGrid-title {
     box-sizing: border-box;
-    font-size: var(--theme-image-grid-title-font-size);
-    font-weight: var(--theme-image-grid-title-font-weight);
+    font-size: var(--ImageGrid-fontSize);
+    font-weight: var(--ImageGrid-fontWeight);
     letter-spacing: 1px;
     padding: 0 8px;
     text-align: center;
@@ -116,8 +135,8 @@
 .ImageGrid-title--below,
 .ImageGrid-title--bottom,
 .ImageGrid-title--top {
-    background: var(--theme-image-grid-title-background);
-    color: var(--theme-image-grid-title-color);
+    background: var(--ImageGrid-title-background);
+    color: var(--ImageGrid-title-color);
     padding: 8px;
 }
 
@@ -133,8 +152,8 @@
 .ImageGrid-link:active .ImageGrid-title--top,
 .ImageGrid-link:focus .ImageGrid-title--top,
 .ImageGrid-link:hover .ImageGrid-title--top {
-    background: var(--theme-image-grid-title-hover-background);
-    color: var(--theme-image-grid-title-hover-color);
+    background: var(--ImageGrid-title-backgroundHover);
+    color: var(--ImageGrid-title-colorHover);
 }
 
 /* ------------------------------------ *\
@@ -154,9 +173,9 @@
 }
 
 .ImageGrid-hoverContent {
-    background: var(--theme-image-grid-hover-background);
+    background: var(--ImageGrid-hover-background);
     box-sizing: border-box;
-    color: var(--theme-image-grid-hover-color);
+    color: var(--ImageGrid-hover-color);
     display: none;
     height: 100%;
     left: 0;
@@ -179,15 +198,15 @@
 }
 
 .ImageGrid-hoverContentHeading {
-    font-size: var(--theme-image-grid-title-font-size);
-    font-weight: var(--theme-image-grid-title-font-weight);
+    font-size: var(--ImageGrid-fontSize);
+    font-weight: var(--ImageGrid-fontWeight);
     margin-bottom: 15px;
     position: relative;
     text-transform: uppercase;
 }
 
 .ImageGrid-hoverContentHeading::after {
-    border-top: 1px solid var(--theme-image-grid-title-color);
+    border-top: 1px solid var(--ImageGrid-title-color);
     bottom: -4px;
     content: '';
     left: 50%;
@@ -213,9 +232,9 @@
 }
 
 .ImageGrid-coverContent {
-    background: var(--theme-image-grid-cover-background);
+    background: var(--ImageGrid-cover-background);
     box-sizing: border-box;
-    color: var(--theme-image-grid-title-cover-color);
+    color: var(--ImageGrid-cover-color);
     height: 100%;
     left: 0;
     overflow: hidden;
@@ -238,15 +257,15 @@
 }
 
 .ImageGrid-coverContentHeading {
-    font-size: var(--theme-image-grid-title-font-size);
-    font-weight: var(--theme-image-grid-title-font-weight);
+    font-size: var(--ImageGrid-fontSize);
+    font-weight: var(--ImageGrid-fontWeight);
     margin-bottom: 15px;
     position: relative;
     text-transform: uppercase;
 }
 
 .ImageGrid-coverContentHeading::after {
-    border-top: 1px solid var(--theme-image-grid-title-color);
+    border-top: 1px solid var(--ImageGrid-title-color);
     bottom: -4px;
     content: '';
     left: 50%;

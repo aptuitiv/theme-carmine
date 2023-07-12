@@ -6,7 +6,7 @@
 /* @define ColumnFeature */
 
 .ColumnFeature {
-    margin-top: var(--theme-feature-top-margin);
+    margin-top: 60px;
 }
 
 .ColumnFeature-title {

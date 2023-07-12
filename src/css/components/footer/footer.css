@@ -2,14 +2,23 @@
     Footer
 \* =========================================================================== */
 
+:root {
+    --Footer-fontSize: 1.4rem;
+    --Footer-fontFamily: var(--theme-typography-fontFamily);
+    --Footer-background: var(--theme-primary-color);
+    --Footer-color: #fff;
+    
+    /* Navigation */
+    --Footer-nav-color: #fff;
+    --Footer-nav-colorHover: #fff;
+}
 
 /* @define Footer */
-
 .Footer {
-    background: var(--theme-footer-bg);
-    color: var(--theme-footer-color);
+    background: var(--Footer-background);
+    color: var(--Footer-color);
     display: block;
-    font-size: var(--theme-footer-font-size);
+    font-size: var(--Footer-fontSize);
     letter-spacing: 1px;
     padding: 30px var(--g-gutter);
     position: relative;

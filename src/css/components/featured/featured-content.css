@@ -2,12 +2,29 @@
     Featured Content
 \* =========================================================================== */
 
+:root {
+    --FeaturedContent-background: var(--theme-primary-color);
+    
+    /* Content */
+    --FeaturedContent-content-heading-color: #efdbd5;
+    --FeaturedContent-content-color: #fff;
+    
+    /* Button */
+    --FeaturedContent-button-background: #fff;
+    --FeaturedContent-button-color: var(--theme-primary-color);
+    
+    /* Button (hover) */
+    --FeaturedContent-button-backgroundHover: #7a0504;
+    --FeaturedContent-button-colorHover: #fff;
+    
+    /* Link */
+    --FeaturedContent-link-colorHover: #c3b4af;
+}
 
 /* @define FeaturedContent */
-
 .FeaturedContent {
-    background: var(--theme-featured-content-background);
-    color: var(--theme-featured-content-color);
+    background: var(--FeaturedContent-background);
+    color: var(--FeaturedContent-content-color);
     margin: 2em calc(var(--g-gutter) * -1);
     padding: 40px;
 }
@@ -27,26 +44,26 @@
 .FeaturedContent h5,
 .FeaturedContent h6,
 .FeaturedContent .ContentGrid-title {
-    color: var(--theme-featured-content-heading-color);
+    color: var(--FeaturedContent-content-heading-color);
 }
 
 /* postcss-bem-linter: ignore */
 
 .FeaturedContent a:hover {
-    color: var(--theme-featured-link-color-hover);
+    color: var(--FeaturedContent-link-colorHover);
 }
 
 /* postcss-bem-linter: ignore */
 
 .FeaturedContent .Button {
-    background: var(--theme-featured-button-background);
-    color: var(--theme-featured-button-color);
+    background: var(--FeaturedContent-button-background);
+    color: var(--FeaturedContent-button-color);
 }
 
 /* postcss-bem-linter: ignore */
 .FeaturedContent .Button:active,
 .FeaturedContent .Button:focus,
 .FeaturedContent .Button:hover {
-    background: var(--theme-featured-button-background-hover);
-    color: var(--theme-featured-button-color-hover);
+    background: var(--FeaturedContent-button-backgroundHover);
+    color: var(--FeaturedContent-button-colorHover);
 }

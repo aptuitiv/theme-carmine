@@ -7,10 +7,10 @@
 /** @define FooterNav */
 
 :root {
-    --FooterNav-fontSize: var(--theme-footer-nav-font-size);
+    --FooterNav-fontSize: var(--Footer-fontSize);
     --FooterNav-lineHeight: 1;
-    --FooterNav-link-color: var(--theme-footer-nav-color);
-    --FooterNav-link-colorHover: var(--theme-footer-nav-color-hover);
+    --FooterNav-link-color: var(--Footer-nav-color);
+    --FooterNav-link-colorHover: var(--Footer-nav-colorHover);
 }
 
 /**
@@ -20,7 +20,7 @@
 .FooterNav {
     box-sizing: border-box;
     display: block;
-    font-family: var(--theme-footer-nav-font);
+    font-family: var(--Footer-fontFamily);
     font-size: var(--FooterNav-fontSize);
     line-height: var(--FooterNav-lineHeight);
     list-style: none;

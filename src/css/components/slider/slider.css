@@ -112,7 +112,7 @@
 
 @media (--c-bp-md) {
     .Slider-content {
-        background: var(--theme-slider-caption-small-screen-background);
+        background: var(--ImageSlider-title-backgroun);
         bottom: auto;
         display: block;
         left: auto;

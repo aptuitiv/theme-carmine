@@ -2,19 +2,22 @@
     Content Header at the top of pages
 \* =========================================================================== */
 
+:root {
+    --ContentHeader-background: #f2f2f2;
+    --ContentHeader-color: var(--theme-typography-color);
+}
 
 /* @define ContentHeader */
-
 .ContentHeader {
-    background: var(--theme-content-header-background);
-    color: var(--theme-content-header-color);
+    background: var(--ContentHeader-background);
+    color: var(--ContentHeader-color);
     margin-bottom: var(--base-typography-spacing);
     padding: 25px;
     text-align: center;
 }
 
 .ContentHeader-title {
-    color: var(--theme-content-header-color);
+    color: var(--ContentHeader-color);
     font-size: 2em;
     font-weight: 300;
     line-height: 1.4;

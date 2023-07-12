@@ -2,11 +2,14 @@
     Content Grid
 \* =========================================================================== */
 
+:root {
+    --ContentGrid-title-color: var(--theme-primary-color);
+    --ContentGrid-title-colorHover: var(--theme-primary-color);
+}
 
 /* @define ContentGrid */
-
 .ContentGrid {
-    margin-top: var(--theme-component-top-margin);
+    margin-top: 20px;
 }
 
 .ContentGrid-cell {
@@ -29,7 +32,7 @@
 .ContentGrid-link:active,
 .ContentGrid-link:focus,
 .ContentGrid-link:hover {
-    color: var(--theme-content-grid-title-hover-color);
+    color: var(--ContentGrid-title-colorHover);
     text-decoration: none;
 }
 
@@ -40,7 +43,7 @@
 }
 
 .ContentGrid-title {
-    color: var(--theme-content-grid-title-color);
+    color: var(--ContentGrid-title-color);
     font-family: var(--theme-typography-heading-fontFamily);
     font-size: var(--base-typography-h3-fontSize);
     font-size: var(--base-typography-h3-lineHeight);
@@ -49,7 +52,7 @@
 /* postcss-bem-linter: ignore */
 
 .FeaturedContent .ContentGrid-title {
-    color: var(--theme-featured-content-heading-color);
+    color: var(--FeaturedContent-content-heading-color);
 }
 
 .ContentGrid-content {
