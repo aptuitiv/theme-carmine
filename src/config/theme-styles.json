@@ -26,6 +26,177 @@
             ]
         },
         {
+            "name": "Banner",
+            "description": "Styles for the \"Banner\" content layout",
+            "sections": [
+                {
+                    "name": "Title",
+                    "fields": [
+                        {
+                            "name": "sliderTitleFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-title-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "sliderTitleFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "sliderTitleFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-title-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "sliderTitleFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "45",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-title-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "sliderTitleLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.1",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-title-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "sliderTitleTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-title-textTransform"
+                            }
+                        },
+                        {
+                            "name": "sliderTitleColor",
+                            "label": "Color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-title-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Subtitle",
+                    "fields": [
+                        {
+                            "name": "sliderSubtitleFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-subtitle-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "sliderSubtitleFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "sliderSubtitleFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-subtitle-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "sliderSubtitleFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "22",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-subtitle-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "sliderSubtitleLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-subtitle-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "sliderSubtitleTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-subtitle-textTransform"
+                            }
+                        },
+                        {
+                            "name": "sliderSubtitleColor",
+                            "label": "Color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-subtitle-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Content (small screens)",
+                    "fields": [
+                        {
+                            "name": "sliderContentBackgroundSm",
+                            "label": "Content background",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-content-background--sm"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Body",
             "fields": [
                 {

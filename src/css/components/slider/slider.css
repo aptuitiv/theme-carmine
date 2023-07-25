@@ -2,6 +2,28 @@
     SLIDER
 \* =========================================================================== */
 
+:root {
+    
+    /* Title */
+    --Slider-title-fontFamily: var(--base-typography-heading-fontFamily);
+    --Slider-title-fontWeight: 400;
+    --Slider-title-fontSize: 4.5rem;
+    --Slider-title-lineHeight: 1.1;
+    --Slider-title-textTransform: uppercase;
+    --Slider-title-color: #fff;
+    
+    /* Subtitle */
+    --Slider-subtitle-fontFamily: var(--base-typography-fontFamily);
+    --Slider-subtitle-fontWeight: 400;
+    --Slider-subtitle-fontSize: 2.2rem;
+    --Slider-subtitle-lineHeight: 1.2;
+    --Slider-subtitle-textTransform: none;
+    --Slider-subtitle-color: #fff;
+    
+    /* Content (small screen) */
+    --Slider-content-background--sm: #920504;
+}
+
 /** @define Slider */
 .Slider {
     clear: both;
@@ -72,24 +94,28 @@
 
 .Slider-captionTitle {
     box-sizing: border-box;
-    color: #fff;
+    color: var(--Slider-title-color);
     display: block;
-    font-family: var(--base-typography-heading-fontFamily);
-    font-size: 2.6em;
-    line-height: 1.1;
+    font-family: var(--Slider-title-fontFamily);
+    font-size: var(--Slider-title-fontSize);
+    font-weight: var(--Slider-title-fontWeight);
+    line-height: var(--Slider-title-lineHeight);
     max-width: 45vw;
     text-shadow: 0 0 5px rgba(0, 0, 0, .6);
-    text-transform: uppercase;
+    text-transform: var(--Slider-title-textTransform);
 }
 
 .Slider-caption {
     box-sizing: border-box;
-    color: #fff;
+    color: var(--Slider-subtitle-color);
     display: block;
-    font-size: 1.2em;
-    line-height: 1.2;
+    font-family: var(--Slider-subtitle-fontFamily);
+    font-size: var(--Slider-subtitle-fontSize);
+    font-weight: var(--Slider-subtitle-fontWeight);
+    line-height: var(--Slider-subtitle-lineHeight);
     max-width: 30vw;
     text-shadow: 0 0 2px rgba(0, 0, 0, .6);
+    text-transform: var(--Slider-subtitle-textTransform);
 }
 
 .Slider-content--center .Slider-captionTitle,
@@ -112,7 +138,7 @@
 
 @media (--c-bp-md) {
     .Slider-content {
-        background: var(--ImageSlider-title-backgroun);
+        background: var(--Slider-content-background--sm);
         bottom: auto;
         display: block;
         left: auto;
