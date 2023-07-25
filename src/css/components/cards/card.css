@@ -2,18 +2,35 @@
     Card component styles
 \* =========================================================================== */
 
+:root {
+    --Card-borderRadius: 10px;
+    
+    /* Outline */
+    --Card-outlineWidth--hover: 5px;
+    --Card-outlineColor--hover: var(--theme-primary-color);
+    
+    /* Title */
+    --Card-title-color: var(--base-typography-color);
+    --Card-title-fontWeight: 700;
+    
+    /* Subtitle */
+    --Card-subtitle-color: var(--theme-primary-color);
+    --Card-subtitle-fontWeight: 700;
+}
+
 /* @define Card */
 .Card {
-    border-radius: 10px;
+    border-radius: var(--Card-borderRadius);
     box-shadow: 0 15px 30px rgb(4 43 55 / 25%);
     display: flex;
     flex-direction: column;
     overflow-wrap: anywhere;
+    transition: outline 250ms;
     width: 100%;
 }
 
 .Card:hover {
-    outline: 5px solid var(--theme-primary-color);
+    outline: var(--Card-outlineWidth--hover) solid var(--Card-outlineColor--hover);
 }
 
 /* postcss-bem-linter: ignore */
@@ -84,8 +101,8 @@
 }
 
 .Card-date {
-    color: var(--theme-typography-heading-color);
-    font-weight: 700;
+    color: var(--Card-subtitle-color);
+    font-weight: var(--Card-subtitle-fontWeight);
 }
 
 .Card-category {
@@ -93,8 +110,9 @@
 }
 
 .Card-title {
+    color: var(--Card-title-color);
     display: flex;
-    font-weight: 700;
+    font-weight: var(--Card-title-fontWeight);
     justify-content: center;
     text-align: center;
 }

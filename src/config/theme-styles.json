@@ -317,6 +317,108 @@
             ]
         },
         {
+            "name": "Cards",
+            "description": "Styles for the \"Recent Blog Post Cards\" &amp; \"Recent Calendar Events Cards\" blocks.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "cardBorderRadius",
+                            "label": "Border radius",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "10",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Card-borderRadius",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Outline",
+                    "fields": [
+                        {
+                            "name": "cardOutlineWidthHover",
+                            "label": "Width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Card-outlineWidth--hover",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "cardOutlineColorHover",
+                            "label": "Color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Card-outlineColor--hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Title",
+                    "fields": [
+                        {
+                            "name": "cardTitleColor",
+                            "label": "Color",
+                            "type": "color",
+                            "default": "#333333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Card-title-color"
+                            }
+                        },
+                        {
+                            "name": "cardTitleFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "themeTypographyFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Card-title-fontWeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Subtitle",
+                    "fields": [
+                        {
+                            "name": "cardSubtitleColor",
+                            "label": "Color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Card-subtitle-color"
+                            }
+                        },
+                        {
+                            "name": "cardSubtitleFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "themeTypographyFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Card-subtitle-fontWeight"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Content Grid",
             "fields": [
                 {
