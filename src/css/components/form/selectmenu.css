@@ -11,9 +11,17 @@
 
 :root {
     --SelectInput-background: #fff;
-    --SelectInput-border: 1px solid #777;
-    --SelectInput-padding: .25em .5em;
-    --SelectInput-color: inherit;
+    --SelectInput-color: #333;
+    
+    /* Border */
+    --SelectInput-borderWidth: 1px;
+    --SelectInput-borderColor: #777;
+    
+    /* Padding */
+    --SelectInput-paddingVertical: 5px;
+    --SelectInput-paddingHorizontal: 10px;
+    
+    /* States */
     --SelectInput-errorColor: #f00;
     --SelectInput-successColor: #0f0;
 }
@@ -24,13 +32,13 @@
 
 .SelectInput {
     background: var(--SelectInput-background);
-    border: var(--SelectInput-border);
+    border: var(--SelectInput-borderWidth) solid var(--SelectInput-borderColor);
     border-radius: var(--Button-border-radius);
     box-sizing: border-box;
     color: var(--SelectInput-color);
     display: inline-block;
     outline: none;
-    padding: var(--SelectInput-padding);
+    padding: var(--SelectInput-paddingVertical) var(--SelectInput-paddingHorizontal);
     position: relative;
 }
 

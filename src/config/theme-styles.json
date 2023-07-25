@@ -647,6 +647,97 @@
                         }
                     ]
                 },
+                {
+                    "name": "Select Menu",
+                    "fields": [
+                        {
+                            "name": "selectInputBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-background"
+                            }
+                        },
+                        {
+                            "name": "selectInputColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-color"
+                            }
+                        },
+                        {
+                            "name": "selectInputBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "1",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "selectInputBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#777",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-borderColor"
+                            }
+                        },
+                        {
+                            "name": "selectInputPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "selectInputPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "10",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "selectInputErrorColor",
+                            "label": "Error color",
+                            "type": "color",
+                            "default": "#f00",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-errorColor"
+                            }
+                        },
+                        {
+                            "name": "selectInputSuccessColor",
+                            "label": "Success color",
+                            "type": "color",
+                            "default": "#0f0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectInput-successColor"
+                            }
+                        }
+                    ]
+                }
             ]
         },
         {
