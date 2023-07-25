@@ -2,12 +2,28 @@
     Header
 \* =========================================================================== */
 
+:root {
+    --Header-background: #fff;
+    --Header-color: var(--base-typography-color);
+    
+    /* Padding */
+    --Header-paddingVertical: 15px;
+    --Header-paddingHorizontal: 40px;
+    
+    /* Logo */
+    --Header-logo-width: 480px;
+    
+    /* Skip to Main */
+    --Header-skipToMain-background: #fff;
+    --Header-skipToMain-color: var(--theme-primary-color);
+}
 
 /* @define Header */
-
 .Header {
+    background-color: var(--Header-background);
+    color: var(--Header-color);
     display: block;
-    padding: 1.5rem var(--g-gutter);
+    padding: var(--Header-paddingVertical) var(--Header-paddingHorizontal);
 }
 
 @media (--c-bp-sm) {
@@ -17,8 +33,9 @@
 }
 
 .Header-logo {
-    max-width: 480px;
+    max-width: var(--Header-logo-width);
     object-fit: cover;
+    width: 100%;
 }
 
 .Header-line {
@@ -50,8 +67,8 @@
 }
 
 .Header-skipToMain:focus {
-    background-color: #fff;
-    color: var(--theme-primary-color);
+    background-color: var(--Header-skipToMain-background);
+    color: var(--Header-skipToMain-color);
     font-weight: bold;
     height: auto;
     left: 10px;

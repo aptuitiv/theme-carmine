@@ -382,6 +382,109 @@
             ]
         },
         {
+            "name": "Header",
+            "description": "Styles for the header at the top of the website.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "headerBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-background"
+                            }
+                        },
+                        {
+                            "name": "headerColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Padding",
+                    "fields": [
+                        {
+                            "name": "headerPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "15",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "headerPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "40",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Logo",
+                    "fields": [
+                        {
+                            "name": "headerLogoWidth",
+                            "label": "Width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "480",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-logo-width",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Skip to Main",
+                    "description": "A special button shown to accessible users which allows them to skip down to the main content of the page.",
+                    "fields": [
+                        {
+                            "name": "headerSkipToMainBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-skipToMain-background"
+                            }
+                        },
+                        {
+                            "name": "headerSkipToMainColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-skipToMain-color"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Image Grid",
             "sections": [
                 {
