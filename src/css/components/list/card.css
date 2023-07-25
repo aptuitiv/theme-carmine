@@ -2,12 +2,21 @@
     ListCard styles (mostly used in recent calendar events list CBE
 \* =========================================================================== */
 
+:root {
+    --ListCard-borderRadius: 10px;
+    
+    /* Header */
+    --ListCard-header-background: var(--theme-primary-color);
+    --ListCard-header-color: #fff;
+    --ListCard-header-color--hover: #fff;
+}
+
 /* ------------------------------------ *\
     ListCard
 \* ------------------------------------ */
 
 .ListCard {
-    border-radius: 10px;
+    border-radius: var(--ListCard-borderRadius);
     box-shadow: 0 15px 30px rgb(4 43 55 / 25%);
     width: 100%;
 }
@@ -18,7 +27,7 @@
 
 .ListCard-header {
     align-items: center;
-    background-color: var(--theme-primary-color);
+    background-color: var(--ListCard-header-background);
     border-radius: 10px 10px 0 0;
     display: flex;
     justify-content: space-between;
@@ -26,16 +35,16 @@
 }
 
 .ListCard-header-title {
-    color: #fff;
+    color: var(--ListCard-header-color);
     margin: 0;
 }
 
 .ListCard-header-link {
-    color: #fff;
+    color: var(--ListCard-header-color);
 }
 
 .ListCard-header-link:hover {
-    color: var(--theme-button-background-alt);
+    color: var(--ListCard-header-color--hover);
 }
 
 /* ------------------------------------ *\

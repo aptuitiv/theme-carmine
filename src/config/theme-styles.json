@@ -1043,6 +1043,64 @@
             ]
         },
         {
+            "name": "List Card",
+            "description": "Styles for \"Recent Calendar Events List Card\" block.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "listCardBorderRadius",
+                            "label": "Border radius",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "10",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--ListCard-borderRadius",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Header",
+                    "fields": [
+                        {
+                            "name": "listCardHeaderBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--ListCard-header-background"
+                            }
+                        },
+                        {
+                            "name": "listCardHeaderColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--ListCard-header-color"
+                            }
+                        },
+                        {
+                            "name": "listCardHeaderColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--ListCard-header-color--hover"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Main Navigation",
             "sections": [
                 {
