@@ -554,6 +554,102 @@
             ]
         },
         {
+            "name": "Forms",
+            "sections": [
+                {
+                    "name": "Text Field",
+                    "fields": [
+                        {
+                            "name": "textInputBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-background"
+                            }
+                        },
+                        {
+                            "name": "textInputColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-color"
+                            }
+                        },
+                        {
+                            "name": "textInputBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "1",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "textInputBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#777",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-borderColor"
+                            }
+                        },
+                        {
+                            "name": "textInputPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "5",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "textInputPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "10",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "textInputErrorColor",
+                            "label": "Error color",
+                            "type": "color",
+                            "default": "#f00",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-errorColor"
+                            }
+                        },
+                        {
+                            "name": "textInputSuccessColor",
+                            "label": "Success color",
+                            "type": "color",
+                            "default": "#0f0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-successColor"
+                            }
+                        }
+                    ]
+                },
+            ]
+        },
+        {
             "name": "Footer",
             "sections": [
                 {
