@@ -1,23 +1,44 @@
 /* =========================================================================== *\
-    CALENDAR MINI GRID
+    Calendar Grid
 \* =========================================================================== */
 
+:root {
+    
+    /* Heading */
+    --CalendarGrid-heading-fontFamily: var(--theme-typography-heading-fontFamily);
+    --CalendarGrid-heading-fontSize: var(--base-typography-h2-fontSize);
+    --CalendarGrid-heading-letterSpacing: var(--base-typography-heading-letterSpacing);
+    --CalendarGrid-heading-textTransform: uppercase;
+    
+    /* Head Cell */
+    --CalendarGrid-headCell-background: var(--theme-primary-color);
+    --CalendarGrid-headCell-borderColor: #e6e6e6;
+    --CalendarGrid-headCell-color: #fff;
+    
+    /* Normal Cell */
+    --CalendarGrid-cell-borderColor: #e6e6e6;
+    
+    /* Cell States */
+    --CalendarGrid-cell-borderColor--today: var(--theme-primary-color);
+    --CalendarGrid-cell-background--empty: #e9e9e9;
+    --CalendarGrid-cell-background--end: #f5f5f5;
+    --CalendarGrid-cell-color--end: #333;
+}
 
 /** @define CalendarGrid */
-
 .CalendarGrid {
     table-layout: fixed;
     width: 100%;
 }
 
 .CalendarGrid-heading {
-    font-family: var(--theme-typography-heading-fontFamily);
-    font-size: var(--base-typography-h2-fontSize);
-    letter-spacing: var(--base-typography-heading-letterSpacing);
+    font-family: var(--CalendarGrid-heading-fontFamily);
+    font-size: var(--CalendarGrid-heading-fontSize);
+    letter-spacing: var(--CalendarGrid-heading-letterSpacing);
     line-height: 1;
     margin: 20px 0;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: var(--CalendarGrid-heading-textTransform);
 }
 
 .CalendarGrid-headingIcon {
@@ -45,15 +66,14 @@
 }
 
 /* ------------------------------------ *\
-    #GRID-CELLS
+    Cells
 \* ------------------------------------ */
 
-
 .CalendarGrid-headCell {
-    background: var(--theme-primary-color);
-    border: 1px solid #e6e6e6;
+    background: var(--CalendarGrid-headCell-background);
+    border: 1px solid var(--CalendarGrid-headCell-borderColor);
     box-sizing: border-box;
-    color: #fff;
+    color: var(--CalendarGrid-headCell-color);
     padding: 10px;
     position: relative;
     text-align: center;
@@ -65,7 +85,7 @@
 }
 
 .CalendarGrid-cell {
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--CalendarGrid-cell-borderColor);
     box-sizing: border-box;
     padding: 10px;
     position: relative;
@@ -74,15 +94,16 @@
 }
 
 .CalendarGrid-cell--isEmpty {
-    background: #e9e9e9;
+    background: var(--CalendarGrid-cell-background--empty);
 }
 
 .CalendarGrid-cell--isEnd {
-    background: #f5f5f5;
+    background: var(--CalendarGrid-cell-background--end);
+    color: var(--CalendarGrid-cell-color--end);
 }
 
 .CalendarGrid-cell--isToday {
-    outline: 2px solid var(--theme-primary-color);
+    outline: 2px solid var(--CalendarGrid-cell-borderColor--today);
     outline-offset: -2px;
 }
 
@@ -97,31 +118,29 @@
     width: 100%;
 }
 
-.CalenderGrid-cellDate {
+.CalendarGrid-cellDate {
     font-weight: bold;
 }
 
 /** Force the date cells to be a minimum height */
-
-.CalenderGrid-cellDate::before {
+.CalendarGrid-cellDate::before {
     content: '';
     display: block;
     float: left;
     padding-top: 75%;
 }
 
-
 @media (--c-bp-lg) {
     .CalendarGrid-head {
         display: none;
     }
-
+    
     .CalendarGrid-cell {
         display: block;
         width: 100%;
     }
-
-    .CalenderGrid-cellDate::before {
+    
+    .CalendarGrid-cellDate::before {
         display: none;
     }
 }
