@@ -2,9 +2,18 @@
     Sidebar Box Styles
 \* =========================================================================== */
 
+:root {
+    --SidebarBox-item-borderWidth: 1px;
+    --SidebarBox-item-borderColor: #e1e1e1;
+    
+    /* Heading */
+    --SidebarBox-heading-color: var(--theme-primary-color);
+    
+    /* Secondary */
+    --SidebarBox-secondary-color: #9f9f9f;
+}
 
 /* @define SidebarBox */
-
 .SidebarBox {
     margin-bottom: 40px;
 }
@@ -15,8 +24,8 @@
 
 .SidebarBox-heading {
     background: transparent;
-    border-bottom: 1px solid var(--theme-navbar-bg);
-    color: var(--theme-primary-color);
+    border-bottom: var(--SidebarBox-item-borderWidth) solid var(--SidebarBox-heading-color);
+    color: var(--SidebarBox-heading-color);
     font-family: var(--theme-typography-heading-fontFamily);
     font-size: var(--base-typography-h3-fontSize);
     font-weight: var(--base-typography-heading-fontWeight);
@@ -26,7 +35,7 @@
 }
 
 .SidebarBox-item {
-    border-bottom: 1px solid #e1e1e1;
+    border-bottom: var(--SidebarBox-item-borderWidth) solid var(--SidebarBox-item-borderColor);
     margin: 10px 0;
     padding-bottom: 14px;
 }
@@ -41,8 +50,7 @@
     Secondary content
 \* ------------------------------------ */
 
-
 .SidebarBox-secondary {
-    color: #9f9f9f;
+    color: var(--SidebarBox-secondary-color);
     font-size: 80%;
 }

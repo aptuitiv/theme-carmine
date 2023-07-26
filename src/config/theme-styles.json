@@ -197,6 +197,59 @@
             ]
         },
         {
+            "name": "Blog",
+            "description": "Styles for the Blog app.",
+            "sections": [
+                {
+                    "name": "Sidebar",
+                    "fields": [
+                        {
+                            "name": "sidebarBoxHeadingColor",
+                            "label": "Heading color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarBox-heading-color"
+                            }
+                        },
+                        {
+                            "name": "sidebarBoxSecondaryColor",
+                            "label": "Secondary color",
+                            "type": "color",
+                            "default": "#9f9f9f",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarBox-secondary-color"
+                            }
+                        },
+                        {
+                            "name": "sidebarBoxItemBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#e1e1e1",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarBox-item-borderColor"
+                            }
+                        },
+                        {
+                            "name": "sidebarBoxItemBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "1",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarBox-item-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Body",
             "fields": [
                 {
