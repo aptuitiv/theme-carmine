@@ -32,6 +32,8 @@
 }
 
 .CalendarGrid-heading {
+    align-items: center;
+    display: flex;
     font-family: var(--CalendarGrid-heading-fontFamily);
     font-size: var(--CalendarGrid-heading-fontSize);
     letter-spacing: var(--CalendarGrid-heading-letterSpacing);
@@ -138,6 +140,10 @@
     .CalendarGrid-cell {
         display: block;
         width: 100%;
+    }
+    
+    .CalendarGrid-cell--isEmpty {
+        display: none;
     }
     
     .CalendarGrid-cellDate::before {

@@ -1,6 +1,4 @@
-
 {% extends 'one-column.twig' %}
-
 {% import 'macros/macros' as macros %}
 
 {% block main %}
@@ -22,19 +20,21 @@
                     {% endif %}
                 {% endif %}
             </div>
-            <div class="Box u-margBottom4 u-md-margBottom1 u-md-flex u-md-flexJustifyCenter u-md-flexAlignItemsCenter">
+            <div class="Box u-md-margBottom1 u-md-flex u-flexCol u-flexAlignItemsCenter">
                 <div class="Box-heading u-md-padRight1">{{ macros.iconImg('calendar', 'Change date', 'CalendarMiniGrid-headingIcon') }} Change Date</div>
                 <div class="Box-inner">
                     <form action="{{ dateNavigation.form.action }}" method="{{ dateNavigation.form.method }}">
+                        {% set dateNavigation.form.fields.month.class = "SelectInput" %}
                         {{ dateNavigation.form.fields.month.tag }}
+                        {% set dateNavigation.form.fields.year.class = "SelectInput" %}
                         {{ dateNavigation.form.fields.year.tag }}
                         {{ dateNavigation.form.fields.view.tag }}
-                        <button type="submit" class="Button Button--sm">Go</button>
+                        <button type="submit" class="Button">Go</button>
                     </form>
                 </div>
             </div>
         </div>
-        <table class="CalendarGrid u-margBottom4">
+        <table class="CalendarGrid u-margBottom4 u-margTop4">
             <thead class="CalendarGrid-head">
             <tr>
                 <th class="CalendarGrid-headCell"><span class="CalendarGrid-headCellContent">S</span></th>

@@ -1,6 +1,4 @@
-
 {% extends 'two-column.twig' %}
-
 {% import 'macros/macros' as macros %}
 
 {% block main %}
@@ -13,17 +11,7 @@
             <a href="{{ nextDateUrl }}" class="u-linkSubtle" title="Go to the next date range">{{ macros.iconImg('caret-right', 'Go to the next month', 'CalendarGrid-headingIcon') }}</a>
         {% endif %}
     </div>
-    <div class="u-hidden u-md-show">
-        <h3>Change Date</h2>
-        <form action="{{ dateNavigation.form.action }}" method="{{ dateNavigation.form.method }}">
-            {{ dateNavigation.form.fields.month.tag }}
-            {{ dateNavigation.form.fields.year.tag }}
-            {{ dateNavigation.form.fields.view.tag }}
-            <button type="submit" class="Button Button--sm">Go</button>
-        </form>
-    </div>
     {% if eventCount > 0 %}
-
         {% if agenda.days %}
             {% set days = agenda.days %}
         {% elseif category.agenda.days %}
@@ -31,7 +19,6 @@
         {% elseif tag.agenda.days %}
             {% set days = tag.agenda.days %}
         {% endif %}
-
         {% for day in days %}
             <h2 class="u-fontSizeH3">{{ day.dateTimestamp|date(' F j - l') }}</h2>
             {% for event in day.events %}

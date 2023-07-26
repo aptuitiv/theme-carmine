@@ -60,9 +60,11 @@
             {% endfor %}
         </div>
     {% endif %}
-
-    <div class="u-margTop2"><a href="{{ goBackUrl }}"><span class="fa fa-chevron-left"></span> Back to Events List</a></div>
-
+    <div class="u-margTop2">
+        <a href="{{ goBackUrl }}" class="u-flex u-flexAlignItemsCenter">
+            <svg class="Icon"><use xlink:href="#icon-chevron-thin-left" /></svg> Back to Events List
+        </a>
+    </div>
     {% if event.editUrl %}
         <p class="u-margTop4 u-textRight"><a href="{{ event.editUrl }}">Edit this event</a></p>
     {% endif %}

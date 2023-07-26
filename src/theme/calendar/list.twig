@@ -1,10 +1,8 @@
-
 {% extends 'two-column.twig' %}
-
 {% import 'macros/macros' as macros %}
 
 {% block main %}
-    <div class="u-fontSizeH3 u-textCenter">
+    <div class="u-fontSizeH3 u-textCenter u-margBottom3">
         {% if previousDateUrl %}
             <a href="{{ previousDateUrl }}" class="u-linkSubtle" title="Go to the previous date range">{{ macros.iconImg('caret-left', 'Go to the previous month', 'CalendarGrid-headingIcon') }}</a> 
         {% endif %}
@@ -13,17 +11,7 @@
             <a href="{{ nextDateUrl }}" class="u-linkSubtle" title="Go to the next date range">{{ macros.iconImg('caret-right', 'Go to the next month', 'CalendarGrid-headingIcon') }}</a>
         {% endif %}
     </div>
-    <div class="u-hidden u-md-show">
-        <h3>Change Date</h2>
-        <form action="{{ dateNavigation.form.action }}" method="{{ dateNavigation.form.method }}">
-            {{ dateNavigation.form.fields.month.tag }}
-            {{ dateNavigation.form.fields.year.tag }}
-            {{ dateNavigation.form.fields.view.tag }}
-            <button type="submit" class="Button Button--sm">Go</button>
-        </form>
-    </div>
     {% if eventCount > 0 %}
-
         {% if list.events %}
             {% set events = list.events %}
         {% elseif category.list.events %}
@@ -31,7 +19,6 @@
         {% elseif tag.list.events %}
             {% set events = tag.list.events %}
         {% endif %}
-
         {% for event in events %}
             <div class="u-margBottom3">
                 <div class="u-fontSizeH5"><a href="{{ event.url }}">{{ event.title }}</a></div>

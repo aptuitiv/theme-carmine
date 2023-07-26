@@ -5,14 +5,11 @@
     {% if miniGrid.previousDateUrl %}
         <a href="{{ miniGrid.previousDateUrl }}" class="CalendarMiniGrid-navPrev" title="Go to the previous date range">{{ macros.iconImg('caret-left', 'Go to the previous month', 'CalendarMiniGrid-headingIcon') }}</a> 
     {% endif %}
-    
     {% set month = dateRanges.month|first %}
-
     <a href="{{ month.url }}" class="u-linkSubtle">
         {{ miniGrid.month }} 
         {{ miniGrid.year }}
     </a>
-
     {% if miniGrid.nextDateUrl %}
         <a href="{{ miniGrid.nextDateUrl }}" class="CalendarMiniGrid-navNext" title="Go to the next date range">{{ macros.iconImg('caret-right', 'Go to the next month', 'CalendarMiniGrid-headingIcon') }}</a>
     {% endif %}
@@ -57,17 +54,20 @@
         </tr>
     {% endfor %}
     </tbody> 
-    {# {{ miniGrid.rows|debug('miniGrid.rows') }} #}
 </table>
 
 <div class="Box u-margBottom4">
     <div class="Box-heading">{{ macros.iconImg('calendar', 'Change date', 'CalendarMiniGrid-headingIcon') }} Change Date</div>
     <div class="Box-inner">
         <form action="{{ dateNavigation.form.action }}" method="{{ dateNavigation.form.method }}">
-            {{ dateNavigation.form.fields.month.tag }}
-            {{ dateNavigation.form.fields.year.tag }}
-            {{ dateNavigation.form.fields.view.tag }}
-            <button type="submit" class="Button Button--sm">Go</button>
+            <div class="u-flex">
+                {% set dateNavigation.form.fields.month.class = "SelectInput u-widthFull u-margRight1" %}
+                {{ dateNavigation.form.fields.month.tag }}
+                {% set dateNavigation.form.fields.year.class = "SelectInput" %}
+                {{ dateNavigation.form.fields.year.tag }}
+                {{ dateNavigation.form.fields.view.tag }}
+            </div>
+            <button type="submit" class="Button u-margTop1 u-widthFull">Go</button>
         </form>
     </div>
 </div>
