@@ -333,7 +333,7 @@
 
     /* postcss-bem-linter: ignore */
     .splide__pagination__page.is-active {
-        background-color: var(--theme-primary-color) !important;
+        background-color: var(--ImageSlider-hover-background) !important;
         opacity: 1;
     }
 
