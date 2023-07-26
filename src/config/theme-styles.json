@@ -1489,6 +1489,92 @@
             ]
         },
         {
+            "name": "Pagination",
+            "description": "Styles for the pagination at the bottom of app pages.",
+            "sections": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "paginationColor",
+                            "label": "Separator color",
+                            "type": "color",
+                            "default": "#333333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Page Numbers",
+                    "fields": [
+                        {
+                            "name": "paginationItemColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Page Numbers (hover)",
+                    "fields": [
+                        {
+                            "name": "paginationItemBackgroundHover",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#666",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-background--hover"
+                            }
+                        },
+                        {
+                            "name": "paginationItemColorHover",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-color--hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Page Numbers (active)",
+                    "fields": [
+                        {
+                            "name": "paginationItemBackgroundActive",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-background--active"
+                            }
+                        },
+                        {
+                            "name": "paginationItemColorActive",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-color--active"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Testimonials",
             "description": "Styles for the Testimonial block and Testimonial sidebar content.",
             "sections": [
