@@ -79,7 +79,7 @@
 /* postcss-bem-linter: ignore */
 .Header a[href^=tel] {
     color: var(--base-typography-link-color);
-    text-decoration: var(--base-typography-link-decoration);
+    text-decoration: var(--base-typography-link-textDecoration);
 }
 
 /* postcss-bem-linter: ignore */
@@ -87,5 +87,5 @@
 .Header a[href^=tel]:focus,
 .Header a[href^=tel]:hover {
     color: var(--base-typography-link-colorHover);
-    text-decoration: var(--base-typography-link-decorationHover);
+    text-decoration: var(--base-typography-link-textDecorationHover);
 }

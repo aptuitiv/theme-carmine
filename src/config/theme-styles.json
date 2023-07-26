@@ -1885,6 +1885,53 @@
                             }
                         },
                         {
+                            "name": "baseTypographyFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "themeTypographyFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.58",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-lineHeight"
+                            }
+                        },
+                        {
                             "name": "themeTypographyColor",
                             "label": "Text color",
                             "type": "color",
@@ -1910,6 +1957,20 @@
                             }
                         },
                         {
+                            "name": "baseTypographyLinkTextDecoration",
+                            "label": "Text decoration",
+                            "type": "select",
+                            "default": "underline",
+                            "options": {
+                                "none": "None",
+                                "underline": "Underline"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-textDecoration"
+                            }
+                        },
+                        {
                             "name": "themeTypographyLinkColorHover",
                             "label": "Link color (hover)",
                             "type": "color",
@@ -1917,6 +1978,20 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--theme-typography-link-colorHover"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyLinkTextDecorationHover",
+                            "label": "Text decoration (hover)",
+                            "type": "select",
+                            "default": "underline",
+                            "options": {
+                                "none": "None",
+                                "underline": "Underline"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-link-textDecorationHover"
                             }
                         }
                     ]
@@ -1934,6 +2009,29 @@
                             }
                         },
                         {
+                            "name": "baseTypographyHeadingFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "themeTypographyHeadingFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyHeadingLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-heading-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
                             "name": "themeTypographyHeadingColor",
                             "label": "Heading color",
                             "type": "color",
@@ -1941,6 +2039,180 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--theme-typography-heading-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "H1",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH1FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "27",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH1LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "H2",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH2FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "25",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH2LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "H3",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH3FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "23",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH3LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "H4",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH4FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH4LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "H5",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH5FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH5LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "H6",
+                    "fields": [
+                        {
+                            "name": "baseTypographyH6FontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "18",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH6LineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-lineHeight"
                             }
                         }
                     ]
