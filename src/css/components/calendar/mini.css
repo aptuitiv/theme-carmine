@@ -2,9 +2,23 @@
     CALENDAR MINI GRID
 \* =========================================================================== */
 
+:root {
+    --CalendarMiniGrid-cell-borderColor: #e6e6e6;
+    
+    /* Date Link */
+    --CalendarMiniGrid-dateLink-color: var(--theme-primary-color);
+    --CalendarMiniGrid-dateLink-background--hover: #fff;
+    --CalendarMiniGrid-dateLink-color--hover: var(--theme-primary-color);
+    
+    /* States */
+    --CalendarMiniGrid-cell-background--empty: #e9e9e9;
+    --CalendarMiniGrid-cell-background--end: #f5f5f5;
+    --CalendarMiniGrid-cell-color--end: #333;
+    --CalendarMiniGrid-cell-background--today: var(--theme-primary-color);
+    --CalendarMiniGrid-cell-color--today: #fff;
+}
 
 /** @define CalendarMiniGrid */
-
 .CalendarMiniGrid {
     table-layout: fixed;
     width: 100%;
@@ -30,28 +44,28 @@
 }
 
 /* ------------------------------------ *\
-    #GRID-CELLS
+    Cells
 \* ------------------------------------ */
-
 
 .CalendarMiniGrid-cell,
 .CalendarMiniGrid-headCell {
-    border: 1px solid #e6e6e6;
+    border: 1px solid var(--CalendarMiniGrid-cell-borderColor);
     padding: 0;
     text-align: center;
 }
 
 .CalendarMiniGrid-cell--isEmpty {
-    background: #e9e9e9;
+    background: var(--CalendarMiniGrid-cell-background--empty);
 }
 
 .CalendarMiniGrid-cell--isEnd {
-    background: #f5f5f5;
+    background: var(--CalendarMiniGrid-cell-background--end);
+    color: var(--CalendarMiniGrid-cell-color--end);
 }
 
 .CalendarMiniGrid-cell--isToday {
-    background: var(--theme-primary-color);
-    color: #fff;
+    background: var(--CalendarMiniGrid-cell-background--today);
+    color: var(--CalendarMiniGrid-cell-color--today);
 }
 
 /* ------------------------------------ *\
@@ -59,20 +73,18 @@
 \* ------------------------------------ */
 
 .CalendarMiniGrid-dateLink {
+    color: var(--CalendarMiniGrid-dateLink-color);
     cursor: pointer;
     display: block;
     text-decoration: none;
 }
 
 .CalendarMiniGrid-dateLink--isCurrentDay,
+.CalendarMiniGrid-dateLink--isToday,
 .CalendarMiniGrid-dateLink:active,
 .CalendarMiniGrid-dateLink:focus,
 .CalendarMiniGrid-dateLink:hover {
-    background: var(--theme-button-background-alt);
-    color: #fff;
+    background: var(--CalendarMiniGrid-dateLink-background--hover);
+    color: var(--CalendarMiniGrid-dateLink-color--hover);
     text-decoration: none;
-}
-
-.CalendarMiniGrid-dateLink--isToday {
-    color: #fff;
 }
