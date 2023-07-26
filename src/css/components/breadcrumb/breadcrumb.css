@@ -2,16 +2,19 @@
     BREADCRUMB
 \* =========================================================================== */
 
+:root {
+    --Breadcrumb-fontSize: 1.2rem;
+    --Breadcrumb-color: #595959;
+}
 
 /** @define Breadcrumb **/
-
 .Breadcrumb {
-    font-size: 1.2rem;
+    font-size: var(--Breadcrumb-fontSize);
     padding: 1em var(--g-gutter) 0;
 }
 
 .Breadcrumb-link {
-    color: #595959;
+    color: var(--Breadcrumb-color);
     text-decoration: underline;
 }
 

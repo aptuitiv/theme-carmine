@@ -265,6 +265,34 @@
             ]
         },
         {
+            "name": "Breadcrumbs",
+            "description": "Styles for the breadcrumb links at the top of interior pages.",
+            "fields": [
+                {
+                    "name": "breadcrumbFontSize",
+                    "label": "Font size",
+                    "type": "stepper",
+                    "after": "px",
+                    "default": "12",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Breadcrumb-fontSize",
+                        "template": "{{ value / 10 }}rem"
+                    }
+                },
+                {
+                    "name": "breadcrumbColor",
+                    "label": "Text color",
+                    "type": "color",
+                    "default": "#595959",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Breadcrumb-color"
+                    }
+                }
+            ]
+        },
+        {
             "name": "Buttons",
             "sections": [
                 {
