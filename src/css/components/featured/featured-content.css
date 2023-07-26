@@ -3,7 +3,7 @@
 \* =========================================================================== */
 
 :root {
-    --FeaturedContent-background: var(--theme-primary-color);
+    --FeaturedContent-background: var(--color-primary);
     
     /* Content */
     --FeaturedContent-content-heading-color: #efdbd5;
@@ -11,7 +11,7 @@
     
     /* Button */
     --FeaturedContent-button-background: #fff;
-    --FeaturedContent-button-color: var(--theme-primary-color);
+    --FeaturedContent-button-color: var(--color-primary);
     
     /* Button (hover) */
     --FeaturedContent-button-backgroundHover: #7a0504;

@@ -3,8 +3,8 @@
 \* =========================================================================== */
 
 :root {
-    --ContentGrid-title-color: var(--theme-primary-color);
-    --ContentGrid-title-colorHover: var(--theme-primary-color);
+    --ContentGrid-title-color: var(--color-primary);
+    --ContentGrid-title-colorHover: var(--color-primary);
 }
 
 /* @define ContentGrid */

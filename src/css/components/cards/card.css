@@ -7,14 +7,14 @@
     
     /* Outline */
     --Card-outlineWidth--hover: 5px;
-    --Card-outlineColor--hover: var(--theme-primary-color);
+    --Card-outlineColor--hover: var(--color-primary);
     
     /* Title */
     --Card-title-color: var(--base-typography-color);
     --Card-title-fontWeight: 700;
     
     /* Subtitle */
-    --Card-subtitle-color: var(--theme-primary-color);
+    --Card-subtitle-color: var(--color-primary);
     --Card-subtitle-fontWeight: 700;
 }
 

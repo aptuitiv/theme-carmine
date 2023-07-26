@@ -13,7 +13,7 @@
     --Testimonial-title-marginBottom: 10px;
     
     /* Sidebar */
-    --Testimonial-sidebar-background: var(--theme-primary-color);
+    --Testimonial-sidebar-background: var(--color-primary);
     --Testimonial-sidebar-color: #fff;
     --Testimonial-sidebar-padding: 20px;
     --Testimonial-sidebar-borderRadius: 5px;

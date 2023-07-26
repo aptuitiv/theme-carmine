@@ -5,7 +5,7 @@
 :root {
     --Footer-fontSize: 1.4rem;
     --Footer-fontFamily: var(--theme-typography-fontFamily);
-    --Footer-background: var(--theme-primary-color);
+    --Footer-background: var(--color-primary);
     --Footer-color: #fff;
     
     /* Navigation */

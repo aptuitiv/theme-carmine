@@ -7,7 +7,7 @@
     --SidebarBox-item-borderColor: #e1e1e1;
     
     /* Heading */
-    --SidebarBox-heading-color: var(--theme-primary-color);
+    --SidebarBox-heading-color: var(--color-primary);
     
     /* Secondary */
     --SidebarBox-secondary-color: #9f9f9f;

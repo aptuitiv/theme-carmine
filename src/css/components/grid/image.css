@@ -7,11 +7,11 @@
     --ImageGrid-fontWeight: 300;
     
     /* Title */
-    --ImageGrid-title-background: var(--theme-primary-color);
+    --ImageGrid-title-background: var(--color-primary);
     --ImageGrid-title-color: #fff;
     
     /* Title (hover) */
-    --ImageGrid-title-backgroundHover: var(--theme-primary-color);
+    --ImageGrid-title-backgroundHover: var(--color-primary);
     --ImageGrid-title-colorHover: #fff;
     
     /* Hover */

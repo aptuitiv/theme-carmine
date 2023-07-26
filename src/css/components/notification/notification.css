@@ -3,7 +3,7 @@
 \* =========================================================================== */
 
 :root {
-    --Notification-background: var(--theme-primary-color);
+    --Notification-background: var(--color-primary);
     --Notification-color: #fff;
     --Notification-fontSize: 2.2rem;
     --Notification-lineHeight: 1.2;

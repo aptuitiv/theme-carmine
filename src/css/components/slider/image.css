@@ -9,7 +9,7 @@
     /* Title */
     --ImageSlider-title-fontSize: 1.2em;
     --ImageSlider-title-fontWeight: 300;
-    --ImageSlider-title-background: var(--theme-primary-color);
+    --ImageSlider-title-background: var(--color-primary);
     --ImageSlider-title-color: #fff;
     
     /* Title (hover) */

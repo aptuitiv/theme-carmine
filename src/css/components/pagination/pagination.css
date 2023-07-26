@@ -7,7 +7,7 @@
     --Pagination-color: var(--theme-typography-color);
     
     /* Item */
-    --Pagination-item-color: var(--theme-primary-color);
+    --Pagination-item-color: var(--color-primary);
     
     /* Item (hover) */
     --Pagination-item-background--hover: #666;

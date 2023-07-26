@@ -15,7 +15,7 @@
     
     /* Skip to Main */
     --Header-skipToMain-background: #fff;
-    --Header-skipToMain-color: var(--theme-primary-color);
+    --Header-skipToMain-color: var(--color-primary);
 }
 
 /* @define Header */
