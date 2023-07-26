@@ -1,59 +1,53 @@
-<footer class="Footer">
-    <div class="Container">
-        <a href="#" class="BackTop js-btop" tabindex="-1" title="Go back to top of page"><span class="BackTop-description">Go back to top of page </span></a>
-        {% if _core.theme.settings.footerShowNavigation == 'yes' %}
-            {{ _api.navigation.get.key('main').showSubNav('no').template('footer') }}
+        <footer class="Footer">
+            <div class="Container">
+                <a href="#" class="BackTop js-btop" tabindex="-1" title="Go back to top of page"><span class="BackTop-description">Go back to top of page </span></a>
+                {% if _core.theme.settings.footerShowNavigation == 'yes' %}
+                    {{ _api.navigation.get.key('main').showSubNav('no').template('footer') }}
+                {% endif %}
+                {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' or _core.theme.settings.footerShowEmail == 'yes' %}
+                    {% apply spaceless %}
+                        {% if _core.theme.settings.footerShowAddress == 'yes' %}
+                            {% if _core.settings.companyAddressStreet %}
+                                {{ _core.settings.companyAddressStreet }}{{ _core.settings.companyAddressCity ? ', ' }}
+                            {% endif %}
+                            {% if _core.settings.companyAddressCity %}
+                                {{ _core.settings.companyAddressCity }}{{ _core.settings.companyAddressState ? ', ' }}
+                            {% endif %}
+                            {% if _core.settings.companyAddressState %}
+                                {{ _core.settings.companyAddressState }}{{ _core.settings.companyAddressPostalCode ? ', ' }}
+                            {% endif %}
+                            {% if _core.settings.companyAddressPostalCode %}
+                                {{ _core.settings.companyAddressPostalCode }}
+                            {% endif %}
+                        {% endif %}
+                        {% if _core.theme.settings.footerShowPhone == 'yes' %}
+                        {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a>
+                        {% endif %}
+                        {% if _core.theme.settings.footerShowEmail == 'yes' %}
+                            {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.settings.companyEmail }}" class="Footer-link">{{ _core.settings.companyEmail }}</a>
+                        {% endif %}
+                    {% endapply %}
+                {% endif %}
+                <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
+                <div class="Footer-credit">
+                    <a href="https://www.aptuitiv.com" target="_blank" class="Footer-link Footer-creditLink">Website by Aptuitiv</a><a href="https://www.branchcms.com" target="_blank" class="Footer-link Footer-creditLink">Powered by BranchCMS</a>
+                </div>
+            </div>
+        </footer>
+        
+        {# Do this before you output any inline Javascript in the footer #}
+        {% if _core.service.recaptchaV3.isUsable %}
+            {% if _page.hasJs('recaptchaV3') == false %}
+                {% do _page.registerJs('recaptchaV3') %}
+                {{ _core.service.recaptchaV3.js.tag }}
+                {{ _core.service.recaptchaV3.script.tag }}
+            {% endif %}
+            {% inlinecss %}
+                .grecaptcha-badge { visibility: hidden; }
+            {% endinlinecss %}
         {% endif %}
-        {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' or _core.theme.settings.footerShowEmail == 'yes' %}
-            {% apply spaceless %}
-                {% if _core.theme.settings.footerShowAddress == 'yes' %}
-                    {% if _core.settings.companyAddressStreet %}
-                        {{ _core.settings.companyAddressStreet }}{{ _core.settings.companyAddressCity ? ', ' }}
-                    {% endif %}
-                    {% if _core.settings.companyAddressCity %}
-                        {{ _core.settings.companyAddressCity }}{{ _core.settings.companyAddressState ? ', ' }}
-                    {% endif %}
-                    {% if _core.settings.companyAddressState %}
-                        {{ _core.settings.companyAddressState }}{{ _core.settings.companyAddressPostalCode ? ', ' }}
-                    {% endif %}
-                    {% if _core.settings.companyAddressPostalCode %}
-                        {{ _core.settings.companyAddressPostalCode }}
-                    {% endif %}
-                {% endif %}
-                {% if _core.theme.settings.footerShowPhone == 'yes' %}
-                {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a>
-                {% endif %}
-                {% if _core.theme.settings.footerShowEmail == 'yes' %}
-                    {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.settings.companyEmail }}" class="Footer-link">{{ _core.settings.companyEmail }}</a>
-                {% endif %}
-            {% endapply %}
-        {% endif %}
-        <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
-        <div class="Footer-credit">
-            <a href="https://www.aptuitiv.com" target="_blank" class="Footer-link Footer-creditLink">Website by Aptuitiv</a><a href="https://www.branchcms.com" target="_blank" class="Footer-link Footer-creditLink">Powered by BranchCMS</a>
-        </div>
-    </div>
-</footer>
-{# Do this before you output any inline Javascript in the footer #}
-{% if _core.service.recaptchaV3.isUsable %}
-    {% if _page.hasJs('recaptchaV3') == false %}
-        {% do _page.registerJs('recaptchaV3') %}
-        {{ _core.service.recaptchaV3.js.tag }}
-        {{ _core.service.recaptchaV3.script.tag }}
-    {% endif %}
-    {% inlinecss %}
-        .grecaptcha-badge { visibility: hidden; }
-    {% endinlinecss %}
-{% endif %}
-{{ _page.js() }}
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script>
-        WebFont.load({
-            google: {
-                families: ['Vollkorn:400,400i,700,700i','Montserrat:300,500,700']
-            }
-        });
-    </script>
-    {{ _page.bodyEndCode() }}
-</body>
+        
+        {{ _page.js() }}
+        {{ _page.bodyEndCode() }}
+    </body>
 </html>
