@@ -2,6 +2,7 @@
     "groups": [
         {
             "name": "Back to Top",
+            "description": "Styles for the Back to Top button in the footer.",
             "fields": [
                 {
                     "name": "backTopBackground",
@@ -251,6 +252,7 @@
         },
         {
             "name": "Body",
+            "description": "Styles for the body of your website.",
             "fields": [
                 {
                     "name": "themeBodyBackground",
@@ -294,6 +296,7 @@
         },
         {
             "name": "Buttons",
+            "description": "Styles for buttons throughout the website.",
             "sections": [
                 {
                     "name": "General",
@@ -399,6 +402,7 @@
         },
         {
             "name": "Calendar Grid",
+            "description": "Styles for the Calendar Grid page if enabled in the Calendar app.",
             "sections": [
                 {
                     "name": "Heading",
@@ -767,6 +771,7 @@
         },
         {
             "name": "Content Grid",
+            "description": "Styles for the \"Content Grid\" block.",
             "fields": [
                 {
                     "name": "contentGridTitleColor",
@@ -792,6 +797,7 @@
         },
         {
             "name": "Featured Content",
+            "description": "Styles for the \"Featured Content\" block.",
             "sections": [
                 {
                     "name": "General",
@@ -902,6 +908,7 @@
         },
         {
             "name": "Forms",
+            "description": "Styles for all forms on the website.",
             "sections": [
                 {
                     "name": "Text Field",
@@ -1089,6 +1096,7 @@
         },
         {
             "name": "Footer",
+            "description": "Styles for the website footer.",
             "sections": [
                 {
                     "name": "General",
@@ -1165,6 +1173,7 @@
         },
         {
             "name": "Gallery Header",
+            "description": "Styles for the header of the Gallery app.",
             "fields": [
                 {
                     "name": "contentHeaderBackground",
@@ -1293,6 +1302,7 @@
         },
         {
             "name": "Image Grid",
+            "description": "Styles for the \"Image Grid\" block.",
             "sections": [
                 {
                     "name": "General",
@@ -1425,6 +1435,7 @@
         },
         {
             "name": "Image Slider",
+            "description": "Styles for the \"Image Slider\" block.",
             "sections": [
                 {
                     "name": "General",
@@ -1636,6 +1647,7 @@
         },
         {
             "name": "Main Navigation",
+            "description": "Styles for the main website navigation.",
             "sections": [
                 {
                     "name": "General",
@@ -1784,6 +1796,7 @@
         },
         {
             "name": "Notification Bar",
+            "description": "Styles for the \"Notification Bar\" Collection Widget.",
             "fields": [
                 {
                     "name": "notificationBackground",
@@ -2108,6 +2121,7 @@
         },
         {
             "name": "Typography",
+            "description": "Styles for typography throughout the website.",
             "groups": [
                 {
                     "name": "Base",
