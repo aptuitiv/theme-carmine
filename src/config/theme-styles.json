@@ -1902,6 +1902,42 @@
             ]
         },
         {
+            "name": "Sidebar",
+            "description": "Sidebar styles for the two-column page template.",
+            "fields": [
+                {
+                    "name": "sidebarNavColor",
+                    "label": "Navigation link color",
+                    "type": "color",
+                    "default": "#333",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--SidebarNav-color"
+                    }
+                },
+                {
+                    "name": "sidebarNavColorHover",
+                    "label": "Navigation link color (hover)",
+                    "type": "color",
+                    "default": "#333",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--SidebarNav-color--hover"
+                    }
+                },
+                {
+                    "name": "sidebarNavColorActive",
+                    "label": "Navigation link color (current page)",
+                    "type": "color",
+                    "default": "#333",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--SidebarNav-color--active"
+                    }
+                }
+            ]
+        },
+        {
             "name": "Testimonials",
             "description": "Styles for the Testimonial block and Testimonial sidebar content.",
             "sections": [

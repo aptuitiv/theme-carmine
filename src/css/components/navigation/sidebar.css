@@ -2,9 +2,13 @@
     SIDEBAR NAVIGATION
 \* =========================================================================== */
 
+:root {
+    --SidebarNav-color: #333;
+    --SidebarNav-color--hover: #333;
+    --SidebarNav-color--active: #333;
+}
 
 /** @define SidebarNav */
-
 .SidebarNav {
     list-style: none;
     margin: 0;
@@ -17,7 +21,7 @@
 }
 
 .SidebarNav-link {
-    color: #333;
+    color: var(--SidebarNav-color);
     display: block;
     font-weight: 300;
     padding: 4px 8px;
@@ -33,12 +37,12 @@
 .SidebarNav-link:active,
 .SidebarNav-link:focus,
 .SidebarNav-link:hover {
-    color: #333;
+    color: var(--SidebarNav-color--hover);
     text-decoration: none;
 }
 
 .SidebarNav-link.is-current,
 .SidebarNav-link.is-currentParent {
-    color: #333;
+    color: var(--SidebarNav-color--active);
     text-decoration: none;
 }
