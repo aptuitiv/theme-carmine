@@ -2,15 +2,21 @@
     Notification banner at the top of pages
 \* =========================================================================== */
 
+:root {
+    --Notification-background: var(--theme-primary-color);
+    --Notification-color: #fff;
+    --Notification-fontSize: 2.2rem;
+    --Notification-lineHeight: 1.2;
+    --Notification-paddingVertical: 25px;
+}
 
 /* @define Notification */
-
 .Notification {
-    background: var(--theme-primary-color);
-    color: #fff;
-    font-size: 1.18em; /* 26px */
-    line-height: 1.2;
-    padding: 25px 0;
+    background: var(--Notification-background);
+    color: var(--Notification-color);
+    font-size: var(--Notification-fontSize);
+    line-height: var(--Notification-lineHeight);
+    padding: var(--Notification-paddingVertical) 0;
 }
 
 /* postcss-bem-linter: ignore */
@@ -20,7 +26,7 @@
 
 /* postcss-bem-linter: ignore */
 .Notification a {
-    color: #fff;
+    color: var(--Notification-color);
     text-decoration: underline;
 }
 
@@ -49,7 +55,4 @@
 
 .Notification-close {
     margin-left: 20px;
-}
-
-.Notification-closeIcon {
 }

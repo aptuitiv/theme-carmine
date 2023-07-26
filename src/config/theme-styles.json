@@ -1755,6 +1755,67 @@
             ]
         },
         {
+            "name": "Notification Bar",
+            "fields": [
+                {
+                    "name": "notificationBackground",
+                    "label": "Background color",
+                    "type": "color",
+                    "default": "#920504",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Notification-background"
+                    }
+                },
+                {
+                    "name": "notificationColor",
+                    "label": "Text color",
+                    "type": "color",
+                    "default": "#fff",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Notification-color"
+                    }
+                },
+                {
+                    "name": "notificationFontSize",
+                    "label": "Font size",
+                    "type": "stepper",
+                    "after": "px",
+                    "default": "22",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Notification-fontSize",
+                        "template": "{{ value / 10 }}rem"
+                    }
+                },
+                {
+                    "name": "notificationLineHeight",
+                    "label": "Line height",
+                    "type": "stepper",
+                    "step": "0.1",
+                    "decimals": "2",
+                    "default": "1.2",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Notification-lineHeight"
+                    }
+                },
+                {
+                    "name": "notificationPaddingVertical",
+                    "label": "Vertical padding",
+                    "type": "stepper",
+                    "after": "px",
+                    "default": "25",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Notification-paddingVertical",
+                        "template": "{{ value }}px"
+                    }
+                }
+            ]
+        },
+        {
             "name": "Pagination",
             "description": "Styles for the pagination at the bottom of app pages.",
             "sections": [
