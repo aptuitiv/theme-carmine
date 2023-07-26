@@ -2,9 +2,7 @@
     SMALL SCREEN NAVIGATION BUTTON
 \* =========================================================================== */
 
-
 /** @define SmScBtn **/
-
 .SmScBtn {
     background: rgba(0, 0, 0, .1);
     border: none;
@@ -35,6 +33,7 @@
 .SmScBtn:focus,
 .SmScBtn:hover {
     color: #fff;
+    outline: none;
     text-decoration: none;
 }
 
