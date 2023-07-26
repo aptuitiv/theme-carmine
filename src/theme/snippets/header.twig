@@ -80,10 +80,10 @@
                                     </div>
                                 {% endif %}
                                 {% if _core.theme.settings.headerShowPhone == 'yes' %}
-                                    <div class="Header-line"><a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a></div>
+                                    <div><a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a></div>
                                 {% endif %}
                                 {% if _core.theme.settings.headerShowEmail == 'yes' %}
-                                    <div class="Header-line"><a href="mailto:{{ _core.settings.companyEmail }}">{{ _core.settings.companyEmail }}</a></div>
+                                    <div><a href="mailto:{{ _core.settings.companyEmail }}">{{ _core.settings.companyEmail }}</a></div>
                                 {% endif %}
                             </div>
                         {% endapply %}

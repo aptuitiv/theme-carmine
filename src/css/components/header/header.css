@@ -46,7 +46,6 @@
     margin-bottom: 0;
 }
 
-
 .Header-button {
     display: inline-block;
     margin-left: 10px;
@@ -75,4 +74,18 @@
     padding: 5px 10px;
     text-decoration: underline;
     width: auto;
+}
+
+/* postcss-bem-linter: ignore */
+.Header a[href^=tel] {
+    color: var(--base-typography-link-color);
+    text-decoration: var(--base-typography-link-decoration);
+}
+
+/* postcss-bem-linter: ignore */
+.Header a[href^=tel]:active,
+.Header a[href^=tel]:focus,
+.Header a[href^=tel]:hover {
+    color: var(--base-typography-link-colorHover);
+    text-decoration: var(--base-typography-link-decorationHover);
 }
