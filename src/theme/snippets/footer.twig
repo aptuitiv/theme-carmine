@@ -1,6 +1,8 @@
         <footer class="Footer">
             <div class="Container">
-                <a href="#" class="BackTop js-btop" tabindex="-1" title="Go back to top of page"><span class="BackTop-description">Go back to top of page </span></a>
+                {% if _core.theme.settings.backTopDisplay == "yes" %}
+                    <a href="#" class="BackTop js-btop" tabindex="-1" title="Go back to top of page"><span class="BackTop-description">Go back to top of page </span></a>
+                {% endif %}
                 {% if _core.theme.settings.footerShowNavigation == 'yes' %}
                     {{ _api.navigation.get.key('main').showSubNav('no').template('footer') }}
                 {% endif %}

@@ -5,6 +5,12 @@
             "description": "Styles for the Back to Top button in the footer.",
             "fields": [
                 {
+                    "name": "backTopDisplay",
+                    "label": "Display",
+                    "type": "switch",
+                    "default": "yes"
+                },
+                {
                     "name": "backTopBackground",
                     "label": "Background color",
                     "type": "color",
