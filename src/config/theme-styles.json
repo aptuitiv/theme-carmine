@@ -275,28 +275,73 @@
         {
             "name": "Breadcrumbs",
             "description": "Styles for the breadcrumb links at the top of interior pages.",
-            "fields": [
+            "sections": [
                 {
-                    "name": "breadcrumbFontSize",
-                    "label": "Font size",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "12",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Breadcrumb-fontSize",
-                        "template": "{{ value / 10 }}rem"
-                    }
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "breadcrumbFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "12",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Breadcrumb-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "breadcrumbColor",
+                            "label": "Separator color",
+                            "type": "color",
+                            "default": "#595959",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Breadcrumb-color"
+                            }
+                        }
+                    ]
                 },
                 {
-                    "name": "breadcrumbColor",
-                    "label": "Text color",
-                    "type": "color",
-                    "default": "#595959",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Breadcrumb-color"
-                    }
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "breadcrumbLinkColor",
+                            "label": "Link color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Breadcrumb-link-color"
+                            }
+                        },
+                        {
+                            "name": "breadcrumbLinkColorHover",
+                            "label": "Link color (hover)",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Breadcrumb-link-color--hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Active",
+                    "fields": [
+                        {
+                            "name": "breadcrumbActiveColor",
+                            "label": "Active item color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Breadcrumb-active-color"
+                            }
+                        }
+                    ]
                 }
             ]
         },

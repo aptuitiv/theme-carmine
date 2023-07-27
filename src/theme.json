@@ -2461,9 +2461,9 @@
     "siteSettings": {
         "breadcrumb_active_template": "{{ item.text }}",
         "breadcrumb_container_template": "<div class=\"breadcrumb\">{{ breadcrumb }}</div>",
-        "breadcrumb_custom_template": "<div class=\"Breadcrumb\">\n    {% for item in items %}\n        {% if item.isActive %}\n            {{ item.text }}\n        {% else %}\n            <a href=\"{{ item.link }}\" class=\"Breadcrumb-link\">{{ item.text }}</a> &gt;\n        {% endif %}\n    {% endfor %}\n</div>",
+        "breadcrumb_custom_template": "<div class=\"Breadcrumb\">\r\n    {% for item in items %}\r\n        {% if item.isActive %}\r\n            <span class=\"Breadcrumb-active\">{{ item.text }}</span>\r\n        {% else %}\r\n            <a href=\"{{ item.link }}\" class=\"Breadcrumb-link\">{{ item.text }}</a> &gt;\r\n        {% endif %}\r\n    {% endfor %}\r\n</div>",
         "breadcrumb_inactive_template": "<a href=\"{{ item.link }}\">{{ item.text }}</a>",
-        "breadcrumb_separator": " &gt; ",
+        "breadcrumb_separator": "&gt;",
         "breadcrumb_template_type": "custom",
         "custom_favicon": "",
         "doctype": "HTML5",

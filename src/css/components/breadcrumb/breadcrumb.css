@@ -5,17 +5,39 @@
 :root {
     --Breadcrumb-fontSize: 1.2rem;
     --Breadcrumb-color: #595959;
+    
+    /* Link */
+    --Breadcrumb-link-color: var(--color-primary);
+    --Breadcrumb-link-color--hover: var(--color-primary);
+    
+    /* Active */
+    --Breadcrumb-active-color: var(--color-primary);
 }
 
 /** @define Breadcrumb **/
 .Breadcrumb {
+    color: var(--Breadcrumb-color);
     font-size: var(--Breadcrumb-fontSize);
     padding: 1em var(--g-gutter) 0;
 }
 
 .Breadcrumb-link {
-    color: var(--Breadcrumb-color);
+    color: var(--Breadcrumb-link-color);
     text-decoration: underline;
+}
+
+.Breadcrumb-link:focus-visible {
+    color: var(--Breadcrumb-link-color--hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Breadcrumb-link:hover {
+        color: var(--Breadcrumb-link-color--hover);
+    }
+}
+
+.Breadcrumb-active {
+    color: var(--Breadcrumb-active-color);
 }
 
 @media (--c-bp-sm) {
