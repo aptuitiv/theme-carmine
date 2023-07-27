@@ -1348,6 +1348,178 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "Social Icons",
+                    "fields": [
+                        {
+                            "name": "headerSocialIconColor",
+                            "label": "Color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-socialIcon-color"
+                            }
+                        },
+                        {
+                            "name": "headerSocialIconColorHover",
+                            "label": "Color (hover)",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-socialIcon-color--hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "headerLinkColor",
+                            "label": "Link color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-link-color"
+                            }
+                        },
+                        {
+                            "name": "headerLinkTextDecoration",
+                            "label": "Text decoration",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "None",
+                                "underline": "Underline"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-link-textDecoration"
+                            }
+                        },
+                        {
+                            "name": "headerLinkColorHover",
+                            "label": "Link color (hover)",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-link-color--hover"
+                            }
+                        },
+                        {
+                            "name": "headerLinkTextDecorationHover",
+                            "label": "Text decoration (hover)",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "None",
+                                "underline": "Underline"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-link-textDecoration--hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Buttons",
+                    "fields": [
+                        {
+                            "name": "headerButtonBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-button-background"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-button-borderColor"
+                            }
+                        },
+                        {
+                            "name": "headerButtonColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-button-color"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderWidth",
+                            "label": "Border width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-button-borderWidth",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderRadius",
+                            "label": "Border radius",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "4",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-button-borderRadius",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Button (hover)",
+                    "fields": [
+                        {
+                            "name": "headerButtonBackgroundHover",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-button-background--hover"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderColorHover",
+                            "label": "Border color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-button-borderColor--hover"
+                            }
+                        },
+                        {
+                            "name": "headerButtonColorHover",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-button-color--hover"
+                            }
+                        }
+                    ]
                 }
             ]
         },

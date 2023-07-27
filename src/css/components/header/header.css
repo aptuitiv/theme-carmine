@@ -16,6 +16,28 @@
     /* Skip to Main */
     --Header-skipToMain-background: #fff;
     --Header-skipToMain-color: var(--color-primary);
+    
+    /* Social Icons */
+    --Header-socialIcon-color: var(--color-primary);
+    --Header-socialIcon-color--hover: var(--color-primary);
+    
+    /* Links */
+    --Header-link-color: var(--color-primary);
+    --Header-link-color--hover: var(--color-primary);
+    --Header-link-textDecoration: none;
+    --Header-link-textDecoration--hover: none;
+    
+    /* Buttons */
+    --Header-button-background: var(--color-primary);
+    --Header-button-borderColor: var(--color-primary);
+    --Header-button-color: #fff;
+    --Header-button-borderWidth: 0;
+    --Header-button-borderRadius: 4px;
+    
+    /* Button (hover) */
+    --Header-button-background--hover: var(--color-primary);
+    --Header-button-borderColor--hover: var(--color-primary);
+    --Header-button-color--hover: #fff;
 }
 
 /* @define Header */
@@ -76,16 +98,84 @@
     width: auto;
 }
 
+/* ------------------------------------ *\
+    Social Icons
+\* ------------------------------------ */
+
+.Header-iconLink {
+    color: var(--Header-socialIcon-color);
+}
+
+.Header-iconLink:focus-visible {
+    color: var(--Header-socialIcon-color--hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Header-iconLink:hover {
+        color: var(--Header-socialIcon-color--hover);
+    }
+}
+
+/* ------------------------------------ *\
+    Links
+\* ------------------------------------ */
+
+/* postcss-bem-linter: ignore */
+.Header a:not(.Button):not(.Header-iconLink) {
+    color: var(--Header-link-color);
+    text-decoration: var(--Header-link-textDecoration);
+}
+
+/* postcss-bem-linter: ignore */
+.Header a:not(.Button):not(.Header-iconLink):focus-visible {
+    color: var(--Header-link-color--hover);
+    text-decoration: var(--Header-link-textDecoration--hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    /* postcss-bem-linter: ignore */
+    .Header a:not(.Button):not(.Header-iconLink):hover {
+        color: var(--Header-link-color--hover);
+        text-decoration: var(--Header-link-textDecoration--hover);
+    }
+}
+
 /* postcss-bem-linter: ignore */
 .Header a[href^=tel] {
-    color: var(--base-typography-link-color);
-    text-decoration: var(--base-typography-link-textDecoration);
+    color: var(--Header-link-color);
+    text-decoration: var(--Header-link-textDecoration);
 }
 
 /* postcss-bem-linter: ignore */
 .Header a[href^=tel]:active,
 .Header a[href^=tel]:focus,
 .Header a[href^=tel]:hover {
-    color: var(--base-typography-link-colorHover);
-    text-decoration: var(--base-typography-link-textDecorationHover);
+    color: var(--Header-link-color--hover);
+    text-decoration: var(--Header-link-textDecoration--hover);
+}
+
+/* ------------------------------------ *\
+    Buttons
+\* ------------------------------------ */
+
+.Header-button {
+    background-color: var(--Header-button-background);
+    border: var(--Header-button-borderWidth) solid var(--Header-button-borderColor);
+    border-radius: var(--Header-button-borderRadius);
+    color: var(--Header-button-color);
+}
+
+.Header-button:focus-visible {
+    background-color: var(--Header-button-background--hover);
+    border-color: var(--Header-button-borderColor--hover);
+    color: var(--Header-button-color--hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Header-button:hover {
+        background-color: var(--Header-button-background--hover);
+        border-color: var(--Header-button-borderColor--hover);
+        color: var(--Header-button-color--hover);
+    }
 }
