@@ -112,14 +112,11 @@
                             "itemName": "Button",
                             "children": [
                                 {
-                                    "name": "text",
-                                    "label": "Button text",
-                                    "type": "text"
-                                },
-                                {
-                                    "name": "url",
-                                    "label": "Button URL",
-                                    "type": "url"
+                                    "name": "button",
+                                    "label": "Button link",
+                                    "type": "url",
+                                    "showLinkTextField": true,
+                                    "linkTextFieldLabel": "Button text"
                                 }
                             ]
                         }

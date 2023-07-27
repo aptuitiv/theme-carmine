@@ -92,7 +92,8 @@
                         {% apply spaceless %}
                             <div class="Header-line">
                                 {% for button in _core.theme.settings.headerButtons %}
-                                    <a href="{{ button.url }}" class="Button Header-button">{{ button.text }}</a>
+                                    {% set button.button.class = "Button Header-button" %}
+                                    {{ button.button.tag }}
                                 {% endfor %}
                             </div>
                         {% endapply %}
