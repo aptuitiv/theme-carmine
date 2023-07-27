@@ -106,7 +106,7 @@
 }
 
 .Card-category {
-    color: var(--theme-button-background);
+    color: var(--Button-background);
 }
 
 .Card-title {

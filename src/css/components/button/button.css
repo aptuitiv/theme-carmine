@@ -14,20 +14,34 @@
  */
 
 :root {
-    --Button-background: var(--theme-button-background);
-    --Button-backgroundHover: var(--theme-button-background-hover);
-    --Button-border: 0;
-    --Button-border-radius: 4px;
-    --Button-color: var(--theme-button-color);
-    --Button-colorHover: var(--theme-button-color-hover);
-    --Button-disabled-opacity: .6;
     --Button-fontFamily: var(--theme-typography-fontFamily);
-    --Button-fontSize: inherit;
-    --Button-letterSpacing: inherit;
+    --Button-fontWeight: 400;
+    --Button-fontSize: 1.8rem;
+    --Button-letterSpacing: 0;
     --Button-lineHeight: 1.4;
-    --Button-padding: .35em 1.5em;
-    --Button-paddingLg: .7em 2em;
-    --Button-paddingSm: .2em .75em;
+    --Button-border-radius: 4px;
+    --Button-borderWidth: 0;
+    
+    /* Padding */
+    --Button-paddingVertical: 6px;
+    --Button-paddingHorizontal: 27px;
+    --Button-paddingVertical--lg: 15px;
+    --Button-paddingHorizontal--lg: 42px;
+    --Button-paddingVertical--sm: 4px;
+    --Button-paddingHorizontal--sm: 14px;
+    
+    /* Primary Colors */
+    --Button-background: #a21514;
+    --Button-borderColor: var(--color-primary);
+    --Button-color: #fff;
+    
+    /* Primary Colors (hover) */
+    --Button-backgroundHover: #7a0504;
+    --Button-borderColorHover: var(--color-primary);
+    --Button-colorHover: #fff;
+    
+    /* Extra */
+    --Button-disabled-opacity: .6;
 }
 
 /**
@@ -39,7 +53,7 @@
 .Button,
 .Button[href^=tel] {
     background: var(--Button-background);
-    border: var(--Button-border);
+    border: var(--Button-borderWidth) solid var(--Button-borderColor);
     border-radius: var(--Button-border-radius);
     box-sizing: border-box; /* 1 */
     color: var(--Button-color);
@@ -47,10 +61,11 @@
     display: inline-block;
     font-family: var(--Button-fontFamily);
     font-size: var(--Button-fontSize);
+    font-weight: var(--Button-fontWeight);
     letter-spacing: var(--Button-letterSpacing);
     line-height: var(--Button-lineHeight);
     margin: 0;
-    padding: var(--Button-padding);
+    padding: var(--Button-paddingVertical) var(--Button-paddingHorizontal);
     text-align: center;
     text-decoration: none;
     user-select: none; /* 2 */
@@ -67,6 +82,7 @@
 .Button:active,
 .Button[href^=tel]:active {
     background: var(--Button-backgroundHover);
+    border-color: var(--Button-borderColorHover);
     color: var(--Button-colorHover);
     text-decoration: none;
 }
@@ -78,23 +94,35 @@
 .Button--lg,
 .Button--lg[href^=tel] {
     font-size: calc(var(--base-typography-fontSize) + 3px);
-    padding: var(--Button-paddingLg);
+    padding: var(--Button-paddingVertical--lg) var(--Button-paddingHorizontal--lg);
 }
 
 .Button--sm,
 .Button--sm[href^=tel] {
     font-size: var(--base-typography-fontSize);
-    font-weight: 300;
-    padding: var(--Button-paddingSm);
+    padding: var(--Button-paddingVertical--sm) var(--Button-paddingHorizontal--sm);
 }
 
 /**
  * Color modifiers
  */
+
+:root {
+    --Button-background--secondary: #bb6519;
+    --Button-borderColor--secondary: #bb6519;
+    --Button-color--secondary: #fff;
+    
+    /* Hover */
+    --Button-background--secondaryHover: #bb6519;
+    --Button-borderColor--secondaryHover: #bb6519;
+    --Button-color--secondaryHover: #fff;
+}
+
 .Button--secondary,
 .Button--secondary[href^=tel] {
-    background: var(--theme-button-background-alt);
-    color: var(--theme-button-color-alt);
+    background: var(--Button-background--secondary);
+    border-color: var(--Button-borderColor--secondary);
+    color: var(--Button-color--secondary);
 }
 
 .Button--secondary:active,
@@ -103,8 +131,9 @@
 .Button--secondary[href^=tel]:focus,
 .Button--secondary:hover,
 .Button--secondary[href^=tel]:hover {
-    background: var(--theme-button-background-hover-alt);
-    color: var(--theme-button-color-hover-alt);
+    background: var(--Button-background--secondaryHover);
+    border-color: var(--Button-borderColor--secondaryHover);
+    color: var(--Button-color--secondaryHover);
 }
 
 /**
