@@ -49,6 +49,8 @@
                             {% set _core.theme.settings.headerLogo.alt = _core.settings.companyName %}
                         {% endif %}
                         <a href="/" title="Back to home page">{{ _core.theme.settings.headerLogo.tag }}</a>
+                    {% elseif _core.theme.settings.headerTextLogo %}
+                        <a href="/" class="Header-textLogo" title="Back to home page">{{ _core.theme.settings.headerTextLogo }}</a>
                     {% endif %}
                 </div>
                 <div class="Grid-cell u-size1of2 u-md-sizeFull u-textRight u-md-textCenter">

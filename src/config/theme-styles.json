@@ -1509,23 +1509,6 @@
                     ]
                 },
                 {
-                    "name": "Logo",
-                    "fields": [
-                        {
-                            "name": "headerLogoWidth",
-                            "label": "Width",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "480",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-logo-width",
-                                "template": "{{ value }}px"
-                            }
-                        }
-                    ]
-                },
-                {
                     "name": "Skip to Main",
                     "description": "A special button shown to accessible users which allows them to skip down to the main content of the page.",
                     "fields": [
@@ -2064,6 +2047,167 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--ListCard-header-color--hover"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Logo",
+            "sections": [
+                {
+                    "name": "Image Logo",
+                    "fields": [
+                        {
+                            "name": "headerLogoWidth",
+                            "label": "Logo image max width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "480",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-logo-width",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Text Logo",
+                    "fields": [
+                        {
+                            "name": "headerTextLogoFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "headerTextLogoFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "30",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-textTransform"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoColor",
+                            "label": "Logo color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Text Logo (Small Screens)",
+                    "fields": [
+                        {
+                            "name": "headerTextLogoFontWeightSm",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "headerTextLogoFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontWeight--sm"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoFontSizeSm",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontSize--sm",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoLetterSpacingSm",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-letterSpacing--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoLineHeightSm",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-lineHeight--sm"
                             }
                         }
                     ]

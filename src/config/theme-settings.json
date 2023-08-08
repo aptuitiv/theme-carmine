@@ -37,16 +37,22 @@
         {
             "name": "Header",
             "description": "Content for the header that is used on all pages",
-            "sections": [
+            "groups": [
                 {
                     "name": "Logo",
                     "fields": [
                         {
                             "name": "headerLogo",
-                            "label": "Logo",
+                            "label": "Logo image",
                             "type": "image",
                             "path": "images",
                             "default": "/theme/custom/images/logo.jpg"
+                        },
+                        {
+                            "name": "headerTextLogo",
+                            "label": "Text logo",
+                            "type": "text",
+                            "description": "Use this if you don't have a logo image. Keep it short. Your business name would be a good value."
                         }
                     ]
                 },

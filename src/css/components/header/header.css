@@ -13,6 +13,21 @@
     /* Logo */
     --Header-logo-width: 480px;
     
+    /* Text Logo */
+    --Header-textLogo-fontFamily: var(--base-typography-heading-fontFamily);
+    --Header-textLogo-fontWeight: 700;
+    --Header-textLogo-fontSize: 6rem;
+    --Header-textLogo-letterSpacing: 0;
+    --Header-textLogo-lineHeight: 1.2;
+    --Header-textLogo-textTransform: none;
+    --Header-textLogo-color: var(--color-primary);
+    
+    /* Text Logo (Small Screens) */
+    --Header-textLogo-fontWeight--sm: 700;
+    --Header-textLogo-fontSize--sm: 6rem;
+    --Header-textLogo-letterSpacing--sm: 0;
+    --Header-textLogo-lineHeight--sm: 1.2;
+    
     /* Skip to Main */
     --Header-skipToMain-background: #fff;
     --Header-skipToMain-color: var(--color-primary);
@@ -48,16 +63,20 @@
     padding: var(--Header-paddingVertical) var(--Header-paddingHorizontal);
 }
 
-@media (--c-bp-sm) {
-    .Header {
-        padding: var(--g-gutter-sm);
-    }
-}
-
 .Header-logo {
     max-width: var(--Header-logo-width);
     object-fit: cover;
     width: 100%;
+}
+
+.Header-textLogo {
+    color: var(--Header-textLogo-color);
+    font-family: var(--Header-textLogo-fontFamily);
+    font-size: var(--Header-textLogo-fontSize);
+    font-weight: var(--Header-textLogo-fontWeight);
+    letter-spacing: var(--Header-textLogo-letterSpacing);
+    line-height: var(--Header-textLogo-lineHeight);
+    text-transform: var(--Header-textLogo-textTransform);
 }
 
 .Header-line {
@@ -177,5 +196,24 @@
         background-color: var(--Header-button-background--hover);
         border-color: var(--Header-button-borderColor--hover);
         color: var(--Header-button-color--hover);
+    }
+}
+
+/* ------------------------------------ *\
+    Responsive
+\* ------------------------------------ */
+
+@media (--c-bp-md) {
+    .Header-textLogo {
+        font-size: var(--Header-textLogo-fontSize--sm);
+        font-weight: var(--Header-textLogo-fontWeight--sm);
+        letter-spacing: var(--Header-textLogo-letterSpacing--sm);
+        line-height: var(--Header-textLogo-lineHeight--sm);
+    }
+}
+
+@media (--c-bp-sm) {
+    .Header {
+        padding: var(--g-gutter-sm);
     }
 }
