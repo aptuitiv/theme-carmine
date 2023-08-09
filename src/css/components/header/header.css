@@ -22,6 +22,9 @@
     --Header-textLogo-textTransform: none;
     --Header-textLogo-color: var(--color-primary);
     
+    /* Text Logo (Hover) */
+    --Header-textLogo-color--hover: var(--color-primary);
+    
     /* Text Logo (Small Screens) */
     --Header-textLogo-fontWeight--sm: 700;
     --Header-textLogo-fontSize--sm: 6rem;
@@ -77,6 +80,16 @@
     letter-spacing: var(--Header-textLogo-letterSpacing);
     line-height: var(--Header-textLogo-lineHeight);
     text-transform: var(--Header-textLogo-textTransform);
+}
+
+.Header-textLogo:focus-visible {
+    color: var(--Header-textLogo-color--hover) !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Header-textLogo:hover {
+        color: var(--Header-textLogo-color--hover) !important;
+    }
 }
 
 .Header-line {

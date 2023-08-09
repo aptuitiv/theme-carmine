@@ -2157,6 +2157,16 @@
                                 "type": "css-head",
                                 "cssVariable": "--Header-textLogo-color"
                             }
+                        },
+                        {
+                            "name": "headerTextLogoColorHover",
+                            "label": "Logo color (hover)",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-color--hover"
+                            }
                         }
                     ]
                 },
