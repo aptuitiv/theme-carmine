@@ -1,36 +1,63 @@
 {
     "groups": [
         {
-            "name": "Social Icons",
-            "description": "Set the links and icons to use for your social networks in the footer of each page.",
+            "name": "Blog",
+            "description": "Settings for the blog app",
             "fields": [
                 {
-                    "name": "social",
-                    "label": "Social Networks",
-                    "type": "repeatingGrid",
-                    "itemName": "Social Network",
-                    "children": [
-                        {
-                            "name": "icon",
-                            "label": "Icon",
-                            "type": "select",
-                            "options": {
-                                "facebook": "Facebook",
-                                "instagram": "Instagram",
-                                "linkedin": "LinkedIn",
-                                "pinterest": "Pinterest",
-                                "twitter": "Twitter",
-                                "youtube": "YouTube"
-                            },
-                            "columnWidth": "1fr"
-                        },
-                        {
-                            "name": "url",
-                            "label": "URL to your page on this social network",
-                            "type": "text",
-                            "columnWidth": "2fr"
-                        }
-                    ]
+                    "name": "blogSlidebarItems",
+                    "label": "Blog sidebar items",
+                    "type": "checkbox",
+                    "default": [
+                        "category-filter",
+                        "tag-filter",
+                        "recent-posts",
+                        "recent-comments",
+                        "post-archive"
+                    ],
+                    "options": {
+                        "category-filter": "Category filter",
+                        "tag-filter": "Tag filter",
+                        "recent-posts": "Recent posts",
+                        "recent-comments": "Recent comments",
+                        "post-archive": "Post archive"
+                    }
+                },
+                {
+                    "name": "blogSidebarRecentPostsNumber",
+                    "label": "Number of recent posts to show in the sidebar",
+                    "type": "number",
+                    "default": "5"
+                }
+            ]
+        },
+        {
+            "name": "Footer",
+            "description": "Content for the footer that is used on all pages",
+            "fields": [
+                {
+                    "name": "footerShowNavigation",
+                    "label": "Show Navigation",
+                    "type": "switch",
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowPhone",
+                    "label": "Show Phone Number",
+                    "type": "switch",
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowEmail",
+                    "label": "Show Email",
+                    "type": "switch",
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowAddress",
+                    "label": "Show Address",
+                    "type": "switch",
+                    "default": "yes"
                 }
             ]
         },
@@ -131,63 +158,64 @@
             ]
         },
         {
-            "name": "Footer",
-            "description": "Content for the footer that is used on all pages",
+            "name": "Banner Images",
+            "description": "These settings change the behavior of banner images before a user loads them. This allows for more optimized images.",
+            "sidebarSize": "medium",
             "fields": [
                 {
-                    "name": "footerShowNavigation",
-                    "label": "Show Navigation",
-                    "type": "switch",
-                    "default": "yes"
-                },
-                {
-                    "name": "footerShowPhone",
-                    "label": "Show Phone Number",
-                    "type": "switch",
-                    "default": "yes"
-                },
-                {
-                    "name": "footerShowEmail",
-                    "label": "Show Email",
-                    "type": "switch",
-                    "default": "yes"
-                },
-                {
-                    "name": "footerShowAddress",
-                    "label": "Show Address",
-                    "type": "switch",
-                    "default": "yes"
+                    "name": "bannerImageSizes",
+                    "label": "Image Sizes",
+                    "type": "repeatingGrid",
+                    "description": "Make sure the first image below is the largest image width in the set.",
+                    "itemName": "Image",
+                    "children": [
+                        {
+                            "name": "maxWidth",
+                            "label": "Max width",
+                            "type": "stepper",
+                            "after": "px"
+                        },
+                        {
+                            "name": "maxHeight",
+                            "label": "Max height",
+                            "type": "stepper",
+                            "after": "px"
+                        }
+                    ]
                 }
             ]
         },
         {
-            "name": "Blog",
-            "description": "Settings for the blog app",
+            "name": "Social Icons",
+            "description": "Set the links and icons to use for your social networks in the footer of each page.",
             "fields": [
                 {
-                    "name": "blogSlidebarItems",
-                    "label": "Blog sidebar items",
-                    "type": "checkbox",
-                    "default": [
-                        "category-filter",
-                        "tag-filter",
-                        "recent-posts",
-                        "recent-comments",
-                        "post-archive"
-                    ],
-                    "options": {
-                        "category-filter": "Category filter",
-                        "tag-filter": "Tag filter",
-                        "recent-posts": "Recent posts",
-                        "recent-comments": "Recent comments",
-                        "post-archive": "Post archive"
-                    }
-                },
-                {
-                    "name": "blogSidebarRecentPostsNumber",
-                    "label": "Number of recent posts to show in the sidebar",
-                    "type": "number",
-                    "default": "5"
+                    "name": "social",
+                    "label": "Social Networks",
+                    "type": "repeatingGrid",
+                    "itemName": "Social Network",
+                    "children": [
+                        {
+                            "name": "icon",
+                            "label": "Icon",
+                            "type": "select",
+                            "options": {
+                                "facebook": "Facebook",
+                                "instagram": "Instagram",
+                                "linkedin": "LinkedIn",
+                                "pinterest": "Pinterest",
+                                "twitter": "Twitter",
+                                "youtube": "YouTube"
+                            },
+                            "columnWidth": "1fr"
+                        },
+                        {
+                            "name": "url",
+                            "label": "URL to your page on this social network",
+                            "type": "text",
+                            "columnWidth": "2fr"
+                        }
+                    ]
                 }
             ]
         }

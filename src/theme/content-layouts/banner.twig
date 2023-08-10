@@ -2,29 +2,39 @@
     {% if slide.link %}
         <a href="{{ slide.link }}" class="Slider-link">
     {% endif %}
-    
-    <picture class="Slider-image">
-        <source media="(max-width: 600px)" srcset="{{ slide.images.small.src }}">
-        <source media="(max-width: 1200px)" srcset="{{ slide.images.medium.src }}">
-        {% if slide.altText %}
-            {% set slide.images.large.alt = slide.altText %}
-        {% endif %}
-        {{ slide.images.large.tag }}
-    </picture>
-    
-    {% if slide.captionTitle or slide.caption  %}
-        <span class="Slider-content Slider-content--{{ slide.captionPosition|camel }}">
-            {% if slide.captionTitle %}
-                {% if slide.captionHeading != false %}
-                    <h1 class="Slider-captionTitle">{{ slide.captionTitle }}</h1>
+        {% if slide.image %}
+            {% set maxWidth = 0 %}
+            {% for imageOption in _core.theme.settings.bannerImageSizes %}
+                {% if loop.first %}
+                    {# Aspect ratio is required here for uploaded images smaller than the target width or height due to a potential bug in the CMS image tag output of the height and width attributes. #}
+                    {% do slide.image.crop({
+                        aspectRatio: imageOption.maxWidth ~ 'x' ~ imageOption.maxHeight,
+                        width: imageOption.maxWidth
+                    }) %}
+                    {% set maxWidth = imageOption.maxWidth %}
                 {% else %}
-                    <span class="Slider-captionTitle">{{ slide.captionTitle }}</span>
+                    {% do slide.image.addSource("(max-width: " ~ imageOption.maxWidth ~ "px)").crop({
+                        width: imageOption.maxWidth,
+                        height: imageOption.maxHeight
+                    }) %}
                 {% endif %}
-            {% endif %}
-            {% if slide.caption %}<span class="Slider-caption">{{ slide.caption }}</span>{% endif %}
-        </span>
-    {% endif %}
-    
+            {% endfor %}
+            {% set slide.image.picture.class = 'Slider-image' %}
+            {{ slide.image.tag }}
+            {% do slide.image.prioritize({ media: '(min-width: ' ~ (maxWidth + 1) ~ 'px)' }) %}
+        {% endif %}
+        {% if slide.captionTitle or slide.caption  %}
+            <span class="Slider-content Slider-content--{{ slide.captionPosition|camel }}">
+                {% if slide.captionTitle %}
+                    {% if slide.captionHeading != false %}
+                        <h1 class="Slider-captionTitle">{{ slide.captionTitle }}</h1>
+                    {% else %}
+                        <span class="Slider-captionTitle">{{ slide.captionTitle }}</span>
+                    {% endif %}
+                {% endif %}
+                {% if slide.caption %}<span class="Slider-caption">{{ slide.caption }}</span>{% endif %}
+            </span>
+        {% endif %}
     {% if slide.link %}
         </a>
     {% endif %}
