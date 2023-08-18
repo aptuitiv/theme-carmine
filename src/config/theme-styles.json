@@ -2827,6 +2827,57 @@
                     ]
                 },
                 {
+                    "name": "Rich Text Editor Utilities",
+                    "fields": [
+                        {
+                            "name": "headerUnderlineCenteredColor",
+                            "label": "Header with underline centered color",
+                            "type": "color",
+                            "default": "#920504",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Heading-underline-color"
+                            }
+                        },
+                        {
+                            "name": "textXlFontSize",
+                            "label": "Extra large text font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "30",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Text-xl-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "textXlLetterSpacing",
+                            "label": "Extra large text letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Text-xl-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "textXlLineHeight",
+                            "label": "Extra large text line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Text-xl-lineHeight"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "Headings",
                     "fields": [
                         {

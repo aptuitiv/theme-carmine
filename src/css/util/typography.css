@@ -1,0 +1,80 @@
+/* =========================================================================== *\
+    Text Utilities
+\* =========================================================================== */
+
+/* ------------------------------------ *\
+    Heading with Underline Centered
+\* ------------------------------------ */
+
+:root {
+    --Heading-underline-color: var(--color-primary);
+}
+
+.u-headingCentered {
+    margin-bottom: 35px;
+    position: relative;
+    text-align: center;
+}
+
+.u-headingCentered::after {
+    background: var(--Heading-underline-color);
+    bottom: -12px;
+    content: '';
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100px;
+}
+
+/* ------------------------------------ *\
+    Extra Large Text
+\* ------------------------------------ */
+
+:root {
+    --Text-xl-fontSize: 3rem;
+    --Text-xl-letterSpacing: 0;
+    --Text-xl-lineHeight: 1.2;
+}
+
+.u-textXLarge {
+    font-size: var(--Text-xl-fontSize);
+    letter-spacing: var(--Text-xl-letterSpacing);
+    line-height: var(--Text-xl-lineHeight);
+}
+
+/* ------------------------------------ *\
+    H1 - H4 Sizes
+\* ------------------------------------ */
+
+.u-textH1,
+.u-textH2,
+.u-textH3,
+.u-textH4 {
+    color: var(--theme-typography-heading-color);
+    font-family: var(--theme-typography-heading-fontFamily);
+    font-weight: var(--base-typography-heading-fontWeight);
+    letter-spacing: var(--base-typography-heading-letterSpacing);
+    margin: calc(var(--base-typography-spacing) * 1.2) 0 calc(var(--base-typography-spacing) / 3);
+}
+
+.u-textH1 {
+    font-size: var(--base-typography-h1-fontSize);
+    line-height: var(--base-typography-h1-lineHeight);
+    margin-top: 0;
+}
+
+.u-textH2 {
+    font-size: var(--base-typography-h2-fontSize);
+    line-height: var(--base-typography-h2-lineHeight);
+}
+
+.u-textH3 {
+    font-size: var(--base-typography-h3-fontSize);
+    line-height: var(--base-typography-h3-lineHeight);
+}
+
+.u-textH4 {
+    font-size: var(--base-typography-h4-fontSize);
+    line-height: var(--base-typography-h4-lineHeight);
+}
