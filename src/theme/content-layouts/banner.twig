@@ -5,23 +5,17 @@
         {% if slide.image %}
             {% set maxWidth = 0 %}
             {% for imageOption in _core.theme.settings.bannerImageSizes %}
-                {% if loop.first %}
-                    {# Aspect ratio is required here for uploaded images smaller than the target width or height due to a potential bug in the CMS image tag output of the height and width attributes. #}
-                    {% do slide.image.crop({
-                        aspectRatio: imageOption.maxWidth ~ 'x' ~ imageOption.maxHeight,
-                        width: imageOption.maxWidth
-                    }) %}
+                {% if imageOption.maxWidth > maxWidth %}
                     {% set maxWidth = imageOption.maxWidth %}
-                {% else %}
-                    {% do slide.image.addSource("(max-width: " ~ imageOption.maxWidth ~ "px)").crop({
-                        width: imageOption.maxWidth,
-                        height: imageOption.maxHeight
-                    }) %}
                 {% endif %}
+                {% do slide.image.addSource("(max-width: " ~ imageOption.maxWidth ~ "px)").crop({
+                    width: imageOption.maxWidth,
+                    height: imageOption.maxHeight
+                }) %}
             {% endfor %}
             {% set slide.image.picture.class = 'Slider-image' %}
-            {{ slide.image.tag }}
             {% do slide.image.prioritize({ media: '(min-width: ' ~ (maxWidth + 1) ~ 'px)' }) %}
+            {{ slide.image.tag }}
         {% endif %}
         {% if slide.captionTitle or slide.caption  %}
             <span class="Slider-content Slider-content--{{ slide.captionPosition|camel }}">
