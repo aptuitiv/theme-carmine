@@ -3,6 +3,9 @@
 {% endif %}
 {% set image.class = 'u-sizeFull' %}
 <div class="ImageWrapper">
+    {% do image.addSource('(max-width: 1000px)').resize(1100) %}
+    {% do image.addSource('(max-width: 800px)').resize(900) %}
+    {% do image.addSource('(max-width: 600px)').resize(700) %}
     {{ image.tag }}
     {% if caption %}
         <div class="ImageCaption">{{ caption }}</div>
