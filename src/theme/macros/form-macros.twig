@@ -261,17 +261,9 @@
 {# Build the reCAPTCHA tag #}
 {% macro captcha(form) %}
     {% if form.captcha.type == 'recaptchaV3' %}
-        {# Recaptcha V3 #}
         {# Because there can be multiple reCAPTCHAs on the page, make the input class unique #}
         {% do form.captcha.makeInputUnique() %}
-        {% if _page.hasJs('recaptchaV3') == false %}
-            {# Include the hidden input tag, reCAPTCHA Javascript file and the Javascript promise function #}
-            {{ form.captcha.tag }}
-            {% do _page.registerJs('recaptchaV3') %}
-        {% else %}
-            {# Only output the hidden input tag as the reCAPTCHA Javascript file and the Javascript promise function have already been included on the page. #}
-            {{ form.captcha.input.tag }}
-        {% endif %}
+        {{ form.captcha.input.tag }}
     {% endif %}
 {% endmacro %}
 
