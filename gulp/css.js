@@ -19,7 +19,8 @@ import fs from 'fs';
 import autoprefixer from 'autoprefixer';
 import cached from 'gulp-cached';
 import changedInPlace from 'gulp-changed-in-place';
-import cleanCss from '@aptuitiv/gulp-clean-css';
+import combineDuplicatedSelectors from 'postcss-combine-duplicated-selectors';
+import cssnano from 'cssnano';
 import gulpStylelint from '@ronilaukkarinen/gulp-stylelint';
 import header from 'gulp-header';
 import mergeStream from 'merge-stream';
@@ -69,7 +70,9 @@ runStylelint.description = 'Runs the CSS linter';
 const processors = [
     postcssImport,
     postcssCustomMedia(),
-    autoprefixer()
+    autoprefixer(),
+    combineDuplicatedSelectors(),
+    cssnano()
 ];
 
 /**
@@ -83,7 +86,6 @@ function processCss() {
             }))
             .pipe(plumber({errorHandler: util.onError}))
             .pipe(postcss(processors))
-            .pipe(cleanCss({level: 2, compatibility: 'ie8'}))
             .pipe(changedInPlace({firstPass: true}))
             .pipe(header(util.banner))
             .pipe(tap((file) => {
