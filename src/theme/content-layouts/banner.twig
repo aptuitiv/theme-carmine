@@ -4,14 +4,15 @@
     {% endif %}
         {% if slide.image %}
             {% set maxWidth = 0 %}
-            {% for imageOption in _core.theme.settings.bannerImageSizes %}
-                {% if imageOption.maxWidth > maxWidth %}
-                    {% set maxWidth = imageOption.maxWidth %}
-                {% endif %}
-                {% do slide.image.addSource("(max-width: " ~ imageOption.maxWidth ~ "px)").crop({
+            {% set bannerImageSizes = _core.theme.settings.bannerImageSizes|sort_by_key('maxWidth') %}
+            {% for imageOption in bannerImageSizes %}
+                {% do slide.image.addSource('(max-width: ' ~ imageOption.maxWidth ~ 'px)').crop({
                     width: imageOption.maxWidth,
                     height: imageOption.maxHeight
-                }) %}
+                }).preloadMedia(loop.first ? '(max-width: '  ~ imageOption.maxWidth ~'px)' : '(min-width: ' ~ (maxWidth + 1) ~ 'px) and (max-width: '  ~ imageOption.maxWidth ~'px)') %}
+                
+                {# Update the max width value #}
+                {% set maxWidth = imageOption.maxWidth %}
             {% endfor %}
             {% set slide.image.picture.class = 'Slider-image' %}
             {% do slide.image.prioritize({ media: '(min-width: ' ~ (maxWidth + 1) ~ 'px)' }) %}
