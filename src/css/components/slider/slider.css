@@ -2,28 +2,6 @@
     SLIDER
 \* =========================================================================== */
 
-:root {
-    
-    /* Title */
-    --Slider-title-fontFamily: var(--base-typography-heading-fontFamily);
-    --Slider-title-fontWeight: 400;
-    --Slider-title-fontSize: 4.5rem;
-    --Slider-title-lineHeight: 1.1;
-    --Slider-title-textTransform: uppercase;
-    --Slider-title-color: #fff;
-    
-    /* Subtitle */
-    --Slider-subtitle-fontFamily: var(--base-typography-fontFamily);
-    --Slider-subtitle-fontWeight: 400;
-    --Slider-subtitle-fontSize: 2.2rem;
-    --Slider-subtitle-lineHeight: 1.2;
-    --Slider-subtitle-textTransform: none;
-    --Slider-subtitle-color: #fff;
-    
-    /* Content (small screen) */
-    --Slider-content-background--sm: #920504;
-}
-
 /** @define Slider */
 .Slider {
     clear: both;

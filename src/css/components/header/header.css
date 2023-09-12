@@ -2,62 +2,6 @@
     Header
 \* =========================================================================== */
 
-:root {
-    --Header-background: #fff;
-    --Header-color: var(--base-typography-color);
-    
-    /* Padding */
-    --Header-paddingVertical: 15px;
-    --Header-paddingHorizontal: 40px;
-    
-    /* Logo */
-    --Header-logo-width: 480px;
-    
-    /* Text Logo */
-    --Header-textLogo-fontFamily: var(--base-typography-heading-fontFamily);
-    --Header-textLogo-fontWeight: 700;
-    --Header-textLogo-fontSize: 6rem;
-    --Header-textLogo-letterSpacing: 0;
-    --Header-textLogo-lineHeight: 1.2;
-    --Header-textLogo-textTransform: none;
-    --Header-textLogo-color: var(--color-primary);
-    
-    /* Text Logo (Hover) */
-    --Header-textLogo-color--hover: var(--color-primary);
-    
-    /* Text Logo (Small Screens) */
-    --Header-textLogo-fontWeight--sm: 700;
-    --Header-textLogo-fontSize--sm: 6rem;
-    --Header-textLogo-letterSpacing--sm: 0;
-    --Header-textLogo-lineHeight--sm: 1.2;
-    
-    /* Skip to Main */
-    --Header-skipToMain-background: #fff;
-    --Header-skipToMain-color: var(--color-primary);
-    
-    /* Social Icons */
-    --Header-socialIcon-color: var(--color-primary);
-    --Header-socialIcon-color--hover: var(--color-primary);
-    
-    /* Links */
-    --Header-link-color: var(--color-primary);
-    --Header-link-color--hover: var(--color-primary);
-    --Header-link-textDecoration: none;
-    --Header-link-textDecoration--hover: none;
-    
-    /* Buttons */
-    --Header-button-background: var(--color-primary);
-    --Header-button-borderColor: var(--color-primary);
-    --Header-button-color: #fff;
-    --Header-button-borderWidth: 0;
-    --Header-button-borderRadius: 4px;
-    
-    /* Button (hover) */
-    --Header-button-background--hover: var(--color-primary);
-    --Header-button-borderColor--hover: var(--color-primary);
-    --Header-button-color--hover: #fff;
-}
-
 /* @define Header */
 .Header {
     background-color: var(--Header-background);

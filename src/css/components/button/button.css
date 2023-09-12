@@ -14,33 +14,6 @@
  */
 
 :root {
-    --Button-fontFamily: var(--theme-typography-fontFamily);
-    --Button-fontWeight: 400;
-    --Button-fontSize: 1.8rem;
-    --Button-letterSpacing: 0;
-    --Button-lineHeight: 1.4;
-    --Button-border-radius: 4px;
-    --Button-borderWidth: 0;
-    
-    /* Padding */
-    --Button-paddingVertical: 6px;
-    --Button-paddingHorizontal: 27px;
-    --Button-paddingVertical--lg: 15px;
-    --Button-paddingHorizontal--lg: 42px;
-    --Button-paddingVertical--sm: 4px;
-    --Button-paddingHorizontal--sm: 14px;
-    
-    /* Primary Colors */
-    --Button-background: #a21514;
-    --Button-borderColor: var(--color-primary);
-    --Button-color: #fff;
-    
-    /* Primary Colors (hover) */
-    --Button-backgroundHover: #7a0504;
-    --Button-borderColorHover: var(--color-primary);
-    --Button-colorHover: #fff;
-    
-    /* Extra */
     --Button-disabled-opacity: .6;
 }
 

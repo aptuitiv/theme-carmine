@@ -2,14 +2,6 @@
     Notification banner at the top of pages
 \* =========================================================================== */
 
-:root {
-    --Notification-background: var(--color-primary);
-    --Notification-color: #fff;
-    --Notification-fontSize: 2.2rem;
-    --Notification-lineHeight: 1.2;
-    --Notification-paddingVertical: 25px;
-}
-
 /* @define Notification */
 .Notification {
     background: var(--Notification-background);
@@ -55,4 +47,16 @@
 
 .Notification-close {
     margin-left: 20px;
+}
+
+/* ------------------------------------ *\
+    Overrides
+\* ------------------------------------ */
+
+/* postcss-bem-linter: ignore */
+.Notification .u-textH1,
+.Notification .u-textH2,
+.Notification .u-textH3,
+.Notification .u-textH4 {
+    color: var(--Notification-color);
 }

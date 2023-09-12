@@ -2,17 +2,6 @@
     Footer
 \* =========================================================================== */
 
-:root {
-    --Footer-fontSize: 1.4rem;
-    --Footer-fontFamily: var(--theme-typography-fontFamily);
-    --Footer-background: var(--color-primary);
-    --Footer-color: #fff;
-    
-    /* Navigation */
-    --Footer-nav-color: #fff;
-    --Footer-nav-colorHover: #fff;
-}
-
 /* @define Footer */
 .Footer {
     background: var(--Footer-background);

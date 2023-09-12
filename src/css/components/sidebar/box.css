@@ -2,17 +2,6 @@
     Sidebar Box Styles
 \* =========================================================================== */
 
-:root {
-    --SidebarBox-item-borderWidth: 1px;
-    --SidebarBox-item-borderColor: #e1e1e1;
-    
-    /* Heading */
-    --SidebarBox-heading-color: var(--color-primary);
-    
-    /* Secondary */
-    --SidebarBox-secondary-color: #9f9f9f;
-}
-
 /* @define SidebarBox */
 .SidebarBox {
     margin-bottom: 40px;

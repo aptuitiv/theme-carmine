@@ -2,11 +2,6 @@
     Content Header at the top of pages
 \* =========================================================================== */
 
-:root {
-    --ContentHeader-background: #f2f2f2;
-    --ContentHeader-color: var(--theme-typography-color);
-}
-
 /* @define ContentHeader */
 .ContentHeader {
     background: var(--ContentHeader-background);

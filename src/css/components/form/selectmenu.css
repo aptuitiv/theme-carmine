@@ -9,23 +9,6 @@
  * Any <select> that is a child of a `.SelectInput` element will be styled.
  */
 
-:root {
-    --SelectInput-background: #fff;
-    --SelectInput-color: #333;
-    
-    /* Border */
-    --SelectInput-borderWidth: 1px;
-    --SelectInput-borderColor: #777;
-    
-    /* Padding */
-    --SelectInput-paddingVertical: 5px;
-    --SelectInput-paddingHorizontal: 10px;
-    
-    /* States */
-    --SelectInput-errorColor: #f00;
-    --SelectInput-successColor: #0f0;
-}
-
 /**
  * Field wrapper that theme is applied to
  */

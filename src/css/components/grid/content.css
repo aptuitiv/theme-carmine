@@ -2,11 +2,6 @@
     Content Grid
 \* =========================================================================== */
 
-:root {
-    --ContentGrid-title-color: var(--color-primary);
-    --ContentGrid-title-colorHover: var(--color-primary);
-}
-
 /* @define ContentGrid */
 .ContentGrid {
     margin-top: 20px;

@@ -2,27 +2,6 @@
     Photo Grid component
 \* =========================================================================== */
 
-:root {
-    --ImageGrid-fontSize: 1.2em;
-    --ImageGrid-fontWeight: 300;
-    
-    /* Title */
-    --ImageGrid-title-background: var(--color-primary);
-    --ImageGrid-title-color: #fff;
-    
-    /* Title (hover) */
-    --ImageGrid-title-backgroundHover: var(--color-primary);
-    --ImageGrid-title-colorHover: #fff;
-    
-    /* Hover */
-    --ImageGrid-hover-background: #600303;
-    --ImageGrid-hover-color: #fff;
-    
-    /* Cover */
-    --ImageGrid-cover-background: #600303;
-    --ImageGrid-cover-color: #fff;
-}
-
 /* @define ImageGrid */
 .ImageGrid {
     margin-top: 20px;

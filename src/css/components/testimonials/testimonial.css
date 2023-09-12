@@ -2,23 +2,6 @@
     Testimonials (Collection Widget)
 \* =========================================================================== */
 
-:root {
-    --Testimonial-spacing: 20px;
-    --Testimonial-borderWidth: 1px;
-    --Testimonial-borderColor: var(--base-typography-color);
-    
-    /* Title */
-    --Testimonial-title-fontSize: 2.2rem;
-    --Testimonial-title-fontWeight: 700;
-    --Testimonial-title-marginBottom: 10px;
-    
-    /* Sidebar */
-    --Testimonial-sidebar-background: var(--color-primary);
-    --Testimonial-sidebar-color: #fff;
-    --Testimonial-sidebar-padding: 20px;
-    --Testimonial-sidebar-borderRadius: 5px;
-}
-
 /* @define Testimonial */
 .Testimonial {
     border-bottom: var(--Testimonial-borderWidth) solid var(--Testimonial-borderColor);

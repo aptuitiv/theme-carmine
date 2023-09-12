@@ -2,25 +2,6 @@
     Featured Content
 \* =========================================================================== */
 
-:root {
-    --FeaturedContent-background: var(--color-primary);
-    
-    /* Content */
-    --FeaturedContent-content-heading-color: #efdbd5;
-    --FeaturedContent-content-color: #fff;
-    
-    /* Button */
-    --FeaturedContent-button-background: #fff;
-    --FeaturedContent-button-color: var(--color-primary);
-    
-    /* Button (hover) */
-    --FeaturedContent-button-backgroundHover: #7a0504;
-    --FeaturedContent-button-colorHover: #fff;
-    
-    /* Link */
-    --FeaturedContent-link-colorHover: #c3b4af;
-}
-
 /* @define FeaturedContent */
 .FeaturedContent {
     background: var(--FeaturedContent-background);

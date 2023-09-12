@@ -2,15 +2,6 @@
     ListCard styles (mostly used in recent calendar events list CBE
 \* =========================================================================== */
 
-:root {
-    --ListCard-borderRadius: 10px;
-    
-    /* Header */
-    --ListCard-header-background: var(--color-primary);
-    --ListCard-header-color: #fff;
-    --ListCard-header-color--hover: #fff;
-}
-
 /* ------------------------------------ *\
     ListCard
 \* ------------------------------------ */

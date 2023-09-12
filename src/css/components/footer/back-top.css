@@ -2,11 +2,6 @@
     Back to Top link
 \* =========================================================================== */
 
-:root {
-    --BackTop-background: #bb6519;
-    --BackTop-color: #fff;
-}
-
 /* @define BackTop */
 .BackTop {
     background: var(--BackTop-background);

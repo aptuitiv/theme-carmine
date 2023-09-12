@@ -2,29 +2,6 @@
     Image Slider
 \* =========================================================================== */
 
-:root {
-    --ImageSlider-background: #f2f2f2;
-    --ImageSlider-color: var(--theme-typography-color);
-    
-    /* Title */
-    --ImageSlider-title-fontSize: 1.2em;
-    --ImageSlider-title-fontWeight: 300;
-    --ImageSlider-title-background: var(--color-primary);
-    --ImageSlider-title-color: #fff;
-    
-    /* Title (hover) */
-    --ImageSlider-title-backgroundHover: #7a0504;
-    --ImageSlider-title-colorHover: #fff;
-    
-    /* Hover */
-    --ImageSlider-hover-background: #7a0504;
-    --ImageSlider-hover-color: #fff;
-    
-    /* Cover */
-    --ImageSlider-cover-background: rgba(162, 21, 20, .5);
-    --ImageSlider-cover-color: #fff;
-}
-
 /* @define ImageSlider */
 .ImageSlider {
     background: var(--ImageSlider-background);
