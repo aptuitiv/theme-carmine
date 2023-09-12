@@ -22,6 +22,5 @@
 @import './search';
 @import './staff';
 @import './store/';
-@import './store-locations';
 @import './notification';
 @import './testimonials';
