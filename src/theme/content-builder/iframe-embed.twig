@@ -1,4 +1,12 @@
-<div class="FlexEmbed u-margBottom2">
+{% set id = "js-iframe--" ~ random_string() %}
+<div class="FlexEmbed u-margBottom2 {{ id }}">
     <div class="FlexEmbed-ratio FlexEmbed-ratio--{{ embedRatio }}"></div>
-    <iframe class="FlexEmbed-content" frameborder="0" title="{{ title ?: "Embedded iframe" }}" allowfullscreen src="{{ iframeTag.src }}" loading="lazy"></iframe>
+    {% inlinejs %}
+        loadjs.ready('main', {
+            success: function() {
+                const element = document.querySelector(".{{ id }}");
+                loadIframeOnObserve(element, "{{ iframeTag.src }}", "{{ title ?: "Embedded iframe" }}", "FlexEmbed-content");
+            }
+        });
+    {% endinlinejs %}
 </div>
