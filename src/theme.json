@@ -2631,6 +2631,18 @@
             {
                 "title": "Small Button",
                 "class": "Button Button--sm"
+            },
+            {
+                "title": "Alt Button",
+                "class": "Button Button--secondary"
+            },
+            {
+                "title": "Alt Button Large",
+                "class": "Button Button--secondary Button--lg"
+            },
+            {
+                "title": "Alt Button Small",
+                "class": "Button Button--secondary Button--sm"
             }
         ],
         "tinymce_link_rel": [
@@ -4883,6 +4895,18 @@
                     },
                     "children": [
                         {
+                            "key": "image",
+                            "name": "Image",
+                            "description": "",
+                            "type": "image",
+                            "size": "medium",
+                            "value": "",
+                            "configuration": {
+                                "path": "/images/banner",
+                                "width": 2000
+                            }
+                        },
+                        {
                             "key": "imageEffect",
                             "name": "Image effect",
                             "description": "",
@@ -4909,58 +4933,6 @@
                                 {
                                     "value": "Grayscale",
                                     "default": false
-                                }
-                            ]
-                        },
-                        {
-                            "key": "images",
-                            "name": "Image",
-                            "description": "",
-                            "type": "imageSet",
-                            "size": "medium",
-                            "value": "",
-                            "configuration": {
-                                "imgSetSingleUpload": "single"
-                            },
-                            "children": [
-                                {
-                                    "key": "large",
-                                    "name": "Large",
-                                    "description": "",
-                                    "type": "image",
-                                    "size": "medium",
-                                    "value": "",
-                                    "configuration": {
-                                        "height": 720,
-                                        "path": "/images/header",
-                                        "width": 2000
-                                    }
-                                },
-                                {
-                                    "key": "medium",
-                                    "name": "Medium",
-                                    "description": "",
-                                    "type": "image",
-                                    "size": "medium",
-                                    "value": "",
-                                    "configuration": {
-                                        "height": 432,
-                                        "path": "/images/header",
-                                        "width": 1200
-                                    }
-                                },
-                                {
-                                    "key": "small",
-                                    "name": "Small",
-                                    "description": "",
-                                    "type": "image",
-                                    "size": "medium",
-                                    "value": "",
-                                    "configuration": {
-                                        "height": 216,
-                                        "path": "/images/header",
-                                        "width": 600
-                                    }
                                 }
                             ]
                         },
