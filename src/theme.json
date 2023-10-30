@@ -22,6 +22,62 @@
                 "display_order": "1",
                 "elements": [
                     {
+                        "key": "accordion",
+                        "name": "Accordion",
+                        "type": "full",
+                        "template": "accordion",
+                        "enabled": true,
+                        "parse": true,
+                        "description": "",
+                        "fields": [
+                            {
+                                "key": "expandFirstItem",
+                                "name": "Expand first item",
+                                "type": "selectYesNo",
+                                "value": "yes",
+                                "description": "",
+                                "configuration": {
+                                    "optionLabel": "yesNo"
+                                }
+                            },
+                            {
+                                "key": "items",
+                                "name": "Items",
+                                "type": "repeating",
+                                "value": "",
+                                "description": "",
+                                "fields": [
+                                    {
+                                        "key": "heading",
+                                        "name": "Heading",
+                                        "type": "text",
+                                        "size": "medium",
+                                        "value": "",
+                                        "description": "",
+                                        "configuration": {
+                                            "allowCode": "no"
+                                        }
+                                    },
+                                    {
+                                        "key": "content",
+                                        "name": "Content",
+                                        "type": "richTextEditor",
+                                        "value": "",
+                                        "description": ""
+                                    }
+                                ],
+                                "configuration": {
+                                    "collectionItemDelete": "1",
+                                    "collectionItemName": "Item",
+                                    "collectionItemSort": "1",
+                                    "collectionMaxNumItems": "",
+                                    "collectionMinNumItems": "",
+                                    "collectionOrientation": "vertical"
+                                }
+                            }
+                        ]
+                    },
+                    {
                         "key": "columned-feature",
                         "name": "Columned Feature",
                         "type": "full",
@@ -2064,6 +2120,10 @@
         {
             "key": "content-builder/testimonials",
             "name": "Testimonials"
+        },
+        {
+            "key": "content-builder/accordion",
+            "name": "Accordion"
         },
         {
             "key": "content-layouts/banner",

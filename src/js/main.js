@@ -51,6 +51,7 @@ const setupNotifications = () => {
 const init = () => {
     smallScreenNav.init();
     navAccess.init();
+    accordion.init();
     setupNotifications();
 
     const link = document.querySelector('.js-btop');

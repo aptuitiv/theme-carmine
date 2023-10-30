@@ -1,0 +1,88 @@
+/* =========================================================================== *\
+    Accordion
+\* =========================================================================== */
+
+/* :root {
+    --Accordion-color: #841b12;
+    --Accordion-icon-margin: 10px;
+    --Accordion-icon-width: 12px;
+} */
+
+/* @define Accordion */
+.Accordion {
+    border-bottom: 1px solid var(--Accordion-color);
+    page-break-inside: avoid;
+}
+
+.Accordion:last-child {
+    border: none;
+}
+
+.Accordion-heading {
+    align-items: center;
+    color: var(--Accordion-color);
+    cursor: pointer;
+    display: flex;
+    font-size: 24px;
+    margin: 10px 0;
+    padding: 6px 0;
+    transition: .1s;
+}
+
+.Accordion-icon {
+    display: inline-block;
+    height: var(--Accordion-icon-width);
+    margin-left: var(--Accordion-icon-margin);
+    position: relative;
+    transition: .3s;
+    vertical-align: middle;
+    width: var(--Accordion-icon-width);
+}
+
+.Accordion-icon::after,
+.Accordion-icon::before {
+    background: var(--Accordion-color);
+    content: '';
+    height: 3px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    transition: all .35s ease-in-out;
+    width: var(--Accordion-icon-width);
+}
+
+.Accordion-icon::before {
+    transform: translateY(-50%) translateX(-50%) rotate(90deg);
+}
+
+.Accordion-content {
+    box-sizing: border-box;
+    height: auto;
+    overflow: hidden;
+    transition: all .25s ease-in-out;
+}
+
+/**
+ * States
+ */
+
+.Accordion[data-collapsed='initial'] .Accordion-content {
+    height: 0;
+}
+
+.Accordion[data-collapsed='yes'] .Accordion-content {
+    opacity: 0;
+}
+
+.Accordion[data-collapsed='no'] .Accordion-content {
+    opacity: 1;
+}
+
+.Accordion[data-collapsed='no'] .Accordion-icon {
+    transform: rotate(360deg);
+}
+
+.Accordion[data-collapsed='no'] .Accordion-icon::before {
+    transform: translateY(-50%) translateX(-50%) rotate(0deg);
+}

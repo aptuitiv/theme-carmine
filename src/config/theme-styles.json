@@ -1,6 +1,46 @@
 {
     "groups": [
         {
+            "name": "Accordion",
+            "description": "Styles for the \"Accordion\" block.",
+            "fields": [
+                {
+                    "name": "accordionColor",
+                    "label": "Text color",
+                    "type": "color",
+                    "default": "#841b12",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Accordion-color"
+                    }
+                },
+                {
+                    "name": "accordionIconMargin",
+                    "label": "Margin",
+                    "type": "stepper",
+                    "after": "px",
+                    "default": "10",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Accordion-icon-margin",
+                        "template": "{{ value }}px"
+                    }
+                },
+                {
+                    "name": "accordionIconWidth",
+                    "label": "Icon width",
+                    "type": "stepper",
+                    "after": "px",
+                    "default": "12",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Accordion-icon-width",
+                        "template": "{{ value }}px"
+                    }
+                }
+            ]
+        },
+        {
             "name": "Back to Top",
             "description": "Styles for the Back to Top button in the footer.",
             "fields": [
