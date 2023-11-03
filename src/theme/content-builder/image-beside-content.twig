@@ -25,19 +25,40 @@
         {% set imagePush = 'u-push1of2 u-md-pushNone' %}
         {% set contentPull = 'u-pull1of2 u-md-pullNone' %}
     {% endif %}
-
     {% if image.alt|length == 0 %}
         {% set image.alt = heading %}
     {% endif %}
 {% endif %}
 <div class="Grid Grid--withGutter u-margBottom3">
     {% if image %}
-        <div class="Grid-cell {{ imageCol }}{% if alignImage == 'Right' %} {{ imagePush }}{% endif %}"><div class="u-md-hide">{% if link %}<a href="{{ link }}">{% endif %}{{ image.tag }}{% if link %}</a>{% endif %}</div></div>
+        <div class="Grid-cell {{ imageCol }}{% if alignImage == 'Right' %} {{ imagePush }}{% endif %}">
+            <div class="u-md-hide">
+                {% if link %}
+                    <a href="{{ link }}">{{ image.tag }}</a>
+                {% else %}
+                    {{ image.tag }}
+                {% endif %}
+            </div>
+        </div>
     {% endif %}
     <div class="Grid-cell {{ contentCol }}{% if alignImage == 'Right' %} {{ contentPull }}{% endif %}">
-        <h2 class="u-margBottom1">{% if link %}<a href="{{ link }}" class="u-linkSubtle">{% endif %}{{ heading }}{% if link %}</a>{% endif %}</h2>
+        {% if heading %}
+            <h2 class="u-margBottom1">
+                {% if link %}
+                    <a href="{{ link }}" class="u-linkSubtle">{{ heading }}</a>
+                {% else %}
+                    {{ heading }}
+                {% endif %}
+            </h2>
+        {% endif %}
         {% if image %}
-            <div class="u-hidden u-md-show">{% if link %}<a href="{{ link }}">{% endif %}{{ image.tag }}{% if link %}</a>{% endif %}</div>
+            <div class="u-hidden u-md-show u-md-margBottom2">
+                {% if link %}
+                    <a href="{{ link }}">{{ image.tag }}</a>
+                {% else %}
+                    {{ image.tag }}
+                {% endif %}
+            </div>
         {% endif %}
         {{ content }}
         {% if link %}
