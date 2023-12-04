@@ -1,6 +1,6 @@
 {
-  "name": "aptuitiv-theme-skeleton",
-  "version": "1.0.0",
+  "name": "aptuitiv-theme-carmine",
+  "version": "2.0.0",
   "description": "",
   "exports": "./gulpfile.js",
   "author": "Aptuitiv, Inc <hello@aptuitiv.com>",
