@@ -1,0 +1,111 @@
+/* =========================================================================== *\
+    Banner
+\* =========================================================================== */
+
+/* :root {
+    --Banner-color: #fff;
+    --Banner-overlay: #1d26306e;
+    --Banner-background: #00263e;
+    
+    --Banner-paddingTop: 200px;
+    --Banner-paddingBottom: 80px;
+    --Banner-paddingHorizontal: 100px;
+    
+    --Banner-paddingTop--sm: 100px;
+    --Banner-paddingBottom--sm: 50px;
+    --Banner-paddingHorizontal--sm: 50px;
+    
+    --Banner-paddingTop--noImage: 100px;
+    --Banner-paddingBottom--noImage: 50px;
+    --Banner-paddingHorizontal--noImage: 50px;
+    
+    --Banner-paddingTop--noImageSm: 50px;
+    --Banner-paddingBottom--noImageSm: 50px;
+    --Banner-paddingHorizontal--noImageSm: 50px;
+    
+    --Banner-title-fontSize: 6.5rem;
+    --Banner-title-fontSize--sm: 3.5rem;
+    --Banner-title-fontWeight: 600;
+    --Banner-title-lineHeight: 1.2;
+    --Banner-title-letterSpacing: 0;
+    --Banner-title-textTransform: uppercase;
+    --Banner-title-textAlign: left;
+} */
+
+/* @define Banner */
+.Banner {
+    overflow: hidden;
+    position: relative;
+}
+
+.Banner-bg {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.Banner-picture {
+    height: 100%;
+}
+
+.Banner-image,
+.Banner-video {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.Banner-fg {
+    background-color: var(--Banner-overlay);
+    padding: var(--Banner-paddingTop--sm) var(--Banner-paddingHorizontal--sm) var(--Banner-paddingBottom--sm);
+    position: relative;
+    z-index: 20;
+}
+
+.Banner-fg * {
+    color: var(--Banner-color);
+}
+
+.Banner-fg--noImage {
+    background-color: var(--Banner-background);
+    padding: var(--Banner-paddingTop--noImageSm) var(--Banner-paddingHorizontal--noImageSm) var(--Banner-paddingBottom--noImageSm);
+}
+
+.Banner-title {
+    font-size: var(--Banner-title-fontSize--sm);
+    font-weight: var(--Banner-title-fontWeight);
+    letter-spacing: var(--Banner-title-letterSpacing);
+    line-height: var(--Banner-title-lineHeight);
+    margin-bottom: 0;
+    text-align: var(--Banner-title-textAlign);
+    text-transform: var(--Banner-title-textTransform);
+}
+
+.Banner-title--left {
+    text-align: left !important;
+}
+
+.Banner-title--center {
+    text-align: center !important;
+}
+
+.Banner-title--right {
+    text-align: right !important;
+}
+
+@media (--c-bp-lg) {
+    .Banner-fg {
+        padding: var(--Banner-paddingTop) var(--Banner-paddingHorizontal) var(--Banner-paddingBottom);
+    }
+    
+    .Banner-fg--noImage {
+        padding: var(--Banner-paddingTop--noImage) var(--Banner-paddingHorizontal--noImage) var(--Banner-paddingBottom--noImage);
+    }
+    
+    .Banner-title {
+        font-size: var(--Banner-title-fontSize);
+    }
+}

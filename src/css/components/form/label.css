@@ -1,0 +1,23 @@
+/* =========================================================================== *\
+    Field Label
+\* =========================================================================== */
+
+/* :root {
+    --FormLabel-fontSize: 1.8rem;
+    --FormLabel-fontWeight: 400;
+    --FormLabel-lineHeight: 1.2;
+    --FormLabel-textTransform: uppercase;
+    --FormLabel-marginBottom: 5px;
+} */
+
+.FormLabel {
+    font-size: var(--FormLabel-fontSize);
+    font-weight: var(--FormLabel-fontWeight);
+    line-height: var(--FormLabel-lineHeight);
+    margin-bottom: var(--FormLabel-marginBottom);
+    text-transform: var(--FormLabel-textTransform);
+}
+
+.FormLabel--block {
+    display: block;
+}

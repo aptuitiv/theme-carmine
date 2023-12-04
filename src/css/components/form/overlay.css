@@ -1,0 +1,38 @@
+/* =========================================================================== *\
+    Form Overlay
+\* =========================================================================== */
+
+/* :root {
+    --FormOverlay-fontSize: 3rem;
+    --FormOverlay-fontWeight: 700;
+    --FormOverlay-lineHeight: 2;
+    --FormOverlay-textTransform: uppercase;
+    --FormOverlay-background: #000000b3;
+    --FormOverlay-color: #fff;
+} */
+
+/* @define FormOverlay */
+.FormOverlay {
+    background-color: var(--FormOverlay-background);
+    color: var(--FormOverlay-color);
+    display: none;
+    font-size: var(--FormOverlay-fontSize);
+    font-weight: var(--FormOverlay-fontWeight);
+    height: 100%;
+    left: 0;
+    line-height: var(--FormOverlay-lineHeight);
+    position: fixed;
+    text-transform: var(--FormOverlay-textTransform);
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.FormOverlay-text {
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}

@@ -1,0 +1,20 @@
+/* =========================================================================== *\
+    Text Input
+\* =========================================================================== */
+
+/* @define TextInput */
+.TextInput {
+    background: var(--TextInput-background);
+    border: var(--TextInput-borderWidth) solid var(--TextInput-borderColor);
+    border-radius: var(--TextInput-borderRadius);
+    box-sizing: border-box;
+    color: var(--TextInput-color);
+    outline: none;
+    padding: var(--TextInput-paddingVertical) var(--TextInput-paddingHorizontal);
+    width: 100%;
+}
+
+.TextInput:focus {
+    outline: var(--TextInput-borderWidth) dotted var(--TextInput-borderColor);
+    outline: auto 5px -webkit-focus-ring-color;
+}

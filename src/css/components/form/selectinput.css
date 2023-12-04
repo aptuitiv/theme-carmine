@@ -1,0 +1,51 @@
+/* =========================================================================== *\
+    Select Input
+\* =========================================================================== */
+
+/* @define SelectInput */
+.SelectInput {
+    background: var(--SelectInput-background);
+    border: var(--SelectInput-borderWidth) solid var(--SelectInput-borderColor);
+    border-radius: var(--SelectInput-borderRadius);
+    box-sizing: border-box;
+    color: var(--SelectInput-color);
+    display: inline-block;
+    outline: none;
+    padding: var(--SelectInput-paddingVertical) var(--SelectInput-paddingHorizontal);
+    position: relative;
+    width: 100%;
+}
+
+/* ------------------------------------ *\
+    Arrow
+\* ------------------------------------ */
+
+.SelectInput::before {
+    background: none;
+    border: 6px solid;
+    border-color: var(--SelectInput-color) transparent transparent transparent;
+    content: '';
+    height: 0;
+    padding: 0;
+    position: absolute;
+    right: .6rem;
+    top: 50%;
+    transform: translateY(-25%);
+    width: 0;
+}
+
+/* ------------------------------------ *\
+    Select Input Reset
+\* ------------------------------------ */
+
+.SelectInput > select {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
+    display: block;
+    margin: 0;
+    outline: 0;
+    position: relative;
+    width: 100%;
+}

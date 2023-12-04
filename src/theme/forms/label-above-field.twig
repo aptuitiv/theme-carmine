@@ -1,0 +1,15 @@
+{% import 'macros/form-macros.twig' as macros %}
+
+{{ macros.formSuccessMessage(form) }}
+
+{% set form.class = 'js-form' ~ random_string() %}
+{{ form.openTag }}
+    {{ macros.formErrorContainer(form) }}
+    {{ macros.buildLabelAboveFieldFields(form) }}
+    {{ macros.captcha(form) }}
+    
+    <p class="mb-1"><em>* Required Fields</em></p>
+    <p><button type="submit" class="Button Button--lg">{{ form.submitButtonText }}</button></p>
+{{ form.closeTag }}
+
+{{ macros.formValidateHandlerJs(form) }}

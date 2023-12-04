@@ -1,0 +1,32 @@
+/* =========================================================================== *\
+    Container
+\* =========================================================================== */
+
+:root {
+    --Container-narrow-width: 900px;
+    --Container-small-width: 600px;
+}
+
+/* @define Container */
+.Container {
+    margin: 0 auto;
+    max-width: var(--Container-width);
+}
+
+.Container--pad {
+    max-width: calc(var(--Container-width) + 60px);
+    padding: 0 30px;
+}
+
+.Container--pad .Container--pad {
+    padding: 0;
+}
+
+.Container--narrow {
+    max-width: calc(var(--Container-narrow-width) + 60px);
+    padding: 0 30px;
+}
+
+.Container--small {
+    max-width: var(--Container-small-width);
+}

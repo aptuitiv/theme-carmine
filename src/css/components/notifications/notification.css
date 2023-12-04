@@ -1,0 +1,44 @@
+/* =========================================================================== *\
+    Notifications
+\* =========================================================================== */
+
+/* @define Notification */
+.Notification {
+    background-color: var(--Notification-background);
+    color: var(--Notification-color);
+    font-size: var(--Notification-fontSize);
+    padding: var(--Notification-paddingVertical) var(--Notification-paddingHorizontal);
+    text-align: center;
+}
+
+.Notification a {
+    color: var(--Notification-color);
+    text-decoration: underline;
+}
+
+.Notification a:focus-visible {
+    color: var(--Notification-color);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Notification a:hover {
+        color: var(--Notification-color);
+    }
+}
+
+.Notification-close {
+    background-color: transparent;
+    border: none;
+    color: var(--Notification-color);
+    display: flex;
+    font-size: var(--Notification-close-fontSize);
+    padding: 0;
+}
+
+.Notification-icon {
+    margin: 0 !important;
+}
+
+.Notification-placeholder {
+    width: var(--Notification-close-fontSize);
+}

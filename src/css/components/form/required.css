@@ -1,0 +1,12 @@
+/* =========================================================================== *\
+    Required Asterisk
+\* =========================================================================== */
+
+/* :root {
+    --FormRequired-color: #b2130c;
+} */
+
+/* @define FormRequired */
+.FormRequired {
+    color: var(--FormRequired-color);
+}

@@ -1,0 +1,15 @@
+{% set id = "js-iframe--" ~ random_string() %}
+<div class="Container Container--pad">
+    {% for url in embedUrl.urlInfo %}
+        <div class="embed my-5 aspect-{{ embedRatio|replace(':', '-') }} {{ id }}">
+            {% inlinejs %}
+                loadjs.ready('main', {
+                    success: function() {
+                        const element = document.querySelector(".{{ id }}");
+                        loadIframeOnObserve(element, "{{ url.iframeEmbed.src }}", "{{ url.title ?: "Embedded Media" }}");
+                    }
+                });
+            {% endinlinejs %}
+        </div>
+    {% endfor %}
+</div>

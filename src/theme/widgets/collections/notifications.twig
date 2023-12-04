@@ -1,0 +1,34 @@
+{% nevercache %}
+    {% verbatim %}
+        {% if items|length > 0 %}
+            {# Get notification cookie IDs #}
+            {% set cookieIds = [] %}
+            {% for cookieName in _page.cookies|keys %}
+                {% if cookieName starts with "notificationMsgHide" %}
+                    {% set cookieId = cookieName|split('notificationMsgHide')|last %}
+                    {% set cookieIds = cookieIds|merge([cookieId]) %}
+                {% endif %}
+            {% endfor %}
+            
+            {# Get notification #}
+            {% set notification = items|first %}
+            
+            {# Check if notification cookie is not present #}
+            {% if notification.id not in cookieIds %}
+                <div class="Notification js-notification" data-id="{{ notification.id }}">
+                    <div class="Container">
+                        <div class="flex justify-between align-center gx-2">
+                            <div class="Notification-placeholder"></div>
+                            <div class="last-child-sb-0">
+                                {{ notification.message }}
+                            </div>
+                            <button class="Notification-close js-notificationClose" aria-label="close">
+                                <svg class="Icon Notification-icon"><use xlink:href="#icon-close" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endverbatim %}
+{% endnevercache %}

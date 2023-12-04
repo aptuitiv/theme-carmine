@@ -1,0 +1,65 @@
+/* =========================================================================== *\
+    Footer
+\* =========================================================================== */
+
+/* :root {
+    --Footer-background: #00263e;
+    --Footer-color: #fff;
+    --Footer-color--hover: #fff;
+    --Footer-paddingVertical: 80px;
+    --Footer-paddingHorizontal: 160px;
+    --Footer-paddingVertical--sm: 50px;
+    --Footer-paddingHorizontal--sm: 50px;
+} */
+
+/* @define Footer */
+.Footer {
+    background-color: var(--Footer-background);
+    color: var(--Footer-color);
+    padding: var(--Footer-paddingVertical--sm) var(--Footer-paddingHorizontal--sm);
+}
+
+.Footer * {
+    color: var(--Footer-color);
+    text-decoration: none;
+}
+
+.Footer a:focus-visible {
+    color: var(--Footer-color--hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Footer a:hover {
+        color: var(--Footer-color--hover);
+    }
+}
+
+.Footer-logo {
+    margin-top: 70px;
+    max-width: var(--Footer-logo-width);
+    width: 100%;
+}
+
+.Footer-socialLink {
+    align-items: center;
+    aspect-ratio: 1/1;
+    border: 2px solid var(--Footer-color);
+    border-radius: 50%;
+    display: inline-flex;
+    height: 30px;
+    justify-content: center;
+}
+
+/* ------------------------------------ *\
+    Responsive
+\* ------------------------------------ */
+
+@media (--c-bp-lg) {
+    .Footer {
+        padding: var(--Footer-paddingVertical) var(--Footer-paddingHorizontal);
+    }
+    
+    .Footer-logo {
+        margin-top: 0;
+    }
+}

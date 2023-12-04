@@ -1,0 +1,111 @@
+/* =========================================================================== *\
+    Image Slider Block
+\* =========================================================================== */
+
+/* :root {
+    --Slider-content-paddingVertical: 20px;
+    --Slider-content-paddingHorizontal: 20px;
+    --Slider-content-fontSize: 2rem;
+    --Slider-content-fontWeight: 700;
+    --Slider-content-lineHeight: 1.2;
+    --Slider-content-textTransform: none;
+    --Slider-content-background: #fff;
+    --Slider-content-color: #333;
+    --Slider-content-background--hover: #333;
+    --Slider-content-color--hover: #fff;
+    
+    --Slider-arrow-background: #fff;
+    --Slider-arrow-color: #333;
+    --Slider-arrow-background--hover: #333;
+    --Slider-arrow-color--hover: #fff;
+} */
+
+/* @define Slider */
+.Slider {
+    padding: 0 50px;
+}
+
+.Slider-wrapper,
+.Slider-wrapper:focus-visible {
+    text-decoration: none;
+}
+
+.Slider-content {
+    background-color: var(--Slider-content-background);
+    color: var(--Slider-content-color);
+    font-size: var(--Slider-content-fontSize);
+    font-weight: var(--Slider-content-fontWeight);
+    line-height: var(--Slider-content-lineHeight);
+    padding: var(--Slider-content-paddingVertical) var(--Slider-content-paddingHorizontal);
+    text-align: center;
+    text-transform: var(--Slider-content-textTransform);
+    transition: all 250ms;
+}
+
+.Slider-wrapper:focus-visible .Slider-content {
+    background-color: var(--Slider-content-background--hover);
+    color: var(--Slider-content-color--hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Slider-wrapper:hover {
+        text-decoration: none;
+    }
+    
+    .Slider-wrapper:hover .Slider-content {
+        background-color: var(--Slider-content-background--hover);
+        color: var(--Slider-content-color--hover);
+    }
+}
+
+/* ------------------------------------ *\
+    Overrides
+\* ------------------------------------ */
+
+/* postcss-bem-linter: ignore */
+.Slider .splide__arrow {
+    background: var(--Slider-arrow-background);
+    border-radius: 0;
+    height: 100%;
+    opacity: 1 !important;
+    transition: all 250ms;
+    width: 50px;
+}
+
+/* postcss-bem-linter: ignore */
+.Slider .splide__arrow svg {
+    fill: var(--Slider-arrow-color);
+}
+
+/* postcss-bem-linter: ignore */
+.Slider .splide__arrow:focus-visible {
+    background: var(--Slider-arrow-background--hover);
+}
+
+/* postcss-bem-linter: ignore */
+.Slider .splide__arrow:focus-visible svg {
+    fill: var(--Slider-arrow-color--hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    /* postcss-bem-linter: ignore */
+    .Slider .splide__arrow:hover {
+        background: var(--Slider-arrow-background--hover);
+    }
+    
+    /* postcss-bem-linter: ignore */
+    .Slider .splide__arrow:hover svg {
+        fill: var(--Slider-arrow-color--hover);
+    }
+}
+
+/* postcss-bem-linter: ignore */
+.Slider .splide__arrow--prev {
+    left: 0;
+}
+
+/* postcss-bem-linter: ignore */
+.Slider .splide__arrow--next {
+    right: 0;
+}

@@ -1,0 +1,162 @@
+{
+    "groups": [
+        {
+            "name": "Banner Images",
+            "description": "These settings change the behavior of banner images before a user loads them. This allows for more optimized images.",
+            "sidebarSize": "medium",
+            "fields": [
+                {
+                    "name": "bannerImageSizes",
+                    "label": "Image Sizes",
+                    "type": "repeatingGrid",
+                    "description": "Make sure the first image below is the largest image width in the set.",
+                    "itemName": "Image",
+                    "children": [
+                        {
+                            "name": "maxWidth",
+                            "label": "Max width",
+                            "type": "stepper",
+                            "after": "px"
+                        },
+                        {
+                            "name": "maxHeight",
+                            "label": "Max height",
+                            "type": "stepper",
+                            "after": "px"
+                        }
+                    ]
+                },
+                {
+                    "name": "bannerImageCrop",
+                    "label": "Banner crop",
+                    "description": "The crop style for banner images on small screens.",
+                    "type": "select",
+                    "default": "center",
+                    "options": {
+                        "left": "Left",
+                        "center": "Center",
+                        "right": "Right"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Footer",
+            "description": "Content for the footer that is used on all pages",
+            "fields": [
+                {
+                    "name": "footerLogo",
+                    "label": "Logo",
+                    "type": "image",
+                    "path": "images",
+                    "default": "/theme/custom/images/logo.svg"
+                },
+                {
+                    "name": "footerLogoWidth",
+                    "label": "Logo width",
+                    "type": "stepper",
+                    "after": "px",
+                    "default": "425",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Footer-logo-width",
+                        "template": "{{ value }}px"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Header",
+            "description": "Content for the header that is used on all pages",
+            "fields": [
+                {
+                    "name": "headerLogo",
+                    "label": "Logo",
+                    "type": "image",
+                    "path": "images",
+                    "preview": {
+                        "type": "replace",
+                        "contentSelector": ".Header-logo",
+                        "template": "<img src=\"{{ url }}\" height=\"{{ imageHeight }}\" width=\"{{ imageWidth }}\" alt=\"{{ alt }}\" class=\"Header-logo\">"
+                    }
+                },
+                {
+                    "name": "headerLogoWidth",
+                    "label": "Logo width",
+                    "type": "stepper",
+                    "after": "px",
+                    "default": "425",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--Header-logo-width",
+                        "template": "{{ value }}px"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Social Icons",
+            "description": "Set the links and icons to use for your social networks in the footer of each page.",
+            "fields": [
+                {
+                    "name": "social",
+                    "label": "Social Networks",
+                    "type": "repeatingGrid",
+                    "itemName": "Social Network",
+                    "children": [
+                        {
+                            "name": "icon",
+                            "label": "Icon",
+                            "type": "select",
+                            "options": {
+                                "facebook": "Facebook",
+                                "instagram": "Instagram",
+                                "linkedin": "LinkedIn",
+                                "pinterest": "Pinterest",
+                                "twitter": "Twitter",
+                                "youtube": "YouTube"
+                            },
+                            "columnWidth": "1fr"
+                        },
+                        {
+                            "name": "url",
+                            "label": "URL to your page on this social network",
+                            "type": "text",
+                            "columnWidth": "2fr"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Popup on Load",
+            "description": "Options for the optional popup that shows on page load.",
+            "fields": [
+                {
+                    "name": "popupDisplay",
+                    "label": "Display the popup",
+                    "type": "switch"
+                },
+                {
+                    "name": "popupSeconds",
+                    "label": "Seconds to wait before showing the popup",
+                    "type": "stepper",
+                    "after": "seconds",
+                    "default": "5"
+                },
+                {
+                    "name": "popupCookieExpiration",
+                    "label": "Number of days to show popup again after closing",
+                    "type": "stepper",
+                    "after": "days",
+                    "default": "30"
+                },
+                {
+                    "name": "popupContent",
+                    "label": "Content",
+                    "type": "richTextEditor"
+                }
+            ]
+        }
+    ]
+}

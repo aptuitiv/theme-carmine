@@ -1,0 +1,20 @@
+{% include 'snippets/header' %}
+
+{% block banner %}
+    {{ _page.content('banner') }}
+{% endblock %}
+
+<div class="Container Container--pad">
+    <div class="py-3">
+        <div class="grid">
+            <div class="col-1-1 col-lg-3-4">
+                <main>{% block main _page.content() %}</main>
+            </div>
+            <div class="col-1-1 col-lg-1-4">
+                <aside>{% block sidebar _page.content("sidebar") %}</aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'snippets/footer' %}

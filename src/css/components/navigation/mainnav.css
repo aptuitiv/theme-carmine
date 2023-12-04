@@ -1,0 +1,91 @@
+/* =========================================================================== *\
+    Main Navigation
+\* =========================================================================== */
+
+/* :root {
+    --MainNav-fontFamily: inherit;
+    --MainNav-fontSize: 1.6rem;
+    --MainNav-lineHeight: 1.2;
+    --MainNav-textTransform: uppercase;
+    
+    --MainNav-item-gap: 10px;
+    --MainNav-item-paddingVertical: 0;
+    --MainNav-item-paddingHorizontal: 25px;
+    --MainNav-item-paddingVertical--sm: 10px;
+    --MainNav-item-paddingHorizontal--sm: 25px;
+    --MainNav-item-fontWeight: 400;
+    --MainNav-item-letterSpacing: 0;
+    
+    --MainNav-link-background: transparent;
+    --MainNav-link-color: #00263E;
+    
+    --MainNav-link-background--hover: transparent;
+    --MainNav-link-color--hover: #6AAC44;
+} */
+
+/* @define MainNav */
+.MainNav {
+    align-items: center;
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: var(--MainNav-fontFamily);
+    font-size: var(--MainNav-fontSize);
+    gap: var(--MainNav-item-gap);
+    justify-content: center;
+    line-height: var(--MainNav-lineHeight);
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    text-transform: var(--MainNav-textTransform);
+}
+
+.MainNav-item {
+    font-weight: var(--MainNav-item-fontWeight);
+    letter-spacing: var(--MainNav-item-letterSpacing);
+    width: 100%;
+}
+
+.MainNav-link {
+    background: var(--MainNav-link-background);
+    box-sizing: border-box;
+    color: var(--MainNav-link-color);
+    display: block;
+    padding: var(--MainNav-item-paddingVertical--sm) var(--MainNav-item-paddingHorizontal--sm);
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+
+.MainNav-item.is-current > .MainNav-link,
+.MainNav-item.is-currentParent > .MainNav-link,
+.MainNav-item:hover > .MainNav-link {
+    background: var(--MainNav-link-background--hover);
+    color: var(--MainNav-link-color--hover);
+    text-decoration: none;
+}
+
+/* ------------------------------------ *\
+    Responsive
+\* ------------------------------------ */
+
+@media (--c-bp-xl) {
+    .MainNav {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+    }
+    
+    .MainNav-item {
+        width: unset;
+    }
+    
+    .MainNav-link {
+        padding: var(--MainNav-item-paddingVertical) var(--MainNav-item-paddingHorizontal);
+    }
+    
+    .MainNav-item--small {
+        display: none;
+    }
+}

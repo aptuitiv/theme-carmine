@@ -1,0 +1,35 @@
+{% extends "one-column" %}
+
+{% block banner %}
+    {% set title = "Search Results" %}
+    {% include("content-layouts/banner") %}
+{% endblock %}
+
+{% block main %}
+    <div class="Container Container--pad">
+        {% if totalItemCount > 0 %}
+            <p>{{ firstItemNumber }} - {{ lastItemNumber }} of {{ totalItemCount }}
+                {% if totalItemCount > 1 %}
+                    results
+                {% else %}
+                    result
+                {% endif %}
+                for "{{ searchTerm }}".
+            </p>
+            {% for result in results %}
+                <p>
+                    <a href="{{ result.url }}">{{ result.title }}</a><br>
+                    {{ result.publishDate }}<br />
+                    {% if result.content %}
+                        {{ result.content }}
+                    {% endif %}
+                </p>
+            {% endfor %}
+            {% include 'snippets/pagination' %}
+        {% else %}
+            <p>There were no results for "{{ searchTerm }}".</p>
+        {% endif %}
+        <h2>Search Again</h2>
+        {{ form.content }}
+    </div>
+{% endblock %}

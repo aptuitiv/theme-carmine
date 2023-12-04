@@ -1,0 +1,30 @@
+/* =========================================================================== *\
+    Header
+\* =========================================================================== */
+
+/* :root {
+    --Header-paddingVertical: 30px;
+    --Header-paddingHorizontal: 65px;
+    --Header-paddingVertical--sm: 20px;
+    --Header-paddingHorizontal--sm: 35px;
+} */
+
+/* @define Header */
+.Header {
+    padding: var(--Header-paddingVertical--sm) var(--Header-paddingHorizontal--sm);
+}
+
+.Header-logo {
+    max-width: var(--Header-logo-width);
+    width: 100%;
+}
+
+.Header-nav {
+    overflow: visible !important;
+}
+
+@media (--c-bp-lg) {
+    .Header {
+        padding: var(--Header-paddingVertical) var(--Header-paddingHorizontal);
+    }
+}

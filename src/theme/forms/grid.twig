@@ -1,0 +1,19 @@
+{% import 'macros/form-macros.twig' as macros %}
+
+{{ macros.formSuccessMessage(form) }}
+
+{% set form.class = 'js-form' ~ random_string() %}
+{{ form.openTag }}
+    {{ macros.formErrorContainer(form) }}
+    {{ macros.buildGridFormFields(form) }}
+    {{ macros.captcha(form) }}
+    
+    <div class="grid g-1 mb-2">
+        <div class="col-3-4 col-md-1-1 u-push1of4 u-md-pushNone">
+            <p class="mb-1"><em>* Required Fields</em></p>
+            <p><button type="submit" class="Button Button--lg col-1-1">{{ form.submitButtonText }}</button></p>
+        </div>
+    </div>
+{{ form.closeTag }}
+
+{{ macros.formValidateHandlerJs(form) }}
