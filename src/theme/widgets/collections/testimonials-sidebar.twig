@@ -1,7 +1,0 @@
-{% set item = items|shuffle|first %}
-<div class="Testimonial Testimonial--sidebar">
-    <div class="Testimonial-title">{{ item.itemName }}</div>
-    {% if item.testimonial %}
-        <div class="Testimonial-content">{{ item.testimonial }}</div>
-    {% endif %}
-</div>

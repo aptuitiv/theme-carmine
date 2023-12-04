@@ -1,5 +1,0 @@
-{% if amount != "All" %}
-    {{ _api.widgets.collection.get('testimonials').limit(amount) }}
-{% else %}
-    {{ _api.widgets.collection.get('testimonials') }}
-{% endif %}
