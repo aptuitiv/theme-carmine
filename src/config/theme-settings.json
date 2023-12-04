@@ -67,30 +67,96 @@
         },
         {
             "name": "Header",
-            "description": "Content for the header that is used on all pages",
-            "fields": [
+            "description": "Content for the header that is used on all pages.",
+            "sidebarSize": "medium",
+            "groups": [
                 {
-                    "name": "headerLogo",
-                    "label": "Logo",
-                    "type": "image",
-                    "path": "images",
-                    "preview": {
-                        "type": "replace",
-                        "contentSelector": ".Header-logo",
-                        "template": "<img src=\"{{ url }}\" height=\"{{ imageHeight }}\" width=\"{{ imageWidth }}\" alt=\"{{ alt }}\" class=\"Header-logo\">"
-                    }
+                    "name": "Image Logo",
+                    "fields": [
+                        {
+                            "name": "headerLogo",
+                            "label": "Logo",
+                            "type": "image",
+                            "path": "images",
+                            "preview": {
+                                "type": "replace",
+                                "contentSelector": ".Header-logo",
+                                "template": "<img src=\"{{ url }}\" height=\"{{ imageHeight }}\" width=\"{{ imageWidth }}\" alt=\"{{ alt }}\" class=\"Header-logo\">"
+                            }
+                        },
+                        {
+                            "name": "headerLogoWidth",
+                            "label": "Logo width",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "425",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-logo-width",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
                 },
                 {
-                    "name": "headerLogoWidth",
-                    "label": "Logo width",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "425",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Header-logo-width",
-                        "template": "{{ value }}px"
-                    }
+                    "name": "Text Logo",
+                    "description": "Alternative option to the image logo if none is available.",
+                    "fields": [
+                        {
+                            "name": "headerTextLogo",
+                            "label": "Text logo",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "name": "Buttons",
+                    "fields": [
+                        {
+                            "name": "headerButtons",
+                            "label": "Buttons",
+                            "type": "repeatingGrid",
+                            "itemName": "Button",
+                            "children": [
+                                {
+                                    "name": "button",
+                                    "label": "Button",
+                                    "type": "url",
+                                    "showLinkTextField": true,
+                                    "linkTextFieldLabel": "Button text"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Information",
+                    "fields": [
+                        {
+                            "name": "headerShowSocial",
+                            "label": "Show social",
+                            "type": "switch",
+                            "default": "yes"
+                        },
+                        {
+                            "name": "headerShowPhone",
+                            "label": "Show phone",
+                            "type": "switch",
+                            "default": "yes"
+                        },
+                        {
+                            "name": "headerShowEmail",
+                            "label": "Show email",
+                            "type": "switch",
+                            "default": "yes"
+                        },
+                        {
+                            "name": "headerShowButtons",
+                            "label": "Show buttons",
+                            "type": "switch",
+                            "default": "yes"
+                        }
+                    ]
                 }
             ]
         },

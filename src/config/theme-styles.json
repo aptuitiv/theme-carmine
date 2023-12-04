@@ -1239,6 +1239,116 @@
                             }
                         }
                     ]
+                },
+                {
+                    "name": "Text Logo",
+                    "description": "Styles for the text logo if in use.",
+                    "fields": [
+                        {
+                            "name": "headerTextLogoFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "60",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoFontSizeSm",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "40",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontSize--sm",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "headerTextLogoFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "none",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-textTransform"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#871e0f",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-color"
+                            }
+                        },
+                        {
+                            "name": "headerTextLogoColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#591108",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-textLogo-color--hover"
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -1417,6 +1527,45 @@
             "name": "Main Navigation",
             "description": "Styles for the main website navigation.",
             "sections": [
+                {
+                    "name": "Navigation Bar",
+                    "fields": [
+                        {
+                            "name": "navBarPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--NavBar-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "navBarPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--NavBar-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "navBarBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#871e0f",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--NavBar-background"
+                            }
+                        }
+                    ]
+                },
                 {
                     "name": "General",
                     "fields": [

@@ -7,6 +7,16 @@
     --Header-paddingHorizontal: 65px;
     --Header-paddingVertical--sm: 20px;
     --Header-paddingHorizontal--sm: 35px;
+    
+    --Header-textLogo-fontFamily: sans-serif;
+    --Header-textLogo-fontSize: 6rem;
+    --Header-textLogo-fontSize--sm: 4rem;
+    --Header-textLogo-fontWeight: 700;
+    --Header-textLogo-lineHeight: 1.2;
+    --Header-textLogo-letterSpacing: 0;
+    --Header-textLogo-textTransform: none;
+    --Header-textLogo-color: #871e0f;
+    --Header-textLogo-color--hover: #591108;
 } */
 
 /* @define Header */
@@ -14,13 +24,61 @@
     padding: var(--Header-paddingVertical--sm) var(--Header-paddingHorizontal--sm);
 }
 
+.Header-logoLink {
+    color: var(--Header-textLogo-color);
+    text-decoration: none;
+}
+
+.Header-logoLink:focus-visible {
+    color: var(--Header-textLogo-color--hover);
+    text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Header-logoLink:hover {
+        color: var(--Header-textLogo-color--hover);
+        text-decoration: none;
+    }
+}
+
 .Header-logo {
     max-width: var(--Header-logo-width);
     width: 100%;
 }
 
+.Header-textLogo {
+    font-family: var(--Header-textLogo-fontFamily);
+    font-size: var(--Header-textLogo-fontSize--sm);
+    font-weight: var(--Header-textLogo-fontWeight);
+    letter-spacing: var(--Header-textLogo-letterSpacing);
+    line-height: var(--Header-textLogo-lineHeight);
+    text-transform: var(--Header-textLogo-textTransform);
+}
+
 .Header-nav {
     overflow: visible !important;
+}
+
+.Header-link {
+    line-height: 1;
+    text-decoration: none;
+}
+
+.Header-link:focus-visible {
+    text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Header-link:hover {
+        text-decoration: none;
+    }
+}
+
+@media (--c-bp-md) {
+    .Header-textLogo {
+        font-size: var(--Header-textLogo-fontSize);
+    }
+    
 }
 
 @media (--c-bp-lg) {

@@ -1,0 +1,15 @@
+/* =========================================================================== *\
+    Navigation Bar
+\* =========================================================================== */
+
+/* :root {
+    --NavBar-paddingVertical: 0;
+    --NavBar-paddingHorizontal: 20px;
+    --NavBar-background: #871e0f;
+} */
+
+/* @define NavBar */
+.NavBar {
+    background-color: var(--NavBar-background);
+    padding: var(--NavBar-paddingVertical) var(--NavBar-paddingHorizontal);
+}

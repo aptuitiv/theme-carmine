@@ -36,7 +36,6 @@
     justify-content: center;
     line-height: var(--MainNav-lineHeight);
     list-style: none;
-    margin: 20px 0 0;
     padding: 0;
     text-transform: var(--MainNav-textTransform);
 }
