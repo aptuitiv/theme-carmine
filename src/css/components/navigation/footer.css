@@ -2,13 +2,10 @@
     Footer Nav
 \* =========================================================================== */
 
-/* :root {
-    --FooterNav-textTransform: uppercase;
-} */
-
 /* @define FooterNav */
 .FooterNav {
+    display: inline-flex;
     list-style: none;
+    margin-bottom: 0;
     padding-left: 0;
-    text-transform: var(--FooterNav-textTransform);
 }

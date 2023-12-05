@@ -13,6 +13,7 @@
                     {{ macros.menu_items( item.subItems ) }}
                 </ul>
             {% endif %}
+            {% if not loop.last %}&nbsp;|&nbsp;{% endif %}
         </li>
     {% endfor %}
 {% endmacro %}
@@ -22,5 +23,5 @@
 
 {# Build the navigation menu #}
 <ul class="FooterNav">
-    {{ macros.menu_items( items ) }}
+    {{ macros.menu_items(items) }}
 </ul>

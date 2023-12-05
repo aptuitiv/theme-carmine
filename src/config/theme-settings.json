@@ -45,23 +45,28 @@
             "description": "Content for the footer that is used on all pages",
             "fields": [
                 {
-                    "name": "footerLogo",
-                    "label": "Logo",
-                    "type": "image",
-                    "path": "images",
-                    "default": "/theme/custom/images/logo.svg"
+                    "name": "footerShowNavigation",
+                    "label": "Show Navigation",
+                    "type": "switch",
+                    "default": "yes"
                 },
                 {
-                    "name": "footerLogoWidth",
-                    "label": "Logo width",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "425",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Footer-logo-width",
-                        "template": "{{ value }}px"
-                    }
+                    "name": "footerShowPhone",
+                    "label": "Show Phone Number",
+                    "type": "switch",
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowEmail",
+                    "label": "Show Email",
+                    "type": "switch",
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowAddress",
+                    "label": "Show Address",
+                    "type": "switch",
+                    "default": "yes"
                 }
             ]
         },

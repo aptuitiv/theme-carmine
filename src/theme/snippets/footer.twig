@@ -1,42 +1,35 @@
         <footer class="Footer">
             <div class="Container">
-                <div class="grid">
-                    <div class="col-1-1 col-lg-1-4">
-                        <div class="h3 underline-small">Links</div>
-                        {{ _api.navigation.get.key('footer') }}
+                <div class="flex flex-col g-2 text-center">
+                    <div>{{ _api.navigation.get.key('footer') }}</div>
+                    <div class="flex flex-col">
+                        <div>
+                            {% if _core.theme.settings.footerShowAddress == 'yes' %}
+                                {% if _core.settings.companyAddressStreet %}
+                                    {{ _core.settings.companyAddressStreet }}{{ _core.settings.companyAddressCity ? ', ' }}
+                                {% endif %}
+                                {% if _core.settings.companyAddressCity %}
+                                    {{ _core.settings.companyAddressCity }}{{ _core.settings.companyAddressState ? ', ' }}
+                                {% endif %}
+                                {% if _core.settings.companyAddressState %}
+                                    {{ _core.settings.companyAddressState }}{{ _core.settings.companyAddressPostalCode ? ', ' }}
+                                {% endif %}
+                                {% if _core.settings.companyAddressPostalCode %}
+                                    {{ _core.settings.companyAddressPostalCode }}
+                                {% endif %}
+                            {% endif %}
+                            {% if _core.theme.settings.footerShowPhone == 'yes' %}
+                            {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a>
+                            {% endif %}
+                            {% if _core.theme.settings.footerShowEmail == 'yes' %}
+                                {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.settings.companyEmail }}" class="Footer-link">{{ _core.settings.companyEmail }}</a>
+                            {% endif %}
+                        </div>
+                        <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
                     </div>
-                    <div class="col-1-1 col-lg-1-4">
-                        {% if _core.settings.companyPhone %}
-                            <div class="mb-5">
-                                <div class="h3 underline-small">Contact</div>
-                                <a href="tel:{{ _core.settings.companyPhone|replace({'(': '', ')': '', '}': '', '-': '', ' ': ''}) }}">
-                                    {{ _core.settings.companyPhone }}
-                                </a>
-                            </div>
-                        {% endif %}
-                        {% if _core.theme.settings.social|first.url %}
-                            <div class="h3 underline-small">Social Media</div>
-                            <div class="flex gx-1">
-                                {% import 'macros/macros' as macros %}
-                                {% set socialNames = {facebook: 'Facebook', instagram: 'Instagram', linkedin: 'LinkedIn', pinterest: 'Pinterest', twitter: 'Twitter', youtube: 'YouTube'} %}
-                                {% for social in _core.theme.settings.social %}
-                                    <a href="{{ social.url }}" title="Follow us on {{ attribute(socialNames, social.icon)|default(social.icon) }}" target="_blank" rel="noopenner noreferrer" class="Footer-socialLink">
-                                        {{ macros.iconImg(social.icon, attribute(socialNames, social.icon)|default(social.icon), "Footer-icon") }}
-                                    </a>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="col-1-1 col-lg-2-4 text-center flex flex-col justify-center">
-                        {% if _core.theme.settings.footerLogo %}
-                            <a href="/" title="return to home page" class="flex justify-center mb-3">
-                                {% set _core.theme.settings.footerLogo.class = "Footer-logo" %}
-                                {% do _core.theme.settings.footerLogo.resize(_core.theme.settings.footerLogoWidth + 100) %}
-                                {{ _core.theme.settings.footerLogo.tag }}
-                            </a>
-                        {% endif %}
-                        <div>&copy; {{ _core.settings.companyName }}, {{ _core.date.year }}</div>
-                        <a href="https://www.aptuitiv.com" target="_blank" class="Footer-link Footer-creditLink">Website by Aptuitiv</a>
+                    <div>
+                        <a href="https://www.aptuitiv.com" target="_blank">Website by Aptuitiv</a> |
+                        <a href="https://www.branchcms.com" target="_blank">Powered by BranchCMS</a>
                     </div>
                 </div>
             </div>

@@ -675,6 +675,78 @@
                     "name": "General",
                     "fields": [
                         {
+                            "name": "footerContentFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Footer-content-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "footerContentFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "14",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Footer-content-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "footerContentFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "400",
+                            "fontFamilyField": "footerContentFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Footer-content-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "footerContentLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Footer-content-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "footerContentLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Footer-content-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "footerContentTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Footer-content-textTransform"
+                            }
+                        },
+                        {
                             "name": "footerBackground",
                             "label": "Background color",
                             "type": "color",
@@ -755,27 +827,6 @@
                                 "type": "css-head",
                                 "cssVariable": "--Footer-paddingHorizontal--sm",
                                 "template": "{{ value }}px"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Navigation",
-                    "fields": [
-                        {
-                            "name": "footerNavTextTransform",
-                            "label": "Text case",
-                            "type": "select",
-                            "default": "uppercase",
-                            "options": {
-                                "none": "Default",
-                                "capitalize": "Capitalize",
-                                "uppercase": "UPPERCASE",
-                                "lowercase": "lowercase"
-                            },
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--FooterNav-textTransform"
                             }
                         }
                     ]
