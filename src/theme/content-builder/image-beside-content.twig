@@ -4,8 +4,8 @@
             <div class="col-1-1 col-lg-1-2 {{ imagePosition == "Right" ? 'order-lg-2' }}">
                 {% do image.resize(800) %}
                 {% do image.lazy() %}
-                {% set image.class = "position-absolute-lg h-100 w-100 fit-cover" %}
-                <div class="position-relative-lg h-100">
+                {% set image.class = "w-100" %}
+                <div class="flex align-center h-100">
                     {{ image.tag }}
                 </div>
             </div>
