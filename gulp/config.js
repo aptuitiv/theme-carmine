@@ -111,6 +111,12 @@ const config = {
                 src + '/js/accordion.js',
                 src + '/js/main.js'
             ]
+        },
+        {
+            name: 'lightbox.js',
+            src: [
+                src + '/js/fslightbox.js'
+            ]
         }
     ]
 };

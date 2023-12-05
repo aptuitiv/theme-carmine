@@ -35,3 +35,15 @@
         {% do _page.registerJs('splide/js/splide.min.js'|theme_url) %}
     {% endif %}
 {% endmacro %}
+
+{# Macro to load fslightbox #}
+{% macro loadLightbox() %}
+    {% inlinejs %}
+        loadjs.ready('main', {
+            success: function() {
+                loadjs(['{{ '/js/lightbox.js'|theme_url }}'], 'lightbox');
+            }
+        });
+    {% endinlinejs %}
+    {% do _page.registerJs('/js/lightbox.js'|theme_url) %}
+{% endmacro %}
