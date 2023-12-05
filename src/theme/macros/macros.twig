@@ -18,11 +18,17 @@
 {# Macro to load Splide #}
 {% macro loadSplide() %}
     {% do _page.addCss('splide/css/splide.min.css'|theme_url, {'preload': true}) %}
+    {% do _page.addCss('splide-video/css/splide-extension-video.min.css'|theme_url, {'preload': true}) %}
     {% if _page.hasJs('splide/js/splide.min.js'|theme_url) == false %}
         {% inlinejs %}
             loadjs.ready('main', {
                 success: function() {
                     loadjs(['{{ 'splide/js/splide.min.js'|theme_url }}'], 'splide');
+                }
+            });
+            loadjs.ready('splide', {
+                success: function() {
+                    loadjs(['{{ 'splide-video/js/splide-extension-video.min.js'|theme_url }}'], 'splidevideo');
                 }
             });
         {% endinlinejs %}

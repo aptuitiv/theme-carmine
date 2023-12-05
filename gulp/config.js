@@ -76,6 +76,10 @@ const config = {
             dest: 'splide'
         },
         {
+            src: 'node_modules/@splidejs/splide-extension-video/dist/**/*',
+            dest: 'splide-video'
+        },
+        {
             src: 'node_modules/just-validate/dist/just-validate.production.min.js',
             dest: 'just-validate'
         }
