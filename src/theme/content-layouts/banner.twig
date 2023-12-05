@@ -1,42 +1,75 @@
-<div class="Banner">
-    {% if (image or video) and mediaType %}
-        <div class="Banner-bg">
-            {% if mediaType == 'Image' and image %}
-                {% set maxWidth = 0 %}
-                {% set bannerImageSizes = _core.theme.settings.bannerImageSizes|sort_by_key("maxWidth") %}
-                {% for imageOption in bannerImageSizes %}
-                    {% do image.addSource("(max-width: " ~ imageOption.maxWidth ~ "px)")
-                        .crop({
-                            width: imageOption.maxWidth,
-                            height: imageOption.maxHeight,
-                            crop: _core.theme.settings.bannerImageCrop
-                        })
-                        .preloadMedia(
-                            loop.first ?
-                            "(max-width: "  ~ imageOption.maxWidth ~"px)" :
-                            "(min-width: " ~ (maxWidth + 1) ~ "px) and (max-width: "  ~ imageOption.maxWidth ~"px)"
-                        )
-                    %}
-                    {% set maxWidth = imageOption.maxWidth %}
-                {% endfor %}
-                {% set image.picture.class = "Banner-picture" %}
-                {% set image.class = "Banner-image" %}
-                {% do image.prioritize({ media: "(min-width: " ~ (maxWidth + 1) ~ "px)" }) %}
-                {{ image.tag }}
-            {% elseif mediaType == 'Video' and video %}
-                <video class="Banner-video" autoplay muted loop playsinline src="{{ video.src }}"></video>
-            {% endif %}
-        </div>
-    {% endif %}
-    <div class="Banner-fg {{ not image ? 'Banner-fg--noImage' }}">
-        <div class="Container">
-            {% if title %}
-                {% if isTitleHeading %}
-                    <h1 class="Banner-title Banner-title--{{ titleAlignment|camel }}">{{ title }}</h1>
-                {% else %}
-                    <div class="Banner-title Banner-title--{{ titleAlignment|camel }}">{{ title }}</div>
+{% macro slide(slide) %}
+    <div class="Banner">
+        {% if (slide.image or slide.video) and slide.mediaType %}
+            <div class="Banner-bg">
+                {% if slide.mediaType == 'Image' and slide.image %}
+                    {% set maxWidth = 0 %}
+                    {% set bannerImageSizes = _core.theme.settings.bannerImageSizes|sort_by_key("maxWidth") %}
+                    {% for imageOption in bannerImageSizes %}
+                        {% do slide.image.addSource("(max-width: " ~ imageOption.maxWidth ~ "px)")
+                            .crop({
+                                width: imageOption.maxWidth,
+                                height: imageOption.maxHeight,
+                                crop: _core.theme.settings.bannerImageCrop
+                            })
+                            .preloadMedia(
+                                loop.first ?
+                                "(max-width: "  ~ imageOption.maxWidth ~"px)" :
+                                "(min-width: " ~ (maxWidth + 1) ~ "px) and (max-width: "  ~ imageOption.maxWidth ~"px)"
+                            )
+                        %}
+                        {% set maxWidth = imageOption.maxWidth %}
+                    {% endfor %}
+                    {% set slide.image.picture.class = "Banner-picture" %}
+                    {% set slide.image.class = "Banner-image" %}
+                    {% do slide.image.prioritize({ media: "(min-width: " ~ (maxWidth + 1) ~ "px)" }) %}
+                    {{ slide.image.tag }}
+                {% elseif slide.mediaType == 'Video' and slide.video %}
+                    <video class="Banner-video" autoplay muted loop playsinline src="{{ slide.video.src }}"></video>
                 {% endif %}
-            {% endif %}
+            </div>
+        {% endif %}
+        <div class="Banner-fg {{ not slide.image and not slide.video ? 'Banner-fg--noImage' }}">
+            <div class="Container">
+                {% if slide.title %}
+                    {% if slide.isTitleHeading %}
+                        <h1 class="Banner-title Banner-title--{{ slide.titleAlignment|camel }}">{{ slide.title }}</h1>
+                    {% else %}
+                        <div class="Banner-title Banner-title--{{ slide.titleAlignment|camel }}">{{ slide.title }}</div>
+                    {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
+{% endmacro %}
+
+{% import _self as slideMacros %}
+{% if slides|length == 1 %}
+    {{ slideMacros.slide(slides|first) }}
+{% elseif slides|length > 1 %}
+    {% import 'macros/macros' as macros %}
+    {% set class = 'js-bannerSlider--' ~ random_string() %}
+    <div class="splide {{ class }}" role="group" aria-label="Slider Banner">
+        <div class="splide__track">
+            <ul class="splide__list">
+                {% for slide in slides %}
+                    <li class="splide__slide">
+                        {{ slideMacros.slide(slide) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {{ macros.loadSplide() }}
+    {% inlinejs %}
+        loadjs.ready('splide', {
+            success: function() {
+                new Splide('.{{ class }}', {
+                    pagination: true,
+                    perPage: 1,
+                    rewind: true
+                }).mount();
+            }
+        });
+    {% endinlinejs %}
+{% endif %}
