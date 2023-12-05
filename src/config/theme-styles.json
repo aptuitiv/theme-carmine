@@ -2163,75 +2163,162 @@
         },
         {
             "name": "Notifications",
-            "description": "Styles for the \"Notifications\" Collection Widget at the top of pages.",
-            "fields": [
+            "description": "Styles for the \"Notifications\" Collection Widget below the banner on pages.",
+            "sections": [
                 {
-                    "name": "notificationBackground",
-                    "label": "Background color",
-                    "type": "color",
-                    "default": "#A81D3F",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Notification-background"
-                    }
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "notificationBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "default": "#A81D3F",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-background"
+                            }
+                        },
+                        {
+                            "name": "notificationColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-color"
+                            }
+                        },
+                        {
+                            "name": "notificationPaddingVertical",
+                            "label": "Vertical padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "28",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-paddingVertical",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "notificationPaddingHorizontal",
+                            "label": "Horizontal padding",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "35",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-paddingHorizontal",
+                                "template": "{{ value }}px"
+                            }
+                        }
+                    ]
                 },
                 {
-                    "name": "notificationColor",
-                    "label": "Text color",
-                    "type": "color",
-                    "default": "#fff",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Notification-color"
-                    }
+                    "name": "Title",
+                    "fields": [
+                        {
+                            "name": "notificationTitleFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-title-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "notificationTitleFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "24",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-title-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "notificationTitleFontSizeSm",
+                            "label": "Font size (small screens)",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-title-fontSize--sm",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "notificationTitleFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "600",
+                            "fontFamilyField": "notificationTitleFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-title-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "notificationTitleLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-title-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "notificationTitleLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-title-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "notificationTitleTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-title-textTransform"
+                            }
+                        }
+                    ]
                 },
                 {
-                    "name": "notificationFontSize",
-                    "label": "Font size",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "16",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Notification-fontSize",
-                        "template": "{{ value / 10 }}rem"
-                    }
-                },
-                {
-                    "name": "notificationPaddingVertical",
-                    "label": "Vertical padding",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "28",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Notification-paddingVertical",
-                        "template": "{{ value }}px"
-                    }
-                },
-                {
-                    "name": "notificationPaddingHorizontal",
-                    "label": "Horizontal padding",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "35",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Notification-paddingHorizontal",
-                        "template": "{{ value }}px"
-                    }
-                },
-                {
-                    "name": "notificationCloseFontSize",
-                    "label": "Button size",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "38",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Notification-close-fontSize",
-                        "template": "{{ value / 10 }}rem"
-                    }
+                    "name": "Close Button",
+                    "fields": [
+                        {
+                            "name": "notificationCloseFontSize",
+                            "label": "Button size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "38",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-close-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -2352,8 +2439,8 @@
             ]
         },
         {
-            "name": "Popup on Load",
-            "description": "Styles for the optional popup that shows on page load.",
+            "name": "Popups",
+            "description": "Styles for the optional popup that shows on page load and the notifications under the banner.",
             "sections": [
                 {
                     "name": "General",
@@ -2444,6 +2531,131 @@
                                 "type": "css-head",
                                 "cssVariable": "--Modal-header-paddingHorizontal",
                                 "template": "{{ value }}px"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Title",
+                    "description": "The title is shown for notifications.",
+                    "fields": [
+                        {
+                            "name": "modalTitleFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-title-fontFamily"
+                            }
+                        },
+                        {
+                            "name": "modalTitleFontSize",
+                            "label": "Font size",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "30",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-title-fontSize",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "modalTitleFontSizeSm",
+                            "label": "Font size (small screens)",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "23",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-title-fontSize--sm",
+                                "template": "{{ value / 10 }}rem"
+                            }
+                        },
+                        {
+                            "name": "modalTitleFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "fontFamilyField": "modalTitleFontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-title-fontWeight"
+                            }
+                        },
+                        {
+                            "name": "modalTitleLineHeight",
+                            "label": "Line height",
+                            "type": "stepper",
+                            "step": "0.1",
+                            "decimals": "2",
+                            "default": "1.2",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-title-lineHeight"
+                            }
+                        },
+                        {
+                            "name": "modalTitleLetterSpacing",
+                            "label": "Letter spacing",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-title-letterSpacing",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "modalTitleTextTransform",
+                            "label": "Text case",
+                            "type": "select",
+                            "default": "uppercase",
+                            "options": {
+                                "none": "Default",
+                                "capitalize": "Capitalize",
+                                "uppercase": "UPPERCASE",
+                                "lowercase": "lowercase"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-title-textTransform"
+                            }
+                        },
+                        {
+                            "name": "modalTitleColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "default": "#000",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-title-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Close Button",
+                    "fields": [
+                        {
+                            "name": "modalCloseColor",
+                            "label": "Icon color",
+                            "type": "color",
+                            "default": "#333",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-close-color"
+                            }
+                        },
+                        {
+                            "name": "modalCloseColorHover",
+                            "label": "Icon color (hover)",
+                            "type": "color",
+                            "default": "#EB5B31",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Modal-close-color--hover"
                             }
                         }
                     ]

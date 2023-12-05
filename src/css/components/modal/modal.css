@@ -13,6 +13,18 @@
     --Modal-header-paddingVertical: 20px;
     --Modal-header-paddingHorizontal: 20px;
     
+    --Modal-title-fontFamily: sans-serif;
+    --Modal-title-fontSize: 3rem;
+    --Modal-title-fontSize--sm: 2.3rem;
+    --Modal-title-fontWeight: 700;
+    --Modal-title-lineHeight: 1.2;
+    --Modal-title-letterSpacing: 0;
+    --Modal-title-textTransform: uppercase;
+    --Modal-title-color: #000;
+    
+    --Modal-close-color: #333;
+    --Modal-close-color--hover: #EB5B31;
+    
     --Modal-content-paddingVertical: 20px;
     --Modal-content-paddingHorizontal: 20px;
 } */
@@ -45,16 +57,36 @@
     box-sizing: border-box;
     color: var(--Modal-color);
     margin: 20px;
-    max-height: 100vh;
+    max-height: calc(100vh - 40px);
     max-width: var(--Modal-width);
     overflow-y: auto;
     width: 100%;
 }
 
 .Modal-header {
+    align-items: flex-end;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    gap: 20px;
     padding: var(--Modal-header-paddingVertical) var(--Modal-header-paddingHorizontal);
+}
+
+.Modal-alert {
+    flex-shrink: 0;
+    font-size: calc(var(--Modal-title-fontSize--sm) * 1.5);
+    margin-right: 20px;
+}
+
+.Modal-title {
+    align-items: center;
+    color: var(--Modal-title-color);
+    display: flex;
+    font-family: var(--Modal-title-fontFamily);
+    font-size: var(--Modal-title-fontSize--sm);
+    font-weight: var(--Modal-title-fontWeight);
+    letter-spacing: var(--Modal-title-letterSpacing);
+    line-height: var(--Modal-title-lineHeight);
+    text-transform: var(--Modal-title-textTransform);
 }
 
 .Modal-close {
@@ -64,10 +96,36 @@
 }
 
 .Modal-close::before {
-    color: var(--Modal-color);
+    color: var(--Modal-close-color);
     content: '\2715';
+    transition: all 250ms;
+}
+
+.Modal-close:focus-visible::before {
+    color: var(--Modal-close-color--hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .Modal-close:hover::before {
+        color: var(--Modal-close-color--hover);
+    }
 }
 
 .Modal-content {
     padding: 0 var(--Modal-content-paddingHorizontal) var(--Modal-content-paddingVertical) var(--Modal-content-paddingHorizontal);
+}
+
+@media (--c-bp-md) {
+    .Modal-header {
+        align-items: center;
+        flex-direction: row;
+    }
+    
+    .Modal-alert {
+        font-size: calc(var(--Modal-title-fontSize) * 1.5);
+    }
+    
+    .Modal-title {
+        font-size: var(--Modal-title-fontSize);
+    }
 }
