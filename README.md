@@ -28,17 +28,17 @@ Before deploying, you'll want to log into the CMS for the new site and do the fo
 1. Prime the **Snippets** by visiting Design -> Snippets.
 1. Prime the **Navigation Templates** by visiting Design -> Navigation -> Navigation Templates.
 1. Create a "Main" *Navigation Menu* using the "Main" *Navigation Template* and select "Show sub navigation all the time" from Design -> Navigation -> Navigation Menus.
+1. Create a "Footer" *Navigation Menu* using the "Footer" *Navigation Template* from Design -> Navigation -> Navigation Menus.
 1. Prime the **Content Builder Elements** by visiting Design -> Content Builder.
 1. Prime the **Collection Widgets** by visiting Widgets -> Collections -> Notifications.
 1. Prime the **Form Templates** by visiting Forms -> Templates.
-1. Turn on **Search** from Site Manager -> Search.
 1. Prime the **Search Templates** by visiting Site Manager -> Search -> Templates -> Templates.
-1. Create a **Search Form** under Site Manager -> Search -> Forms. Change the template name from "search-default-template" to "search".
+1. Edit and save the **Search Form** under Site Manager -> Search -> Forms. This will generate the form fields.
 1. Set a sensible **Admin Theme** under Settings -> Admin Theme.
-1. Update the **Rich Text Editor** CSS file path from Settings -> Rich Text Editor.
 
 ### Deploying the Theme
-Deploy the theme files using the `gulp deploy` command and wait until completed (~30 seconds).
+1. Deploy the theme files using the `gulp deploy` command and wait until completed (~30 seconds).
+1. Update the **Rich Text Editor** CSS file path from Settings -> Rich Text Editor.
 
 ### Configuring the Theme
 To finish the installation, you'll need to configure some basic options of the theme.
