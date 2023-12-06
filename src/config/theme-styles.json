@@ -1634,7 +1634,7 @@
                             "label": "Font size",
                             "type": "stepper",
                             "after": "px",
-                            "default": "16",
+                            "default": "18",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-fontSize",
@@ -1691,7 +1691,7 @@
                             "label": "Vertical padding",
                             "type": "stepper",
                             "after": "px",
-                            "default": "0",
+                            "default": "10",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-item-paddingVertical",
@@ -1738,7 +1738,7 @@
                             "name": "mainNavItemFontWeight",
                             "label": "Font weight",
                             "type": "fontWeight",
-                            "default": "400",
+                            "default": "700",
                             "fontFamilyField": "themeTypographyFontFamily",
                             "preview": {
                                 "type": "css-head",
