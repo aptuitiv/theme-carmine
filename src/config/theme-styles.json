@@ -42,7 +42,7 @@
         },
         {
             "name": "Banner",
-            "description": "Styles for the \"Banner\" content layout.",
+            "description": "Styles for the \"Banner\" content layout. To adjust the size of the underlying images, see Settings &rarr; Banner Images.",
             "sections": [
                 {
                     "name": "General",

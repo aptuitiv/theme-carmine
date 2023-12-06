@@ -2,14 +2,14 @@
     "groups": [
         {
             "name": "Banner Images",
-            "description": "These settings change the behavior of banner images before a user loads them. This allows for more optimized images.",
+            "description": "These settings change the behavior of banner images before a user loads them. This allows for faster page load times.",
             "sidebarSize": "medium",
             "fields": [
                 {
                     "name": "bannerImageSizes",
                     "label": "Image Sizes",
                     "type": "repeatingGrid",
-                    "description": "Make sure the first image below is the largest image width in the set.",
+                    "description": "These sizes do not adjust the size of the banner itself, just the underlying image. To adjust the size of the banner itself, see the padding options under Styles &rarr; Banner &rarr; Padding.",
                     "itemName": "Image",
                     "children": [
                         {
