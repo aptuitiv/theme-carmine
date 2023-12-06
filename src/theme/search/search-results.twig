@@ -1,7 +1,10 @@
 {% extends "one-column" %}
 
 {% block banner %}
-    {% set title = "Search Results" %}
+    {% set slides = [{
+        title: "Search Results",
+        isTitleHeading: true
+    }] %}
     {% include("content-layouts/banner") %}
 {% endblock %}
 
