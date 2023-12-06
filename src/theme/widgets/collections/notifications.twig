@@ -25,16 +25,18 @@
                                 {% if notification.icon != "None" %}
                                     <svg class="Notification-alert Icon"><use xlink:href="#icon-{{ notification.icon|camel }}" /></svg>
                                 {% endif %}
-                                {{ notification.itemName }}
-                                {% if notification.message and notification.linkType == "Message popup" %}
-                                    <button class="Notification-more" data-micromodal-trigger="notification-modal" aria-label="open more info popup">
-                                        {{ notification.linkText }}
-                                    </button>
-                                {% elseif notification.link and notification.linkType == "Link to a page" %}
-                                    <a href="{{ notification.link }}" class="Notification-more">
-                                        {{ notification.linkText }}
-                                    </a>
-                                {% endif %}
+                                <div class="Notification-titleContent">
+                                    {{ notification.itemName }}
+                                    {% if notification.message and notification.linkType == "Message popup" %}
+                                        <button class="Notification-more" data-micromodal-trigger="notification-modal" aria-label="open more info popup">
+                                            {{ notification.linkText }}
+                                        </button>
+                                    {% elseif notification.link and notification.linkType == "Link to a page" %}
+                                        <a href="{{ notification.link }}" class="Notification-more">
+                                            {{ notification.linkText }}
+                                        </a>
+                                    {% endif %}
+                                </div>
                             </div>
                             {% if notification.closable %}
                                 <button class="Notification-close js-notificationClose" aria-label="close">

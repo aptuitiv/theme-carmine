@@ -17,14 +17,13 @@
     background-color: var(--Notification-background);
     color: var(--Notification-color);
     padding: var(--Notification-paddingVertical) var(--Notification-paddingHorizontal);
-    text-align: center;
 }
 
 .Notification-more {
     background-color: transparent;
     border: none;
     color: var(--Notification-color);
-    margin-left: 20px;
+    padding: 0;
     text-decoration: underline;
     text-transform: var(--Notification-title-textTransform);
 }
@@ -50,6 +49,13 @@
     text-transform: var(--Notification-title-textTransform);
 }
 
+.Notification-titleContent {
+    column-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+
 .Notification-alert {
     font-size: calc(var(--Notification-title-fontSize) * 1.5);
     margin-right: 20px;
@@ -69,10 +75,19 @@
 }
 
 .Notification-placeholder {
+    display: none;
     width: var(--Notification-close-fontSize);
 }
 
 @media (--c-bp-md) {
+    .Notification {
+        text-align: center;
+    }
+    
+    .Notification-placeholder {
+        display: block;
+    }
+    
     .Notification-title {
         font-size: var(--Notification-title-fontSize);
     }
