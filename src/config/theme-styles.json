@@ -249,6 +249,15 @@
                     "name": "Title",
                     "fields": [
                         {
+                            "name": "bannerTitleFontFamily",
+                            "label": "Font family",
+                            "type": "fontFamily",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Banner-title-fontFamily"
+                            }
+                        },
+                        {
                             "name": "bannerTitleFontSize",
                             "label": "Font size",
                             "type": "stepper",
@@ -277,7 +286,7 @@
                             "label": "Font weight",
                             "type": "fontWeight",
                             "default": "700",
-                            "fontFamilyField": "themeTypographyHeadingFontFamily",
+                            "fontFamilyField": "bannerTitleFontFamily",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-title-fontWeight"

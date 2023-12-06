@@ -23,6 +23,7 @@
     --Banner-paddingBottom--noImageSm: 50px;
     --Banner-paddingHorizontal--noImageSm: 50px;
     
+    --Banner-title-fontFamily: sans-serif;
     --Banner-title-fontSize: 6.5rem;
     --Banner-title-fontSize--sm: 3.5rem;
     --Banner-title-fontWeight: 600;
@@ -75,6 +76,7 @@
 }
 
 .Banner-title {
+    font-family: var(--Banner-title-fontFamily);
     font-size: var(--Banner-title-fontSize--sm);
     font-weight: var(--Banner-title-fontWeight);
     letter-spacing: var(--Banner-title-letterSpacing);
