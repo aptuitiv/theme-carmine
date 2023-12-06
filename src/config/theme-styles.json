@@ -276,7 +276,7 @@
                             "name": "bannerTitleFontWeight",
                             "label": "Font weight",
                             "type": "fontWeight",
-                            "default": "600",
+                            "default": "700",
                             "fontFamilyField": "themeTypographyHeadingFontFamily",
                             "preview": {
                                 "type": "css-head",
@@ -2254,7 +2254,7 @@
                             "name": "notificationTitleFontWeight",
                             "label": "Font weight",
                             "type": "fontWeight",
-                            "default": "600",
+                            "default": "700",
                             "fontFamilyField": "notificationTitleFontFamily",
                             "preview": {
                                 "type": "css-head",
