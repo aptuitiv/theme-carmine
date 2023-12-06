@@ -76,7 +76,7 @@
     transition: bottom .1s ease, transform .1s .14s cubic-bezier(.215, .61, .355, 1);
 }
 
-@media (--c-bp-xl) {
+@media (--c-bp-lg) {
     .SmScBtn {
         display: none;
     }

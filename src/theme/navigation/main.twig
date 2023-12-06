@@ -44,7 +44,7 @@
 {% import _self as macros %}
 
 {# ASSIGN MENU CLASS #}
-{% set menu.class = menu.class ~ ' MainNav js-mainNav' %}
+{% set menu.class = menu.class ~ ' MainNav' %}
 <ul{{menu.class.attr}}{{ menu.id.attr }} data-access-nav role="menubar">
     {% for item in items %}
         {# ASSIGN MENU ITEM CLASS #}

@@ -5,11 +5,21 @@
 /* :root {
     --NavBar-paddingVertical: 0;
     --NavBar-paddingHorizontal: 20px;
+    --NavBar-paddingVertical--sm: 20px;
+    --NavBar-paddingHorizontal--sm: 20px;
     --NavBar-background: #871e0f;
 } */
 
 /* @define NavBar */
 .NavBar {
     background-color: var(--NavBar-background);
-    padding: var(--NavBar-paddingVertical) var(--NavBar-paddingHorizontal);
+    display: none;
+    padding: var(--NavBar-paddingVertical--sm) var(--NavBar-paddingHorizontal--sm);
+}
+
+@media (--c-bp-lg) {
+    .NavBar {
+        display: block;
+        padding: var(--NavBar-paddingVertical) var(--NavBar-paddingHorizontal);
+    }
 }

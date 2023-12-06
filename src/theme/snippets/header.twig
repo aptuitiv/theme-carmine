@@ -39,7 +39,7 @@
     <header class="Header" id="top">
         <div class="Container">
             <div class="grid align-center justify-between">
-                <div class="col-3-4 col-xl-1-3" id="header-logo"> {# ID is used for live theme preview #}
+                <div class="col-3-4 col-lg-1-3" id="header-logo"> {# ID is used for live theme preview #}
                     {% if _core.theme.settings.headerLogo or _core.theme.settings.headerTextLogo %}
                         <a href="/" title="return to home page" class="Header-logoLink">
                             {% if _core.theme.settings.headerLogo %}
@@ -52,13 +52,13 @@
                         </a>
                     {% endif %}
                 </div>
-                <div class="col-1-4 flex justify-end hidden-xl">
+                <div class="col-1-4 flex justify-end hidden-lg">
                     <button class="SmScBtn js-ssNavBtn" aria-label="menu">
                         <span class="SmScBtn-icon"></span>
                     </button>
                 </div>
-                <div class="col-1-1 col-xl-2-3 mt-2 mt-xl-0">
-                    <div class="flex flex-col align-center align-end-xl gy-1 Header-nav">
+                <div class="col-1-1 col-lg-2-3 mt-2 mt-lg-0">
+                    <div class="flex flex-col align-center align-end-lg gy-1 Header-nav">
                         {% if _core.theme.settings.social|first.url and _core.theme.settings.headerShowSocial == 'yes' %}
                             <div class="flex gx-1">
                                 {% import 'macros/macros' as macros %}
@@ -81,7 +81,7 @@
                             </a>
                         {% endif %}
                         {% if _core.theme.settings.headerButtons|first.button and _core.theme.settings.headerShowButtons == 'yes' %}
-                            <div class="flex g-2 mt-2">
+                            <div class="flex g-2 mt-1">
                                 {% for button in _core.theme.settings.headerButtons %}
                                     {% set button.button.class = "Button" %}
                                     {{ button.button.tag }}
@@ -93,7 +93,7 @@
             </div>
         </div>
     </header>
-    <nav class="NavBar">
+    <nav class="NavBar js-navBar">
         <div class="Container">
             {{ _api.navigation.get.key('main') }}
         </div>

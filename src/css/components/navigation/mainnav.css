@@ -27,7 +27,7 @@
 .MainNav {
     align-items: center;
     box-sizing: border-box;
-    display: none;
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     font-family: var(--MainNav-fontFamily);
@@ -36,6 +36,7 @@
     justify-content: center;
     line-height: var(--MainNav-lineHeight);
     list-style: none;
+    margin: 0;
     padding: 0;
     text-transform: var(--MainNav-textTransform);
 }
@@ -69,9 +70,8 @@
     Responsive
 \* ------------------------------------ */
 
-@media (--c-bp-xl) {
+@media (--c-bp-lg) {
     .MainNav {
-        display: flex;
         flex-direction: row;
         margin: 0;
     }

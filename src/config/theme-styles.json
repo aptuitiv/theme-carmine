@@ -1606,6 +1606,30 @@
                             }
                         },
                         {
+                            "name": "navBarPaddingVerticalSm",
+                            "label": "Vertical padding (small screens)",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--NavBar-paddingVertical--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "navBarPaddingHorizontalSm",
+                            "label": "Horizontal padding (small screens)",
+                            "type": "stepper",
+                            "after": "px",
+                            "default": "20",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--NavBar-paddingHorizontal--sm",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
                             "name": "navBarBackground",
                             "label": "Background color",
                             "type": "color",
