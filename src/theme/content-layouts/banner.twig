@@ -67,7 +67,12 @@
                 new Splide('.{{ class }}', {
                     pagination: true,
                     perPage: 1,
-                    rewind: true
+                    rewind: true,
+                    breakpoints: {
+                        1024: {
+                            arrows: false
+                        }
+                    }
                 }).mount();
             }
         });
