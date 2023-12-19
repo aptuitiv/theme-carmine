@@ -34,12 +34,13 @@
     <div class="Container Container--pad">
         <div class="grid g-2">
             {% for image in images %}
+                {% set imageLink = image.image.src %}
                 {% set image.image.class = imageStyle == 'Cover' ? 'fit-cover w-100' : 'fit-contain' %}
                 {% do image.image.alt.default(image.title) %}
                 {% do image.image.resize({w: width, ar: imageAspectRatio, crop: true}) %}
                 {% do image.image.lazy() %}
                 <div class="{{ class }}">
-                    <a data-fslightbox data-type="image" class="block link-subtle" href="{{ image.image.src }}" {{ image.title ? 'data-caption="' ~ image.title ~ '"' }}>
+                    <a data-fslightbox data-type="image" class="block link-subtle" href="{{ imageLink }}" {{ image.title ? 'data-caption="' ~ image.title ~ '"' }}>
                         <span class="flex aspect-{{ imageAspectRatio|replace('x', '-') }}">{{ image.image.tag }}</span>
                         {% if image.title %}
                             <span class="mt-1 block text-center">{{ image.title }}</span>
