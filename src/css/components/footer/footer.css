@@ -8,7 +8,7 @@
     --Footer-paddingVertical--sm: 50px;
     --Footer-paddingHorizontal--sm: 50px;
     --Footer-background: #00263e;
-    
+
     --Footer-content-fontFamily: sans-serif;
     --Footer-content-fontSize: 1.4rem;
     --Footer-content-fontWeight: 400;
@@ -32,16 +32,20 @@
     text-transform: var(--Footer-content-textTransform);
 }
 
+/* postcss-bem-linter: ignore */
 .Footer * {
     color: var(--Footer-color);
     text-decoration: none;
 }
 
+/* postcss-bem-linter: ignore */
 .Footer a:focus-visible {
     color: var(--Footer-color--hover);
 }
 
 @media (hover: hover) and (pointer: fine) {
+
+    /* postcss-bem-linter: ignore */
     .Footer a:hover {
         color: var(--Footer-color--hover);
     }

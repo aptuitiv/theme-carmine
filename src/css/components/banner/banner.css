@@ -6,23 +6,23 @@
     --Banner-color: #fff;
     --Banner-overlay: #1d26306e;
     --Banner-background: #00263e;
-    
+
     --Banner-paddingTop: 200px;
     --Banner-paddingBottom: 80px;
     --Banner-paddingHorizontal: 100px;
-    
+
     --Banner-paddingTop--sm: 100px;
     --Banner-paddingBottom--sm: 50px;
     --Banner-paddingHorizontal--sm: 50px;
-    
+
     --Banner-paddingTop--noImage: 100px;
     --Banner-paddingBottom--noImage: 50px;
     --Banner-paddingHorizontal--noImage: 50px;
-    
+
     --Banner-paddingTop--noImageSm: 50px;
     --Banner-paddingBottom--noImageSm: 50px;
     --Banner-paddingHorizontal--noImageSm: 50px;
-    
+
     --Banner-title-fontFamily: sans-serif;
     --Banner-title-fontSize: 6.5rem;
     --Banner-title-fontSize--sm: 3.5rem;
@@ -66,6 +66,7 @@
     z-index: 20;
 }
 
+/* postcss-bem-linter: ignore */
 .Banner-fg * {
     color: var(--Banner-color);
 }
@@ -102,11 +103,11 @@
     .Banner-fg {
         padding: var(--Banner-paddingTop) var(--Banner-paddingHorizontal) var(--Banner-paddingBottom);
     }
-    
+
     .Banner-fg--noImage {
         padding: var(--Banner-paddingTop--noImage) var(--Banner-paddingHorizontal--noImage) var(--Banner-paddingBottom--noImage);
     }
-    
+
     .Banner-title {
         font-size: var(--Banner-title-fontSize);
     }

@@ -38,6 +38,7 @@
     Select Input Reset
 \* ------------------------------------ */
 
+/* postcss-bem-linter: ignore */
 .SelectInput > select {
     appearance: none;
     background: transparent;
