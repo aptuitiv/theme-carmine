@@ -14,7 +14,7 @@
     "not dead"
   ],
   "devDependencies": {
-    "@aptuitiv/eslint-config-aptuitiv": "^0.3.0",
+    "@aptuitiv/eslint-config-aptuitiv": "^0.4.0",
     "@aptuitiv/gulp-clean-css": "^4.4.3",
     "@ronilaukkarinen/gulp-stylelint": "^14.1.2",
     "autoprefixer": "^10.4.16",
