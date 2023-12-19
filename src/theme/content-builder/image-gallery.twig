@@ -22,7 +22,7 @@
     <div class="Container Container--pad">
         <div class="grid g-2">
             {% for image in images %}
-                <div class=" {{ class }}">
+                <div class="{{ class }}">
                     {% if imageStyle == 'Cover' %}
                         {% set image.image.class = 'fit-cover' %}
                     {% else %}
