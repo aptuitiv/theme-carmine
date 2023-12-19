@@ -4,7 +4,7 @@
 
 
 // Configuration and utilities
-import {config} from './config.js';
+import { config } from './config.js';
 import * as util from './utilities.js';
 
 // Require gulp
@@ -12,7 +12,7 @@ import gulp from 'gulp';
 
 // Require plugins
 // Importing the default export from commonJs modules
-import changed from 'gulp-changed';
+import changed, { compareContents } from 'gulp-changed';
 import tap from 'gulp-tap';
 
 
@@ -21,7 +21,7 @@ import tap from 'gulp-tap';
  */
 function processFonts() {
     return gulp.src(config.paths.src.font)
-        .pipe(changed(config.paths.dist.font, {hasChanged: changed.compareContents}))
+        .pipe(changed(config.paths.dist.font, { hasChanged: compareContents }))
         .pipe(tap((file) => {
             util.logFile(file, 'Font');
         }))

@@ -12,7 +12,7 @@ import gulp from 'gulp';
 
 // Require plugins
 // Importing the default export from commonJs modules.
-import changed from 'gulp-changed';
+import changed, { compareContents } from 'gulp-changed';
 import tap from 'gulp-tap';
 
 /**
@@ -20,7 +20,7 @@ import tap from 'gulp-tap';
  */
 function processTheme() {
     return gulp.src(config.paths.src.theme)
-        .pipe(changed(config.paths.dist.theme, { hasChanged: changed.compareContents }))
+        .pipe(changed(config.paths.dist.theme, { hasChanged: compareContents }))
         .pipe(tap((file) => {
             util.logFile(file, 'Theme');
         }))
