@@ -36,7 +36,7 @@
 {% macro buildGridFieldRow(field) %}
     {% if field.fieldType != "hidden" %}
         {% set field.class = field.class|replace({"error": "is-invalid"}) %}
-        <div class="grid g-2 mb-2">
+        <div class="grid g-lg-2 mb-2">
             <div class="col-1-1 col-lg-1-4">
                 {% set field.label.class = field.label.class ~ ' FormLabel' %}
                 {% if field.isRequired %}
@@ -292,7 +292,7 @@
 #}
 {% macro formValidateHandlerJs(form, formOverlayClass, filesToLoad, submitHandler) %}
     {% import _self as macros %}
-    
+
     {% set formOverlayClass = formOverlayClass ?: 'js-formOverlay' ~ random_string() %}
     <div class="FormOverlay {{ formOverlayClass }}"><div class="FormOverlay-text">Please wait&hellip;</div></div>
 
@@ -328,23 +328,23 @@
                         }
                     });
                 }
-                
+
                 {# Create validator instance #}
                 const validator = new JustValidate('.{{ form.class }}');
-                
+
                 {# Add validation rules #}
                 {% for field in form.fields %}
                     {{ macros.addValidationRule(field) }}
                 {% endfor %}
-                
+
                 {# Add event listener to handle reCAPTCHA #}
                 validator.onSuccess(e => {
                     {# Show the submission overlay #}
                     document.querySelector('.{{ formOverlayClass }}').style.display = 'block';
-                    
+
                     {# Disable the submit button #}
                     document.querySelector('.{{ form.class }} [type="submit"]').disabled = true;
-                    
+
                     {# Handle submission via either reCAPTCHA v3, a custom handler, or just a regular submission. #}
                     {% if form.captcha.type == 'recaptchaV3' %}
                         {{ form.captcha.script.function }}(grecaptcha, {
