@@ -345,7 +345,7 @@
                             },
                             "preview": {
                                 "type": "css-head",
-                                "template": ".Banner-title { text-align: {{ value }}; }"
+                                "cssVariable": "--Banner-title-textAlign"
                             }
                         }
                     ]

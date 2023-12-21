@@ -83,7 +83,7 @@
     letter-spacing: var(--Banner-title-letterSpacing);
     line-height: var(--Banner-title-lineHeight);
     margin-bottom: 0;
-    text-align: var(--Banner-title-textAlign);
+    text-align: center;
     text-transform: var(--Banner-title-textTransform);
 }
 
@@ -110,5 +110,6 @@
 
     .Banner-title {
         font-size: var(--Banner-title-fontSize);
+        text-align: var(--Banner-title-textAlign);
     }
 }

@@ -25,18 +25,6 @@
                             "after": "px"
                         }
                     ]
-                },
-                {
-                    "name": "bannerImageCrop",
-                    "label": "Banner crop",
-                    "description": "The crop style for banner images on small screens.",
-                    "type": "select",
-                    "default": "center",
-                    "options": {
-                        "left": "Left",
-                        "center": "Center",
-                        "right": "Right"
-                    }
                 }
             ]
         },
