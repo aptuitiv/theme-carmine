@@ -4,8 +4,38 @@
 
 /* @define FooterNav */
 .FooterNav {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
     list-style: none;
     margin-bottom: 0;
     padding-left: 0;
+}
+
+@media(--c-bp-md) {
+    .FooterNav {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .FooterNav-link {
+        line-height: 1;
+        position: relative;
+    }
+
+    .FooterNav-link::after {
+        background: var(--Footer-color);
+        content: '';
+        height: 25%;
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+    }
+
+    .FooterNav-item:last-child .FooterNav-link::after {
+        display: none;
+    }
 }

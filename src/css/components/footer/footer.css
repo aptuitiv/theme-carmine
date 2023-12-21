@@ -51,9 +51,81 @@
     }
 }
 
+.Footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    justify-content: center;
+}
+
+.Footer-attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+}
+
 /* ------------------------------------ *\
     Responsive
 \* ------------------------------------ */
+
+@media (--c-bp-sm) {
+    .Footer-attribution {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    /* postcss-bem-linter: ignore */
+    .Footer-attribution > * {
+        position: relative;
+    }
+
+    /* postcss-bem-linter: ignore */
+    .Footer-attribution > *::after {
+        background: var(--Footer-color);
+        content: '';
+        height: 25%;
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+    }
+
+    /* postcss-bem-linter: ignore */
+    .Footer-attribution > *:last-child::after {
+        display: none;
+    }
+}
+
+@media (--c-bp-md) {
+    .Footer-contact {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    /* postcss-bem-linter: ignore */
+    .Footer-contact > * {
+        position: relative;
+    }
+
+    /* postcss-bem-linter: ignore */
+    .Footer-contact > *::after {
+        background: var(--Footer-color);
+        content: '';
+        height: 25%;
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+    }
+
+    /* postcss-bem-linter: ignore */
+    .Footer-contact > *:last-child::after {
+        display: none;
+    }
+}
 
 @media (--c-bp-lg) {
     .Footer {

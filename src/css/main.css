@@ -129,7 +129,7 @@
 /* @import '../../node_modules/cacao-css/src/grid/md/col-1.css'; */
 @import '../../node_modules/cacao-css/src/grid/md/col-2.css';
 @import '../../node_modules/cacao-css/src/grid/md/col-3.css';
-/* @import '../../node_modules/cacao-css/src/grid/md/col-4.css'; */
+@import '../../node_modules/cacao-css/src/grid/md/col-4.css';
 @import '../../node_modules/cacao-css/src/grid/md/col-5.css';
 /* @import '../../node_modules/cacao-css/src/grid/md/col-6.css'; */
 /* @import '../../node_modules/cacao-css/src/grid/md/col-7.css'; */
@@ -183,7 +183,7 @@
 /* @import '../../node_modules/cacao-css/src/gutter/md/vertical.css'; */
 
 /* Gutter (lg) */
-/* @import '../../node_modules/cacao-css/src/gutter/lg/all.css'; */
+@import '../../node_modules/cacao-css/src/gutter/lg/all.css';
 /* @import '../../node_modules/cacao-css/src/gutter/lg/horizontal.css'; */
 /* @import '../../node_modules/cacao-css/src/gutter/lg/vertical.css'; */
 

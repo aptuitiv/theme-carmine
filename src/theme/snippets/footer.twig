@@ -1,10 +1,11 @@
         <footer class="Footer">
             <div class="Container">
                 <div class="flex flex-col g-2 text-center">
-                    <div>{{ _api.navigation.get.key('footer') }}</div>
-                    <div class="flex flex-col">
-                        <div>
-                            {% if _core.theme.settings.footerShowAddress == 'yes' %}
+                    {{ _api.navigation.get.key('footer') }}
+
+                    <div class="Footer-contact">
+                        {% if _core.theme.settings.footerShowAddress == 'yes' %}
+                            <div>
                                 {% if _core.settings.companyAddressStreet %}
                                     {{ _core.settings.companyAddressStreet }}{{ _core.settings.companyAddressCity ? ', ' }}
                                 {% endif %}
@@ -17,24 +18,25 @@
                                 {% if _core.settings.companyAddressPostalCode %}
                                     {{ _core.settings.companyAddressPostalCode }}
                                 {% endif %}
-                            {% endif %}
-                            {% if _core.theme.settings.footerShowPhone == 'yes' %}
-                            {% if _core.theme.settings.footerShowAddress == 'yes' %} | {% endif %}<a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a>
-                            {% endif %}
-                            {% if _core.theme.settings.footerShowEmail == 'yes' %}
-                                {% if _core.theme.settings.footerShowAddress == 'yes' or _core.theme.settings.footerShowPhone == 'yes' %} | {% endif %}<a href="mailto:{{ _core.settings.companyEmail }}" class="Footer-link">{{ _core.settings.companyEmail }}</a>
-                            {% endif %}
-                        </div>
-                        <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
+                            </div>
+                        {% endif %}
+                        {% if _core.theme.settings.footerShowPhone == 'yes' %}
+                            <a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a>
+                        {% endif %}
+                        {% if _core.theme.settings.footerShowEmail == 'yes' %}
+                            <a href="mailto:{{ _core.settings.companyEmail }}" class="Footer-link">{{ _core.settings.companyEmail }}</a>
+                        {% endif %}
+
                     </div>
-                    <div>
-                        <a href="https://www.aptuitiv.com" target="_blank">Website by Aptuitiv</a> |
+                    <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
+                    <div class="Footer-attribution">
+                        <a href="https://www.aptuitiv.com" target="_blank">Website by Aptuitiv</a>
                         <a href="https://www.branchcms.com" target="_blank">Powered by BranchCMS</a>
                     </div>
                 </div>
             </div>
         </footer>
-        
+
         {# Do this before you output any inline Javascript in the footer #}
         {% if _core.service.recaptchaV3.isUsable %}
             {% if _page.hasJs('recaptchaV3') == false %}
@@ -54,7 +56,7 @@
         {% endif %}
         {{ _page.js() }}
         {{ _page.bodyEndCode() }}
-        
+
         {# Optional Modal #}
         {% nevercache %}
             {% verbatim %}
