@@ -7,7 +7,7 @@
     --Header-paddingHorizontal: 65px;
     --Header-paddingVertical--sm: 20px;
     --Header-paddingHorizontal--sm: 35px;
-    
+
     --Header-textLogo-fontFamily: sans-serif;
     --Header-textLogo-fontSize: 6rem;
     --Header-textLogo-fontSize--sm: 4rem;
@@ -28,7 +28,6 @@
     color: var(--Header-textLogo-color);
     display: block;
     text-decoration: none;
-    width: max-content;
 }
 
 .Header-logoLink:focus-visible {
