@@ -27,7 +27,7 @@
 :root {
     --base-typography-fontFamily: var(--theme-typography-fontFamily);
     --base-typography-color: var(--theme-typography-color);
-    
+
     /* Extra */
     --base-typography-spacing: 25px;
     --base-typography-hrule-width: 1px;
@@ -117,6 +117,17 @@ a {
 a:hover {
     color: var(--base-typography-link-colorHover);
     text-decoration: var(--base-typography-link-textDecorationHover);
+}
+
+/**
+ * Default styling for telephone links to not look like links
+ */
+a[href^=tel],
+a[href^=tel]:active,
+a[href^=tel]:focus,
+a[href^=tel]:hover {
+    color: inherit;
+    text-decoration: none;
 }
 
 /**
