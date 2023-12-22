@@ -26,7 +26,7 @@
 
 .Header-logoLink {
     color: var(--Header-textLogo-color);
-    display: block;
+    display: contents; /* This fixes an issue where in Firefox the link tag would collapse around and SVG logo. */
     text-decoration: none;
 }
 
@@ -79,7 +79,7 @@
     .Header-textLogo {
         font-size: var(--Header-textLogo-fontSize);
     }
-    
+
 }
 
 @media (--c-bp-lg) {
