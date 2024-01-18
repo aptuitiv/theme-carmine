@@ -174,9 +174,12 @@
                             "type": "select",
                             "options": {
                                 "facebook": "Facebook",
+                                "google": "Google",
                                 "instagram": "Instagram",
                                 "linkedin": "LinkedIn",
                                 "pinterest": "Pinterest",
+                                "tiktok": "TikTok",
+                                "whatsapp": "WhatsApp",
                                 "x": "X (Twitter)",
                                 "youtube": "YouTube"
                             },
