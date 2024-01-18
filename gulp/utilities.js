@@ -140,11 +140,24 @@ const onError = function (err) {
     }
 };
 
+/**
+ * Gets the directory of the file
+ *
+ * This is useful to update a file in it's current directory
+ *
+ * @param {Vinyl} file The file object
+ * @returns {string}
+ */
+const getFileDir = (file) => {
+    return file.dirname;
+}
+
 // Export module
 export {
     banner,
     deleteFile,
     flatten,
+    getFileDir,
     log,
     logFile,
     logFileTo,
