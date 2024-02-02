@@ -31,10 +31,8 @@
     /* Extra */
     --base-typography-spacing: 25px;
     --base-typography-hrule-width: 1px;
-}
 
-/* Links */
-:root {
+    /* Links */
     --base-typography-link-color: var(--theme-typography-link-color);
     --base-typography-link-colorHover: var(--theme-typography-link-colorHover);
 }
@@ -58,7 +56,7 @@ html {
 body {
     color: var(--base-typography-color);
     font-family: var(--base-typography-fontFamily);
-    font-size: calc(var(--base-typography-fontSize) * .9);
+    font-size: calc(var(--base-typography-fontSize) * 0.9);
     font-weight: var(--base-typography-fontWeight);
     letter-spacing: var(--base-typography-letterSpacing);
     line-height: var(--base-typography-lineHeight);
@@ -91,8 +89,8 @@ ul {
 
 blockquote {
     border-left: 10px solid #ccc;
-    margin: var(--base-typography-spacing) calc(var(--base-typography-spacing) * .7);
-    padding: .5em 1em;
+    margin: var(--base-typography-spacing) calc(var(--base-typography-spacing) * 0.7);
+    padding: 0.5em 1em;
     position: relative;
 }
 
@@ -122,10 +120,10 @@ a:hover {
 /**
  * Default styling for telephone links to not look like links
  */
-a[href^=tel],
-a[href^=tel]:active,
-a[href^=tel]:focus,
-a[href^=tel]:hover {
+a[href^='tel'],
+a[href^='tel']:active,
+a[href^='tel']:focus,
+a[href^='tel']:hover {
     color: inherit;
     text-decoration: none;
 }

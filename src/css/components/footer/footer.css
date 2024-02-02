@@ -44,7 +44,6 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-
     /* postcss-bem-linter: ignore */
     .Footer a:hover {
         color: var(--Footer-color--hover);

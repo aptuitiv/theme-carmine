@@ -24,7 +24,7 @@
  */
 
 .Button,
-.Button[href^=tel] {
+.Button[href^="tel"] {
     background: var(--Button-background);
     border: var(--Button-borderWidth) solid var(--Button-borderColor);
     border-radius: var(--Button-border-radius);
@@ -50,11 +50,11 @@
  */
 
 .Button:hover,
-.Button[href^=tel]:hover,
+.Button[href^="tel"]:hover,
 .Button:focus,
-.Button[href^=tel]:focus,
+.Button[href^="tel"]:focus,
 .Button:active,
-.Button[href^=tel]:active {
+.Button[href^="tel"]:active {
     background: var(--Button-backgroundHover);
     border-color: var(--Button-borderColorHover);
     color: var(--Button-colorHover);
@@ -66,13 +66,13 @@
  */
 
 .Button--lg,
-.Button--lg[href^=tel] {
+.Button--lg[href^="tel"] {
     font-size: calc(var(--base-typography-fontSize) + 3px);
     padding: var(--Button-paddingVertical--lg) var(--Button-paddingHorizontal--lg);
 }
 
 .Button--sm,
-.Button--sm[href^=tel] {
+.Button--sm[href^="tel"] {
     font-size: var(--base-typography-fontSize);
     padding: var(--Button-paddingVertical--sm) var(--Button-paddingHorizontal--sm);
 }
@@ -92,18 +92,18 @@
 } */
 
 .Button--secondary,
-.Button--secondary[href^=tel] {
+.Button--secondary[href^="tel"] {
     background: var(--Button-background--secondary);
     border-color: var(--Button-borderColor--secondary);
     color: var(--Button-color--secondary);
 }
 
 .Button--secondary:active,
-.Button--secondary[href^=tel]:active,
+.Button--secondary[href^="tel"]:active,
 .Button--secondary:focus,
-.Button--secondary[href^=tel]:focus,
+.Button--secondary[href^="tel"]:focus,
 .Button--secondary:hover,
-.Button--secondary[href^=tel]:hover {
+.Button--secondary[href^="tel"]:hover {
     background: var(--Button-background--secondaryHover);
     border-color: var(--Button-borderColor--secondaryHover);
     color: var(--Button-color--secondaryHover);
@@ -113,7 +113,7 @@
  * Border modifiers
  */
 .Button--square,
-.Button--square[href^=tel] {
+.Button--square[href^="tel"] {
     border-radius: 0;
 }
 

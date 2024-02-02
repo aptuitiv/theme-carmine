@@ -28,8 +28,7 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     font-family: var(--MainNav-fontFamily);
     font-size: var(--MainNav-fontSize);
     gap: var(--MainNav-item-gap);

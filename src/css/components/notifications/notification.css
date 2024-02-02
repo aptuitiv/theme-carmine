@@ -50,10 +50,9 @@
 }
 
 .Notification-titleContent {
-    column-gap: 20px;
     display: flex;
     flex-wrap: wrap;
-    row-gap: 10px;
+    gap: 10px 20px;
 }
 
 .Notification-alert {
