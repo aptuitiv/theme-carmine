@@ -13,7 +13,7 @@ import gulp from 'gulp';
 // Require plugins
 // Importing the default export from commonJs modules.
 import concat from 'gulp-concat';
-import eslint from 'gulp-eslint';
+import eslint from '@aptuitiv/gulp-eslint';
 import gulpIf from 'gulp-if';
 import header from 'gulp-header';
 import mergeStream from 'merge-stream';
