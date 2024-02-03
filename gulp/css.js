@@ -4,7 +4,7 @@
 
 
 // Configuration and utilities
-import {config} from './config.js';
+import { config } from './config.js';
 import * as util from './utilities.js';
 
 // Require gulp
@@ -38,12 +38,12 @@ import tap from 'gulp-tap';
  * but with "xs-" added in.
  */
 function runStylelint() {
-    return gulp.src(config.paths.src.stylelint, {base: './'})
+    return gulp.src(config.paths.src.stylelint, { base: './' })
         .pipe(cached('Stylelint'))
         .pipe(tap((file) => {
             util.logFile(file, 'Linting');
         }))
-        .pipe(plumber({errorHandler: util.onError}))
+        .pipe(plumber({ errorHandler: util.onError }))
         .pipe(gulpStylelint({
             failAfterError: false,
             fix: true,
@@ -76,16 +76,17 @@ const processors = [
  * Process the CSS files
  */
 function processCss() {
-    var tasks = config.paths.src.css.map(function(cssFile) {
+    var tasks = config.paths.src.css.map(function (cssFile) {
         return gulp.src(cssFile)
             .pipe(tap((file) => {
                 util.logFile(file, 'Start Build CSS');
             }))
-            .pipe(plumber({errorHandler: util.onError}))
+            .pipe(plumber({ errorHandler: util.onError }))
             .pipe(postcss(processors))
-            .pipe(cleanCss({level: 2, compatibility: 'ie8'}))
-            .pipe(changedInPlace({firstPass: true}))
+            .pipe(cleanCss({ level: 2, compatibility: 'ie8' }))
+            .pipe(changedInPlace({ firstPass: true }))
             .pipe(header(util.banner))
+            .pipe(util.touch())
             .pipe(tap((file) => {
                 util.logFile(file, 'Output CSS');
             }))

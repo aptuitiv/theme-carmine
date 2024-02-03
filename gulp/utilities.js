@@ -7,6 +7,7 @@
 // esModules
 import chalk from 'chalk';
 import moment from 'moment';
+import through2 from 'through2';
 
 // Import the default module from a commonJs module
 import fancyLog from 'fancy-log'
@@ -152,6 +153,21 @@ const getFileDir = (file) => {
     return file.dirname;
 }
 
+/**
+ * Update the modified time on the file so that the gulp watch task recognizes that it changed.
+ *
+ * Sometimes the modified time gets set to the psat when a file is processed.
+ * This function updates the modified time to the current time.
+ * @link https://github.com/Shopify/themekit/issues/607#issuecomment-618094630
+ * @returns {NodeJS.ReadWriteStream}
+ */
+const touch = () => through2.obj(function (file, enc, cb) {
+    if (file.stat) {
+        file.stat.atime = file.stat.mtime = file.stat.ctime = new Date();
+    }
+    cb(null, file);
+});
+
 // Export module
 export {
     banner,
@@ -162,5 +178,6 @@ export {
     logFile,
     logFileTo,
     onError,
-    doSynchronousLoop as synchLoop
+    doSynchronousLoop as synchLoop,
+    touch
 }

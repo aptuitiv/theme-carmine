@@ -54,7 +54,8 @@
         "stylelint": "^15.11.0",
         "stylelint-config-standard": "^34.0.0",
         "stylelint-order": "^6.0.4",
-        "stylelint-selector-bem-pattern": "^3.0.1"
+        "stylelint-selector-bem-pattern": "^3.0.1",
+        "through2": "^4.0.2"
     },
     "dependencies": {
         "@splidejs/splide": "^4.1.4",
