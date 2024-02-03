@@ -69,6 +69,7 @@
     "scripts": {
         "start": "gulp",
         "build": "gulp build",
+        "lint": "eslint --fix --ext .js,.ts ./src",
         "updateBrowsersList": "npx browserslist@latest --update-db"
     },
     "bugs": {
