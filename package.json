@@ -16,9 +16,7 @@
         "not dead"
     ],
     "scripts": {
-        "start": "aptuitiv-build start",
         "build": "aptuitiv-build build",
-        "lint": "eslint --fix --ext .js,.ts ./src",
         "copy": "aptuitiv-build copy",
         "css": "aptuitiv-build css",
         "deploy": "aptuitiv-build upload -t",
@@ -30,6 +28,7 @@
         "init": "aptuitiv-build init",
         "js": "aptuitiv-build js",
         "jslint": "aptuitiv-build jslint",
+        "start": "aptuitiv-build start",
         "stylelint": "aptuitiv-build stylelint",
         "templates": "aptuitiv-build push-templates",
         "theme-config": "aptuitiv-build push-theme-config",
