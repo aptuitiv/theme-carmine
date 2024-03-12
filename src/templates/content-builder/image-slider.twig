@@ -18,6 +18,7 @@
                                         {% endif %}
                                         {% do slide.image.crop({ ar: aspectRatio|replace(':', 'x'), w: width }) %}
                                     {% endif %}
+                                    {% do slide.image.lazy() %}
                                     {{ slide.image.tag }}
                                     {% if slide.title %}
                                         <div class="Slider-content">{{ slide.title }}</div>
