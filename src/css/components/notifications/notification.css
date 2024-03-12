@@ -17,13 +17,14 @@
     background-color: var(--Notification-background);
     color: var(--Notification-color);
     padding: var(--Notification-paddingVertical) var(--Notification-paddingHorizontal);
+    text-align: center;
 }
 
 .Notification-more {
     background-color: transparent;
     border: none;
     color: var(--Notification-color);
-    padding: 0;
+    margin-left: 20px;
     text-decoration: underline;
     text-transform: var(--Notification-title-textTransform);
 }

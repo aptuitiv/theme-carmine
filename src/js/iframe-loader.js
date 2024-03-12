@@ -1,3 +1,13 @@
+/* eslint-disable no-unused-vars */
+/* global HTMLELement */
+/**
+ * Loads an iframe when it comes into view
+ *
+ * @param {HTMLELement} element The element to load the iframe into
+ * @param {string} src The iframe src
+ * @param {string} title The iframe title
+ * @param {string} className The iframe class
+ */
 const loadIframeOnObserve = (element, src, title, className) => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {

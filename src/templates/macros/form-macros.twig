@@ -129,7 +129,7 @@
         {% if field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
             <div class="grid g-2">
                 {% for column in field.columns %}
-                    {% set class = 'col-1-' ~ loop.length  %}
+                    {% set class = 'col-1-1 col-sm-1-' ~ loop.length  %}
                     {% if column.class %}
                         {% if 'col-' in column.class %}
                             {% set class = column.class %}
@@ -137,7 +137,7 @@
                             {% set class = class ~ ' ' ~ column.class %}
                         {% endif %}
                     {% endif %}
-                    {% set class = class ~ ' w-100' %}
+                    {# {% set class = class ~ ' w-100' %} #}
                     <div class="{{ class }}">
                         {% for child in column.childFields %}
                             {{ _self.buildLabelAboveFieldField(child) }}
@@ -248,7 +248,15 @@
         <p>{{ errorMessage }}</p>
         <ul class="mb-0">
             {% for error in form.errors %}
-                <li>{{ error.message }}</li>
+                {% if error.message %}
+                    <li>{{ error.message }}</li>
+                {% elseif error.fieldName == 'ap-form-captcha' %}
+                    {% if form.captcha.error %}
+                        <li>Google reCAPTCHA error: {{ form.captcha.error }}</li>
+                    {% elseif form.captcha.errorCode %}
+                        <li>Google reCAPTCHA error: {{ form.captcha.errorCode }}</li>
+                    {% endif %}
+                {% endif %}
             {% endfor %}
             {% for error in form.paymentErrors %}
                 <li>{{ error.message }}</li>
@@ -355,6 +363,10 @@
                             {% else %}
                                 document.querySelector('.{{ form.class }}').submit();
                             {% endif %}
+                        }).catch(function(e) {
+                            console.error(e);
+                            document.querySelector('.{{ formOverlayClass }}').style.display = 'none';
+                            document.querySelector('.{{ form.class }} [type="submit"]').disabled = false;
                         });
                     {% else %}
                         {% if submitHandler %}
@@ -422,4 +434,27 @@
             {{ macros.addValidationRule(field)}}
         {% endfor %}
     {% endif %}
+{% endmacro %}
+
+{# Form fields required message #}
+{% macro requiredMessage() %}
+    {% if _core.theme.settings.formRequiredShowMessage == 'yes' %}
+        <div class="FormRequired-message">{{ _core.theme.settings.formRequiredMessageText }}</div>
+    {% endif %}
+{% endmacro %}
+
+
+{# Form button #}
+{% macro formButton(buttonText) %}
+    {% set buttonClass = 'Button' %}
+    {% if _core.theme.settings.formButtonSize in ['sm', 'lg'] %}
+        {% set buttonClass = buttonClass ~ ' Button--'  ~ _core.theme.settings.formButtonSize %}
+    {% endif %}
+    {% if _core.theme.settings.formButtonStyle in ['alt', 'alt2'] %}
+        {% set buttonClass = buttonClass ~ ' Button--' ~ _core.theme.settings.formButtonStyle %}
+    {% endif %}
+    {% if _core.theme.settings.formButtonFullWidthSmallScreens == 'yes' %}
+        {% set buttonClass = buttonClass ~ ' Button--smFull' %}
+    {% endif %}
+    <div class="FormButton"><button type="submit" class="{{ buttonClass }}">{{ buttonText }}</button></div>
 {% endmacro %}

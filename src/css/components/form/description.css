@@ -2,20 +2,17 @@
     Form Description
 \* =========================================================================== */
 
-/* :root {
-    --FormDescription-fontSize: 1.4rem;
-    --FormDescription-fontWeight: 400;
-    --FormDescription-lineHeight: 1.2;
-    --FormDescription-textTransform: none;
-    --FormDescription-fontStyle: italic;
-} */
-
 /* @define FormDescription */
 .FormDescription {
-    font-size: var(--FormDescription-fontSize);
-    font-style: var(--FormDescription-fontStyle);
-    font-weight: var(--FormDescription-fontWeight);
-    line-height: var(--FormDescription-lineHeight);
-    margin-bottom: 0;
-    text-transform: var(--FormDescription-textTransform);
+    color: var(--FormDescription-color);
+    font-family: var(--FormDescription-font-family);
+    font-size: var(--FormDescription-font-size);
+    font-style: var(--FormDescription-font-style, none);
+    font-weight: var(--FormDescription-font-weight, 400);
+    letter-spacing: var(--FormDescription-letter-spacing);
+    line-height: var(--FormDescription-line-height);
+    margin: var(--FormDescription-margin, 0);
+    text-align: var(--FormDescription-text-align);
+    text-decoration: var(--FormDescription-text-decoration, none);
+    text-transform: var(--FormDescription-text-transform, none);
 }

@@ -4,11 +4,16 @@
 @import './container';
 @import './footer';
 @import './form';
+@import './google-rating-bar';
 @import './header';
+@import './image';
 @import './icon';
+@import './image-grid';
+@import './list';
 @import './message';
 @import './modal';
 @import './navigation';
 @import './notifications';
 @import './pagination';
 @import './slider';
+@import './wrapper';

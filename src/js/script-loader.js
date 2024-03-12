@@ -1,7 +1,13 @@
+/* ===========================================================================
+    This provides a way to load scripts when a user interacts with the page.
+=========================================================================== */
+
+/* eslint-disable no-unused-vars */
 class ScriptLoader {
     /**
      * Create an instance of ScriptLoader
-     * @param {array} scripts - URLs for scripts to be injected
+     *
+     * @param {Array} scripts - URLs for scripts to be injected
      */
     constructor(scripts) {
         this.scripts = scripts;

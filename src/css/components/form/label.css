@@ -2,20 +2,18 @@
     Field Label
 \* =========================================================================== */
 
-/* :root {
-    --FormLabel-fontSize: 1.8rem;
-    --FormLabel-fontWeight: 400;
-    --FormLabel-lineHeight: 1.2;
-    --FormLabel-textTransform: uppercase;
-    --FormLabel-marginBottom: 5px;
-} */
-
 .FormLabel {
-    font-size: var(--FormLabel-fontSize);
-    font-weight: var(--FormLabel-fontWeight);
-    line-height: var(--FormLabel-lineHeight);
-    margin-bottom: var(--FormLabel-marginBottom);
-    text-transform: var(--FormLabel-textTransform);
+    color: var(--FormLabel-color, #333);
+    font-family: var(--FormLabel-font-family);
+    font-size: var(--FormLabel-font-size);
+    font-style: var(--FormLabel-font-style, none);
+    font-weight: var(--FormLabel-font-weight, 700);
+    letter-spacing: var(--FormLabel-letter-spacing, 0);
+    line-height: var(--FormLabel-line-height);
+    margin: var(--FormLabel-margin, 0);
+    text-align: var(--FormLabel-text-align);
+    text-decoration: var(--FormLabel-text-decoration, none);
+    text-transform: var(--FormLabel-text-transform, none);
 }
 
 .FormLabel--block {

@@ -2,65 +2,41 @@
     Footer
 \* =========================================================================== */
 
-/* :root {
-    --Footer-paddingVertical: 80px;
-    --Footer-paddingHorizontal: 160px;
-    --Footer-paddingVertical--sm: 50px;
-    --Footer-paddingHorizontal--sm: 50px;
-    --Footer-background: #00263e;
-
-    --Footer-content-fontFamily: sans-serif;
-    --Footer-content-fontSize: 1.4rem;
-    --Footer-content-fontWeight: 400;
-    --Footer-content-lineHeight: 1.2;
-    --Footer-content-letterSpacing: 0;
-    --Footer-content-textTransform: uppercase;
-    --Footer-color: #fff;
-    --Footer-color--hover: #fff;
-} */
-
 /* @define Footer */
 .Footer {
-    background-color: var(--Footer-background);
-    color: var(--Footer-color);
-    font-family: var(--Footer-content-fontFamily);
-    font-size: var(--Footer-content-fontSize);
-    font-weight: var(--Footer-content-fontWeight);
-    letter-spacing: var(--Footer-content-letterSpacing);
-    line-height: var(--Footer-content-lineHeight);
-    padding: var(--Footer-paddingVertical--sm) var(--Footer-paddingHorizontal--sm);
-    text-transform: var(--Footer-content-textTransform);
+    margin: var(--Footer-sm-margin, 0);
+    padding: var(--Footer-sm-padding, 0);
 }
 
-/* postcss-bem-linter: ignore */
-.Footer * {
-    color: var(--Footer-color);
-    text-decoration: none;
-}
-
-/* postcss-bem-linter: ignore */
-.Footer a:focus-visible {
-    color: var(--Footer-color--hover);
-}
-
-@media (hover: hover) and (pointer: fine) {
-    /* postcss-bem-linter: ignore */
-    .Footer a:hover {
-        color: var(--Footer-color--hover);
-    }
-}
-
-.Footer-contact {
+.Footer-inner {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    justify-content: center;
+    gap: 30px;
+    justify-content: space-between;
 }
 
-.Footer-attribution {
+.Footer-company {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 30px;
+}
+
+.Footer-logo {
+    max-width: var(--Footer-logo-width);
+    width: 100%;
+}
+
+.Footer-phoneContent {
+    white-space: nowrap;
+}
+
+.Footer-socialLink {
+    align-items: center;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    display: inline-flex;
     justify-content: center;
 }
 
@@ -68,66 +44,28 @@
     Responsive
 \* ------------------------------------ */
 
-@media (--c-bp-sm) {
-    .Footer-attribution {
-        flex-direction: row;
-        gap: 20px;
-    }
-
-    /* postcss-bem-linter: ignore */
-    .Footer-attribution > * {
-        position: relative;
-    }
-
-    /* postcss-bem-linter: ignore */
-    .Footer-attribution > *::after {
-        background: var(--Footer-color);
-        content: '';
-        height: 25%;
-        position: absolute;
-        right: -10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 1px;
-    }
-
-    /* postcss-bem-linter: ignore */
-    .Footer-attribution > *:last-child::after {
-        display: none;
+@media (--c-bp-lg) {
+    .Footer {
+        margin: var(--Footer-margin, 0);
+        padding: var(--Footer-padding, 0);
     }
 }
 
 @media (--c-bp-md) {
-    .Footer-contact {
+    .Footer-inner {
         flex-direction: row;
-        gap: 20px;
     }
 
-    /* postcss-bem-linter: ignore */
-    .Footer-contact > * {
-        position: relative;
-    }
-
-    /* postcss-bem-linter: ignore */
-    .Footer-contact > *::after {
-        background: var(--Footer-color);
-        content: '';
-        height: 25%;
-        position: absolute;
-        right: -10px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 1px;
-    }
-
-    /* postcss-bem-linter: ignore */
-    .Footer-contact > *:last-child::after {
-        display: none;
+    .Footer-company {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        width: 100%;
     }
 }
 
-@media (--c-bp-lg) {
-    .Footer {
-        padding: var(--Footer-paddingVertical) var(--Footer-paddingHorizontal);
+@media (width <= 48em) {
+    .Footer-address {
+        padding-left: 0 !important;
+        text-align: center !important;
     }
 }

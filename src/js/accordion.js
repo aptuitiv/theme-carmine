@@ -4,7 +4,10 @@
  * Sort of based on https://codepen.io/brundolf/pen/dvoGyw?editors=1111
  * https://css-tricks.com/using-css-transitions-auto-dimensions/
  */
-var accordion = {
+const accordion = {
+    /**
+     * Initialize the accordion
+     */
     init() {
         document.querySelectorAll('.js-accordionHeading').forEach((el) => {
             el.addEventListener('click', (e) => {
@@ -22,7 +25,8 @@ var accordion = {
 
     /**
      * Get the accordion container
-     * @param {HTMLElement} el
+     *
+     * @param {HTMLElement} el The container element
      * @returns {HTMLElement}
      */
     getContainer(el) {
@@ -35,7 +39,8 @@ var accordion = {
 
     /**
      * Expand the accordion
-     * @param {HTMLElement} container
+     *
+     * @param {HTMLElement} container The container element
      */
     expand(container) {
         const content = container.querySelector('.js-accordionContent');
@@ -46,20 +51,22 @@ var accordion = {
         content.style.height = `${sectionHeight}px`;
 
         // when the next css transition finishes (which should be the one we just triggered)
-        content.addEventListener('transitionend', function (e) {
+        const transitionEnd = () => {
             // remove this event listener so it only gets triggered once
-            content.removeEventListener('transitionend', arguments.callee);
+            content.removeEventListener('transitionend', transitionEnd);
 
             // remove "height" from the content's inline styles, so it can return to its initial value
             content.style.height = null;
-        });
+        };
+        content.addEventListener('transitionend', transitionEnd);
 
         // mark the section as "currently not collapsed"
         container.setAttribute('data-collapsed', 'no');
     },
     /**
      * Collapse the accordion
-     * @param {HTMLElement} container
+     *
+     * @param {HTMLElement} container The container element
      */
     collapse(container) {
         const content = container.querySelector('.js-accordionContent');

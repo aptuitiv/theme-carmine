@@ -4,14 +4,14 @@
 
 /* @define SelectInput */
 .SelectInput {
-    background: var(--SelectInput-background);
-    border: var(--SelectInput-borderWidth) solid var(--SelectInput-borderColor);
-    border-radius: var(--SelectInput-borderRadius);
+    background: var(--SelectInput-background, #fff);
+    border: var(--SelectInput-border-width, 1px) solid var(--SelectInput-border-color, #777);
+    border-radius: var(--SelectInput-borderRadius, 0);
     box-sizing: border-box;
-    color: var(--SelectInput-color);
+    color: var(--SelectInput-color, #333);
     display: inline-block;
     outline: none;
-    padding: var(--SelectInput-paddingVertical) var(--SelectInput-paddingHorizontal);
+    padding: var(--SelectInput-padding, 5px 10px);
     position: relative;
     width: 100%;
 }
@@ -23,12 +23,12 @@
 .SelectInput::before {
     background: none;
     border: 6px solid;
-    border-color: var(--SelectInput-color) transparent transparent transparent;
+    border-color: var(--SelectInput-arrow-color, #777) transparent transparent transparent;
     content: '';
     height: 0;
     padding: 0;
     position: absolute;
-    right: .6rem;
+    right: 0.6rem;
     top: 50%;
     transform: translateY(-25%);
     width: 0;

@@ -4,17 +4,17 @@
 
 /* @define TextInput */
 .TextInput {
-    background: var(--TextInput-background);
-    border: var(--TextInput-borderWidth) solid var(--TextInput-borderColor);
-    border-radius: var(--TextInput-borderRadius);
+    background: var(--TextInput-background, #fff);
+    border: var(--TextInput-border-width, 1px) solid var(--TextInput-border-color, #777);
+    border-radius: var(--TextInput-border-radius, 0);
     box-sizing: border-box;
-    color: var(--TextInput-color);
+    color: var(--TextInput-color, #333);
     outline: none;
-    padding: var(--TextInput-paddingVertical) var(--TextInput-paddingHorizontal);
+    padding: var(--TextInput-padding, 5px 10px);
     width: 100%;
 }
 
 .TextInput:focus {
-    outline: var(--TextInput-borderWidth) dotted var(--TextInput-borderColor);
+    outline: var(--TextInput-border-width, 1px) dotted var(--TextInput-border-color, #777);
     outline: auto 5px -webkit-focus-ring-color;
 }
