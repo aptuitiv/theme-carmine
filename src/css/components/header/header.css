@@ -2,42 +2,25 @@
     Header
 \* =========================================================================== */
 
-/* :root {
-    --Header-paddingVertical: 30px;
-    --Header-paddingHorizontal: 65px;
-    --Header-paddingVertical--sm: 20px;
-    --Header-paddingHorizontal--sm: 35px;
-
-    --Header-textLogo-fontFamily: sans-serif;
-    --Header-textLogo-fontSize: 6rem;
-    --Header-textLogo-fontSize--sm: 4rem;
-    --Header-textLogo-fontWeight: 700;
-    --Header-textLogo-lineHeight: 1.2;
-    --Header-textLogo-letterSpacing: 0;
-    --Header-textLogo-textTransform: none;
-    --Header-textLogo-color: #871e0f;
-    --Header-textLogo-color-hover: #591108;
-} */
-
 /* @define Header */
 .Header {
-    padding: var(--Header-paddingVertical--sm) var(--Header-paddingHorizontal--sm);
+    padding: var(--Header-padding-sm, 20px 0);
 }
 
 .Header-logoLink {
-    color: var(--Header-textLogo-color);
+    color: var(--Header-text-logo-color);
     display: contents; /* This fixes an issue where in Firefox the link tag would collapse around and SVG logo. */
     text-decoration: none;
 }
 
 .Header-logoLink:focus-visible {
-    color: var(--Header-textLogo-color-hover);
+    color: var(--Header-text-logo-color-hover);
     text-decoration: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
     .Header-logoLink:hover {
-        color: var(--Header-textLogo-color-hover);
+        color: var(--Header-text-logo-color-hover);
         text-decoration: none;
     }
 }
@@ -48,16 +31,7 @@
 }
 
 .Header-textLogo {
-    font-family: var(--Header-textLogo-fontFamily);
-    font-size: var(--Header-textLogo-fontSize--sm);
-    font-weight: var(--Header-textLogo-fontWeight);
-    letter-spacing: var(--Header-textLogo-letterSpacing);
-    line-height: var(--Header-textLogo-lineHeight);
-    text-transform: var(--Header-textLogo-textTransform);
-}
-
-.Header-nav {
-    overflow: visible !important;
+    font-size: var(--Header-text-logo-font-size-sm);
 }
 
 .Header-link {
@@ -77,12 +51,19 @@
 
 @media (--c-bp-md) {
     .Header-textLogo {
-        font-size: var(--Header-textLogo-fontSize);
+        font-size: var(--Header-text-logo-font-size);
     }
 }
 
 @media (--c-bp-lg) {
     .Header {
-        padding: var(--Header-paddingVertical) var(--Header-paddingHorizontal);
+        padding: var(--Header-padding, 20px 0);
     }
+}
+
+.Header-socialLink {
+    align-items: center;
+    aspect-ratio: 1/1;
+    display: inline-flex;
+    justify-content: center;
 }

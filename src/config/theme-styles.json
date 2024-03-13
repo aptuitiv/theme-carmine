@@ -2227,56 +2227,28 @@
         {
             "name": "Header",
             "description": "Styles for the header of the website.",
-            "sections": [
+            "groups": [
                 {
                     "name": "Padding",
                     "fields": [
                         {
-                            "name": "headerPaddingVertical",
-                            "label": "Vertical padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
+                            "name": "headerPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "default": "20px 0",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-paddingVertical",
-                                "template": "{{ value }}px"
+                                "cssVariable": "--Header-padding"
                             }
                         },
                         {
-                            "name": "headerPaddingHorizontal",
-                            "label": "Horizontal padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "50",
+                            "name": "headerPaddingSm",
+                            "label": "Padding (small screens)",
+                            "type": "padding",
+                            "default": "20px 0",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-paddingHorizontal",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "headerPaddingVerticalSm",
-                            "label": "Vertical padding (small screens)",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-paddingVertical--sm",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "headerPaddingHorizontalSm",
-                            "label": "Horizontal padding (small screens)",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "30",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-paddingHorizontal--sm",
-                                "template": "{{ value }}px"
+                                "cssVariable": "--Header-padding-sm"
                             }
                         }
                     ]
@@ -2286,107 +2258,239 @@
                     "description": "Styles for the text logo if in use.",
                     "fields": [
                         {
-                            "name": "headerTextLogoFontFamily",
-                            "label": "Font family",
-                            "type": "fontFamily",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-textLogo-fontFamily"
-                            }
-                        },
-                        {
-                            "name": "headerTextLogoFontSize",
-                            "label": "Font size",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "60",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-textLogo-fontSize",
-                                "template": "{{ value / 10 }}rem"
-                            }
-                        },
-                        {
                             "name": "headerTextLogoFontSizeSm",
-                            "label": "Font size",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "40",
+                            "label": "Font size (small screens)",
+                            "type": "size",
+                            "default": "40px",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-textLogo-fontSize--sm",
-                                "template": "{{ value / 10 }}rem"
+                                "cssVariable": "--Header-text-logo-font-size-sm"
                             }
                         },
                         {
-                            "name": "headerTextLogoFontWeight",
-                            "label": "Font weight",
-                            "type": "fontWeight",
-                            "default": "700",
-                            "fontFamilyField": "headerTextLogoFontFamily",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-textLogo-fontWeight"
-                            }
-                        },
-                        {
-                            "name": "headerTextLogoLineHeight",
-                            "label": "Line height",
-                            "type": "stepper",
-                            "step": "0.1",
-                            "decimals": "2",
-                            "default": "1.2",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-textLogo-lineHeight"
-                            }
-                        },
-                        {
-                            "name": "headerTextLogoLetterSpacing",
-                            "label": "Letter spacing",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "0",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-textLogo-letterSpacing",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "headerTextLogoTextTransform",
-                            "label": "Text case",
-                            "type": "select",
-                            "default": "none",
-                            "options": {
-                                "none": "Default",
-                                "capitalize": "Capitalize",
-                                "uppercase": "UPPERCASE",
-                                "lowercase": "lowercase"
+                            "name": "headerTextLogoTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useHover": true,
+                            "useTextAlign": false,
+                            "useTextDecoration": false,
+                            "fontSize": {
+                                "default": "60px"
                             },
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-textLogo-textTransform"
+                                "cssSelector": ".Header-textLogo"
+                            },
+                            "fontSizePreview": {
+                                "cssSelector": "",
+                                "cssVariable": "--Header-text-logo-font-size"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "General typography",
+                    "description": "General typography styles for the header",
+                    "fields": [
+                        {
+                            "name": "headerTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "useTextDecoration": false,
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Header-content"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Header links",
+                    "description": "This is for other links in the footer like an email link.",
+                    "fields": [
+                        {
+                            "name": "headerLinkTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "useHover": true,
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Header-link"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Social icons",
+                    "fields": [
+                        {
+                            "name": "headerSocialColor",
+                            "label": "Color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Header-socialLink",
+                                "cssProperty": "color"
                             }
                         },
                         {
-                            "name": "headerTextLogoColor",
-                            "label": "Text color",
+                            "name": "headerSocialColorHover",
+                            "label": "Color (hover)",
                             "type": "color",
-                            "default": "#871e0f",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-textLogo-color"
+                                "cssSelector": ".Header-socialLink",
+                                "cssProperty": "color",
+                                "state": "hover"
                             }
                         },
                         {
-                            "name": "headerTextLogoColorHover",
-                            "label": "Text color (hover)",
+                            "name": "headerSocialBackground",
+                            "label": "Background",
                             "type": "color",
-                            "default": "#591108",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-textLogo-color-hover"
+                                "cssSelector": ".Header-socialLink",
+                                "cssProperty": "background-color"
+                            }
+                        },
+                        {
+                            "name": "headerSocialBackgroundHover",
+                            "label": "Background (hover)",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Header-socialLink",
+                                "cssProperty": "background-color",
+                                "state": "hover"
+                            }
+                        },
+                        {
+                            "name": "headerSocialSize",
+                            "label": "Size",
+                            "type": "size",
+                            "default": "30px",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Header-socialLink",
+                                "cssProperty": "height"
+                            }
+                        },
+                        {
+                            "name": "headerSocialBorderRadius",
+                            "label": "Border radius",
+                            "type": "borderRadius",
+                            "default": "50%",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Header-socialLink"
+                            }
+                        },
+                        {
+                            "name": "headerSocialPadding",
+                            "label": "Padding around all the icons",
+                            "type": "padding",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Header-socialIcons"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Header buttons",
+                    "fields": [
+                        {
+                            "name": "headerButtonBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "background-color"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "background-color",
+                                "state": "hover"
+                            }
+                        },
+                        {
+                            "name": "headerButtonTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useHover": true,
+                            "useTextAlign": false,
+                            "fontSizePreview": {
+                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
+                            },
+                            "fontSize": {
+                                "allowedUnits": ["px"]
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "border-color"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderColorHover",
+                            "label": "Border color (hover)",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "border-color",
+                                "state": "hover"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderRadius",
+                            "label": "Border radius",
+                            "type": "borderRadius",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderWidth",
+                            "label": "Border width",
+                            "type": "size",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "border-width"
+                            }
+                        },
+                        {
+                            "name": "headerButtonPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button"
                             }
                         }
                     ]
