@@ -2,56 +2,35 @@
     Main Navigation
 \* =========================================================================== */
 
-/* :root {
-    --MainNav-fontFamily: inherit;
-    --MainNav-fontSize: 1.6rem;
-    --MainNav-lineHeight: 1.2;
-    --MainNav-textTransform: uppercase;
-
-    --MainNav-item-gap: 10px;
-    --MainNav-item-paddingVertical: 0;
-    --MainNav-item-paddingHorizontal: 25px;
-    --MainNav-item-paddingVertical--sm: 10px;
-    --MainNav-item-paddingHorizontal--sm: 25px;
-    --MainNav-item-fontWeight: 400;
-    --MainNav-item-letterSpacing: 0;
-
-    --MainNav-link-background: transparent;
-    --MainNav-link-color: #00263E;
-
-    --MainNav-link-background-hover: transparent;
-    --MainNav-link-color-hover: #6AAC44;
-} */
-
 /* @define MainNav */
 .MainNav {
     align-items: center;
     box-sizing: border-box;
     display: flex;
     flex-flow: column wrap;
-    font-family: var(--MainNav-fontFamily);
-    font-size: var(--MainNav-fontSize);
+    font-family: var(--MainNav-font-family);
     gap: var(--MainNav-item-gap);
-    justify-content: center;
-    line-height: var(--MainNav-lineHeight);
+    justify-content: var(--MainNav-text-align);
     list-style: none;
     margin: 0;
     padding: 0;
-    text-transform: var(--MainNav-textTransform);
 }
 
 .MainNav-item {
-    font-weight: var(--MainNav-item-fontWeight);
-    letter-spacing: var(--MainNav-item-letterSpacing);
+    font-size: var(--MainNav-font-size);
+    letter-spacing: var(--MainNav-letter-spacing);
+    line-height: var(--MainNav-line-height);
+    text-transform: var(--MainNav-text-transform);
     width: 100%;
 }
 
 .MainNav-link {
     background: var(--MainNav-link-background);
     box-sizing: border-box;
-    color: var(--MainNav-link-color);
+    color: var(--MainNav-color);
     display: block;
-    padding: var(--MainNav-item-paddingVertical--sm) var(--MainNav-item-paddingHorizontal--sm);
+    font-weight: var(--MainNav-font-weight);
+    padding: var(--MainNav-item-padding-sm);
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -61,7 +40,7 @@
 .MainNav-item.is-currentParent > .MainNav-link,
 .MainNav-item:hover > .MainNav-link {
     background: var(--MainNav-link-background-hover);
-    color: var(--MainNav-link-color-hover);
+    color: var(--MainNav-color-hover);
     text-decoration: none;
 }
 
@@ -80,7 +59,7 @@
     }
 
     .MainNav-link {
-        padding: var(--MainNav-item-paddingVertical) var(--MainNav-item-paddingHorizontal);
+        padding: var(--MainNav-item-padding);
     }
 
     .MainNav-item--small {
