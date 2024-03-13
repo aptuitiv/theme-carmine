@@ -29,10 +29,12 @@
 
                     </div>
                     <div>&copy; {{ _core.date.year }} {{ _core.settings.companyName }}</div>
-                    <div class="Footer-attribution">
-                        <a href="https://www.aptuitiv.com" target="_blank">Website by Aptuitiv</a>
-                        <a href="https://www.branchcms.com" target="_blank">Powered by BranchCMS</a>
-                    </div>
+                    {% if _core.theme.settings.footerShowCredit == 'yes' %}
+                        <div class="Footer-attribution">
+                            <a href="https://www.aptuitiv.com" target="_blank" class="Footer-attributeLink">Website by Aptuitiv</a>
+                            <a href="https://www.branchcms.com" target="_blank" class="Footer-attributeLink">Powered by BranchCMS</a>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </footer>

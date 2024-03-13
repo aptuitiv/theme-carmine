@@ -256,7 +256,7 @@
                             "label": "Padding",
                             "description": "This is used when there is a lot of content to make sure that the content does't touch the edges of the banner.",
                             "type": "padding",
-                            "default": "200px 80px",
+                            "default": "10px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-padding"
@@ -266,7 +266,7 @@
                             "name": "bannerPaddingSm",
                             "label": "Padding (small screens)",
                             "type": "padding",
-                            "default": "100px 50px",
+                            "default": "10px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-padding-sm"
@@ -293,7 +293,7 @@
                             "name": "bannerPaddingTopNoImage",
                             "label": "Padding when no image or video",
                             "type": "padding",
-                            "default": "100px 50px",
+                            "default": "20px 10px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-padding-no-image"
@@ -303,7 +303,7 @@
                             "name": "bannerPaddingTopNoImageSm",
                             "label": "Padding (small screens) when no image or video",
                             "type": "padding",
-                            "default": "50px",
+                            "default": "10px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-padding-no-image-sm"
@@ -1112,87 +1112,12 @@
         {
             "name": "Blocks - Image Slider",
             "description": "Styles for the \"Image Slider\" block.",
-            "sections": [
+            "groups": [
                 {
                     "name": "Content",
                     "fields": [
                         {
-                            "name": "sliderContentPaddingVertical",
-                            "label": "Vertical padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-paddingVertical",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "sliderContentPaddingHorizontal",
-                            "label": "Horizontal padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-paddingHorizontal",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "sliderContentFontSize",
-                            "label": "Font size",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-fontSize",
-                                "template": "{{ value / 10 }}rem"
-                            }
-                        },
-                        {
-                            "name": "sliderContentFontWeight",
-                            "label": "Font weight",
-                            "type": "fontWeight",
-                            "default": "700",
-                            "fontFamilyField": "themeTypographyFontFamily",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-fontWeight"
-                            }
-                        },
-                        {
-                            "name": "sliderContentLineHeight",
-                            "label": "Line height",
-                            "type": "stepper",
-                            "step": "0.1",
-                            "decimals": "2",
-                            "default": "1.58",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-lineHeight"
-                            }
-                        },
-                        {
-                            "name": "sliderContentTextTransform",
-                            "label": "Text case",
-                            "type": "select",
-                            "default": "none",
-                            "options": {
-                                "none": "Default",
-                                "capitalize": "Capitalize",
-                                "uppercase": "UPPERCASE",
-                                "lowercase": "lowercase"
-                            },
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-textTransform"
-                            }
-                        },
-                        {
-                            "name": "sliderContentBackground",
+                            "name": "blocksImageSliderContentBackground",
                             "label": "Background color",
                             "type": "color",
                             "default": "#fff",
@@ -1202,33 +1127,28 @@
                             }
                         },
                         {
-                            "name": "sliderContentColor",
-                            "label": "Text color",
-                            "type": "color",
-                            "default": "#333",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-color"
-                            }
-                        },
-                        {
-                            "name": "sliderContentBackgroundHover",
+                            "name": "blocksImageSliderContentBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
                             "default": "#333",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Slider-content-background--hover"
+                                "cssVariable": "--Slider-content-background-hover"
                             }
                         },
                         {
-                            "name": "sliderContentColorHover",
-                            "label": "Text color (hover)",
-                            "type": "color",
-                            "default": "#fff",
+                            "name": "blocksImageSliderTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useHover": true,
+                            "usePadding": true,
+                            "padding": {
+                                "default": "20px"
+                            },
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Slider-content-color--hover"
+                                "cssVariable": "--Slider-content"
                             }
                         }
                     ]
@@ -1237,7 +1157,7 @@
                     "name": "Arrows",
                     "fields": [
                         {
-                            "name": "sliderArrowBackground",
+                            "name": "blocksImageSliderArrowBackground",
                             "label": "Background color",
                             "type": "color",
                             "default": "#fff",
@@ -1247,7 +1167,17 @@
                             }
                         },
                         {
-                            "name": "sliderArrowColor",
+                            "name": "blocksImageSliderArrowColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-arrow-color-hover"
+                            }
+                        },
+                        {
+                            "name": "blocksImageSliderArrowColor",
                             "label": "Text color",
                             "type": "color",
                             "default": "#333",
@@ -1257,23 +1187,13 @@
                             }
                         },
                         {
-                            "name": "sliderArrowBackgroundHover",
+                            "name": "blocksImageSliderArrowBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
                             "default": "#333",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Slider-arrow-background--hover"
-                            }
-                        },
-                        {
-                            "name": "sliderArrowColorHover",
-                            "label": "Text color (hover)",
-                            "type": "color",
-                            "default": "#fff",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-arrow-color--hover"
+                                "cssVariable": "--Slider-arrow-background-hover"
                             }
                         }
                     ]
@@ -1367,7 +1287,7 @@
                     "name": "blockWrapperWBgImageBackgroundGray",
                     "label": "Gray background color",
                     "type": "color",
-                    "description": "It should have some opacity so that the background image can be seen",
+                    "default": "rgba(244, 244, 244, 0.6)",
                     "preview": {
                         "type": "css-head",
                         "cssVariable": "--Wrapper-wbgimage-background-grey"
@@ -1879,20 +1799,12 @@
                             }
                         },
                         {
-                            "name": "footerColor",
-                            "label": "Text color",
-                            "description": "You can override this color in some sections below",
-                            "type": "color",
-                            "preview": {
-                                "type": "css-head",
-                                "cssSelector": ".Footer",
-                                "cssProperty": "color"
-                            }
-                        },
-                        {
                             "name": "footerSpacing",
                             "label": "Spacing",
                             "type": "spacing",
+                            "padding": {
+                                "default": "20px 0"
+                            },
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Footer"
@@ -1906,6 +1818,7 @@
                                 "label": "Margin (small screens)"
                             },
                             "padding": {
+                                "default": "10px 0",
                                 "label": "Padding (small screens)"
                             },
                             "preview": {
@@ -1916,108 +1829,83 @@
                     ]
                 },
                 {
-                    "name": "General",
+                    "name": "Typography",
                     "fields": [
                         {
-                            "name": "footerContentFontFamily",
-                            "label": "Font family",
-                            "type": "fontFamily",
+                            "name": "footerTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Footer-content-fontFamily"
+                                "cssSelector": ".Footer"
                             }
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "Navigation",
+                    "fields": [
                         {
-                            "name": "footerContentFontSize",
-                            "label": "Font size",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "16",
+                            "name": "footerNavigationTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "useHover": true,
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Footer-content-fontSize",
-                                "template": "{{ value / 10 }}rem"
-                            }
-                        },
-                        {
-                            "name": "footerContentFontWeight",
-                            "label": "Font weight",
-                            "type": "fontWeight",
-                            "default": "400",
-                            "fontFamilyField": "footerContentFontFamily",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Footer-content-fontWeight"
-                            }
-                        },
-                        {
-                            "name": "footerContentLineHeight",
-                            "label": "Line height",
-                            "type": "stepper",
-                            "step": "0.1",
-                            "decimals": "2",
-                            "default": "1.5",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Footer-content-lineHeight"
-                            }
-                        },
-                        {
-                            "name": "footerContentLetterSpacing",
-                            "label": "Letter spacing",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "0",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Footer-content-letterSpacing",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "footerContentTextTransform",
-                            "label": "Text case",
-                            "type": "select",
-                            "default": "uppercase",
-                            "options": {
-                                "none": "Default",
-                                "capitalize": "Capitalize",
-                                "uppercase": "UPPERCASE",
-                                "lowercase": "lowercase"
+                                "cssSelector": ".FooterNav-link"
                             },
+                            "colorPreview": {
+                                "cssSelector": "",
+                                "cssVariable": "--FooterNav-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Footer links",
+                    "description": "This is for other links in the footer like an email link.",
+                    "fields": [
+                        {
+                            "name": "footerLinkTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "useHover": true,
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Footer-content-textTransform"
+                                "cssSelector": ".Footer-link"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Footer credit",
+                    "description": "Styles for the Aptuitiv credit text at the bottom of the footer.",
+                    "fields": [
+                        {
+                            "name": "footerCreditTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "useHover": true,
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-attributeLink"
                             }
                         },
                         {
-                            "name": "footerBackground",
-                            "label": "Background color",
-                            "type": "color",
-                            "default": "#871E0F",
+                            "name": "footerCreditPadding",
+                            "label": "Padding around the footer credit text",
+                            "type": "padding",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Footer-background"
-                            }
-                        },
-                        {
-                            "name": "footerColor",
-                            "label": "Text color",
-                            "type": "color",
-                            "default": "#fff",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Footer-color"
-                            }
-                        },
-                        {
-                            "name": "footerColorHover",
-                            "label": "Text color (hover)",
-                            "type": "color",
-                            "default": "#fff",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Footer-color--hover"
+                                "cssSelector": ".Footer-attribution"
                             }
                         }
                     ]
@@ -2498,7 +2386,7 @@
                             "default": "#591108",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-textLogo-color--hover"
+                                "cssVariable": "--Header-textLogo-color-hover"
                             }
                         }
                     ]
@@ -2744,7 +2632,7 @@
                             "default": "#591108",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--MainNav-link-background--hover"
+                                "cssVariable": "--MainNav-link-background-hover"
                             }
                         },
                         {
@@ -2754,7 +2642,7 @@
                             "default": "#fff",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--MainNav-link-color--hover"
+                                "cssVariable": "--MainNav-link-color-hover"
                             }
                         }
                     ]
@@ -2966,7 +2854,7 @@
                             "default": "#591108",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Dropdown-link-background--hover"
+                                "cssVariable": "--Dropdown-link-background-hover"
                             }
                         },
                         {
@@ -2976,7 +2864,7 @@
                             "default": "#fff",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Dropdown-link-color--hover"
+                                "cssVariable": "--Dropdown-link-color-hover"
                             }
                         }
                     ]
@@ -3306,7 +3194,7 @@
                             "default": "#871E0F",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Pagination-item-background--hover"
+                                "cssVariable": "--Pagination-item-background-hover"
                             }
                         },
                         {
@@ -3316,7 +3204,7 @@
                             "default": "#fff",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Pagination-item-color--hover"
+                                "cssVariable": "--Pagination-item-color-hover"
                             }
                         }
                     ]
@@ -3565,7 +3453,7 @@
                             "default": "#871E0F",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Modal-close-color--hover"
+                                "cssVariable": "--Modal-close-color-hover"
                             }
                         }
                     ]

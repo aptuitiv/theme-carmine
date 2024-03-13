@@ -7,7 +7,7 @@
     --MainNav-fontSize: 1.6rem;
     --MainNav-lineHeight: 1.2;
     --MainNav-textTransform: uppercase;
-    
+
     --MainNav-item-gap: 10px;
     --MainNav-item-paddingVertical: 0;
     --MainNav-item-paddingHorizontal: 25px;
@@ -15,12 +15,12 @@
     --MainNav-item-paddingHorizontal--sm: 25px;
     --MainNav-item-fontWeight: 400;
     --MainNav-item-letterSpacing: 0;
-    
+
     --MainNav-link-background: transparent;
     --MainNav-link-color: #00263E;
-    
-    --MainNav-link-background--hover: transparent;
-    --MainNav-link-color--hover: #6AAC44;
+
+    --MainNav-link-background-hover: transparent;
+    --MainNav-link-color-hover: #6AAC44;
 } */
 
 /* @define MainNav */
@@ -60,8 +60,8 @@
 .MainNav-item.is-current > .MainNav-link,
 .MainNav-item.is-currentParent > .MainNav-link,
 .MainNav-item:hover > .MainNav-link {
-    background: var(--MainNav-link-background--hover);
-    color: var(--MainNav-link-color--hover);
+    background: var(--MainNav-link-background-hover);
+    color: var(--MainNav-link-color-hover);
     text-decoration: none;
 }
 
@@ -74,15 +74,15 @@
         flex-direction: row;
         margin: 0;
     }
-    
+
     .MainNav-item {
         width: unset;
     }
-    
+
     .MainNav-link {
         padding: var(--MainNav-item-paddingVertical) var(--MainNav-item-paddingHorizontal);
     }
-    
+
     .MainNav-item--small {
         display: none;
     }

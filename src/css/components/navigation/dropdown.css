@@ -17,11 +17,11 @@
 
     --Dropdown-link-background: #fff;
     --Dropdown-link-background--sm: #6c9d41;
-    --Dropdown-link-background--hover: #fff;
+    --Dropdown-link-background-hover: #fff;
 
     --Dropdown-link-color: #00263e;
     --Dropdown-link-color--sm: #fff;
-    --Dropdown-link-color--hover: #00263e;
+    --Dropdown-link-color-hover: #00263e;
 
     --Dropdown-link-fontSize: 1.7rem;
     --Dropdown-link-fontWeight: 400;
@@ -81,8 +81,8 @@
 .Dropdown-link:hover,
 .Dropdown-link.is-current,
 .Dropdown-link.is-currentParent {
-    background-color: var(--Dropdown-link-background--hover);
-    color: var(--Dropdown-link-color--hover) !important;
+    background-color: var(--Dropdown-link-background-hover);
+    color: var(--Dropdown-link-color-hover) !important;
 }
 
 .Dropdown-link:hover {

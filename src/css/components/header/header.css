@@ -16,7 +16,7 @@
     --Header-textLogo-letterSpacing: 0;
     --Header-textLogo-textTransform: none;
     --Header-textLogo-color: #871e0f;
-    --Header-textLogo-color--hover: #591108;
+    --Header-textLogo-color-hover: #591108;
 } */
 
 /* @define Header */
@@ -31,13 +31,13 @@
 }
 
 .Header-logoLink:focus-visible {
-    color: var(--Header-textLogo-color--hover);
+    color: var(--Header-textLogo-color-hover);
     text-decoration: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
     .Header-logoLink:hover {
-        color: var(--Header-textLogo-color--hover);
+        color: var(--Header-textLogo-color-hover);
         text-decoration: none;
     }
 }
@@ -79,7 +79,6 @@
     .Header-textLogo {
         font-size: var(--Header-textLogo-fontSize);
     }
-
 }
 
 @media (--c-bp-lg) {

@@ -11,13 +11,13 @@
     --Slider-content-textTransform: none;
     --Slider-content-background: #fff;
     --Slider-content-color: #333;
-    --Slider-content-background--hover: #333;
-    --Slider-content-color--hover: #fff;
-    
+    --Slider-content-background-hover: #333;
+    --Slider-content-color-hover: #fff;
+
     --Slider-arrow-background: #fff;
     --Slider-arrow-color: #333;
-    --Slider-arrow-background--hover: #333;
-    --Slider-arrow-color--hover: #fff;
+    --Slider-arrow-background-hover: #333;
+    --Slider-arrow-color-hover: #fff;
 } */
 
 /* @define Slider */
@@ -33,28 +33,28 @@
 .Slider-content {
     background-color: var(--Slider-content-background);
     color: var(--Slider-content-color);
-    font-size: var(--Slider-content-fontSize);
-    font-weight: var(--Slider-content-fontWeight);
-    line-height: var(--Slider-content-lineHeight);
-    padding: var(--Slider-content-paddingVertical) var(--Slider-content-paddingHorizontal);
+    font-size: var(--Slider-content-font-size);
+    font-weight: var(--Slider-content-font-weight);
+    line-height: var(--Slider-content-line-height);
+    padding: var(--Slider-content-padding, 20px);
     text-align: center;
-    text-transform: var(--Slider-content-textTransform);
+    text-transform: var(--Slider-content-text-transform);
     transition: all 250ms;
 }
 
 .Slider-wrapper:focus-visible .Slider-content {
-    background-color: var(--Slider-content-background--hover);
-    color: var(--Slider-content-color--hover);
+    background-color: var(--Slider-content-background-hover);
+    color: var(--Slider-content-color-hover);
 }
 
 @media (hover: hover) and (pointer: fine) {
     .Slider-wrapper:hover {
         text-decoration: none;
     }
-    
+
     .Slider-wrapper:hover .Slider-content {
-        background-color: var(--Slider-content-background--hover);
-        color: var(--Slider-content-color--hover);
+        background-color: var(--Slider-content-background-hover);
+        color: var(--Slider-content-color-hover);
     }
 }
 
@@ -79,23 +79,23 @@
 
 /* postcss-bem-linter: ignore */
 .Slider .splide__arrow:focus-visible {
-    background: var(--Slider-arrow-background--hover);
+    background: var(--Slider-arrow-background-hover);
 }
 
 /* postcss-bem-linter: ignore */
 .Slider .splide__arrow:focus-visible svg {
-    fill: var(--Slider-arrow-color--hover);
+    fill: var(--Slider-arrow-color-hover);
 }
 
 @media (hover: hover) and (pointer: fine) {
     /* postcss-bem-linter: ignore */
     .Slider .splide__arrow:hover {
-        background: var(--Slider-arrow-background--hover);
+        background: var(--Slider-arrow-background-hover);
     }
-    
+
     /* postcss-bem-linter: ignore */
     .Slider .splide__arrow:hover svg {
-        fill: var(--Slider-arrow-color--hover);
+        fill: var(--Slider-arrow-color-hover);
     }
 }
 

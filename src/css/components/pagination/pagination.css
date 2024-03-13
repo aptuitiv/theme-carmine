@@ -22,9 +22,9 @@
 .Pagination-item:active,
 .Pagination-item:focus,
 .Pagination-item:hover {
-    background-color: var(--Pagination-item-background--hover);
-    color: var(--Pagination-item-color--hover);
-    font-weight: var(--Pagination-item-fontWeight--hover);
+    background-color: var(--Pagination-item-background-hover);
+    color: var(--Pagination-item-color-hover);
+    font-weight: var(--Pagination-item-fontWeight-hover);
     text-decoration: none;
 }
 

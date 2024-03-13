@@ -53,11 +53,17 @@
                     "name": "footerShowEmail",
                     "label": "Show Email",
                     "type": "switch",
-                    "default": "yes"
+                    "default": "no"
                 },
                 {
                     "name": "footerShowAddress",
                     "label": "Show Address",
+                    "type": "switch",
+                    "default": "yes"
+                },
+                {
+                    "name": "footerShowCredit",
+                    "label": "Show Aptuitiv credit",
                     "type": "switch",
                     "default": "yes"
                 }

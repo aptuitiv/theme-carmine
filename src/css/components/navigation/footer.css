@@ -4,16 +4,21 @@
 
 /* @define FooterNav */
 .FooterNav {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
     list-style: none;
     margin-bottom: 0;
     padding-left: 0;
 }
 
-@media(--c-bp-md) {
+.FooterNav-link {
+    color: var(--FooterNav-color);
+}
+
+@media (--c-bp-md) {
     .FooterNav {
         flex-direction: row;
         gap: 20px;
@@ -25,7 +30,7 @@
     }
 
     .FooterNav-link::after {
-        background: var(--Footer-color);
+        background: var(--FooterNav-color);
         content: '';
         height: 25%;
         position: absolute;
