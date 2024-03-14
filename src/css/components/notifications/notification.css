@@ -31,6 +31,7 @@
 
 .Notification-title {
     align-items: center;
+    color: var(--Notification-title-color, var(--Notification-color));
     display: flex;
     font-family: var(--Notification-title-font-family);
     font-size: var(--Notification-title-font-size-sm, 1.7rem);

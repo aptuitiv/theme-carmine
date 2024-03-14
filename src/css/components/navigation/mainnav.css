@@ -25,7 +25,7 @@
 }
 
 .MainNav-link {
-    background: var(--MainNav-link-background);
+    background: var(--MainNav-link-background, transparent);
     box-sizing: border-box;
     color: var(--MainNav-color);
     display: block;
@@ -33,15 +33,15 @@
     padding: var(--MainNav-item-padding-sm);
     position: relative;
     text-align: center;
-    text-decoration: none;
+    text-decoration: var(--MainNav-link-text-decoration, none);
 }
 
 .MainNav-item.is-current > .MainNav-link,
 .MainNav-item.is-currentParent > .MainNav-link,
 .MainNav-item:hover > .MainNav-link {
-    background: var(--MainNav-link-background-hover);
+    background: var(--MainNav-link-background-hover, transprent);
     color: var(--MainNav-color-hover);
-    text-decoration: none;
+    text-decoration: var(--MainNav-link-text-decoration-hover, none);
 }
 
 /* ------------------------------------ *\

@@ -221,6 +221,7 @@
                             "name": "bannerContentWidth",
                             "label": "Max width for the content",
                             "type": "size",
+                            "default": "900px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-content-width"
@@ -231,6 +232,7 @@
                             "label": "Space between buttons",
                             "description": "If there are multiple buttons beside each other in the banner, this will be the horizontal space between them.,",
                             "type": "size",
+                            "default": "15px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-content-button-gap"
@@ -536,6 +538,7 @@
                             "name": "bannerOverlayImageGridWidth",
                             "label": "Max width for the content and image grid",
                             "type": "size",
+                            "default": "1200",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay-image-grid-width"
@@ -546,6 +549,7 @@
                             "label": "Max width for the content",
                             "description": "This will override the \"Max width for the content\" field value",
                             "type": "size",
+                            "default": "800",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay-image-content-width"
@@ -555,7 +559,7 @@
                             "name": "bannerOverlayImageObjectFit",
                             "label": "Image fit",
                             "type": "select",
-                            "default": "cover",
+                            "default": "none",
                             "options": {
                                 "none": "None",
                                 "contain": "Contain",
@@ -656,7 +660,7 @@
                             "label": "Aspect ratio when cropping",
                             "type": "ratio",
                             "after": "px",
-                            "default": "20/9",
+                            "default": "20/6",
                             "description": "If the banner image needs to be cropped, this is the aspect ratio that will be used."
                         },
                         {
@@ -664,7 +668,7 @@
                             "label": "Minimum aspect ratio",
                             "type": "ratio",
                             "after": "px",
-                            "default": "20/9",
+                            "default": "20/6",
                             "description": "If \"How to crop the banner image\" is set to \"Do not crop the banner image unless it is too tall\", this is the aspect ratio that will be used to determine if the image is too tall."
                         },
                         {
@@ -1423,7 +1427,10 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "default": "#fff"
+                            },
+                            "colorHover": {
+                                "default": "#fff"
                             },
                             "fontSize": {
                                 "default": "18px",
@@ -1481,7 +1488,7 @@
                             "name": "defaultButtonPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "6px",
+                            "default": "6px 12px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-padding"
@@ -1791,7 +1798,7 @@
                             "name": "footerBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#00263e",
+                            "default": "#871E0F",
                             "preview": {
                                 "type": "css-head",
                                 "cssSelector": ".Footer",
@@ -1837,6 +1844,9 @@
                             "type": "typography",
                             "collapsable": false,
                             "useTextAlign": false,
+                            "color": {
+                                "default": "#fff"
+                            },
                             "preview": {
                                 "type": "css-head",
                                 "cssSelector": ".Footer"
@@ -1854,6 +1864,18 @@
                             "collapsable": false,
                             "useTextAlign": false,
                             "useHover": true,
+                            "color": {
+                                "default": "#fff"
+                            },
+                            "colorHover": {
+                                "default": "#fff"
+                            },
+                            "textDecoration": {
+                                "default": "none"
+                            },
+                            "textDecorationHover": {
+                                "default": "underline"
+                            },
                             "preview": {
                                 "type": "css-head",
                                 "cssSelector": ".FooterNav-link"
@@ -1876,6 +1898,18 @@
                             "collapsable": false,
                             "useTextAlign": false,
                             "useHover": true,
+                            "color": {
+                                "default": "#fff"
+                            },
+                            "colorHover": {
+                                "default": "#fff"
+                            },
+                            "textDecoration": {
+                                "default": "none"
+                            },
+                            "textDecorationHover": {
+                                "default": "underline"
+                            },
                             "preview": {
                                 "type": "css-head",
                                 "cssSelector": ".Footer-link"
@@ -1894,6 +1928,21 @@
                             "collapsable": false,
                             "useTextAlign": false,
                             "useHover": true,
+                            "color": {
+                                "default": "#fff"
+                            },
+                            "colorHover": {
+                                "default": "#fff"
+                            },
+                            "fontSize": {
+                                "default": "14px"
+                            },
+                            "textDecoration": {
+                                "default": "none"
+                            },
+                            "textDecorationHover": {
+                                "default": "underline"
+                            },
                             "preview": {
                                 "type": "css-head",
                                 "cssSelector": ".Footer-attributeLink"
@@ -2559,6 +2608,7 @@
                             "type": "typography",
                             "collapsable": false,
                             "useHover": true,
+                            "useFontSizeHover": false,
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav"
@@ -2568,7 +2618,7 @@
                             "name": "mainNavItemPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "6px 25px",
+                            "default": "6px 10px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-item-padding"
@@ -2578,7 +2628,7 @@
                             "name": "mainNavItemPaddingSm",
                             "label": "Padding (small screens)",
                             "type": "padding",
-                            "default": "6px 25px",
+                            "default": "6px 10px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-item-padding-sm"
@@ -2589,7 +2639,6 @@
                             "name": "mainNavLinkBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#00000000",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-link-background"
@@ -2599,7 +2648,6 @@
                             "name": "mainNavLinkBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
-                            "default": "#00000000",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-link-background-hover"
@@ -2919,7 +2967,7 @@
                             "name": "notificationCloseFontSize",
                             "label": "Button size",
                             "type": "fontSize",
-                            "default": "38px",
+                            "default": "20px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Notification-close-font-size"
@@ -3039,26 +3087,21 @@
                         },
                         {
                             "name": "modalWidth",
-                            "label": "Width",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "500",
+                            "label": "Max width",
+                            "type": "size",
+                            "default": "500px",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Modal-width",
-                                "template": "{{ value }}px"
+                                "cssVariable": "--Modal-width"
                             }
                         },
                         {
                             "name": "modalBorderRadius",
                             "label": "Border radius",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "0",
+                            "type": "borderRadius",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Modal-borderRadius",
-                                "template": "{{ value }}px"
+                                "cssVariable": "--Modal-border-radius"
                             }
                         }
                     ]
@@ -3082,27 +3125,13 @@
                     "name": "Header",
                     "fields": [
                         {
-                            "name": "modalHeaderPaddingVertical",
-                            "label": "Vertical padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
+                            "name": "modalHeaderPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "default": "20px",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Modal-header-paddingVertical",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "modalHeaderPaddingHorizontal",
-                            "label": "Horizontal padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Modal-header-paddingHorizontal",
-                                "template": "{{ value }}px"
+                                "cssVariable": "--Modal-header-padding"
                             }
                         }
                     ]
@@ -3112,97 +3141,24 @@
                     "description": "The title is shown for notifications.",
                     "fields": [
                         {
-                            "name": "modalTitleFontFamily",
-                            "label": "Font family",
-                            "type": "fontFamily",
+                            "name": "modalTitleTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Modal-title-fontFamily"
-                            }
-                        },
-                        {
-                            "name": "modalTitleFontSize",
-                            "label": "Font size",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "23",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Modal-title-fontSize",
-                                "template": "{{ value / 10 }}rem"
+                                "cssVariable": "--Modal-title"
                             }
                         },
                         {
                             "name": "modalTitleFontSizeSm",
                             "label": "Font size (small screens)",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
+                            "type": "fontSize",
+                            "default": "20px",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Modal-title-fontSize--sm",
-                                "template": "{{ value / 10 }}rem"
-                            }
-                        },
-                        {
-                            "name": "modalTitleFontWeight",
-                            "label": "Font weight",
-                            "type": "fontWeight",
-                            "default": "700",
-                            "fontFamilyField": "modalTitleFontFamily",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Modal-title-fontWeight"
-                            }
-                        },
-                        {
-                            "name": "modalTitleLineHeight",
-                            "label": "Line height",
-                            "type": "stepper",
-                            "step": "0.1",
-                            "decimals": "2",
-                            "default": "1.2",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Modal-title-lineHeight"
-                            }
-                        },
-                        {
-                            "name": "modalTitleLetterSpacing",
-                            "label": "Letter spacing",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "0",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Modal-title-letterSpacing",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "modalTitleTextTransform",
-                            "label": "Text case",
-                            "type": "select",
-                            "default": "uppercase",
-                            "options": {
-                                "none": "Default",
-                                "capitalize": "Capitalize",
-                                "uppercase": "UPPERCASE",
-                                "lowercase": "lowercase"
-                            },
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Modal-title-textTransform"
-                            }
-                        },
-                        {
-                            "name": "modalTitleColor",
-                            "label": "Text color",
-                            "type": "color",
-                            "default": "#333",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Modal-title-color"
+                                "cssVariable": "--Modal-title-font-size-sm"
                             }
                         }
                     ]
@@ -3236,27 +3192,13 @@
                     "name": "Content",
                     "fields": [
                         {
-                            "name": "modalContentPaddingVertical",
-                            "label": "Vertical padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
+                            "name": "modalContentPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "default": "20px",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Modal-content-paddingVertical",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "modalContentPaddingHorizontal",
-                            "label": "Horizontal padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Modal-content-paddingHorizontal",
-                                "template": "{{ value }}px"
+                                "cssVariable": "--Modal-content-padding"
                             }
                         }
                     ]
