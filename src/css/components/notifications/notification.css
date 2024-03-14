@@ -2,21 +2,11 @@
     Notifications
 \* =========================================================================== */
 
-/* :root {
-    --Notification-title-fontFamily: sans-serif;
-    --Notification-title-fontSize: 2.4rem;
-    --Notification-title-fontSize--sm: 2rem;
-    --Notification-title-fontWeight: 600;
-    --Notification-title-lineHeight: 1.2;
-    --Notification-title-letterSpacing: 0;
-    --Notification-title-textTransform: uppercase;
-} */
-
 /* @define Notification */
 .Notification {
     background-color: var(--Notification-background);
     color: var(--Notification-color);
-    padding: var(--Notification-paddingVertical) var(--Notification-paddingHorizontal);
+    padding: var(--Notification-padding, 10px);
     text-align: center;
 }
 
@@ -26,7 +16,7 @@
     color: var(--Notification-color);
     margin-left: 20px;
     text-decoration: underline;
-    text-transform: var(--Notification-title-textTransform);
+    text-transform: var(--Notification-title-text-transform);
 }
 
 .Notification-more:focus-visible {
@@ -42,12 +32,12 @@
 .Notification-title {
     align-items: center;
     display: flex;
-    font-family: var(--Notification-title-fontFamily);
-    font-size: var(--Notification-title-fontSize--sm);
-    font-weight: var(--Notification-title-fontWeight);
-    letter-spacing: var(--Notification-title-letterSpacing);
-    line-height: var(--Notification-title-lineHeight);
-    text-transform: var(--Notification-title-textTransform);
+    font-family: var(--Notification-title-font-family);
+    font-size: var(--Notification-title-font-size-sm, 1.7rem);
+    font-weight: var(--Notification-title-font-weight);
+    letter-spacing: var(--Notification-title-letter-spacing);
+    line-height: var(--Notification-title-line-height);
+    text-transform: var(--Notification-title-text-transform);
 }
 
 .Notification-titleContent {
@@ -57,7 +47,7 @@
 }
 
 .Notification-alert {
-    font-size: calc(var(--Notification-title-fontSize) * 1.5);
+    font-size: var(--Notification-icon-font-size);
     margin-right: 20px;
 }
 
@@ -66,7 +56,7 @@
     border: none;
     color: var(--Notification-color);
     display: flex;
-    font-size: var(--Notification-close-fontSize);
+    font-size: var(--Notification-close-font-size);
     padding: 0;
 }
 
@@ -76,19 +66,19 @@
 
 .Notification-placeholder {
     display: none;
-    width: var(--Notification-close-fontSize);
+    width: var(--Notification-close-font-size);
 }
 
 @media (--c-bp-md) {
     .Notification {
         text-align: center;
     }
-    
+
     .Notification-placeholder {
         display: block;
     }
-    
+
     .Notification-title {
-        font-size: var(--Notification-title-fontSize);
+        font-size: var(--Notification-title-font-size);
     }
 }

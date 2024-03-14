@@ -2851,7 +2851,7 @@
         {
             "name": "Notifications",
             "description": "Styles for the \"Notifications\" Collection Widget below the banner on pages.",
-            "sections": [
+            "groups": [
                 {
                     "name": "General",
                     "fields": [
@@ -2876,27 +2876,13 @@
                             }
                         },
                         {
-                            "name": "notificationPaddingVertical",
-                            "label": "Vertical padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "28",
+                            "name": "notificationPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "default": "10px",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Notification-paddingVertical",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "notificationPaddingHorizontal",
-                            "label": "Horizontal padding",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "35",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Notification-paddingHorizontal",
-                                "template": "{{ value }}px"
+                                "cssVariable": "--Notification-padding"
                             }
                         }
                     ]
@@ -2905,104 +2891,48 @@
                     "name": "Title",
                     "fields": [
                         {
-                            "name": "notificationTitleFontFamily",
-                            "label": "Font family",
-                            "type": "fontFamily",
+                            "name": "notificationTitleTypography",
+                            "label": "Title typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Notification-title-fontFamily"
-                            }
-                        },
-                        {
-                            "name": "notificationTitleFontSize",
-                            "label": "Font size",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "20",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Notification-title-fontSize",
-                                "template": "{{ value / 10 }}rem"
+                                "cssVariable": "--Notification-title"
                             }
                         },
                         {
                             "name": "notificationTitleFontSizeSm",
                             "label": "Font size (small screens)",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "17",
+                            "type": "fontSize",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Notification-title-fontSize--sm",
-                                "template": "{{ value / 10 }}rem"
-                            }
-                        },
-                        {
-                            "name": "notificationTitleFontWeight",
-                            "label": "Font weight",
-                            "type": "fontWeight",
-                            "default": "700",
-                            "fontFamilyField": "notificationTitleFontFamily",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Notification-title-fontWeight"
-                            }
-                        },
-                        {
-                            "name": "notificationTitleLineHeight",
-                            "label": "Line height",
-                            "type": "stepper",
-                            "step": "0.1",
-                            "decimals": "2",
-                            "default": "1.2",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Notification-title-lineHeight"
-                            }
-                        },
-                        {
-                            "name": "notificationTitleLetterSpacing",
-                            "label": "Letter spacing",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "0",
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Notification-title-letterSpacing",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
-                            "name": "notificationTitleTextTransform",
-                            "label": "Text case",
-                            "type": "select",
-                            "default": "uppercase",
-                            "options": {
-                                "none": "Default",
-                                "capitalize": "Capitalize",
-                                "uppercase": "UPPERCASE",
-                                "lowercase": "lowercase"
-                            },
-                            "preview": {
-                                "type": "css-head",
-                                "cssVariable": "--Notification-title-textTransform"
+                                "cssVariable": "--Notification-title-font-size-sm"
                             }
                         }
                     ]
                 },
                 {
-                    "name": "Close Button",
+                    "name": "Close Button and Icon",
                     "fields": [
                         {
                             "name": "notificationCloseFontSize",
                             "label": "Button size",
-                            "type": "stepper",
-                            "after": "px",
-                            "default": "38",
+                            "type": "fontSize",
+                            "default": "38px",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--Notification-close-fontSize",
-                                "template": "{{ value / 10 }}rem"
+                                "cssVariable": "--Notification-close-font-size"
+                            }
+                        },
+                        {
+                            "name": "notificationIconFontSize",
+                            "label": "Icon size",
+                            "type": "fontSize",
+                            "default": "38px",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Notification-icon-font-size"
                             }
                         }
                     ]
