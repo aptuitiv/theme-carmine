@@ -6,6 +6,28 @@
     {% endif %}
 {% endmacro %}
 
+{##
+ # Build the field label
+ # field: (object) The form field object
+ # position: (string) The position of the label. Either 'above' or 'below'
+ #}
+{% macro buildFieldDescription(field, position) %}
+    {% if field.description %}
+        {% set settingPosition = _core.theme.settings.formDescriptionPosition %}
+        {% if position == 'above' %}
+            {# See if the field label should be displayed above the field #}
+            {% if settingPosition == 'above' or (settingPosition == 'belowExceptRadioCheckbox' and field.fieldType in ['checkbox', 'multiCheckbox', 'radio']) %}
+                <div class="FormDescription FormDescription--withLabelMargin">{{ field.description }}</div>
+            {% endif %}
+        {% elseif position == 'below' %}
+            {# See if the field description should be displayed below the field #}
+            {% if settingPosition == 'below' or (settingPosition == 'belowExceptRadioCheckbox' and field.fieldType not in ['checkbox', 'multiCheckbox', 'radio']) %}
+                <div class="FormDescription">{{ field.description }}</div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
 {# Build the grid form fields #}
 {% macro buildGridFormFields(form) %}
     {% for field in form.fields %}
@@ -59,6 +81,11 @@
 
 {# Build out each field #}
 {% macro buildGridField(field) %}
+    {# Display the field description above the field if necessary #}
+    {% if field.type not in ['grid', 'repeatingGrid'] %}
+        {{ _self.buildFieldDescription(field, 'above') }}
+    {% endif %}
+
     {% if field.fieldType in ['email', 'number', 'password', 'text', 'url', 'tel'] %}
         {% set field.class = field.class ~ ' TextInput w-100' %}
         {{ field.tag }}
@@ -120,7 +147,9 @@
     {% else %}
         {{ field.tag|replace({"error": "is-invalid"}) }}
     {% endif %}
-    {% if field.description %}<p class="FormDescription">{{ field.description }}</p>{% endif %}
+
+    {# Display the field description below the field if necessary #}
+    {{ _self.buildFieldDescription(field, 'below') }}
 {% endmacro %}
 
 {# Build the Label Above Field fields #}
@@ -175,6 +204,9 @@
         {% endif %}
         <div class="mb-2 {{ field.groupId ?: '' }}">
             {% set field.label.class = field.label.class ~ ' FormLabel FormLabel--block' %}
+            {% if field.description and field.fieldType in ['checkbox', 'multiCheckbox', 'radio'] %}
+                {% set field.label.class = field.label.class ~ ' FormLabel--mb0' %}
+            {% endif %}
             {% if field.isRequired %}
                 {% set field.required = true %}
                 {% set field.label.text = field.label.text ~ ' <span class="FormRequired">*</span>' %}
@@ -182,6 +214,10 @@
             {% if field.fieldType != 'rating' %}
                 {{ field.label.tag }}
             {% endif %}
+
+            {# Display the field description above the field if necessary #}
+            {{ _self.buildFieldDescription(field, 'above') }}
+
             {% if field.fieldType in ['email', 'number', 'password', 'text', 'url', 'tel'] %}
                 {% set field.class = field.class ~ ' TextInput w-100' %}
                 {{ field.tag }}
@@ -229,7 +265,8 @@
             {% else %}
                 {{ field.tag|replace({"error": "is-invalid"}) }}
             {% endif %}
-            {% if field.description %}<p class="FormDescription w-100">{{ field.description }}</p>{% endif %}
+            {# Display the field description below the field if necessary #}
+            {{ _self.buildFieldDescription(field, 'below') }}
         </div>
     {% else %}
         {{ field.tag }}

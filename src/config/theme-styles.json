@@ -1993,7 +1993,7 @@
                             "label": "Border radius",
                             "type": "borderRadius",
                             "after": "px",
-                            "default": "1",
+                            "default": "0",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--TextInput-border-radius"
@@ -2059,7 +2059,7 @@
                             "name": "selectInputBorderRadius",
                             "label": "Border radius",
                             "type": "borderRadius",
-                            "default": "1",
+                            "default": "0",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--SelectInput-border-radius"
@@ -2117,9 +2117,16 @@
                             "type": "typography",
                             "collapsable": false,
                             "useMargin": true,
+                            "marginPreview": {
+                                "cssSelector": "",
+                                "cssVariable": "--FormLabel-margin",
+                                "config": {
+                                    "combine": false
+                                }
+                            },
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--FormLabel"
+                                "cssSelector": ".FormLabel"
                             }
                         }
                     ]
@@ -2183,6 +2190,17 @@
                     "name": "Field Descriptions",
                     "fields": [
                         {
+                            "name": "formDescriptionPosition",
+                            "label": "Where to display the description",
+                            "type": "radio",
+                            "default": "belowExceptRadioCheckbox",
+                            "options": {
+                                "above": "Above the field",
+                                "below": "Below the field",
+                                "belowExceptRadioCheckbox": "Below the field unless the field type is radio or checkbox"
+                            }
+                        },
+                        {
                             "name": "formDescriptionTypography",
                             "label": "Font size",
                             "type": "typography",
@@ -2190,7 +2208,7 @@
                             "useMargin": true,
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--FormDescription"
+                                "cssSelector": ".FormDescription"
                             }
                         }
                     ]

@@ -3,16 +3,7 @@
 \* =========================================================================== */
 
 /* @define FormDescription */
-.FormDescription {
-    color: var(--FormDescription-color);
-    font-family: var(--FormDescription-font-family);
-    font-size: var(--FormDescription-font-size);
-    font-style: var(--FormDescription-font-style, none);
-    font-weight: var(--FormDescription-font-weight, 400);
-    letter-spacing: var(--FormDescription-letter-spacing);
-    line-height: var(--FormDescription-line-height);
-    margin: var(--FormDescription-margin, 0);
-    text-align: var(--FormDescription-text-align);
-    text-decoration: var(--FormDescription-text-decoration, none);
-    text-transform: var(--FormDescription-text-transform, none);
+
+.FormDescription--withLabelMargin {
+    margin-bottom: var(--FormLabel-margin-bottom, 0);
 }
