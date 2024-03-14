@@ -2,28 +2,18 @@
     Message
 \* =========================================================================== */
 
-/* :root {
-    --Message-paddingVertical: 20px;
-    --Message-paddingHorizontal: 20px;
-    --Message-borderRadius: 0;
-    --Message-background--success: #0c263c;
-    --Message-color--success: #fff;
-    --Message-background--failure: #992c41;
-    --Message-color--failure: #fff;
-} */
-
 /* @define Message */
 .Message {
-    border-radius: var(--Message-borderRadius);
-    padding: var(--Message-paddingVertical) var(--Message-paddingHorizontal);
+    border-radius: var(--Message-border-radius);
+    padding: var(--Message-padding, 20px);
 }
 
 .Message--success {
-    background-color: var(--Message-background--success);
-    color: var(--Message-color--success);
+    background-color: var(--Message-background-success);
+    color: var(--Message-color-success);
 }
 
 .Message--failure {
-    background-color: var(--Message-background--failure);
-    color: var(--Message-color--failure);
+    background-color: var(--Message-background-failure);
+    color: var(--Message-color-failure);
 }

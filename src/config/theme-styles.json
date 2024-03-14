@@ -2787,39 +2787,23 @@
             "description": "Used to show a message upon successful form submission on certain pages like the account edit page.",
             "fields": [
                 {
-                    "name": "messagePaddingVertical",
-                    "label": "Vertical padding",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "20",
+                    "name": "messagePadding",
+                    "label": "Padding",
+                    "type": "padding",
+                    "default": "20px",
                     "preview": {
                         "type": "css-head",
-                        "cssVariable": "--Message-paddingVertical",
-                        "template": "{{ value }}px"
+                        "cssVariable": "--Message-padding"
                     }
                 },
-                {
-                    "name": "messagePaddingHorizontal",
-                    "label": "Horizontal padding",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "20",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--Message-paddingHorizontal",
-                        "template": "{{ value }}px"
-                    }
-                },
+
                 {
                     "name": "messageBorderRadius",
                     "label": "Border radius",
-                    "type": "stepper",
-                    "after": "px",
-                    "default": "0",
+                    "type": "borderRadius",
                     "preview": {
                         "type": "css-head",
-                        "cssVariable": "--Message-borderRadius",
-                        "template": "{{ value }}px"
+                        "cssVariable": "--Message-border-radius"
                     }
                 },
                 {
@@ -2829,7 +2813,7 @@
                     "default": "#333",
                     "preview": {
                         "type": "css-head",
-                        "cssVariable": "--Message-background--success"
+                        "cssVariable": "--Message-background-success"
                     }
                 },
                 {
@@ -2839,7 +2823,7 @@
                     "default": "#fff",
                     "preview": {
                         "type": "css-head",
-                        "cssVariable": "--Message-color--success"
+                        "cssVariable": "--Message-color-success"
                     }
                 },
                 {
@@ -2849,7 +2833,7 @@
                     "default": "#871E0F",
                     "preview": {
                         "type": "css-head",
-                        "cssVariable": "--Message-background--failure"
+                        "cssVariable": "--Message-background-failure"
                     }
                 },
                 {
@@ -2859,7 +2843,7 @@
                     "default": "#fff",
                     "preview": {
                         "type": "css-head",
-                        "cssVariable": "--Message-color--failure"
+                        "cssVariable": "--Message-color-failure"
                     }
                 }
             ]
