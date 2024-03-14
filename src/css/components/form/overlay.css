@@ -4,22 +4,10 @@
 
 /* @define FormOverlay */
 .FormOverlay {
-    background-color: var(--FormOverlay-background, #000000b3);
-    color: var(--FormOverlay-color, #fff);
     display: none;
-    font-family: var(--FormOverlay-font-family);
-    font-size: var(--FormOverlay-font-size);
-    font-style: var(--FormOverlay-font-style, none);
-    font-weight: var(--FormOverlay-font-weight, 700);
     height: 100%;
     left: 0;
-    letter-spacing: var(--FormOverlay-letter-spacing, 0);
-    line-height: var(--FormOverlay-line-height);
-    margin: var(--FormOverlay-margin, 0);
     position: fixed;
-    text-align: var(--FormOverlay-text-align);
-    text-decoration: var(--FormOverlay-text-decoration, none);
-    text-transform: var(--FormOverlay-text-transform, none);
     top: 0;
     width: 100%;
     z-index: 9999;
@@ -28,7 +16,6 @@
 .FormOverlay-text {
     position: absolute;
     text-align: center;
-    text-shadow: var(--FormOverlay-text-shadow, 0 1px 2px rgb(0 0 0 / 50%));
     top: 50%;
     transform: translateY(-50%);
     width: 100%;

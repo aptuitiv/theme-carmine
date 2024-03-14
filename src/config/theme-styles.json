@@ -2147,7 +2147,7 @@
                         },
                         {
                             "name": "formRequiredColor",
-                            "label": "Color",
+                            "label": "Asterisk color",
                             "type": "color",
                             "default": "#b2130c",
                             "preview": {
@@ -2181,7 +2181,7 @@
                             "useMargin": true,
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--FormRequiredMessage"
+                                "cssSelector": ".FormRequired-message"
                             }
                         }
                     ]
@@ -2266,7 +2266,8 @@
                             "default": "#000000b3",
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--FormOverlay-background"
+                                "cssVariable": ".FormOverlay",
+                                "cssProperty": "background-color"
                             }
                         },
                         {
@@ -2284,7 +2285,17 @@
                             },
                             "preview": {
                                 "type": "css-head",
-                                "cssVariable": "--FormOverlay"
+                                "cssVariable": ".FormOverlay"
+                            }
+                        },
+                        {
+                            "name": "formOverlayTextShadow",
+                            "label": "Text shadow",
+                            "type": "textShadow",
+                            "default": "0 1px 2px rgba(0, 0, 0, 0.5)",
+                            "preview": {
+                                "type": "css-head",
+                                "cssSelector": ".FormOverlay-text"
                             }
                         }
                     ]

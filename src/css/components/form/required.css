@@ -10,16 +10,5 @@
 }
 
 .FormRequired-message {
-    color: var(--FormRequiredMessage-color, #333);
     display: var(--FormRequiredMessage-display, block);
-    font-family: var(--FormRequiredMessage-font-family);
-    font-size: var(--FormRequiredMessage-font-size);
-    font-style: var(--FormRequiredMessage-font-style, none);
-    font-weight: var(--FormRequiredMessage-font-weight, 400);
-    letter-spacing: var(--FormRequiredMessage-letter-spacing);
-    line-height: var(--FormRequiredMessage-line-height);
-    margin: var(--FormRequiredMessage-margin, 0);
-    text-align: var(--FormRequiredMessage-text-align);
-    text-decoration: var(--FormRequiredMessage-text-decoration, none);
-    text-transform: var(--FormRequiredMessage-text-transform, none);
 }
