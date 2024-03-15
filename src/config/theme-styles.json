@@ -699,6 +699,35 @@
             ]
         },
         {
+            "name": "Blocks - Columned Content",
+            "description": "Styles for the \"Columned Content\" block.",
+            "fields": [
+                {
+                    "name": "blockColumnContentDefaultNumColumns",
+                    "label": "Default number of columns",
+                    "type": "select",
+                    "default": "3",
+                    "options": {
+                        "2": "2",
+                        "3": "3",
+                        "4": "4",
+                        "5": "5",
+                        "6": "6"
+                    }
+                },
+                {
+                    "name": "blockColumnContentGap",
+                    "label": "Gap between columns",
+                    "type": "size",
+                    "default": "20px",
+                    "preview": {
+                        "type": "css-head",
+                        "cssVariable": "--ColumnContent-gap"
+                    }
+                }
+            ]
+        },
+        {
             "name": "Blocks - Full Width Image",
             "description": "Styles for the \"Full Width Image\" block.",
             "fields": [
@@ -1632,13 +1661,6 @@
                             "color": {
                                 "default": "#333333"
                             },
-                            "fontSize": {
-                                "default": "18px",
-                                "allowedUnits": ["px"]
-                            },
-                            "lineHeight": {
-                                "default": "1.4"
-                            },
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-typography"
@@ -1722,7 +1744,7 @@
                             "name": "buttonLgPadding",
                             "label": "Large button padding",
                             "type": "padding",
-                            "default": "6px",
+                            "default": "10px 20px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-lg-padding"
@@ -1732,7 +1754,6 @@
                             "name": "buttonLgFontSize",
                             "label": "Large button font size",
                             "type": "fontsize",
-                            "default": "18px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-lg-font-size"
@@ -2202,10 +2223,13 @@
                         },
                         {
                             "name": "formDescriptionTypography",
-                            "label": "Font size",
+                            "label": "Typography",
                             "type": "typography",
                             "collapsable": false,
                             "useMargin": true,
+                            "fontSize": {
+                                "default": "14px"
+                            },
                             "preview": {
                                 "type": "css-head",
                                 "cssSelector": ".FormDescription"
@@ -3128,6 +3152,7 @@
                             "name": "modalBorderRadius",
                             "label": "Border radius",
                             "type": "borderRadius",
+                            "default": "4px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-border-radius"
@@ -3175,6 +3200,12 @@
                             "type": "typography",
                             "collapsable": false,
                             "useTextAlign": false,
+                            "fontWeight": {
+                                "default": "700"
+                            },
+                            "fontSize": {
+                                "default": "20px"
+                            },
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-title"

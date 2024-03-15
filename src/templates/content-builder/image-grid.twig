@@ -1,4 +1,4 @@
-{% if columns|first.image %}
+{% if images|first.image %}
     {# Max width for the columns #}
     {% set width = 800 %}
 
@@ -11,10 +11,10 @@
     {% if numColumns not in ['Auto', 'Site default'] %}
         {% set count = numColumns %}
     {% elseif numColumns == 'Auto' %}
-        {% set count = columns|length %}
+        {% set count = images|length %}
     {% endif %}
     {% if count == null %}
-        {% set count = columns|length %}
+        {% set count = images|length %}
     {% endif %}
 
      {% set class = "col-1-1" %}
@@ -103,9 +103,9 @@
     {# Build the image grid item #}
     <div class="Container Container--pad">
         <div class="ImageGrid grid">
-            {% for column in columns %}
+            {% for column in images %}
                 <div class="{{ class }}">
-                    {% if column.link %}<a href="{{ column.link }}" class="ImageGridItem">{% else %}<div class="ImageGridItem">{% endif %}
+                    {% if column.link %}<a href="{{ column.link|url }}" class="ImageGridItem">{% else %}<div class="ImageGridItem">{% endif %}
                     {{ _self.textAboveBelow(column, titleTextPosition, 'above') }}
                     {% if column.image %}
                         {% set column.image.class = "w-100" %}
