@@ -33,33 +33,25 @@ Before deploying, you'll want to log into the CMS for the new site and do the fo
 1. Configuration
    - Turn on **SSL** by enabling "My site supports SSL", "Entire public site is secure", and "Entire administration is secure" from Settings -> Security.
    - Disable **Cache** under Settings -> Cache.
-2. Install the **Theme** configuration by uploading it under Design -> View Themes -> Update and continuing on the next page.
+2. Install the **Theme** configuration by uploading it under Design -> View Themes -> Update and continuing on the next page. We recommend that you first export the theme from the original theme admin and then upload that `theme.json` file to this site.
 3. Prime templates
    - Prime the **Page Templates** by visiting Design -> Templates.
+   - Delete the "Default" Template from Design -> Templates.
    - Prime the **Snippets** by visiting Design -> Snippets.
    - Prime the **Navigation Templates** by visiting Design -> Navigation -> Navigation Templates.
    - Prime the **Form Templates** by visiting Forms -> Templates.
 4. Pages
    - Edit the "Home" page to use the "One Column" *Page Template* from Content -> Pages.
-   - Delete the "Default" *Page Template* from Design -> Templates.
-   - Set the "Banner" *Content Layout's* available *Content Areas* to be only the "Banner" *Content Area* under Content -> Content Layouts -> Banner -> Edit this Content Layout.
-   - Set up **Template Content Layout Assignments** to map the "Banner" *Content Layout* to the "Banner" *Content Area* for the "One Column" and "Two Column" *Page Templates* under Content -> Page Settings -> Template Content Layout Assignments.
 
 5. Navigation. Go to Design -> Navigation -> Navigation Menus
     - Create a navigation menu called `Footer`.
       - Template: `Footer`
       - Show sub navigation: `Never`.
-    - Create a navigation menu called `Header bar`.
-      - Template: `Header bar`
-      - Show sub navigation: `Never`.
     - Create a navigation menu called `Main`.
       - Template: `Main`
       - Show sub navigation: `Show all sub navigation all the time`
-    - Create a navigation menu called `Pop out menu`.
-      - Template: `Pop out menu`
-      - Show sub navigation: `Show all sub navigation all the time`
 
-6. Prime the **Content Builder Elements** by visiting Design -> Content Builder.
+6. Prime the **Content Builder Elements** by visiting Design -> Content Builder -> Elements.
 7. Prime the **Collection Widgets** by visiting Widgets -> Collections -> Notifications.
 8. Search
    - Prime the **Search Templates** by visiting Site Manager -> Search -> Templates -> Templates.
@@ -77,12 +69,33 @@ To finish the installation, you'll need to configure some basic options of the t
 
 1. Update the **Company Information** under Settings -> Company Information.
 1. Configure **Theme Settings** under Design -> Theme Editor.
-    1. Set the default **Banner Image** sizes under Settings -> Banner Images. Set these to 2000x1000, 1000x500, 500x250.
-    1. Upload a **Header** logo or set the text logo under Settings -> Header.
-    1. Update the **Color Palette** under Palettes -> Color Palette. Add "Primary" (#871E0F), "Secondary" (#591108), and "Typography" (#333).
-    1. Update the **Font Palette** under Palettes -> Font Palette. Add "Montserrat" and "Open Sans" with default weights. Disable all of the System fonts under the "System" tab.
-    1. Go through all of the **Theme Styles** from the Theme Styles tab and update all color references to use the *Color Palette* if matching one.
-    1. Update **Typography** under Styles -> Typography to use "Open Sans" for the base font family and "Montserrat" for the heading font family.
+   1. Go to Settings -> Blocks - Full Width Image. Set the widths to `1400` and `800`.
+   2. Go to Settings -> Header and either upload the logo or set the text logo.
+   3. Go to Styles -> Blocks - Banners.
+      - Large banner iamges:
+        - Set the following image sizes:
+          - 2000 x 900
+          - 1400 x 630
+          - 1000 x 450
+          - 700 x 320
+          - 450 x 400  
+        - Aspect ratio when croping: `20 x 9`.
+        - Minimum aspect ratio: `20 x 9`
+      - Large banner overlay image
+        - Overlay image sizes:
+          - 420 x 560
+      - Banner bar images:
+        - Set the following image sizes:
+          - 2000 x 600
+          - 1400 x 420
+          - 1000 x 300
+          - 700 x 300
+        - Aspect ratio when croping: `20 x 6`.
+        - Minimum aspect ratio: `20 x 6`
+   4. Update the **Color Palette** under Palettes -> Color Palette.
+   5. Update the **Font Palette** under Palettes -> Font Palette.
+   6. Go through all of the **Theme Styles** from the Theme Styles tab and update all color references to use the *Color Palette* if matching one.
+   7. Update **Typography** under Styles -> Typography.
 
 You've now got an instance of the theme installed and configured on your new site. From here you can customize the styles in the *Theme Editor* or make template changes.
 
