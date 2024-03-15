@@ -491,7 +491,7 @@
                             "name": "bannerImageCropStrategy",
                             "label": "How to crop the banner image",
                             "type": "radio",
-                            "default": "conditional",
+                            "default": "crop",
                             "options": {
                                 "crop": "Always use the above image aspect ratios to crop the image",
                                 "conditional": "Do not crop the banner image unless it is too tall"
@@ -538,7 +538,7 @@
                             "name": "bannerOverlayImageGridWidth",
                             "label": "Max width for the content and image grid",
                             "type": "size",
-                            "default": "1200",
+                            "default": "1200px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay-image-grid-width"
@@ -549,7 +549,7 @@
                             "label": "Max width for the content",
                             "description": "This will override the \"Max width for the content\" field value",
                             "type": "size",
-                            "default": "800",
+                            "default": "800px",
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay-image-content-width"
@@ -675,7 +675,7 @@
                             "name": "bannerBarImageCropStrategy",
                             "label": "How to crop the banner image",
                             "type": "radio",
-                            "default": "conditional",
+                            "default": "crop",
                             "options": {
                                 "crop": "Always use the above image aspect ratios to crop the image",
                                 "conditional": "Do not crop the banner image unless it is too tall"

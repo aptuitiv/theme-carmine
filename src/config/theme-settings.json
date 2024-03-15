@@ -39,25 +39,25 @@
             "fields": [
                 {
                     "name": "footerShowNavigation",
-                    "label": "Show Navigation",
+                    "label": "Show navigation",
                     "type": "switch",
                     "default": "yes"
                 },
                 {
                     "name": "footerShowPhone",
-                    "label": "Show Phone Number",
+                    "label": "Show phone number",
                     "type": "switch",
                     "default": "yes"
                 },
                 {
                     "name": "footerShowEmail",
-                    "label": "Show Email",
+                    "label": "Show email",
                     "type": "switch",
                     "default": "no"
                 },
                 {
                     "name": "footerShowAddress",
-                    "label": "Show Address",
+                    "label": "Show address",
                     "type": "switch",
                     "default": "yes"
                 },
@@ -157,7 +157,7 @@
                             "name": "headerShowEmail",
                             "label": "Show email",
                             "type": "switch",
-                            "default": "yes"
+                            "default": "no"
                         },
                         {
                             "name": "headerShowButtons",
