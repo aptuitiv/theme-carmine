@@ -72,7 +72,7 @@ To finish the installation, you'll need to configure some basic options of the t
    1. Go to Settings -> Blocks - Full Width Image. Set the widths to `1400` and `800`.
    2. Go to Settings -> Header and either upload the logo or set the text logo.
    3. Go to Styles -> Blocks - Banners.
-      - Large banner iamges:
+      - Large banner images:
         - Set the following image sizes:
           - 2000 x 900
           - 1400 x 630
