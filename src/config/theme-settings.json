@@ -44,6 +44,16 @@
                     "default": "yes"
                 },
                 {
+                    "name": "footerNavigationMenu",
+                    "label": "Which navigation menu to use in the footer",
+                    "type": "radio",
+                    "default": "main",
+                    "options": {
+                        "main": "Same as the main navigation menu",
+                        "footer": "Use the separate footer navigation menu"
+                    }
+                },
+                {
                     "name": "footerShowPhone",
                     "label": "Show phone number",
                     "type": "switch",
