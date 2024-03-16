@@ -1,4 +1,6 @@
 {% if images|first.image %}
+    {% import 'macros/macros' as macros %}
+
     {# Max width for the columns #}
     {% set width = 800 %}
 
@@ -71,6 +73,16 @@
         {% set titleTextPosition = attribute(cbePositionValues, titleTextPosition) ?? titleTextPosition %}
     {% endif %}
 
+    {##
+     # Set the link type. This could link to another page, or open a lightbox.
+     # This is useful if another app (like a gallery) is using this layout.
+     # Or, we could add a "Link type" field to the block to set how it should link.
+     #}
+    {% set linkType = 'link' %}
+    {% if useLightbox == 'yes' %}
+        {% set linkType = 'lightbox' %}
+    {% endif %}
+
     {#
      # Get the text that is above or below the image
      # column (array) The column data
@@ -105,7 +117,15 @@
         <div class="ImageGrid grid">
             {% for column in images %}
                 <div class="{{ class }}">
-                    {% if column.link %}<a href="{{ column.link|url }}" class="ImageGridItem">{% else %}<div class="ImageGridItem">{% endif %}
+                    {% if linkType == 'link' %}
+                        {% if column.link %}
+                            <a href="{{ column.link|url }}" class="ImageGridItem">
+                        {% else %}
+                            <div class="ImageGridItem">
+                        {% endif %}
+                    {% elseif linkType == 'lightbox' %}
+                        <a href="{{ column.image.src }}" class="ImageGridItem" data-fslightbox data-type="image" data-caption="{{ column.title }}">
+                    {% endif %}
                     {{ _self.textAboveBelow(column, titleTextPosition, 'above') }}
                     {% if column.image %}
                         {% set column.image.class = "w-100" %}
@@ -122,9 +142,18 @@
                     {% if column.content %}
                         <div class="ImageGridItem-content">{{ column.content }}</div>
                     {% endif %}
-                    {% if column.link %}</a>{% else %}</div>{% endif %}
+                    {% if linkType == 'link' %}
+                        {% if column.link %}</a>{% else %}</div>{% endif %}
+                    {% elseif linkType == 'lightbox' %}
+                        </a>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
     </div>
+
+    {# Add the lightbox script #}
+    {% if linkType == 'lightbox' %}
+        {{ macros.loadLightbox() }}
+    {% endif %}
 {% endif %}
