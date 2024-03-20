@@ -16,7 +16,7 @@
                                         {% if slidesPerPage|int > 1 %}
                                             {% set width = width / slidesPerPage|int %}
                                         {% endif %}
-                                        {% do slide.image.crop({ ar: aspectRatio|replace(':', 'x'), w: width }) %}
+                                        {% do slide.image.crop({ ar: aspectRatio|replace(':', 'x'), w: width, crop: slide.cropPosition ?? 'center' }) %}
                                     {% endif %}
                                     {% do slide.image.alt|default(slide.title) %}
                                     {% do slide.image.lazy() %}
