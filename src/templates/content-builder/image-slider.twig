@@ -18,8 +18,9 @@
                                         {% endif %}
                                         {% do slide.image.crop({ ar: aspectRatio|replace(':', 'x'), w: width }) %}
                                     {% endif %}
+                                    {% do slide.image.alt|default(slide.title) %}
                                     {% do slide.image.lazy() %}
-                                    {{ slide.image.tag }}
+                                    <a href="{{ slide.image.src }}" data-fslightbox data-type="image" data-caption="{{ slide.title }}">{{ slide.image.tag }}</a>
                                     {% if slide.title %}
                                         <div class="Slider-content">{{ slide.title }}</div>
                                     {% endif %}
@@ -37,6 +38,7 @@
         </div>
     </div>
     {{ macros.loadSplide() }}
+    {{ macros.loadLightbox()}}
     {% inlinejs %}
         loadjs.ready('splide', {
             success: function() {
