@@ -1,4 +1,4 @@
-# Arlo Theme
+# Carmine Theme
 
 A basic starting point for an Aptuitiv theme.
 
