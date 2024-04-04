@@ -160,3 +160,12 @@
         width: auto;
     }
 }
+
+/** Button styles for when the button has an icon beside the text */
+
+.Button--withIcon {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: row;
+    gap: 5px;
+}
