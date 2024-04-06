@@ -1857,238 +1857,6 @@
                     ]
                 },
                 {
-                    "name": "Tables",
-                    "description": "Styles for themed tables.",
-                    "groups": [
-                        {
-                            "name": "General table styles",
-                            "fields": [
-                                {
-                                    "name": "tableBorderSize",
-                                    "label": "Border",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-border-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableBorderColor",
-                                    "label": "Border color",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-border-color"
-                                    }
-                                },
-                                {
-                                    "name": "tablePadding",
-                                    "label": "Cell padding",
-                                    "type": "padding",
-                                    "default": "8px 16px",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-padding"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Header row",
-                            "fields": [
-                                {
-                                    "name": "tableHeaderBackground",
-                                    "label": "Background color",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-header-background"
-                                    }
-                                },
-                                {
-                                    "name": "tableHeaderColor",
-                                    "label": "Text color",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-header-color"
-                                    }
-                                },
-                                {
-                                    "name": "tableHeaderFontWeight",
-                                    "label": "Font weight",
-                                    "type": "fontWeight",
-                                    "default": "700",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-header-font-weight"
-                                    }
-                                },
-                                {
-                                    "name": "tableHeaderBorderTopSize",
-                                    "label": "Border top size",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-header-border-top-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableHeaderBorderRightSize",
-                                    "label": "Border right size",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-header-border-right-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableHeaderBorderBottomSize",
-                                    "label": "Border bottom size",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-header-border-bottom-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableHeaderBorderLeftSize",
-                                    "label": "Border left size",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-header-border-left-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableHeaderBorderColor",
-                                    "label": "Border color",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-header-border-color"
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Table cells",
-                            "description": "Table cell styles that aren't in the header row",
-                            "fields": [
-                                {
-                                    "name": "tableCellColor",
-                                    "label": "Text color",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-color"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellFontWeight",
-                                    "label": "Font weight",
-                                    "type": "fontWeight",
-                                    "default": "700",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-font-weight"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellBorderTopSize",
-                                    "label": "Border top size",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-border-top-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellBorderRightSize",
-                                    "label": "Border right size",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-border-right-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellBorderBottomSize",
-                                    "label": "Border bottom size",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-border-bottom-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellBorderLeftSize",
-                                    "label": "Border left size",
-                                    "type": "size",
-                                    "default": "0",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-border-left-size"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellBorderColor",
-                                    "label": "Border color",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-border-color"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellOddBackground",
-                                    "label": "Background color for odd rows",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-odd-background"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellOddColor",
-                                    "label": "Text color for odd rows",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-odd-color"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellEvenBackground",
-                                    "label": "Background color for even rows",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-even-background"
-                                    }
-                                },
-                                {
-                                    "name": "tableCellEvenColor",
-                                    "label": "Text color for even rows",
-                                    "type": "color",
-                                    "preview": {
-                                        "type": "css-head",
-                                        "cssVariable": "--Table-cell-even-color"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
                     "name": "Typography",
                     "fields": [
                         {
@@ -3494,6 +3262,238 @@
                             "preview": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-content-padding"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tables",
+            "description": "Styles for themed tables.",
+            "groups": [
+                {
+                    "name": "General table styles",
+                    "fields": [
+                        {
+                            "name": "tableBorderSize",
+                            "label": "Border",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-border-size"
+                            }
+                        },
+                        {
+                            "name": "tableBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-border-color"
+                            }
+                        },
+                        {
+                            "name": "tablePadding",
+                            "label": "Cell padding",
+                            "type": "padding",
+                            "default": "8px 16px",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-padding"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Header row",
+                    "fields": [
+                        {
+                            "name": "tableHeaderBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-header-background"
+                            }
+                        },
+                        {
+                            "name": "tableHeaderColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-header-color"
+                            }
+                        },
+                        {
+                            "name": "tableHeaderFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-header-font-weight"
+                            }
+                        },
+                        {
+                            "name": "tableHeaderBorderTopSize",
+                            "label": "Border top size",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-header-border-top-size"
+                            }
+                        },
+                        {
+                            "name": "tableHeaderBorderRightSize",
+                            "label": "Border right size",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-header-border-right-size"
+                            }
+                        },
+                        {
+                            "name": "tableHeaderBorderBottomSize",
+                            "label": "Border bottom size",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-header-border-bottom-size"
+                            }
+                        },
+                        {
+                            "name": "tableHeaderBorderLeftSize",
+                            "label": "Border left size",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-header-border-left-size"
+                            }
+                        },
+                        {
+                            "name": "tableHeaderBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-header-border-color"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Table cells",
+                    "description": "Table cell styles that aren't in the header row",
+                    "fields": [
+                        {
+                            "name": "tableCellColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-color"
+                            }
+                        },
+                        {
+                            "name": "tableCellFontWeight",
+                            "label": "Font weight",
+                            "type": "fontWeight",
+                            "default": "700",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-font-weight"
+                            }
+                        },
+                        {
+                            "name": "tableCellBorderTopSize",
+                            "label": "Border top size",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-border-top-size"
+                            }
+                        },
+                        {
+                            "name": "tableCellBorderRightSize",
+                            "label": "Border right size",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-border-right-size"
+                            }
+                        },
+                        {
+                            "name": "tableCellBorderBottomSize",
+                            "label": "Border bottom size",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-border-bottom-size"
+                            }
+                        },
+                        {
+                            "name": "tableCellBorderLeftSize",
+                            "label": "Border left size",
+                            "type": "size",
+                            "default": "0",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-border-left-size"
+                            }
+                        },
+                        {
+                            "name": "tableCellBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-border-color"
+                            }
+                        },
+                        {
+                            "name": "tableCellOddBackground",
+                            "label": "Background color for odd rows",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-odd-background"
+                            }
+                        },
+                        {
+                            "name": "tableCellOddColor",
+                            "label": "Text color for odd rows",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-odd-color"
+                            }
+                        },
+                        {
+                            "name": "tableCellEvenBackground",
+                            "label": "Background color for even rows",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-even-background"
+                            }
+                        },
+                        {
+                            "name": "tableCellEvenColor",
+                            "label": "Text color for even rows",
+                            "type": "color",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Table-cell-even-color"
                             }
                         }
                     ]
