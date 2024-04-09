@@ -108,3 +108,8 @@
 .Slider .splide__arrow--next {
     right: 0;
 }
+
+/** Hide arrows when there is no overflow. https://splidejs.com/guides/overflow/ */
+.splide:not(.is-overflow) .splide__arrows {
+    display: none;
+}
