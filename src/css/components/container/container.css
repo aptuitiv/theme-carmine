@@ -18,7 +18,8 @@
     padding: 0 30px;
 }
 
-.Container--pad .Container--pad {
+.Container--pad .Container--pad,
+.Container--pad .Container--narrow {
     padding: 0;
 }
 
