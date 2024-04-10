@@ -10,6 +10,8 @@
                         {% if slide.image %}
                             <li class="splide__slide">
                                 {% set content %}
+                                    {% set lgImage = clone(slide.image) %}
+                                    {% do lgImage.resize(1200, 1000) %}
                                     {% set slide.image.class = 'w-100' %}
                                     {% if aspectRatio != 'None' %}
                                         {% set width = 1500 %}
@@ -20,7 +22,11 @@
                                     {% endif %}
                                     {% do slide.image.alt|default(slide.title) %}
                                     {% do slide.image.lazy() %}
-                                    <a href="{{ slide.image.src }}" data-fslightbox data-type="image" data-caption="{{ slide.title }}">{{ slide.image.tag }}</a>
+                                    {% if slide.link %}
+                                        {{ slide.image.tag }}
+                                    {% else %}
+                                        <a href="{{ lgImage.src }}" data-fslightbox data-type="image" data-caption="{{ slide.title }}">{{ slide.image.tag }}</a>
+                                    {% endif %}
                                     {% if slide.title %}
                                         <div class="Slider-content">{{ slide.title }}</div>
                                     {% endif %}
