@@ -25,13 +25,14 @@
 
 .Button,
 .Button[href^='tel'] {
+    align-items: center;
     background: var(--Button-background);
     border: var(--Button-border-width) solid var(--Button-border-color);
     border-radius: var(--Button-border-radius);
     box-sizing: border-box; /* 1 */
     color: var(--Button-typography-color);
     cursor: pointer;
-    display: inline-block;
+    display: inline-flex;
     font-family: var(--Button-typography-font-family);
     font-size: var(--Button-typography-font-size);
     font-style: var(--Button-typography-font-style);
