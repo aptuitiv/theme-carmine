@@ -277,9 +277,28 @@
                     ]
                 },
                 {
-                    "name": "Text only content",
+                    "name": "Banner content when no image or video",
                     "description": "Styles for when there is no image or video and only text",
                     "fields": [
+                        {
+                            "name": "bannerNoMediaColor",
+                            "label": "Text color when no image or video",
+                            "type": "color",
+                            "default": "#fff",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Banner-no-media-color"
+                            }
+                        },
+                        {
+                            "name": "bannerNoMediaTextShadow",
+                            "label": "Text shadow when no image or video",
+                            "type": "textShadow",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--Banner-no-media-text-shadow"
+                            }
+                        },
                         {
                             "name": "bannerContentAspectRatio",
                             "label": "Minimum aspect ratio for content",

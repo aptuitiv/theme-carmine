@@ -134,6 +134,12 @@
 }
 
 /* postcss-bem-linter: ignore */
+.Banner--noMedia .Banner-content *:not(.Button) {
+    color: var(--Banner-no-media-color);
+    text-shadow: var(--Banner-no-media-text-shadow, none);
+}
+
+/* postcss-bem-linter: ignore */
 .Banner-content p {
     font-size: var(--Banner-content-font-size, 2rem);
 }
