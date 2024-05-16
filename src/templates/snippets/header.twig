@@ -81,7 +81,7 @@
                             </a>
                         {% endif %}
                         {% if _core.theme.settings.headerButtons|first.button and _core.theme.settings.headerShowButtons == 'yes' %}
-                            <div class="flex g-2 mt-1">
+                            <div class="flex flex-col flex-row-md g-2 mt-1">
                                 {% for button in _core.theme.settings.headerButtons %}
                                     {% set button.button.class = "Button Header-button" %}
                                     {{ button.button.tag }}

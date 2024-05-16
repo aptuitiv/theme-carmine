@@ -89,7 +89,7 @@
 
 /* @import '../../node_modules/cacao-css/src/display/md/display.css'; */
 
-/* @import '../../node_modules/cacao-css/src/display/md/flex.css'; */
+@import '../../node_modules/cacao-css/src/display/md/flex.css';
 @import '../../node_modules/cacao-css/src/display/md/justify.css';
 
 /* @import '../../node_modules/cacao-css/src/display/md/order.css'; */
