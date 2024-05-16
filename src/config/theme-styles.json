@@ -2642,6 +2642,21 @@
                                 "type": "css-head",
                                 "cssVariable": "--NavBar-padding-sm"
                             }
+                        },
+                        {
+                            "name": "navBarAlignment",
+                            "label": "Navigation horizontal alignment",
+                            "type": "radio",
+                            "default": "center",
+                            "options": {
+                                "start": "Left",
+                                "center": "Center",
+                                "end": "Right"
+                            },
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--MainNav-horizontal-alignment"
+                            }
                         }
                     ]
                 },

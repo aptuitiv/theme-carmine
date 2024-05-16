@@ -10,7 +10,7 @@
     flex-flow: column wrap;
     font-family: var(--MainNav-font-family);
     gap: var(--MainNav-item-gap);
-    justify-content: var(--MainNav-text-align);
+    justify-content: var(--MainNav-horizontal-alignment);
     list-style: none;
     margin: 0;
     padding: 0;
