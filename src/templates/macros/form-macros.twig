@@ -118,7 +118,7 @@
             {{ field.tag|replace({"error": "is-invalid"}) }}
         {% endif %}
     {% elseif field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
-        <div class="grid g-2">
+        <div class="grid gx-2">
             {% for column in field.columns %}
                 {% set class = 'col-1-' ~ loop.length  %}
                 {% if column.class %}
@@ -156,7 +156,7 @@
 {% macro buildLabelAboveFieldFields(form) %}
     {% for field in form.fields %}
         {% if field.fieldType == 'repeatingGrid' || field.fieldType == 'grid' %}
-            <div class="grid g-2">
+            <div class="grid gx-2">
                 {% for column in field.columns %}
                     {% set class = 'col-1-1 col-sm-1-' ~ loop.length  %}
                     {% if column.class %}
@@ -250,7 +250,7 @@
                     {{ field.tag|replace({"error": "is-invalid"}) }}
                 {% endif %}
             {% elseif field.fieldType == 'rating' %}
-                <div class="grid g-2">
+                <div class="grid gx-2">
                     <div class="col-1-2 col-md-2-3 col-lg-3-4 w-100">
                         {{ field.label.tag }}
                     </div>
