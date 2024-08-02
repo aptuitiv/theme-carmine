@@ -2331,7 +2331,7 @@
                             },
                             "preview": {
                                 "type": "css-head",
-                                "cssSelector`": ".FormOverlay"
+                                "cssSelector": ".FormOverlay"
                             }
                         },
                         {
