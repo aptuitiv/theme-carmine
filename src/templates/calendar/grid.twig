@@ -50,7 +50,7 @@
                     {% endif %}
                     <td class="{{ class|trim }}">
                         {% if box.isThisMonth %}
-                            <div class="CalenderGrid-cellDate">{{ box.dayShort }}</div>
+                            <div class="CalendarGrid-cellDate">{{ box.dayShort }}</div>
                             {% if box.eventCount > 0 %}
                                 {% for event in box.events %}
                                     <a href="{{ event.url }}" class="link-subtle">{{ event.title }}<br>

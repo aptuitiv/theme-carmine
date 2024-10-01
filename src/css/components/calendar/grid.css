@@ -61,13 +61,13 @@
     width: 100%;
 }
 
-.CalenderGrid-cellDate {
+.CalendarGrid-cellDate {
     font-weight: bold;
 }
 
 /** Force the date cells to be a minimum height */
 
-.CalenderGrid-cellDate::before {
+.CalendarGrid-cellDate::before {
     content: '';
     display: block;
     float: left;
@@ -84,7 +84,7 @@
         width: 100%;
     }
 
-    .CalenderGrid-cellDate::before {
+    .CalendarGrid-cellDate::before {
         display: none;
     }
 }
