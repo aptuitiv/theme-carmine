@@ -21,6 +21,9 @@ export default {
     css: {
         buildFiles: 'main.css'
     },
+    eslint: {
+        ignores: ['fslightbox.js']
+    },
     javascript: {
         bundles: [
             {
