@@ -19,7 +19,7 @@
     Responsive
 \* ------------------------------------ */
 
-@media (--c-bp-lg) {
+@media (--m-lg) {
     .Footer {
         margin: var(--Footer-margin, 0);
         padding: var(--Footer-padding, 20px 0);

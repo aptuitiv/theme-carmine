@@ -107,7 +107,7 @@
     Reposnsive
 \* ------------------------------------ */
 
-@media (--c-bp-xl) {
+@media (--m-xl) {
     .Dropdown-menu {
         left: var(--Dropdown-left);
         margin-top: 0;

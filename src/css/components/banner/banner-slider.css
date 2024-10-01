@@ -93,7 +93,7 @@
     );
 }
 
-@media (--c-bp-md) {
+@media (--m-md) {
     /* postcss-bem-linter: ignore */
     .BannerSlider .Banner {
         padding-bottom: 0;

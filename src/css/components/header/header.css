@@ -49,13 +49,13 @@
     }
 }
 
-@media (--c-bp-md) {
+@media (--m-md) {
     .Header-textLogo {
         font-size: var(--Header-text-logo-font-size);
     }
 }
 
-@media (--c-bp-lg) {
+@media (--m-lg) {
     .Header {
         padding: var(--Header-padding, 20px 0);
     }

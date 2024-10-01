@@ -79,7 +79,7 @@
         transform 0.1s 0.14s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@media (--c-bp-lg) {
+@media (--m-lg) {
     .SmScBtn {
         display: none;
     }

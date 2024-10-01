@@ -27,7 +27,7 @@
     filter: grayscale(0);
 }
 
-@media (--c-bp-md) {
+@media (--m-md) {
     .ImageBar {
         gap: var(--ImageBar-gap, 30px);
     }

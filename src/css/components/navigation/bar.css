@@ -9,7 +9,7 @@
     padding: var(--NavBar-padding-sm, 0);
 }
 
-@media (--c-bp-lg) {
+@media (--m-lg) {
     .NavBar {
         display: block;
         padding: var(--NavBar-padding, 0);

@@ -18,7 +18,7 @@
             </div>
         </div>
         {% set thumbSliderClass = 'js-imageSlider' ~ random_string(8)|upper %}
-        <div class="splide mt-4 mt-lg-1 {{ thumbSliderClass }}" role="group" aria-label="Thumbnail Slider">
+        <div class="splide mt-4 mt-1-lg {{ thumbSliderClass }}" role="group" aria-label="Thumbnail Slider">
             <div class="splide__track">
                 <ul class="splide__list">
                     {% for video in videos %}

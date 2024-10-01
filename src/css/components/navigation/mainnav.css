@@ -48,7 +48,7 @@
     Responsive
 \* ------------------------------------ */
 
-@media (--c-bp-lg) {
+@media (--m-lg) {
     .MainNav {
         flex-direction: row;
         margin: 0;

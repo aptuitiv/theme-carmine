@@ -84,7 +84,7 @@
     padding: var(--Modal-content-padding, 20px);
 }
 
-@media (--c-bp-md) {
+@media (--m-md) {
     .Modal-header {
         align-items: center;
         flex-direction: row;

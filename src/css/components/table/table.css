@@ -19,7 +19,7 @@
     font-style: italic;
 }
 
-@media (--c-bp-md) {
+@media (--m-md) {
     .Table {
         display: table;
         overflow-x: auto;

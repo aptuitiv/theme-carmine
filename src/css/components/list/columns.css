@@ -21,7 +21,7 @@
     padding: var(--ColumnList-padding);
 }
 
-@media (--c-bp-sm) {
+@media (--m-sm) {
     .ColumnList-twoColumn {
         column-count: 2;
     }
@@ -35,7 +35,7 @@
     }
 }
 
-@media (--c-bp-md) {
+@media (--m-md) {
     .ColumnList-fourColumn {
         column-count: 4;
     }

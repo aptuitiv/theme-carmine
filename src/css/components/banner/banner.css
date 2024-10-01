@@ -85,7 +85,7 @@
     display: var(--Banner-overlay-image-sm-display, none);
 }
 
-@media (--c-bp-md) {
+@media (--m-md) {
     .Banner-contentImageWrap {
         align-items: var(--Banner-align-vertical, center);
         display: grid;
@@ -151,7 +151,7 @@
     }
 }
 
-@media (--c-bp-lg) {
+@media (--m-lg) {
     .Banner-content {
         padding: var(--Banner-padding);
     }
@@ -170,7 +170,7 @@
     margin: var(--Banner-content-button-gap, 10px);
 }
 
-@media (--c-bp-md) {
+@media (--m-md) {
     /* postcss-bem-linter: ignore */
     .Banner .Button {
         margin-left: var(--Banner-content-button-gap, 10px);

@@ -58,8 +58,8 @@
 {% macro buildGridFieldRow(field) %}
     {% if field.fieldType != "hidden" %}
         {% set field.class = field.class|replace({"error": "is-invalid"}) %}
-        <div class="grid g-lg-2 mb-2">
-            <div class="col-1-1 col-lg-1-4">
+        <div class="grid g-2-lg mb-2">
+            <div class="col-1-1 col-1-4-lg">
                 {% set field.label.class = field.label.class ~ ' FormLabel' %}
                 {% if field.isRequired %}
                     {% set field.required = true %}
@@ -70,7 +70,7 @@
             {% if field.fieldType in ["radio", "multiCheckbox"] %}
                 {% set field.groupId = random_letters() %}
             {% endif %}
-            <div class="col-1-1 col-lg-3-4 {{ field.groupId ?: '' }}">
+            <div class="col-1-1 col-3-4-lg {{ field.groupId ?: '' }}">
                 {{ _self.buildGridField(field) }}
             </div>
         </div>
@@ -251,11 +251,11 @@
                 {% endif %}
             {% elseif field.fieldType == 'rating' %}
                 <div class="grid gx-2">
-                    <div class="col-1-2 col-md-2-3 col-lg-3-4 w-100">
+                    <div class="col-1-2 col-2-3-md col-3-4-lg w-100">
                         {{ field.label.tag }}
                     </div>
-                    <div class="col-1-2 col-md-1-3 col-lg-1-4 w-100">
-                        <div class="flex justify-end-lg align-center-lg h-100 justify-start align-start mt-1 mt-lg-0">
+                    <div class="col-1-2 col-1-3-md col-1-4-lg w-100">
+                        <div class="flex justify-end-lg align-center-lg h-100 justify-start align-start mt-1 mt-0-lg">
                             {% for option in field.options %}
                                 <label class="pr-2">{{ option.tagNoLabel }} {{ option.label }}</label>
                             {% endfor %}

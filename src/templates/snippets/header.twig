@@ -39,7 +39,7 @@
     <header class="Header" id="top">
         <div class="Container Container--pad">
             <div class="grid align-center justify-between">
-                <div class="col-3-4 col-lg-1-3" id="header-logo"> {# ID is used for live theme preview. #}
+                <div class="col-3-4 col-1-3-lg" id="header-logo"> {# ID is used for live theme preview. #}
                     {% if _core.theme.settings.headerLogo or _core.theme.settings.headerTextLogo %}
                         <a href="/" title="return to home page" class="Header-logoLink">
                             {% if _core.theme.settings.headerLogo %}
@@ -57,7 +57,7 @@
                         <span class="SmScBtn-icon"></span>
                     </button>
                 </div>
-                <div class="col-1-1 col-lg-2-3 mt-2 mt-lg-0">
+                <div class="col-1-1 col-2-3-lg mt-2 mt-0-lg">
                     <div class="flex flex-col align-center align-end-lg gy-1 Header-content">
                         {% if _core.theme.settings.social|first.url and _core.theme.settings.headerShowSocial == 'yes' %}
                             <div class="Header-socialIcons flex gx-1">
