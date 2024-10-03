@@ -41,7 +41,7 @@
     "dependencies": {
         "@splidejs/splide": "^4.1.4",
         "@splidejs/splide-extension-video": "^0.8.0",
-        "cacao-css": "^6.2.0",
+        "cacao-css": "^6.3.0",
         "just-validate": "^4.3.0",
         "micromodal": "^0.4.10"
     },
