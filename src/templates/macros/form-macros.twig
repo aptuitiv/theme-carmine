@@ -131,7 +131,10 @@
                 {% set class = class ~ ' w-100' %}
                 <div class="{{ class }}">
                     {% for child in column.childFields %}
-                        <div class="mb-2">
+                        {% if child.fieldType in ["radio", "multiCheckbox", "checkbox"] %}
+                            {% set child.groupId = random_letters() %}
+                        {% endif %}
+                        <div class="mb-2 {{ child.groupId ?: '' }}">
                             {% set child.label.class = child.label.class ~ ' FormLabel FormLabel--block' %}
                             {% if child.isRequired %}
                                 {% set child.required = true %}
@@ -199,7 +202,7 @@
 {% macro buildLabelAboveFieldField(field) %}
     {% if field.fieldType != "hidden" %}
         {% set field.class = field.class|replace({"error": "is-invalid"}) %}
-        {% if field.fieldType in ["radio", "multiCheckbox"] %}
+        {% if field.fieldType in ["checkbox", "radio", "multiCheckbox"] %}
             {% set field.groupId = random_letters() %}
         {% endif %}
         <div class="mb-2 {{ field.groupId ?: '' }}">
