@@ -749,26 +749,53 @@
         {
             "name": "Blocks - Full Width Image",
             "description": "Styles for the \"Full Width Image\" block.",
-            "fields": [
+            "sidebarSize": "small",
+            "groups": [
                 {
-                    "name": "fullWidthImageWidth",
-                    "label": "Image width",
-                    "type": "radio",
-                    "default": "full",
-                    "options": {
-                        "full": "Span the full width of the page",
-                        "contained": "Maximum width is the container width"
-                    }
+                    "name": "Content styles",
+                    "description": "Styles for the text content the \"Full Width Image\" block.",
+                    "fields": [
+                        {
+                            "name": "fullWidthImageWidth",
+                            "label": "Image width",
+                            "type": "radio",
+                            "default": "full",
+                            "options": {
+                                "full": "Span the full width of the page",
+                                "contained": "Maximum width is the container width"
+                            }
+                        },
+                        {
+                            "name": "fullWidthImagCaptionTypography",
+                            "label": "Caption typography",
+                            "type": "typography",
+                            "useMargin": "true",
+                            "preview": {
+                                "type": "css-head",
+                                "cssVariable": "--FullWidthImage-caption-typography"
+                            }
+                        }
+                    ]
                 },
                 {
-                    "name": "fullWidthImagCaptionTypography",
-                    "label": "Caption typography",
-                    "type": "typography",
-                    "useMargin": "true",
-                    "preview": {
-                        "type": "css-head",
-                        "cssVariable": "--FullWidthImage-caption-typography"
-                    }
+                    "name": "Image sizes",
+                    "description": "These settings set the responsive sizes for the \"Full Width Image\" block.",
+                    "fields": [
+                        {
+                            "name": "blockFullWidthImageSizes",
+                            "label": "Image Sizes",
+                            "type": "repeatingGrid",
+                            "itemName": "Image size",
+                            "children": [
+                                {
+                                    "name": "maxWidth",
+                                    "label": "Max width",
+                                    "type": "stepper",
+                                    "after": "px"
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },

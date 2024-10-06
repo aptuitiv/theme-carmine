@@ -1,27 +1,6 @@
 {
     "groups": [
         {
-            "name": "Blocks - Full Width Image",
-            "description": "These settings set the responsive sizes for the \"Full Width Image\" block.",
-            "sidebarSize": "small",
-            "fields": [
-                {
-                    "name": "blockFullWidthImageSizes",
-                    "label": "Image Sizes",
-                    "type": "repeatingGrid",
-                    "itemName": "Image size",
-                    "children": [
-                        {
-                            "name": "maxWidth",
-                            "label": "Max width",
-                            "type": "stepper",
-                            "after": "px"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "Blocks - Google Ratings Bar",
             "description": "Settings for the Google Ratings Bar",
             "fields": [
