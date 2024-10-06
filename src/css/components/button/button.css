@@ -18,9 +18,7 @@
 }
 
 /**
- * 1. Normalize `box-sizing` across all elements that this component could be
- *    applied to.
- * 2. Prevent button text from being selectable.
+ * 1. Prevent button text from being selectable.
  */
 
 .Button,
@@ -29,7 +27,6 @@
     background: var(--Button-background);
     border: var(--Button-border-width) solid var(--Button-border-color);
     border-radius: var(--Button-border-radius);
-    box-sizing: border-box; /* 1 */
     color: var(--Button-typography-color);
     cursor: pointer;
     display: inline-flex;
@@ -45,7 +42,7 @@
     text-decoration: var(--Button-typography-text-decoration);
     text-shadow: none; /* Done in case this is within another element that has text-shadow applied to it */
     text-transform: var(--Button-typography-text-transform);
-    user-select: none; /* 2 */
+    user-select: none; /* 1 */
 }
 
 /**

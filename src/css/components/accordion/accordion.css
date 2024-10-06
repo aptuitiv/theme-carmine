@@ -62,7 +62,6 @@
 }
 
 .Accordion-content {
-    box-sizing: border-box;
     height: auto;
     overflow: hidden;
     padding: var(--Accordion-content-padding);

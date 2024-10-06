@@ -62,7 +62,6 @@
     border-bottom: var(--Banner-slider-text-pagination-bottom-border-size, 0) solid
         var(--Banner-slider-text-border-color);
     border-radius: var(--Banner-slider-text-border-radius);
-    box-sizing: border-box; /* 1 */
     color: var(--Banner-slider-text-pagination-color);
     cursor: pointer;
     display: inline-block;

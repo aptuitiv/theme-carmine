@@ -24,7 +24,6 @@
 .Modal-container {
     background-color: var(--Modal-background);
     border-radius: var(--Modal-border-radius);
-    box-sizing: border-box;
     color: var(--Modal-color);
     margin: 20px;
     max-height: calc(100vh - 40px);

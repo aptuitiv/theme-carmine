@@ -5,7 +5,6 @@
 /* @define MainNav */
 .MainNav {
     align-items: center;
-    box-sizing: border-box;
     display: flex;
     flex-flow: column wrap;
     font-family: var(--MainNav-font-family);
@@ -26,7 +25,6 @@
 
 .MainNav-link {
     background: var(--MainNav-link-background, transparent);
-    box-sizing: border-box;
     color: var(--MainNav-color);
     display: block;
     font-weight: var(--MainNav-font-weight);

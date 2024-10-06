@@ -7,7 +7,6 @@
     background: var(--SelectInput-background, #fff);
     border: var(--SelectInput-border-width, 1px) solid var(--SelectInput-border-color, #777);
     border-radius: var(--SelectInput-borderRadius, 0);
-    box-sizing: border-box;
     display: inline-block;
     outline: none;
     position: relative;
@@ -41,7 +40,6 @@
     appearance: none;
     background: transparent;
     border: 0;
-    box-sizing: border-box;
     color: var(--SelectInput-color, #333);
     display: block;
     margin: 0;
