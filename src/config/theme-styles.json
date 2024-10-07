@@ -23,7 +23,7 @@
                             "collapsable": false,
                             "useTextAlign": false,
                             "fontSize": {
-                                "default": "24px"
+                                "defaultValue": "24px"
                             },
                             "render": {
                                 "type": "css-head",
@@ -34,7 +34,7 @@
                             "name": "accordionHeadingMargin",
                             "label": "Margin",
                             "type": "margin",
-                            "default": "10px 0",
+                            "defaultValue": "10px 0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Accordion-heading-margin"
@@ -44,7 +44,7 @@
                             "name": "accordionHeadingPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "6px 0",
+                            "defaultValue": "6px 0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Accordion-heading-padding"
@@ -54,7 +54,7 @@
                             "name": "accordionHeadingJustifyContent",
                             "label": "Align icon",
                             "type": "select",
-                            "default": "flex-start",
+                            "defaultValue": "flex-start",
                             "options": {
                                 "flex-start": "Beside the text",
                                 "space-between": "Opposite the text"
@@ -77,7 +77,7 @@
                             "name": "accordingHeadingBottomSize",
                             "label": "Bottom border size",
                             "type": "size",
-                            "default": "1px",
+                            "defaultValue": "1px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Accordion-heading-bottom-border-size"
@@ -87,7 +87,7 @@
                             "name": "accordingHeadingBottomBorderColor",
                             "label": "Bottom border color",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Accordion-heading-bottom-border-color"
@@ -97,7 +97,7 @@
                             "name": "accordionHeadingIconSpace",
                             "label": "Space between heading text and the icon",
                             "type": "size",
-                            "default": "10px",
+                            "defaultValue": "10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Accordion-heading-space"
@@ -107,7 +107,7 @@
                             "name": "accordionIconSize",
                             "label": "Icon size",
                             "type": "size",
-                            "default": "12px",
+                            "defaultValue": "12px",
                             "allowedUnits": ["px"],
                             "render": {
                                 "type": "css-head",
@@ -123,7 +123,7 @@
                             "name": "accordionContentPadding",
                             "label": "Accordion content padding",
                             "type": "padding",
-                            "default": "10px 0",
+                            "defaultValue": "10px 0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Accordion-content-padding"
@@ -145,7 +145,7 @@
                             "name": "bannerColor",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-color"
@@ -165,7 +165,7 @@
                             "label": "Overlay color",
                             "type": "color",
                             "description": "The background color of an overlay that sits on top of the banner image or video and below the text.",
-                            "default": "#00263e6e",
+                            "defaultValue": "#00263e6e",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay"
@@ -176,7 +176,7 @@
                             "label": "Background color",
                             "description": "Background color will only be seen if no image is uploaded.",
                             "type": "color",
-                            "default": "#00263e",
+                            "defaultValue": "#00263e",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-background"
@@ -191,7 +191,7 @@
                             "name": "bannerContentAlignHorizontal",
                             "label": "Horizontal alignment",
                             "type": "select",
-                            "default": "center",
+                            "defaultValue": "center",
                             "options": {
                                 "start": "Left",
                                 "center": "Center",
@@ -206,7 +206,7 @@
                             "name": "bannerContentAlignVertical",
                             "label": "Vertical alignment",
                             "type": "select",
-                            "default": "center",
+                            "defaultValue": "center",
                             "options": {
                                 "start": "Left",
                                 "center": "Center",
@@ -221,7 +221,7 @@
                             "name": "bannerContentWidth",
                             "label": "Max width for the content",
                             "type": "size",
-                            "default": "900px",
+                            "defaultValue": "900px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-content-width"
@@ -232,7 +232,7 @@
                             "label": "Space between buttons",
                             "description": "If there are multiple buttons beside each other in the banner, this will be the horizontal space between them.,",
                             "type": "size",
-                            "default": "15px",
+                            "defaultValue": "15px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-content-button-gap"
@@ -242,7 +242,7 @@
                             "name": "bannerContentFontSize",
                             "label": "Paragraph content font size",
                             "type": "fontSize",
-                            "default": "20px",
+                            "defaultValue": "20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-content-font-size"
@@ -258,7 +258,7 @@
                             "label": "Padding",
                             "description": "This is used when there is a lot of content to make sure that the content does't touch the edges of the banner.",
                             "type": "padding",
-                            "default": "10px",
+                            "defaultValue": "10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-padding"
@@ -268,7 +268,7 @@
                             "name": "bannerPaddingSm",
                             "label": "Padding (small screens)",
                             "type": "padding",
-                            "default": "10px",
+                            "defaultValue": "10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-padding-sm"
@@ -284,7 +284,7 @@
                             "name": "bannerNoMediaColor",
                             "label": "Text color when no image or video",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-no-media-color"
@@ -304,7 +304,7 @@
                             "label": "Minimum aspect ratio for content",
                             "type": "ratio",
                             "after": "px",
-                            "default": "10/2",
+                            "defaultValue": "10/2",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-content-aspect-ratio"
@@ -314,7 +314,7 @@
                             "name": "bannerPaddingTopNoImage",
                             "label": "Padding when no image or video",
                             "type": "padding",
-                            "default": "20px 10px",
+                            "defaultValue": "20px 10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-padding-no-image"
@@ -324,7 +324,7 @@
                             "name": "bannerPaddingTopNoImageSm",
                             "label": "Padding (small screens) when no image or video",
                             "type": "padding",
-                            "default": "10px",
+                            "defaultValue": "10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-padding-no-image-sm"
@@ -339,7 +339,7 @@
                             "name": "bannerSliderDotPaginationPosition",
                             "label": "Dot pagination position",
                             "type": "select",
-                            "default": "center",
+                            "defaultValue": "center",
                             "options": {
                                 "start": "Left",
                                 "center": "Center",
@@ -354,7 +354,7 @@
                             "name": "bannerSliderDotPadding",
                             "label": "Dot pagination padding",
                             "type": "padding",
-                            "default": "0 4px",
+                            "defaultValue": "0 4px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-dot-pagination-padding"
@@ -364,7 +364,7 @@
                             "name": "bannerSliderDotPaginationColor",
                             "label": "Dot pagination color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-dot-pagination-color"
@@ -374,7 +374,7 @@
                             "name": "bannerSliderDotPaginationColorActive",
                             "label": "Dot pagination color (active)",
                             "type": "color",
-                            "default": "#f3f3f3",
+                            "defaultValue": "#f3f3f3",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-dot-pagination-color-active"
@@ -390,7 +390,7 @@
                             "name": "bannerSliderTextPaginationGap",
                             "label": "Horizontal space between text pagination",
                             "type": "size",
-                            "default": "10px",
+                            "defaultValue": "10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-text-pagination-gap"
@@ -401,7 +401,7 @@
                             "label": "Width for each item",
                             "type": "size",
                             "useAuto": true,
-                            "default": "auto",
+                            "defaultValue": "auto",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-text-pagination-item-width"
@@ -411,7 +411,7 @@
                             "name": "bannerSliderTextPaginationBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#a21514",
+                            "defaultValue": "#a21514",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-text-background"
@@ -421,7 +421,7 @@
                             "name": "bannerSliderTextPaginationBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
-                            "default": "#7a0504",
+                            "defaultValue": "#7a0504",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-text-background-hover"
@@ -431,7 +431,7 @@
                             "name": "bannerSliderTextPaginationBottomBorderSize",
                             "label": "Bottom border size",
                             "type": "size",
-                            "default": "2px",
+                            "defaultValue": "2px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-text-pagination-bottom-border-size"
@@ -441,7 +441,7 @@
                             "name": "bannerSliderTextPaginationBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "default": "#ffffff",
+                            "defaultValue": "#ffffff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-text-border-color"
@@ -451,7 +451,7 @@
                             "name": "bannerSliderTextPaginationBorderColorHover",
                             "label": "Border color (hover)",
                             "type": "color",
-                            "default": "#ffffff",
+                            "defaultValue": "#ffffff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-slider-text-border-color-hover"
@@ -495,7 +495,7 @@
                             "label": "Aspect ratio when cropping",
                             "type": "ratio",
                             "after": "px",
-                            "default": "20/9",
+                            "defaultValue": "20/9",
                             "description": "If the banner image needs to be cropped, this is the aspect ratio that will be used."
                         },
                         {
@@ -503,14 +503,14 @@
                             "label": "Minimum aspect ratio",
                             "type": "ratio",
                             "after": "px",
-                            "default": "20/9",
+                            "defaultValue": "20/9",
                             "description": "If \"How to crop the banner image\" is set to \"Do not crop the banner image unless it is too tall\", this is the aspect ratio that will be used to determine if the image is too tall."
                         },
                         {
                             "name": "bannerImageCropStrategy",
                             "label": "How to crop the banner image",
                             "type": "radio",
-                            "default": "crop",
+                            "defaultValue": "crop",
                             "options": {
                                 "crop": "Always use the above image aspect ratios to crop the image",
                                 "conditional": "Do not crop the banner image unless it is too tall"
@@ -522,7 +522,7 @@
                             "label": "Image crop orientation",
                             "description": "The default crop orientation for banner images when the image is too tall.",
                             "type": "radio",
-                            "default": "center",
+                            "defaultValue": "center",
                             "options": {
                                 "top": "Top",
                                 "center": "Center",
@@ -540,7 +540,7 @@
                             "label": "Content and image grid",
                             "description": "The content and image grid column sizes when an overlay image is used.",
                             "type": "select",
-                            "default": "50% 1fr",
+                            "defaultValue": "50% 1fr",
                             "options": {
                                 "30% 1fr": "30% content, 70% image",
                                 "40% 1fr": "40% content, 60% image",
@@ -557,7 +557,7 @@
                             "name": "bannerOverlayImageGridWidth",
                             "label": "Max width for the content and image grid",
                             "type": "size",
-                            "default": "1200px",
+                            "defaultValue": "1200px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay-image-grid-width"
@@ -568,7 +568,7 @@
                             "label": "Max width for the content",
                             "description": "This will override the \"Max width for the content\" field value",
                             "type": "size",
-                            "default": "800px",
+                            "defaultValue": "800px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay-image-content-width"
@@ -578,7 +578,7 @@
                             "name": "bannerOverlayImageObjectFit",
                             "label": "Image fit",
                             "type": "select",
-                            "default": "none",
+                            "defaultValue": "none",
                             "options": {
                                 "none": "None",
                                 "contain": "Contain",
@@ -594,7 +594,7 @@
                             "label": "Image fit position",
                             "description": "The position of the image within the container",
                             "type": "select",
-                            "default": "bottom center",
+                            "defaultValue": "bottom center",
                             "options": {
                                 "initial": "Default",
                                 "top left": "Top Left",
@@ -617,7 +617,7 @@
                             "name": "bannerOverlayImageSmDisplay",
                             "label": "Display the overlay image on small screens",
                             "type": "radio",
-                            "default": "block",
+                            "defaultValue": "block",
                             "options": {
                                 "block": "Yes",
                                 "none": "No"
@@ -632,7 +632,7 @@
                             "label": "Gap between the image and content on small screens",
                             "description": "This only applies if the image is displayed on small screens.",
                             "type": "size",
-                            "default": "20px",
+                            "defaultValue": "20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay-image-sm-gap"
@@ -679,7 +679,7 @@
                             "label": "Aspect ratio when cropping",
                             "type": "ratio",
                             "after": "px",
-                            "default": "20/6",
+                            "defaultValue": "20/6",
                             "description": "If the banner image needs to be cropped, this is the aspect ratio that will be used."
                         },
                         {
@@ -687,14 +687,14 @@
                             "label": "Minimum aspect ratio",
                             "type": "ratio",
                             "after": "px",
-                            "default": "20/6",
+                            "defaultValue": "20/6",
                             "description": "If \"How to crop the banner image\" is set to \"Do not crop the banner image unless it is too tall\", this is the aspect ratio that will be used to determine if the image is too tall."
                         },
                         {
                             "name": "bannerBarImageCropStrategy",
                             "label": "How to crop the banner image",
                             "type": "radio",
-                            "default": "crop",
+                            "defaultValue": "crop",
                             "options": {
                                 "crop": "Always use the above image aspect ratios to crop the image",
                                 "conditional": "Do not crop the banner image unless it is too tall"
@@ -706,7 +706,7 @@
                             "label": "Image crop orientation",
                             "description": "The default crop orientation for banner images when the image is too tall.",
                             "type": "radio",
-                            "default": "center",
+                            "defaultValue": "center",
                             "options": {
                                 "top": "Top",
                                 "center": "Center",
@@ -725,7 +725,7 @@
                     "name": "blockColumnContentDefaultNumColumns",
                     "label": "Default number of columns",
                     "type": "select",
-                    "default": "3",
+                    "defaultValue": "3",
                     "options": {
                         "2": "2",
                         "3": "3",
@@ -738,7 +738,7 @@
                     "name": "blockColumnContentGap",
                     "label": "Gap between columns",
                     "type": "size",
-                    "default": "20px",
+                    "defaultValue": "20px",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--ColumnContent-gap"
@@ -759,7 +759,7 @@
                             "name": "fullWidthImageWidth",
                             "label": "Image width",
                             "type": "radio",
-                            "default": "full",
+                            "defaultValue": "full",
                             "options": {
                                 "full": "Span the full width of the page",
                                 "contained": "Maximum width is the container width"
@@ -899,7 +899,7 @@
                     "name": "blockImageBarGap",
                     "label": "Gap between images",
                     "type": "size",
-                    "default": "30px",
+                    "defaultValue": "30px",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--ImageBar-gap"
@@ -909,7 +909,7 @@
                     "name": "blockImageBarGapSm",
                     "label": "Gap between images (small screens)",
                     "type": "size",
-                    "default": "10px",
+                    "defaultValue": "10px",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--ImageBar-gap-sm"
@@ -920,7 +920,7 @@
                     "label": "Maximum height of images",
                     "type": "size",
                     "allowAuto": true,
-                    "default": "auto",
+                    "defaultValue": "auto",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--ImageBar-image-max-height"
@@ -930,7 +930,7 @@
                     "name": "blockImageBarMargin",
                     "label": "Margin",
                     "type": "margin",
-                    "default": "0 20px",
+                    "defaultValue": "0 20px",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--ImageBar-margin"
@@ -940,7 +940,7 @@
                     "name": "blockImageBarPadding",
                     "label": "Padding",
                     "type": "padding",
-                    "default": "0 20px",
+                    "defaultValue": "0 20px",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--ImageBar-padding"
@@ -970,7 +970,7 @@
                             "name": "blockImageGridDefaultNumColumns",
                             "label": "Default number of columns",
                             "type": "select",
-                            "default": "3",
+                            "defaultValue": "3",
                             "options": {
                                 "2": "2",
                                 "3": "3",
@@ -983,7 +983,7 @@
                             "name": "blockImageGridDefaultAspectRatio",
                             "label": "Default image aspect ratio",
                             "type": "select",
-                            "default": "4x3",
+                            "defaultValue": "4x3",
                             "options": {
                                 "1x1": "Square",
                                 "5x4": "5:4",
@@ -1000,7 +1000,7 @@
                             "name": "blockImageGridGap",
                             "label": "Gap between columns",
                             "type": "size",
-                            "default": "20px",
+                            "defaultValue": "20px",
                             "render": {
                                 "type": "css-head",
                                 "selector": ".ImageGrid",
@@ -1168,7 +1168,7 @@
                             "name": "blockImageGridOverlayBackground",
                             "label": "Overlay background color",
                             "type": "color",
-                            "default": "#FFFFFFB3",
+                            "defaultValue": "#FFFFFFB3",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--ImageGridItem-overlay-background"
@@ -1178,7 +1178,7 @@
                             "name": "blockImageGridOverlayHoverBackground",
                             "label": "Overlay background color (hover)",
                             "type": "color",
-                            "default": "#FFFFFFB3",
+                            "defaultValue": "#FFFFFFB3",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--ImageGridItem-overlay-background-hover"
@@ -1199,7 +1199,7 @@
                             "name": "blocksImageSliderContentBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Slider-content-background"
@@ -1209,7 +1209,7 @@
                             "name": "blocksImageSliderContentBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Slider-content-background-hover"
@@ -1223,7 +1223,7 @@
                             "useHover": true,
                             "usePadding": true,
                             "padding": {
-                                "default": "20px"
+                                "defaultValue": "20px"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1239,7 +1239,7 @@
                             "name": "blocksImageSliderArrowBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Slider-arrow-background"
@@ -1249,7 +1249,7 @@
                             "name": "blocksImageSliderArrowColorHover",
                             "label": "Text color (hover)",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Slider-arrow-color-hover"
@@ -1259,7 +1259,7 @@
                             "name": "blocksImageSliderArrowColor",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Slider-arrow-color"
@@ -1269,7 +1269,7 @@
                             "name": "blocksImageSliderArrowBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Slider-arrow-background-hover"
@@ -1287,7 +1287,7 @@
                     "name": "blockWrapperBackgroundGray",
                     "label": "Gray background color",
                     "type": "color",
-                    "default": "#f4f4f4",
+                    "defaultValue": "#f4f4f4",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Wrapper-background-grey"
@@ -1307,7 +1307,7 @@
                     "name": "blockWrapperBackgroundDarkColor",
                     "label": "Dark background text color",
                     "type": "color",
-                    "default": "#fff",
+                    "defaultValue": "#fff",
                     "description": "The text color for when the dark background is used.",
                     "render": {
                         "type": "css-head",
@@ -1318,7 +1318,7 @@
                     "name": "blockWrapperMargin",
                     "label": "Margin",
                     "type": "margin",
-                    "default": {
+                    "defaultValue": {
                         "top": "25px",
                         "right": "0",
                         "bottom": "25px",
@@ -1333,7 +1333,7 @@
                     "name": "blockWrapperPadding",
                     "label": "Padding",
                     "type": "padding",
-                    "default": {
+                    "defaultValue": {
                         "top": "50px",
                         "right": "0",
                         "bottom": "50px",
@@ -1355,7 +1355,7 @@
                     "name": "blockWrapperWBgImageDisplay",
                     "label": "How to display the background image",
                     "type": "radio",
-                    "default": "below",
+                    "defaultValue": "below",
                     "description": "If \"Below the color backgrond\" is selected, then the background colors should have transparency so that the image can be seen.<br>If \"Above the color background\" is selected, then the image should have transparency so that the background color can be seen.",
                     "options": {
                         "below": "Below the color background",
@@ -1366,7 +1366,7 @@
                     "name": "blockWrapperWBgImageBackgroundGray",
                     "label": "Gray background color",
                     "type": "color",
-                    "default": "rgba(244, 244, 244, 0.6)",
+                    "defaultValue": "rgba(244, 244, 244, 0.6)",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Wrapper-wbgimage-background-grey"
@@ -1385,7 +1385,7 @@
                     "name": "blockWrapperWBgImageBackgroundDarkColor",
                     "label": "Dark background text color",
                     "type": "color",
-                    "default": "#fff",
+                    "defaultValue": "#fff",
                     "description": "The text color for when the dark background is used.",
                     "render": {
                         "type": "css-head",
@@ -1405,7 +1405,7 @@
                     "name": "blockWrapperWBgImageMargin",
                     "label": "Margin",
                     "type": "margin",
-                    "default": {
+                    "defaultValue": {
                         "top": "25px",
                         "right": "0",
                         "bottom": "25px",
@@ -1420,7 +1420,7 @@
                     "name": "blockWrapperWBgImagePadding",
                     "label": "Padding",
                     "type": "padding",
-                    "default": {
+                    "defaultValue": {
                         "top": "50px",
                         "right": "0",
                         "bottom": "50px",
@@ -1456,7 +1456,7 @@
                     "name": "bodyBackground",
                     "label": "Background color",
                     "type": "color",
-                    "default": "#ffffff",
+                    "defaultValue": "#ffffff",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--base-body-background"
@@ -1475,7 +1475,7 @@
                             "name": "defaultButtonBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#a21514",
+                            "defaultValue": "#a21514",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-background"
@@ -1485,7 +1485,7 @@
                             "name": "defaultButtonBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
-                            "default": "#7a0504",
+                            "defaultValue": "#7a0504",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-background-hover"
@@ -1502,17 +1502,17 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "colorHover": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "fontSize": {
-                                "default": "18px",
+                                "defaultValue": "18px",
                                 "allowedUnits": ["px"]
                             },
                             "lineHeight": {
-                                "default": "1.4"
+                                "defaultValue": "1.4"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1523,7 +1523,7 @@
                             "name": "defaultButtonBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "default": "#333333",
+                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-border-color"
@@ -1533,7 +1533,7 @@
                             "name": "defaultButtonBorderColorHover",
                             "label": "Border color (hover)",
                             "type": "color",
-                            "default": "#333333",
+                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-border-color-hover"
@@ -1543,7 +1543,7 @@
                             "name": "defaultButtonBorderRadius",
                             "label": "Border radius",
                             "type": "borderRadius",
-                            "default": "4px",
+                            "defaultValue": "4px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-border-radius"
@@ -1553,7 +1553,7 @@
                             "name": "defaultButtonBorderWidth",
                             "label": "Border width",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-border-width"
@@ -1563,7 +1563,7 @@
                             "name": "defaultButtonPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "6px 12px",
+                            "defaultValue": "6px 12px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-padding"
@@ -1578,7 +1578,7 @@
                             "name": "alt1ButtonBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#a21514",
+                            "defaultValue": "#a21514",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-background"
@@ -1588,7 +1588,7 @@
                             "name": "alt1ButtonBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
-                            "default": "#7a0504",
+                            "defaultValue": "#7a0504",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-background-hover"
@@ -1605,14 +1605,14 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "default": "18px",
+                                "defaultValue": "18px",
                                 "allowedUnits": ["px"]
                             },
                             "lineHeight": {
-                                "default": "1.4"
+                                "defaultValue": "1.4"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1623,7 +1623,7 @@
                             "name": "alt1ButtonBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "default": "#333333",
+                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-border-color"
@@ -1633,7 +1633,7 @@
                             "name": "alt1ButtonBorderColorHover",
                             "label": "Border color (hover)",
                             "type": "color",
-                            "default": "#333333",
+                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-border-color-hover"
@@ -1643,7 +1643,7 @@
                             "name": "alt1ButtonBorderRadius",
                             "label": "Border radius",
                             "type": "borderRadius",
-                            "default": "4px",
+                            "defaultValue": "4px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-border-radius"
@@ -1653,7 +1653,7 @@
                             "name": "alt1ButtonBorderWidth",
                             "label": "Border width",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-border-width"
@@ -1663,7 +1663,7 @@
                             "name": "alt1ButtonPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "6px",
+                            "defaultValue": "6px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-padding"
@@ -1678,7 +1678,7 @@
                             "name": "alt2ButtonBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#a21514",
+                            "defaultValue": "#a21514",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-background"
@@ -1688,7 +1688,7 @@
                             "name": "alt2ButtonBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
-                            "default": "#7a0504",
+                            "defaultValue": "#7a0504",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-background-hover"
@@ -1705,7 +1705,7 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1716,7 +1716,7 @@
                             "name": "alt2ButtonBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "default": "#333333",
+                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-border-color"
@@ -1726,7 +1726,7 @@
                             "name": "alt2ButtonBorderColorHover",
                             "label": "Border color (hover)",
                             "type": "color",
-                            "default": "#333333",
+                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-border-color-hover"
@@ -1736,7 +1736,7 @@
                             "name": "alt2ButtonBorderRadius",
                             "label": "Border radius",
                             "type": "borderRadius",
-                            "default": "4px",
+                            "defaultValue": "4px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-border-radius"
@@ -1746,7 +1746,7 @@
                             "name": "alt2ButtonBorderWidth",
                             "label": "Border width",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-border-width"
@@ -1756,7 +1756,7 @@
                             "name": "alt2ButtonPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "6px",
+                            "defaultValue": "6px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-padding"
@@ -1771,7 +1771,7 @@
                             "name": "buttonSmPadding",
                             "label": "Small button padding",
                             "type": "padding",
-                            "default": "6px",
+                            "defaultValue": "6px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-sm-padding"
@@ -1790,7 +1790,7 @@
                             "name": "buttonLgPadding",
                             "label": "Large button padding",
                             "type": "padding",
-                            "default": "10px 20px",
+                            "defaultValue": "10px 20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-lg-padding"
@@ -1819,7 +1819,7 @@
                     "description": "The maximum page content width.",
                     "type": "stepper",
                     "after": "px",
-                    "default": "1450",
+                    "defaultValue": "1450",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Container-width",
@@ -1832,7 +1832,7 @@
                     "description": "Used for the narrow width option on the \"Content\" block.",
                     "type": "stepper",
                     "after": "px",
-                    "default": "900",
+                    "defaultValue": "900",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Container-narrow-width",
@@ -1845,7 +1845,7 @@
                     "description": "Mainly used on the search form.",
                     "type": "stepper",
                     "after": "px",
-                    "default": "600",
+                    "defaultValue": "600",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Container-small-width",
@@ -1865,7 +1865,7 @@
                             "name": "footerBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#871E0F",
+                            "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".Footer",
@@ -1877,7 +1877,7 @@
                             "label": "Spacing",
                             "type": "spacing",
                             "padding": {
-                                "default": "20px 0"
+                                "defaultValue": "20px 0"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1892,7 +1892,7 @@
                                 "label": "Margin (small screens)"
                             },
                             "padding": {
-                                "default": "10px 0",
+                                "defaultValue": "10px 0",
                                 "label": "Padding (small screens)"
                             },
                             "render": {
@@ -1912,7 +1912,7 @@
                             "collapsable": false,
                             "useTextAlign": false,
                             "color": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1932,16 +1932,16 @@
                             "useTextAlign": false,
                             "useHover": true,
                             "color": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "colorHover": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "textDecoration": {
-                                "default": "none"
+                                "defaultValue": "none"
                             },
                             "textDecorationHover": {
-                                "default": "underline"
+                                "defaultValue": "underline"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1966,16 +1966,16 @@
                             "useTextAlign": false,
                             "useHover": true,
                             "color": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "colorHover": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "textDecoration": {
-                                "default": "none"
+                                "defaultValue": "none"
                             },
                             "textDecorationHover": {
-                                "default": "underline"
+                                "defaultValue": "underline"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1996,19 +1996,19 @@
                             "useTextAlign": false,
                             "useHover": true,
                             "color": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "colorHover": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "fontSize": {
-                                "default": "14px"
+                                "defaultValue": "14px"
                             },
                             "textDecoration": {
-                                "default": "none"
+                                "defaultValue": "none"
                             },
                             "textDecorationHover": {
-                                "default": "underline"
+                                "defaultValue": "underline"
                             },
                             "render": {
                                 "type": "css-head",
@@ -2039,7 +2039,7 @@
                             "name": "textInputBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--TextInput-background"
@@ -2049,7 +2049,7 @@
                             "name": "textInputColor",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--TextInput-color"
@@ -2060,7 +2060,7 @@
                             "label": "Border radius",
                             "type": "borderRadius",
                             "after": "px",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--TextInput-border-radius"
@@ -2071,7 +2071,7 @@
                             "label": "Border width",
                             "type": "size",
                             "allowedUnits": ["px"],
-                            "default": "1px",
+                            "defaultValue": "1px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--TextInput-border-width"
@@ -2081,7 +2081,7 @@
                             "name": "textInputBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "default": "#777",
+                            "defaultValue": "#777",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--TextInput-border-color"
@@ -2091,7 +2091,7 @@
                             "name": "textInputPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "5px",
+                            "defaultValue": "5px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--TextInput-padding"
@@ -2106,7 +2106,7 @@
                             "name": "selectInputBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--SelectInput-background"
@@ -2116,7 +2116,7 @@
                             "name": "selectInputColor",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--SelectInput-color"
@@ -2126,7 +2126,7 @@
                             "name": "selectInputBorderRadius",
                             "label": "Border radius",
                             "type": "borderRadius",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--SelectInput-border-radius"
@@ -2137,7 +2137,7 @@
                             "label": "Border width",
                             "type": "size",
                             "allowedUnits": ["px"],
-                            "default": "1px",
+                            "defaultValue": "1px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--SelectInput-border-width"
@@ -2147,7 +2147,7 @@
                             "name": "selectInputBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "default": "#777",
+                            "defaultValue": "#777",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--SelectInput-border-color"
@@ -2157,7 +2157,7 @@
                             "name": "selectInputArrowColor",
                             "label": "Arrow color",
                             "type": "color",
-                            "default": "#777",
+                            "defaultValue": "#777",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--SelectInput-arrow-color"
@@ -2167,7 +2167,7 @@
                             "name": "selectInputPadding",
                             "label": "Vertical padding",
                             "type": "padding",
-                            "default": "5px",
+                            "defaultValue": "5px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--SelectInput-padding"
@@ -2205,7 +2205,7 @@
                             "name": "formRequiredShowAsterisk",
                             "label": "Show the \"*\" next to the field label for required fields",
                             "type": "switch",
-                            "default": "yes",
+                            "defaultValue": "yes",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--FormRequiredMessage-asterisk-display",
@@ -2216,7 +2216,7 @@
                             "name": "formRequiredColor",
                             "label": "Asterisk color",
                             "type": "color",
-                            "default": "#b2130c",
+                            "defaultValue": "#b2130c",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--FormRequired-color"
@@ -2226,7 +2226,7 @@
                             "name": "formRequiredShowMessage",
                             "label": "Show the \"Required fields\" message below the form",
                             "type": "switch",
-                            "default": "yes",
+                            "defaultValue": "yes",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--FormRequiredMessage-display",
@@ -2238,7 +2238,7 @@
                             "label": "Required fields text",
                             "description": "The text to show at the bottom of the form to explain what the asterix beside fields means.",
                             "type": "text",
-                            "default": "* Required fields"
+                            "defaultValue": "* Required fields"
                         },
                         {
                             "name": "formRequiredMessageTypography",
@@ -2260,7 +2260,7 @@
                             "name": "formDescriptionPosition",
                             "label": "Where to display the description",
                             "type": "radio",
-                            "default": "belowExceptRadioCheckbox",
+                            "defaultValue": "belowExceptRadioCheckbox",
                             "options": {
                                 "above": "Above the field",
                                 "below": "Below the field",
@@ -2274,7 +2274,7 @@
                             "collapsable": false,
                             "useMargin": true,
                             "fontSize": {
-                                "default": "14px"
+                                "defaultValue": "14px"
                             },
                             "render": {
                                 "type": "css-head",
@@ -2290,9 +2290,9 @@
                             "name": "formButtonSize",
                             "label": "Button size",
                             "type": "radio",
-                            "default": "default",
+                            "defaultValue": "defaultValue",
                             "options": {
-                                "default": "Default",
+                                "defaultValue": "Default",
                                 "sm": "Small",
                                 "lg": "Large"
                             }
@@ -2301,9 +2301,9 @@
                             "name": "formButtonStyle",
                             "label": "Button style",
                             "type": "radio",
-                            "default": "default",
+                            "defaultValue": "defaultValue",
                             "options": {
-                                "default": "Default",
+                                "defaultValue": "Default",
                                 "alt": "Alternate 1",
                                 "alt2": "Alternate 2"
                             }
@@ -2321,7 +2321,7 @@
                             "name": "formButtonFullWidthSmallScreens",
                             "label": "Have the button be full width on small screens",
                             "type": "switch",
-                            "default": "yes"
+                            "defaultValue": "yes"
                         }
                     ]
                 },
@@ -2333,7 +2333,7 @@
                             "name": "formOverlayBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#000000b3",
+                            "defaultValue": "#000000b3",
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".FormOverlay",
@@ -2348,13 +2348,13 @@
                             "useTextShadow": true,
                             "useTextAlign": false,
                             "color": {
-                                "default": "#fff"
+                                "defaultValue": "#fff"
                             },
                             "fontSize": {
-                                "default": "3rem"
+                                "defaultValue": "3rem"
                             },
                             "textShadow": {
-                                "default": "0 1px 2px rgba(0, 0, 0, 0.5)"
+                                "defaultValue": "0 1px 2px rgba(0, 0, 0, 0.5)"
                             },
                             "render": {
                                 "type": "css-head",
@@ -2365,7 +2365,7 @@
                             "name": "formOverlayTextShadow",
                             "label": "Text shadow",
                             "type": "textShadow",
-                            "default": "0 1px 2px rgba(0, 0, 0, 0.5)",
+                            "defaultValue": "0 1px 2px rgba(0, 0, 0, 0.5)",
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".FormOverlay-text"
@@ -2386,7 +2386,7 @@
                             "name": "headerPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "20px 0",
+                            "defaultValue": "20px 0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Header-padding"
@@ -2396,7 +2396,7 @@
                             "name": "headerPaddingSm",
                             "label": "Padding (small screens)",
                             "type": "padding",
-                            "default": "20px 0",
+                            "defaultValue": "20px 0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Header-padding-sm"
@@ -2412,7 +2412,7 @@
                             "name": "headerTextLogoFontSizeSm",
                             "label": "Font size (small screens)",
                             "type": "size",
-                            "default": "40px",
+                            "defaultValue": "40px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Header-text-logo-font-size-sm"
@@ -2427,7 +2427,7 @@
                             "useTextAlign": false,
                             "useTextDecoration": false,
                             "fontSize": {
-                                "default": "60px"
+                                "defaultValue": "60px"
                             },
                             "render": {
                                 "type": "css-head",
@@ -2525,7 +2525,7 @@
                             "name": "headerSocialSize",
                             "label": "Size",
                             "type": "size",
-                            "default": "30px",
+                            "defaultValue": "30px",
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".Header-socialLink",
@@ -2536,7 +2536,7 @@
                             "name": "headerSocialBorderRadius",
                             "label": "Border radius",
                             "type": "borderRadius",
-                            "default": "50%",
+                            "defaultValue": "50%",
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".Header-socialLink"
@@ -2665,7 +2665,7 @@
                             "name": "navBarBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#871E0F",
+                            "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--NavBar-background"
@@ -2693,7 +2693,7 @@
                             "name": "navBarAlignment",
                             "label": "Navigation horizontal alignment",
                             "type": "radio",
-                            "default": "center",
+                            "defaultValue": "center",
                             "options": {
                                 "start": "Left",
                                 "center": "Center",
@@ -2713,7 +2713,7 @@
                             "name": "mainNavItemGap",
                             "label": "Gap between items",
                             "type": "size",
-                            "default": "10px",
+                            "defaultValue": "10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-item-gap"
@@ -2735,7 +2735,7 @@
                             "name": "mainNavItemPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "6px 10px",
+                            "defaultValue": "6px 10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-item-padding"
@@ -2745,7 +2745,7 @@
                             "name": "mainNavItemPaddingSm",
                             "label": "Padding (small screens)",
                             "type": "padding",
-                            "default": "6px 10px",
+                            "defaultValue": "6px 10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--MainNav-item-padding-sm"
@@ -2795,7 +2795,7 @@
                             "label": "Minimum width",
                             "type": "size",
                             "allowedUnits": ["px"],
-                            "default": "220",
+                            "defaultValue": "220",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-min-width"
@@ -2806,7 +2806,7 @@
                             "label": "Maximum width",
                             "type": "size",
                             "allowedUnits": ["px"],
-                            "default": "300",
+                            "defaultValue": "300",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-max-width"
@@ -2816,7 +2816,7 @@
                             "name": "dropdownBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-background"
@@ -2826,7 +2826,7 @@
                             "name": "dropdownLeft",
                             "label": "Position",
                             "type": "select",
-                            "default": "0",
+                            "defaultValue": "0",
                             "options": {
                                 "0": "Left",
                                 "-50%": "Center"
@@ -2856,7 +2856,7 @@
                             "name": "dropdownLinkPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "6px 25px",
+                            "defaultValue": "6px 25px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-link-padding"
@@ -2866,7 +2866,7 @@
                             "name": "mainNavDropdownBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#871E0F",
+                            "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-link-background"
@@ -2876,7 +2876,7 @@
                             "name": "navDropdownBackgroundHover",
                             "label": "Background color (hover)",
                             "type": "color",
-                            "default": "#591108",
+                            "defaultValue": "#591108",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-link-background-hover"
@@ -2886,7 +2886,7 @@
                             "name": "navDropdownArrowOffset",
                             "label": "Right offset for the arrow if a dropdown as sub navigation",
                             "type": "size",
-                            "default": "10px",
+                            "defaultValue": "10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-arrow-offset"
@@ -2902,7 +2902,7 @@
                             "name": "navDropdownBackgroundSm",
                             "label": "Background color (small screens)",
                             "type": "color",
-                            "default": "#871E0F",
+                            "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-link-background-sm"
@@ -2912,7 +2912,7 @@
                             "name": "mainNavDropdownColorSm",
                             "label": "Text color (small screens)",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Dropdown-link-color-sm"
@@ -2939,7 +2939,7 @@
                     "name": "smScBtnColor",
                     "label": "Hamburger color",
                     "type": "color",
-                    "default": "#871E0F",
+                    "defaultValue": "#871E0F",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--SmScBtn-color"
@@ -2955,7 +2955,7 @@
                     "name": "messagePadding",
                     "label": "Padding",
                     "type": "padding",
-                    "default": "20px",
+                    "defaultValue": "20px",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Message-padding"
@@ -2975,7 +2975,7 @@
                     "name": "messageBackgroundSuccess",
                     "label": "Background color (successful message)",
                     "type": "color",
-                    "default": "#333",
+                    "defaultValue": "#333",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Message-background-success"
@@ -2985,7 +2985,7 @@
                     "name": "messageColorSuccess",
                     "label": "Text color (successful message)",
                     "type": "color",
-                    "default": "#fff",
+                    "defaultValue": "#fff",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Message-color-success"
@@ -2995,7 +2995,7 @@
                     "name": "messageBackgroundFailure",
                     "label": "Background color (failure message)",
                     "type": "color",
-                    "default": "#871E0F",
+                    "defaultValue": "#871E0F",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Message-background-failure"
@@ -3005,7 +3005,7 @@
                     "name": "messageColorFailure",
                     "label": "Text color (failure message)",
                     "type": "color",
-                    "default": "#fff",
+                    "defaultValue": "#fff",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Message-color-failure"
@@ -3024,7 +3024,7 @@
                             "name": "notificationBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#871E0F",
+                            "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Notification-background"
@@ -3034,7 +3034,7 @@
                             "name": "notificationColor",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Notification-color"
@@ -3044,7 +3044,7 @@
                             "name": "notificationPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "10px",
+                            "defaultValue": "10px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Notification-padding"
@@ -3084,7 +3084,7 @@
                             "name": "notificationCloseFontSize",
                             "label": "Button size",
                             "type": "fontSize",
-                            "default": "20px",
+                            "defaultValue": "20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Notification-close-font-size"
@@ -3094,7 +3094,7 @@
                             "name": "notificationIconFontSize",
                             "label": "Icon size",
                             "type": "fontSize",
-                            "default": "38px",
+                            "defaultValue": "38px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Notification-icon-font-size"
@@ -3115,7 +3115,7 @@
                             "name": "paginationItemColor",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Pagination-item-color"
@@ -3130,7 +3130,7 @@
                             "name": "paginationItemBackgroundHover",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#871E0F",
+                            "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Pagination-item-background-hover"
@@ -3140,7 +3140,7 @@
                             "name": "paginationItemColorHover",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Pagination-item-color-hover"
@@ -3155,7 +3155,7 @@
                             "name": "paginationItemBackgroundActive",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#871E0F",
+                            "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Pagination-item-background--active"
@@ -3165,7 +3165,7 @@
                             "name": "paginationItemColorActive",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Pagination-item-color--active"
@@ -3186,7 +3186,7 @@
                             "name": "modalBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "#fff",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-background"
@@ -3196,7 +3196,7 @@
                             "name": "modalColor",
                             "label": "Text color",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-color"
@@ -3206,7 +3206,7 @@
                             "name": "modalWidth",
                             "label": "Max width",
                             "type": "size",
-                            "default": "500px",
+                            "defaultValue": "500px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-width"
@@ -3216,7 +3216,7 @@
                             "name": "modalBorderRadius",
                             "label": "Border radius",
                             "type": "borderRadius",
-                            "default": "4px",
+                            "defaultValue": "4px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-border-radius"
@@ -3231,7 +3231,7 @@
                             "name": "modalOverlayBackground",
                             "label": "Background color",
                             "type": "color",
-                            "default": "rgba(0, 0, 0, .6)",
+                            "defaultValue": "rgba(0, 0, 0, .6)",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-overlay-background"
@@ -3246,7 +3246,7 @@
                             "name": "modalHeaderPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "20px",
+                            "defaultValue": "20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-header-padding"
@@ -3265,10 +3265,10 @@
                             "collapsable": false,
                             "useTextAlign": false,
                             "fontWeight": {
-                                "default": "700"
+                                "defaultValue": "700"
                             },
                             "fontSize": {
-                                "default": "20px"
+                                "defaultValue": "20px"
                             },
                             "render": {
                                 "type": "css-head",
@@ -3279,7 +3279,7 @@
                             "name": "modalTitleFontSizeSm",
                             "label": "Font size (small screens)",
                             "type": "fontSize",
-                            "default": "20px",
+                            "defaultValue": "20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-title-font-size-sm"
@@ -3294,7 +3294,7 @@
                             "name": "modalCloseColor",
                             "label": "Icon color",
                             "type": "color",
-                            "default": "#333",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-close-color"
@@ -3304,7 +3304,7 @@
                             "name": "modalCloseColorHover",
                             "label": "Icon color (hover)",
                             "type": "color",
-                            "default": "#871E0F",
+                            "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-close-color-hover"
@@ -3319,7 +3319,7 @@
                             "name": "modalContentPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "default": "20px",
+                            "defaultValue": "20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Modal-content-padding"
@@ -3340,7 +3340,7 @@
                             "name": "tableBorderSize",
                             "label": "Border",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-border-size"
@@ -3359,7 +3359,7 @@
                             "name": "tablePadding",
                             "label": "Cell padding",
                             "type": "padding",
-                            "default": "8px 16px",
+                            "defaultValue": "8px 16px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-padding"
@@ -3392,7 +3392,7 @@
                             "name": "tableHeaderFontWeight",
                             "label": "Font weight",
                             "type": "fontWeight",
-                            "default": "700",
+                            "defaultValue": "700",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-header-font-weight"
@@ -3402,7 +3402,7 @@
                             "name": "tableHeaderBorderTopSize",
                             "label": "Border top size",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-header-border-top-size"
@@ -3412,7 +3412,7 @@
                             "name": "tableHeaderBorderRightSize",
                             "label": "Border right size",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-header-border-right-size"
@@ -3422,7 +3422,7 @@
                             "name": "tableHeaderBorderBottomSize",
                             "label": "Border bottom size",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-header-border-bottom-size"
@@ -3432,7 +3432,7 @@
                             "name": "tableHeaderBorderLeftSize",
                             "label": "Border left size",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-header-border-left-size"
@@ -3466,7 +3466,7 @@
                             "name": "tableCellFontWeight",
                             "label": "Font weight",
                             "type": "fontWeight",
-                            "default": "700",
+                            "defaultValue": "700",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-cell-font-weight"
@@ -3476,7 +3476,7 @@
                             "name": "tableCellBorderTopSize",
                             "label": "Border top size",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-cell-border-top-size"
@@ -3486,7 +3486,7 @@
                             "name": "tableCellBorderRightSize",
                             "label": "Border right size",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-cell-border-right-size"
@@ -3496,7 +3496,7 @@
                             "name": "tableCellBorderBottomSize",
                             "label": "Border bottom size",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-cell-border-bottom-size"
@@ -3506,7 +3506,7 @@
                             "name": "tableCellBorderLeftSize",
                             "label": "Border left size",
                             "type": "size",
-                            "default": "0",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Table-cell-border-left-size"
@@ -3572,7 +3572,7 @@
                             "label": "Default vertical spacing between elements",
                             "name": "baseVerticalSpacing",
                             "type": "size",
-                            "default": "25px",
+                            "defaultValue": "25px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-spacing"
@@ -3582,7 +3582,7 @@
                             "label": "Horizontal rule size",
                             "name": "baseHorizontalRuleSize",
                             "type": "size",
-                            "default": "1px",
+                            "defaultValue": "1px",
                             "allowedUnits": ["px"],
                             "render": {
                                 "type": "css-head",
@@ -3611,14 +3611,14 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "default": "18px",
+                                "defaultValue": "18px",
                                 "allowedUnits": ["px"]
                             },
                             "lineHeight": {
-                                "default": "1.58"
+                                "defaultValue": "1.58"
                             }
                         }
                     ]
@@ -3631,7 +3631,7 @@
                             "name": "baseListPadding",
                             "label": "List padding",
                             "type": "padding",
-                            "default": "0 0 0 2.4em",
+                            "defaultValue": "0 0 0 2.4em",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-list-padding"
@@ -3640,7 +3640,7 @@
                         {
                             "name": "listTextAlign",
                             "label": "Text alignment",
-                            "default": "left",
+                            "defaultValue": "left",
                             "type": "textalign",
                             "render": {
                                 "type": "css-head",
@@ -3672,7 +3672,7 @@
                             "label": "Column list gap",
                             "description": "When converting an ordered or unordered list to display in columns, this is the gap between the columns.",
                             "type": "size",
-                            "default": "50px",
+                            "defaultValue": "50px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--ColumnList-list-gap"
@@ -3683,7 +3683,7 @@
                             "label": "Column list bullet style",
                             "description": "When converting an ordered or unordered list to display in columns, this is the style of the bullets.",
                             "type": "select",
-                            "default": "none",
+                            "defaultValue": "none",
                             "options": {
                                 "none": "No bullets or numbers",
                                 "initial": "Default bullets or numbers"
@@ -3722,16 +3722,16 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#0000EE"
+                                "defaultValue": "#0000EE"
                             },
                             "colorHover": {
-                                "default": "#0000CD"
+                                "defaultValue": "#0000CD"
                             },
                             "textDecoration": {
-                                "default": "underline"
+                                "defaultValue": "underline"
                             },
                             "textDecorationHover": {
-                                "default": "underline"
+                                "defaultValue": "underline"
                             }
                         }
                     ]
@@ -3754,20 +3754,20 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "default": "32px",
+                                "defaultValue": "32px",
                                 "allowedUnits": ["px"]
                             },
                             "fontWeight": {
-                                "default": "700"
+                                "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "default": "1.58"
+                                "defaultValue": "1.58"
                             },
                             "margin": {
-                                "default": {
+                                "defaultValue": {
                                     "top": "2.5rem",
                                     "bottom": "1.25rem"
                                 }
@@ -3793,17 +3793,17 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "default": "28px",
+                                "defaultValue": "28px",
                                 "allowedUnits": ["px"]
                             },
                             "fontWeight": {
-                                "default": "700"
+                                "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "default": "1.58"
+                                "defaultValue": "1.58"
                             }
                         }
                     ]
@@ -3826,17 +3826,17 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "default": "24px",
+                                "defaultValue": "24px",
                                 "allowedUnits": ["px"]
                             },
                             "fontWeight": {
-                                "default": "700"
+                                "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "default": "1.58"
+                                "defaultValue": "1.58"
                             }
                         }
                     ]
@@ -3858,17 +3858,17 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "default": "20px",
+                                "defaultValue": "20px",
                                 "allowedUnits": ["px"]
                             },
                             "fontWeight": {
-                                "default": "700"
+                                "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "default": "1.58"
+                                "defaultValue": "1.58"
                             }
                         }
                     ]
@@ -3890,17 +3890,17 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "default": "18px",
+                                "defaultValue": "18px",
                                 "allowedUnits": ["px"]
                             },
                             "fontWeight": {
-                                "default": "700"
+                                "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "default": "1.58"
+                                "defaultValue": "1.58"
                             }
                         }
                     ]
@@ -3922,17 +3922,17 @@
                                 "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
                             },
                             "color": {
-                                "default": "#333333"
+                                "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "default": "18px",
+                                "defaultValue": "18px",
                                 "allowedUnits": ["px"]
                             },
                             "fontWeight": {
-                                "default": "700"
+                                "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "default": "1.58"
+                                "defaultValue": "1.58"
                             }
                         }
                     ]

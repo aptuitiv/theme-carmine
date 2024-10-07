@@ -20,13 +20,13 @@
                     "name": "footerShowNavigation",
                     "label": "Show navigation",
                     "type": "switch",
-                    "default": "yes"
+                    "defaultValue": "yes"
                 },
                 {
                     "name": "footerNavigationMenu",
                     "label": "Which navigation menu to use in the footer",
                     "type": "radio",
-                    "default": "main",
+                    "defaultValue": "main",
                     "options": {
                         "main": "Same as the main navigation menu",
                         "footer": "Use the separate footer navigation menu"
@@ -36,25 +36,25 @@
                     "name": "footerShowPhone",
                     "label": "Show phone number",
                     "type": "switch",
-                    "default": "yes"
+                    "defaultValue": "yes"
                 },
                 {
                     "name": "footerShowEmail",
                     "label": "Show email",
                     "type": "switch",
-                    "default": "no"
+                    "defaultValue": "no"
                 },
                 {
                     "name": "footerShowAddress",
                     "label": "Show address",
                     "type": "switch",
-                    "default": "yes"
+                    "defaultValue": "yes"
                 },
                 {
                     "name": "footerShowCredit",
                     "label": "Show Aptuitiv credit",
                     "type": "switch",
-                    "default": "yes"
+                    "defaultValue": "yes"
                 }
             ]
         },
@@ -82,7 +82,7 @@
                             "label": "Logo width",
                             "type": "stepper",
                             "after": "px",
-                            "default": "425",
+                            "defaultValue": "425",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Header-logo-width",
@@ -134,25 +134,25 @@
                             "name": "headerShowSocial",
                             "label": "Show social",
                             "type": "switch",
-                            "default": "yes"
+                            "defaultValue": "yes"
                         },
                         {
                             "name": "headerShowPhone",
                             "label": "Show phone",
                             "type": "switch",
-                            "default": "yes"
+                            "defaultValue": "yes"
                         },
                         {
                             "name": "headerShowEmail",
                             "label": "Show email",
                             "type": "switch",
-                            "default": "no"
+                            "defaultValue": "no"
                         },
                         {
                             "name": "headerShowButtons",
                             "label": "Show buttons",
                             "type": "switch",
-                            "default": "yes"
+                            "defaultValue": "yes"
                         }
                     ]
                 }
@@ -210,14 +210,14 @@
                     "label": "Seconds to wait before showing the popup",
                     "type": "stepper",
                     "after": "seconds",
-                    "default": "5"
+                    "defaultValue": "5"
                 },
                 {
                     "name": "popupCookieExpiration",
                     "label": "Number of days to show popup again after closing",
                     "type": "stepper",
                     "after": "days",
-                    "default": "30"
+                    "defaultValue": "30"
                 },
                 {
                     "name": "popupContent",
