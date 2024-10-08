@@ -32,9 +32,8 @@ const smallScreenNav = {
             }
         });
 
-        // Function to toggle showing and hiding the small screen navigation
         /**
-         *
+         * Function to toggle showing and hiding the small screen navigation
          */
         function toggleNav() {
             button.classList.toggle('is-active');
