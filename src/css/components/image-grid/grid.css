@@ -7,5 +7,8 @@
 .ImageGrid {
     --gap: var(--ImageGrid-gap, 20px); /* set the --gap variable that is used by the Cacao grid utility */
 
+    display: flex;
+    flex-wrap: wrap;
     gap: var(--gap);
+    margin-right: calc(var(--gap) * -1);
 }
