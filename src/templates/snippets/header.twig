@@ -32,7 +32,7 @@
     {{ _page.head() }}
     {{ _page.themeStyles() }}
 </head>
-<body>
+<body{{ _page.body.attributes() }}>
     {{ _page.bodyStartCode() }}
     <div class="visually-hidden" aria-hidden="true">{{ source('snippets/svg-icons.twig') }}</div>
     {{ _api.widgets.collection.get('notifications') }}
