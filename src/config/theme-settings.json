@@ -111,6 +111,12 @@
                     "name": "Buttons",
                     "fields": [
                         {
+                            "name": "headerShowButtons",
+                            "label": "Show buttons",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
                             "name": "headerButtons",
                             "label": "Buttons",
                             "type": "repeatingGrid",
@@ -147,12 +153,6 @@
                             "label": "Show email",
                             "type": "switch",
                             "defaultValue": "no"
-                        },
-                        {
-                            "name": "headerShowButtons",
-                            "label": "Show buttons",
-                            "type": "switch",
-                            "defaultValue": "yes"
                         }
                     ]
                 }
