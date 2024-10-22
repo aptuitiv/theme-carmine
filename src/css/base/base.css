@@ -2,10 +2,6 @@
    Base
    ========================================================================== */
 
-:root {
-    --base-body-background: #fff;
-}
-
 /**
  * Sticky header anchor fix
  * https://getpublii.com/blog/one-line-css-solution-to-prevent-anchor-links-from-scrolling-behind-a-sticky-header.html
@@ -20,7 +16,7 @@ html.has-sticky-header {
  */
 
 body {
-    background: var(--base-body-background); /* 1 */
+    background: var(--body-background, #fff); /* 1 */
 }
 
 /**

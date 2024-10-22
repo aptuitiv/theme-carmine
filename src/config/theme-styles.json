@@ -1454,12 +1454,13 @@
             "fields": [
                 {
                     "name": "bodyBackground",
-                    "label": "Background color",
+                    "label": "Body background color",
+                    "description": "The background outside the main content.",
                     "type": "color",
                     "defaultValue": "#ffffff",
                     "render": {
                         "type": "css-head",
-                        "cssVariable": "--base-body-background"
+                        "cssVariable": "--body-background"
                     }
                 }
             ]
