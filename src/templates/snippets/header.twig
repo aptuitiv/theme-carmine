@@ -40,17 +40,14 @@
         <div class="Container Container--pad">
             <div class="grid align-center justify-between">
                 <div class="col-3-4 col-1-3-lg" id="header-logo"> {# ID is used for live theme preview. #}
-                    {% if _core.theme.settings.headerLogo or _core.theme.settings.headerTextLogo %}
-                        <a href="/" title="return to home page" class="Header-logoLink">
-                            {% if _core.theme.settings.headerLogo %}
-                                {% set _core.theme.settings.headerLogo.class = "Header-logo" %}
-                                {% do _core.theme.settings.headerLogo.resize(_core.theme.settings.headerLogoWidth + 100) %}
-                                {{ _core.theme.settings.headerLogo.tag }}
-                            {% elseif _core.theme.settings.headerTextLogo %}
-                                <span class="Header-textLogo">{{ _core.theme.settings.headerTextLogo }}</span>
-                            {% endif %}
-                        </a>
-                    {% endif %}
+                        {% if _core.theme.settings.headerLogo %}
+                            {% set _core.theme.settings.headerLogo.class = "Header-logo" %}
+                            {% do _core.theme.settings.headerLogo.resize(_core.theme.settings.headerLogoWidth + 100) %}
+                            {% do _core.theme.settings.headerLogo.alt.default(_core.settings.companyName) %}
+                            <a href="/" title="return to home page" class="Header-logoLink">{{ _core.theme.settings.headerLogo.tag }}</a>
+                        {% elseif _core.theme.settings.headerTextLogo %}
+                            <a href="/" title="return to home page" class="Header-logoLink"><span class="Header-textLogo">{{ _core.theme.settings.headerTextLogo }}</span></a>
+                        {% endif %}
                 </div>
                 <div class="col-1-4 flex justify-end hidden-lg">
                     <button class="SmScBtn js-ssNavBtn" aria-label="menu">
