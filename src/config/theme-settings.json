@@ -108,40 +108,8 @@
                     ]
                 },
                 {
-                    "name": "Buttons",
-                    "fields": [
-                        {
-                            "name": "headerShowButtons",
-                            "label": "Show buttons",
-                            "type": "switch",
-                            "defaultValue": "yes"
-                        },
-                        {
-                            "name": "headerButtons",
-                            "label": "Buttons",
-                            "type": "repeatingGrid",
-                            "itemName": "Button",
-                            "children": [
-                                {
-                                    "name": "button",
-                                    "label": "Button",
-                                    "type": "url",
-                                    "showLinkTextField": true,
-                                    "linkTextFieldLabel": "Button text"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
                     "name": "Information",
                     "fields": [
-                        {
-                            "name": "headerShowSocial",
-                            "label": "Show social",
-                            "type": "switch",
-                            "defaultValue": "yes"
-                        },
                         {
                             "name": "headerShowPhone",
                             "label": "Show phone",
@@ -153,8 +121,72 @@
                             "label": "Show email",
                             "type": "switch",
                             "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerShowSocial",
+                            "label": "Show social icons",
+                            "type": "switch",
+                            "defaultValue": "yes"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "Header buttons",
+            "sidebarSize": "medium",
+            "fields": [
+                {
+                    "name": "headerShowButtons",
+                    "label": "Show buttons",
+                    "type": "switch",
+                    "defaultValue": "yes"
+                },
+                {
+                    "name": "headerButtons",
+                    "label": "Buttons",
+                    "type": "repeatingGrid",
+                    "itemName": "Button",
+                    "children": [
+                        {
+                            "name": "button",
+                            "label": "Button",
+                            "type": "url",
+                            "showLinkTextField": true,
+                            "linkTextFieldLabel": "Button text"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Popup on Load",
+            "description": "Options for the optional popup that shows on page load.",
+            "sidebarSize": "medium",
+            "fields": [
+                {
+                    "name": "popupDisplay",
+                    "label": "Display the popup",
+                    "type": "switch"
+                },
+                {
+                    "name": "popupSeconds",
+                    "label": "Seconds to wait before showing the popup",
+                    "type": "stepper",
+                    "after": "seconds",
+                    "defaultValue": "5"
+                },
+                {
+                    "name": "popupCookieExpiration",
+                    "label": "Number of days to show popup again after closing",
+                    "type": "stepper",
+                    "after": "days",
+                    "defaultValue": "30"
+                },
+                {
+                    "name": "popupContent",
+                    "label": "Content",
+                    "type": "richTextEditor"
                 }
             ]
         },
@@ -193,36 +225,6 @@
                             "columnWidth": "2fr"
                         }
                     ]
-                }
-            ]
-        },
-        {
-            "name": "Popup on Load",
-            "description": "Options for the optional popup that shows on page load.",
-            "fields": [
-                {
-                    "name": "popupDisplay",
-                    "label": "Display the popup",
-                    "type": "switch"
-                },
-                {
-                    "name": "popupSeconds",
-                    "label": "Seconds to wait before showing the popup",
-                    "type": "stepper",
-                    "after": "seconds",
-                    "defaultValue": "5"
-                },
-                {
-                    "name": "popupCookieExpiration",
-                    "label": "Number of days to show popup again after closing",
-                    "type": "stepper",
-                    "after": "days",
-                    "defaultValue": "30"
-                },
-                {
-                    "name": "popupContent",
-                    "label": "Content",
-                    "type": "richTextEditor"
                 }
             ]
         }
