@@ -1499,9 +1499,6 @@
                             "collapsable": false,
                             "useHover": true,
                             "useTextAlign": false,
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#fff"
                             },
@@ -1509,11 +1506,10 @@
                                 "defaultValue": "#fff"
                             },
                             "fontSize": {
-                                "defaultValue": "18px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "1.8rem"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.4"
+                                "defaultValue": "1.6"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1524,7 +1520,6 @@
                             "name": "defaultButtonBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-border-color"
@@ -1534,7 +1529,6 @@
                             "name": "defaultButtonBorderColorHover",
                             "label": "Border color (hover)",
                             "type": "color",
-                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-border-color-hover"
@@ -1602,18 +1596,14 @@
                             "collapsable": false,
                             "useHover": true,
                             "useTextAlign": false,
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "defaultValue": "18px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "1.8rem"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.4"
+                                "defaultValue": "1.6"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1624,7 +1614,6 @@
                             "name": "alt1ButtonBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-border-color"
@@ -1634,7 +1623,6 @@
                             "name": "alt1ButtonBorderColorHover",
                             "label": "Border color (hover)",
                             "type": "color",
-                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-border-color-hover"
@@ -1664,7 +1652,7 @@
                             "name": "alt1ButtonPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "defaultValue": "6px",
+                            "defaultValue": "6px 20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt-padding"
@@ -1702,11 +1690,11 @@
                             "collapsable": false,
                             "useHover": true,
                             "useTextAlign": false,
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
+                            },
+                            "colorHover": {
+                                "defaultValue": "#fff"
                             },
                             "render": {
                                 "type": "css-head",
@@ -1717,7 +1705,6 @@
                             "name": "alt2ButtonBorderColor",
                             "label": "Border color",
                             "type": "color",
-                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-border-color"
@@ -1727,7 +1714,6 @@
                             "name": "alt2ButtonBorderColorHover",
                             "label": "Border color (hover)",
                             "type": "color",
-                            "defaultValue": "#333333",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-border-color-hover"
@@ -1757,7 +1743,7 @@
                             "name": "alt2ButtonPadding",
                             "label": "Padding",
                             "type": "padding",
-                            "defaultValue": "6px",
+                            "defaultValue": "6px 20px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-alt2-padding"
@@ -1772,7 +1758,7 @@
                             "name": "buttonSmPadding",
                             "label": "Small button padding",
                             "type": "padding",
-                            "defaultValue": "6px",
+                            "defaultValue": "4px 8px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-sm-padding"
@@ -1791,7 +1777,7 @@
                             "name": "buttonLgPadding",
                             "label": "Large button padding",
                             "type": "padding",
-                            "defaultValue": "10px 20px",
+                            "defaultValue": "10px 30px",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-lg-padding"
@@ -1801,6 +1787,7 @@
                             "name": "buttonLgFontSize",
                             "label": "Large button font size",
                             "type": "fontsize",
+                            "defaultValue": "2.2rem",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Button-lg-font-size"
@@ -1948,7 +1935,7 @@
                                 "type": "css-head",
                                 "cssSelector": ".FooterNav-link"
                             },
-                            "colorPreview": {
+                            "colorRender": {
                                 "cssSelector": "",
                                 "cssVariable": "--FooterNav-color"
                             }
@@ -2185,7 +2172,7 @@
                             "type": "typography",
                             "collapsable": false,
                             "useMargin": true,
-                            "marginPreview": {
+                            "marginRender": {
                                 "cssSelector": "",
                                 "cssVariable": "--FormLabel-margin",
                                 "config": {
@@ -2434,7 +2421,7 @@
                                 "type": "css-head",
                                 "cssSelector": ".Header-textLogo"
                             },
-                            "fontSizePreview": {
+                            "fontSizeRender": {
                                 "cssSelector": "",
                                 "cssVariable": "--Header-text-logo-font-size"
                             }
@@ -2585,12 +2572,6 @@
                             "collapsable": false,
                             "useHover": true,
                             "useTextAlign": false,
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
-                            "fontSize": {
-                                "allowedUnits": ["px"]
-                            },
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".Button.Header-button"
@@ -3608,18 +3589,17 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography"
                             },
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "defaultValue": "18px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "1.8rem"
+                            },
+                            "fontWeight": {
+                                "defaultValue": "400"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.58"
+                                "defaultValue": "1.6"
                             }
                         }
                     ]
@@ -3719,9 +3699,6 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-link"
                             },
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#0000EE"
                             },
@@ -3751,21 +3728,17 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h1"
                             },
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "defaultValue": "32px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "5.49rem"
                             },
                             "fontWeight": {
                                 "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.58"
+                                "defaultValue": "1.6"
                             },
                             "margin": {
                                 "defaultValue": {
@@ -3790,21 +3763,17 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h2"
                             },
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "defaultValue": "28px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "4.39rem"
                             },
                             "fontWeight": {
                                 "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.58"
+                                "defaultValue": "1.6"
                             }
                         }
                     ]
@@ -3823,21 +3792,17 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h3"
                             },
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "defaultValue": "24px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "3.52rem"
                             },
                             "fontWeight": {
                                 "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.58"
+                                "defaultValue": "1.6"
                             }
                         }
                     ]
@@ -3855,21 +3820,17 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h4"
                             },
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "defaultValue": "20px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "2.81rem"
                             },
                             "fontWeight": {
                                 "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.58"
+                                "defaultValue": "1.6"
                             }
                         }
                     ]
@@ -3887,21 +3848,17 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h5"
                             },
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "defaultValue": "18px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "2.25rem"
                             },
                             "fontWeight": {
                                 "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.58"
+                                "defaultValue": "1.6"
                             }
                         }
                     ]
@@ -3919,21 +3876,17 @@
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-h6"
                             },
-                            "fontSizePreview": {
-                                "template": "{% if value.size %}{{ value.size / 10 }}rem{% endif %}"
-                            },
                             "color": {
                                 "defaultValue": "#333333"
                             },
                             "fontSize": {
-                                "defaultValue": "18px",
-                                "allowedUnits": ["px"]
+                                "defaultValue": "1.8rem"
                             },
                             "fontWeight": {
                                 "defaultValue": "700"
                             },
                             "lineHeight": {
-                                "defaultValue": "1.58"
+                                "defaultValue": "1.6"
                             }
                         }
                     ]
