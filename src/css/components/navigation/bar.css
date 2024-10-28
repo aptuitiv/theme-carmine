@@ -4,9 +4,27 @@
 
 /* @define NavBar */
 .NavBar {
+    --navbar-offset: 100px;
+
     background-color: var(--NavBar-background);
     display: none;
     padding: var(--NavBar-padding-sm, 0);
+}
+
+@media (--m-lg-below) {
+    .NavBar {
+        height: calc(100vh - var(--navbar-offset));
+        left: 0;
+        overflow-y: auto;
+        position: fixed;
+        top: var(--navbar-offset);
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .NavBar[data-open='yes'] {
+        display: block;
+    }
 }
 
 @media (--m-lg) {

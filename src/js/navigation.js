@@ -15,6 +15,7 @@ const smallScreenNav = {
         const width = 768;
 
         // Select elements
+        const body = document.querySelector('body');
         const button = document.querySelector('.js-ssNavBtn');
         const nav = document.querySelector('.js-navBar');
         const dropdowns = document.querySelectorAll('.js-dropdown');
@@ -37,10 +38,22 @@ const smallScreenNav = {
          */
         function toggleNav() {
             button.classList.toggle('is-active');
-            if (nav.style.display === 'block') {
-                nav.style.display = 'none';
+            if (nav.dataset.open == 'yes') {
+                // Hide the menu
+                nav.dataset.open = 'no';
+                button.setAttribute('aria-expanded', 'false');
+                body.style.overflow = '';
             } else {
-                nav.style.display = 'block';
+                // Show the menu
+                nav.dataset.open = 'yes';
+                button.setAttribute('aria-expanded', 'true');
+                // Set the offset position for the menu
+                const buttonPosition = button.getBoundingClientRect().top + button.offsetHeight + 10;
+                nav.style.setProperty('--navbar-offset', `${buttonPosition}px`);
+                // Prevent scrolling on the body tag.
+                // Unfortunately, this doesn't work on iOS devices as of 2024. This is a known issue with no good workaround
+                // except to add "position: fixed" to the body tag, but that causes other issues.
+                body.style.overflow = 'hidden';
             }
         }
 

@@ -50,7 +50,7 @@
                         {% endif %}
                 </div>
                 <div class="col-1-4 flex justify-end hidden-lg">
-                    <button class="SmScBtn js-ssNavBtn" aria-label="menu">
+                    <button class="SmScBtn js-ssNavBtn" aria-label="Navigation menu" aria-expanded="false" aria-controls="navbar">
                         <span class="SmScBtn-icon"></span>
                     </button>
                 </div>
@@ -90,7 +90,7 @@
             </div>
         </div>
     </header>
-    <nav class="NavBar js-navBar">
+    <nav class="NavBar js-navBar" id="navbar">
         <div class="Container Container--pad">
             {{ _api.navigation.get.key('main') }}
         </div>

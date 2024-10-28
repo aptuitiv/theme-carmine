@@ -46,6 +46,30 @@
     Responsive
 \* ------------------------------------ */
 
+@media (--m-lg-below) {
+    .MainNav-link {
+        text-align: left;
+    }
+
+    .MainNav-link.is-dropdown::after {
+        border: 5px solid transparent;
+        border-left-color: currentcolor;
+        content: '';
+        display: block;
+        opacity: 0.7;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .MainNav-link.is-dropdown.is-active::after {
+        right: 13px;
+        top: 60%;
+        transform: translateY(-50%) rotate(90deg);
+    }
+}
+
 @media (--m-lg) {
     .MainNav {
         flex-direction: row;
