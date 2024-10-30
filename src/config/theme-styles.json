@@ -1576,6 +1576,188 @@
             ]
         },
         {
+            "name": "Blog - Recent Posts Block",
+            "description": "Styles for the blog recent posts block.",
+            "groups": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "blogRecentPostsPadding",
+                            "label": "Padding around the content",
+                            "type": "padding",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--BlogRecentPosts-padding"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Heading",
+                    "fields": [
+                        {
+                            "name": "blogRecentPostsHeadingTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "useMargin": true,
+                            "textAlign": {
+                                "defaultValue": "center"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-heading"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Post - general",
+                    "description": "Styles for the individual posts",
+                    "fields": [
+                        {
+                            "name": "blogRecentPostsCardBorder",
+                            "label": "Border",
+                            "type": "border",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-card"
+                            }
+                        },
+                        {
+                            "name": "blogRecentPostsCardBorderRadius",
+                            "label": "Border radius",
+                            "type": "borderRadius",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-card"
+                            }
+                        },
+                        {
+                            "name": "blogRecentPostsCardBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-card",
+                                "cssProperty": "background"
+                            }
+                        },
+                        {
+                            "name": "blogRecentPostsCardPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-card"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Post - title",
+                    "fields": [
+                        {
+                            "name": "blogRecentPostsTitleTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "useHover": true,
+                            "fontSize": {
+                                "defaultValue": "2rem"
+                            },
+                            "fontWeight": {
+                                "defaultValue": "700"
+                            },
+                            "textDecoration": {
+                                "defaultValue": "none"
+                            },
+                            "textDecorationHover": {
+                                "defaultValue": "underline"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-titleLink"
+                            }
+                        },
+                        {
+                            "name": "blogRecentPostsTitleMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "defaultValue": "0 0 4px 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-title"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Post - date",
+                    "fields": [
+                        {
+                            "name": "blogRecentPostsDateTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "fontSize": {
+                                "defaultValue": "1.6rem"
+                            },
+                            "fontStyle": {
+                                "defaultValue": "italic"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-date"
+                            }
+                        },
+                        {
+                            "name": "blogRecentPostsDateMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-date"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Posts - abstract",
+                    "fields": [
+                        {
+                            "name": "blogRecentPostsAbstractMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "defaultValue": "10px 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".RecentPosts-abstract"
+                            }
+                        },
+                        {
+                            "name": "blogRecentPostsAbstractNumLines",
+                            "label": "Number of lines to show",
+                            "type": "radio",
+                            "defaultValue": "4",
+                            "options": {
+                                "1": "1",
+                                "2": "2",
+                                "3": "3",
+                                "4": "4",
+                                "5": "5",
+                                "6": "6",
+                                "7": "7",
+                                "8": "8"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--RecentPosts-abstract-lines"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Body",
             "description": "Base styles for the website body. See the Typography section for core font styles.",
             "fields": [
