@@ -315,7 +315,7 @@
                             "label": "Minimum aspect ratio for content",
                             "type": "ratio",
                             "after": "px",
-                            "defaultValue": "10/2",
+                            "defaultValue": "10/1",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-content-aspect-ratio"
