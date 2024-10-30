@@ -7,7 +7,7 @@
         {{ form.openTag }}
             {% set form.fields.term.class = 'TextInput' %}
             {% set form.fields.term.placeholder = 'Search...' %}
-            <label for="{{ form.fields.term.id }}" class="u-hiddenVisually">Search</label>
+            <label for="{{ form.fields.term.id }}" class="visually-hidden">Search</label>
             {{ form.fields.term.tag }}
             <button type="submit" class="Button">Search</button>
         {{ form.closeTag }}
