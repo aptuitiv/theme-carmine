@@ -5,6 +5,9 @@
 {% endblock %}
 
 <div class="ContentContainer">
+    {% if _core.theme.settings.showBreadcrumb == "yes" and _page.isHome == false %}
+        {{ _page.breadcrumb() }}
+    {% endif %}
     <main>
         {% block main _page.content() %}
     </main>

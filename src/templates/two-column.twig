@@ -5,6 +5,9 @@
 {% endblock %}
 
 <div class="ContentContainer">
+    {% if _core.theme.settings.showBreadcrumb == "yes" and _page.isHome == false %}
+        {{ _page.breadcrumb() }}
+    {% endif %}
     <div class="Container Container--pad">
         <div class="grid g-3">
             <div class="col-1-1 col-3-4-lg">
