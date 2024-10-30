@@ -40,7 +40,7 @@ const smallScreenNav = {
          */
         function toggleNav() {
             button.classList.toggle('is-active');
-            if (nav.dataset.open == 'yes') {
+            if (nav.dataset.open === 'yes') {
                 // Hide the menu
                 nav.dataset.open = 'no';
                 button.setAttribute('aria-expanded', 'false');
