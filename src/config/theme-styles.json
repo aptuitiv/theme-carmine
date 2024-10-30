@@ -1973,6 +1973,9 @@
                             "color": {
                                 "defaultValue": "#333333"
                             },
+                            "colorHover": {
+                                "defaultValue": "#fffff"
+                            },
                             "fontSize": {
                                 "defaultValue": "1.8rem"
                             },
@@ -2364,7 +2367,7 @@
                                 "defaultValue": "#fff"
                             },
                             "fontSize": {
-                                "defaultValue": "14px"
+                                "defaultValue": "1.4rem"
                             },
                             "textDecoration": {
                                 "defaultValue": "none"
@@ -2636,7 +2639,7 @@
                             "collapsable": false,
                             "useMargin": true,
                             "fontSize": {
-                                "defaultValue": "14px"
+                                "defaultValue": "1.4rem"
                             },
                             "render": {
                                 "type": "css-head",
