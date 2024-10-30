@@ -1,0 +1,112 @@
+{% extends 'one-column' %}
+
+{% import 'macros/macros' as macros %}
+
+{% block header %}
+    {% set content %}
+        <h1>{{ item.itemName }}</h1>
+        <p><a href="{{ item.goBackUrl }}"> {{ macros.iconImg("caret-left", "Go Back") }} Back</a></p>
+    {% endset %}
+    {% include('content-builder/banner-bar') %}
+{% endblock %}
+
+{# Video Macro #}
+{% macro video(item) %}
+    {% set video = item.video.urlInfo|first %}
+    <div class="embed mb-2">
+        <div class="aspect-8by5"></div>
+        <iframe class="" frameborder="0" title="{{ video.title }}" allowfullscreen src="{{ video.iframeEmbed.src }}" loading="lazy"></iframe>
+    </div>
+{% endmacro %}
+
+{% import _self as itemMacros %}
+
+{% block main %}
+    {% if item.video %}
+        {# Displaying the video #}
+        {% if item.description %}
+            <div class="grid g-4">
+                <div class="col-1-1 col-1-2-md col-2-3-lg">{{ itemMacros.video(item) }}</div>
+                <div class="col-1-1 col-1-2-md col-1-3-lg">{{ item.description }}</div>
+            </div>
+        {% else %}
+            <div class="col-1-1 col-2-3-md push-1-6-md">{{ itemMacros.video(item) }}</div>
+        {% endif %}
+    {% else %}
+        <div id="main-slider" role="group" class="splide" aria-label="Image Slider">
+            <div class="splide__track">
+                    <ul class="splide__list">
+                        {% for image in item.images %}
+                            <li class="splide__slide">
+                                {% set image.image.large.alt = image.altText|default(item.itemName) %}
+                                {% set image.image.large.class = 'w-1-1' %}
+                                {% set image.image.large.style = 'object-fit: cover;' %}
+                                {{ image.image.large.tag }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+        </div>
+        <div id="thumbnail-slider" role="group" class="splide mt-1" aria-label="Thumbnail Slider">
+            <div class="splide__track">
+                    <ul class="splide__list">
+                        {% for image in item.images %}
+                            <li class="splide__slide">
+                                {% set image.image.small.alt = image.altText|default(item.itemName) %}
+                                {{ image.image.small.tag }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+        </div>
+
+        {% if item.images|length > 1 %}
+            {% import 'macros/macros' as macros %}
+            {{ macros.loadSplide() }}
+
+            {% inlinejs %}
+                loadjs.ready('splide', {
+                    success: function() {
+                        {# Create main slider #}
+                        var main = new Splide('#main-slider', {
+                            type       : 'fade',
+                            pagination : false
+                        });
+
+                        {# Create thumbnail slider #}
+                        var thumbnails = new Splide('#thumbnail-slider', {
+                            rewind          : true,
+                            fixedWidth      : 150,
+                            fixedHeight     : 100,
+                            isNavigation    : true,
+                            gap             : 10,
+                            focus           : 'center',
+                            pagination      : false,
+                            arrows          : false,
+                            cover           : true,
+                            dragMinThreshold: {
+                                mouse: 4,
+                                touch: 10,
+                            },
+                            breakpoints : {
+                                640: {
+                                    fixedWidth  : 66,
+                                    fixedHeight : 38,
+                                },
+                            },
+                        });
+
+                        {# Link and start the sliders #}
+                        main.sync(thumbnails);
+                        main.mount();
+                        thumbnails.mount();
+                    }
+                });
+            {% endinlinejs %}
+        {% endif %}
+
+        {% if item.description %}
+            <div class="mt-2">{{ item.description }}</div>
+        {% endif %}
+    {% endif %}
+{% endblock %}

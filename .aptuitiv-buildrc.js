@@ -16,6 +16,10 @@ export default {
         {
             src: 'node_modules/just-validate/dist/just-validate.production.min.js',
             dest: 'just-validate'
+        },
+        {
+            src: 'node_modules/masonry-layout/dist/*.{pkgd.min.js, min.js}',
+            dest: 'masonry'
         }
     ],
     css: {

@@ -1,0 +1,74 @@
+{% extends 'one-column' %}
+{% import 'macros/macros' as macros %}
+
+{% block header %}
+    {% set content %}
+        <h1>Gallery</h1>
+    {% endset %}
+    {% include('content-builder/banner-bar') %}
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3 text-center">
+        <a href="{{ appUrls.itemList }}">Alternate view</a>
+        | <a href="{{ appUrls.categoryList }}">Categories</a>
+    </div>
+    {% apply spaceless %}
+        <div class="js-masonryGrid">
+            <div class="MasonryGrid-columnWidth"></div>
+            <div class="MasonryGrid-gutterWidth"></div>
+            {% if category.items %}
+                {% set items = category.items %}
+            {% endif %}
+            {% for item in items %}
+                {% set image = attribute(item.images|first, 'image') %}
+                {% set image.small.alt = item.itemName %}
+                {% set image.small.class = 'MasonryGrid-image' %}
+                <div class="MasonryGrid-item js-masonryItem">
+                    {# Link directly to the large image instead of the item detail page #}
+                    {% if item.video.urlInfo %}
+                        {% set video = item.video.urlInfo|first %}
+                        {% if image.small.src|length > 0 %}
+                            {% set videoImage = image.small %}
+                        {% else %}
+                            {% set videoImage = video.thumbnail %}
+                            {% set videoImage.src = videoImage.src|replace('hqdefault', 'mqdefault') %}
+                            {% set videoImage.alt = item.itemName %}
+                            {% set videoImage.class = 'MasonryGrid-image' %}
+                        {% endif %}
+                        <a data-fslightbox href="{{ video.url }}">
+                            <div class="Masonry-title Masonry-title--overlay text-center">{{ item.itemName }}</div>
+                            <div class="Masonry-play"></div>
+                            <div>{{ videoImage.tag }}</div>
+                        </a>
+                    {% else %}
+                        {% set modalId = 'Modal_' ~ random_string() %}
+                        <a data-fslightbox data-type="image" href="{{ image.large.src }}">
+                            <div class="Masonry-title Masonry-title--overlay text-center">{{ item.itemName }}</div>
+                            {% set image.large.class = "w-1-1" %}
+                            <img src="{{ image.large.src }}" alt="{{ item.itemName }}" {{ loop.index > 12 ? 'loading="lazy"' }}>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        {{ macros.loadMasonry() }}
+        {{ macros.loadLightbox() }}
+
+        {% inlinejs %}
+            loadjs.ready('masonry', {
+                success: function() {
+                    new Masonry(document.querySelector('.js-masonryGrid'), {
+                        columnWidth: '.MasonryGrid-columnWidth',
+                        gutter: '.MasonryGrid-gutterWidth',
+                        itemSelector: '.js-masonryItem',
+                        percentPosition: true
+                    });
+                }
+            });
+        {% endinlinejs %}
+    {% endapply %}
+
+    {% include 'snippets/pagination' %}
+{% endblock %}
