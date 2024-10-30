@@ -4440,6 +4440,16 @@
                                     "bottom": "1.25rem"
                                 }
                             }
+                        },
+                        {
+                            "name": "baseTypographyH1Sm",
+                            "label": "Font size (small screens)",
+                            "type": "fontSize",
+                            "defaultValue": "4.39rem",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h1-font-size-sm"
+                            }
                         }
                     ]
                 },
@@ -4468,6 +4478,16 @@
                             },
                             "lineHeight": {
                                 "defaultValue": "1.6"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH2Sm",
+                            "label": "Font size (small screens)",
+                            "type": "fontSize",
+                            "defaultValue": "3.52rem",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h2-font-size-sm"
                             }
                         }
                     ]
@@ -4498,6 +4518,16 @@
                             "lineHeight": {
                                 "defaultValue": "1.6"
                             }
+                        },
+                        {
+                            "name": "baseTypographyH3Sm",
+                            "label": "Font size (small screens)",
+                            "type": "fontSize",
+                            "defaultValue": "2.81rem",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h3-font-size-sm"
+                            }
                         }
                     ]
                 },
@@ -4525,6 +4555,16 @@
                             },
                             "lineHeight": {
                                 "defaultValue": "1.6"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH4Sm",
+                            "label": "Font size (small screens)",
+                            "type": "fontSize",
+                            "defaultValue": "2.25rem",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h4-font-size-sm"
                             }
                         }
                     ]
@@ -4554,6 +4594,16 @@
                             "lineHeight": {
                                 "defaultValue": "1.6"
                             }
+                        },
+                        {
+                            "name": "baseTypographyH5Sm",
+                            "label": "Font size (small screens)",
+                            "type": "fontSize",
+                            "defaultValue": "2.25rem",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h5-font-size-sm"
+                            }
                         }
                     ]
                 },
@@ -4581,6 +4631,16 @@
                             },
                             "lineHeight": {
                                 "defaultValue": "1.6"
+                            }
+                        },
+                        {
+                            "name": "baseTypographyH6Sm",
+                            "label": "Font size (small screens)",
+                            "type": "fontSize",
+                            "defaultValue": "1.8rem",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--base-typography-h6-font-size-sm"
                             }
                         }
                     ]
