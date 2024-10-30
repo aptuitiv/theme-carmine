@@ -64,37 +64,6 @@
 }
 
 /* ------------------------------------ *\
-    States
-\* ------------------------------------ */
-
-/* show sub-menus under hovered items */
-.Dropdown.is-active > .Dropdown-menu {
-    display: block;
-}
-
-/* fly-out to the right */
-.Dropdown-item.is-active > .Dropdown-menu {
-    display: block;
-    left: 100%;
-    top: 0;
-    transform: none;
-}
-
-/* display sub-menus under the last item to the right */
-.Dropdown.is-last:hover > .Dropdown-menu {
-    left: auto;
-    right: 0;
-}
-
-/* fly-out to the left if root parent is last item */
-.Dropdown.is-last .Dropdown-item:hover > .Dropdown-menu,
-.Dropdown.is-last .Dropdown-item.is-active > .Dropdown-menu {
-    display: block;
-    left: auto;
-    right: 100%;
-}
-
-/* ------------------------------------ *\
     #PARENT ITEMS
 \* ------------------------------------ */
 
@@ -103,8 +72,15 @@
 }
 
 /* ------------------------------------ *\
-    Reposnsive
+    Responsive
 \* ------------------------------------ */
+
+@media (--m-lg-below) {
+    /* show sub-menus under active items */
+    .Dropdown.is-active > .Dropdown-menu {
+        display: block;
+    }
+}
 
 @media (--m-lg) {
     .Dropdown-menu {
@@ -138,6 +114,20 @@
         left: 100%;
         top: 0;
         transform: none;
+    }
+
+    /* display sub-menus under the last item to the right */
+    .Dropdown.is-last:hover > .Dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+
+    /* fly-out to the left if root parent is last item */
+    .Dropdown.is-last .Dropdown-item:hover > .Dropdown-menu,
+    .Dropdown.is-last .Dropdown-item.is-active > .Dropdown-menu {
+        display: block;
+        left: auto;
+        right: 100%;
     }
 
     .Dropdown-link--parent::before,
