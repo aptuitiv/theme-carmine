@@ -1,0 +1,19 @@
+{% extends 'two-column-right-sidebar' %}
+
+{% block banner %}
+    {% set content = '<h1 class="flex flex-col align-center g-1">Blog Archive<span class="h3 m-0">' ~ startDate ~ ' to ' ~ endDate ~ '</span></h1>' %}
+    {% include('content-builder/banner-bar') %}
+{% endblock %}
+
+{% block main %}
+    {% if posts %}
+         {% for post in posts %}
+            {% include 'blog/post-list-item-simple' %}
+        {% endfor %}
+        {% include 'snippets/pagination' %}
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'blog/sidebar' %}
+{% endblock %}

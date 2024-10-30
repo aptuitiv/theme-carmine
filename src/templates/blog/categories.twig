@@ -1,0 +1,33 @@
+{% extends 'two-column-right-sidebar' %}
+
+{% macro category(categories) %}
+    {% for category in categories %}
+        <li>
+            <a href="{{ category.url }}">{{ category.categoryName }}</a>
+            {% if category.subCategories %}
+                <ul>
+                    {% import _self as macros %}
+                    {{ macros.category(category.subCategories) }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endmacro %}
+
+{% block banner %}
+    {% set content = '<h1>Blog Categories</h1>' %}
+    {% include('content-builder/banner-bar') %}
+{% endblock %}
+
+{% block main %}
+    {% if categories|length > 0 %}
+        <ul>
+            {% import _self as macros %}
+            {{ macros.category(categories) }}
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'blog/sidebar' %}
+{% endblock %}
