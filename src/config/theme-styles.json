@@ -747,59 +747,6 @@
             ]
         },
         {
-            "name": "Blocks - Full Width Image",
-            "description": "Styles for the \"Full Width Image\" block.",
-            "sidebarSize": "small",
-            "groups": [
-                {
-                    "name": "Content styles",
-                    "description": "Styles for the text content the \"Full Width Image\" block.",
-                    "fields": [
-                        {
-                            "name": "fullWidthImageWidth",
-                            "label": "Image width",
-                            "type": "radio",
-                            "defaultValue": "full",
-                            "options": {
-                                "full": "Span the full width of the page",
-                                "contained": "Maximum width is the container width"
-                            }
-                        },
-                        {
-                            "name": "fullWidthImagCaptionTypography",
-                            "label": "Caption typography",
-                            "type": "typography",
-                            "useMargin": "true",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--FullWidthImage-caption-typography"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Image sizes",
-                    "description": "These settings set the responsive sizes for the \"Full Width Image\" block.",
-                    "fields": [
-                        {
-                            "name": "blockFullWidthImageSizes",
-                            "label": "Image Sizes",
-                            "type": "repeatingGrid",
-                            "itemName": "Image size",
-                            "children": [
-                                {
-                                    "name": "maxWidth",
-                                    "label": "Max width",
-                                    "type": "stepper",
-                                    "after": "px"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "Blocks - Google Ratings Bar",
             "description": "Styles for the \"Google Ratings Bar\" block.",
             "fields": [
@@ -1273,6 +1220,175 @@
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Slider-arrow-background-hover"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Blocks - Large Image",
+            "description": "Styles for the \"Full Width Image\" block.",
+            "sidebarSize": "small",
+            "fields": [
+                {
+                    "name": "blockLargeImageWidth",
+                    "label": "Image width",
+                    "type": "radio",
+                    "defaultValue": "full",
+                    "options": {
+                        "full": "Span the full width of the page",
+                        "contained": "Maximum width is the container width"
+                    }
+                },
+                {
+                    "name": "blockLargeImageSizes",
+                    "label": "Image Sizes",
+                    "description": "These set the responsive sizes for the \"Large Image\" block.",
+                    "type": "repeatingGrid",
+                    "itemName": "Image size",
+                    "children": [
+                        {
+                            "name": "maxWidth",
+                            "label": "Max width",
+                            "type": "stepper",
+                            "after": "px"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Blocks - Large & Small Image",
+            "groups": [
+                {
+                    "name": "Caption",
+                    "fields": [
+                        {
+                            "name": "imagCaptionTypography",
+                            "label": "Caption typography",
+                            "type": "typography",
+                            "usePadding": "true",
+                            "fontSize": {
+                                "defaultValue": "1.4rem"
+                            },
+                            "fontStyle": {
+                                "defaultValue": "italic"
+                            },
+                            "padding": {
+                                "defaultValue": "2px 0 0 0"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".ImageCaption"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Blocks - Staff",
+            "description": "Styles for the \"Staff\" block.",
+            "groups": [
+                {
+                    "name": "Person's name",
+                    "description": "Styles for the person's name",
+                    "fields": [
+                        {
+                            "name": "blockStaffNameTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "useMargin": true,
+                            "margin": {
+                                "defaultValue": "0 0 6px 0"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Staff-name"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Title",
+                    "description": "Styles for the person's title",
+                    "fields": [
+                        {
+                            "name": "blockStaffTitleTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "useMargin": true,
+                            "fontWeight": {
+                                "defaultValue": "700"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Staff-title"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Email",
+                    "description": "Styles for the person's email link",
+                    "fields": [
+                        {
+                            "name": "blockStaffEmailTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Staff-emailLink"
+                            }
+                        },
+                        {
+                            "name": "blockStaffEmailMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Staff-email"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Phone",
+                    "description": "Styles for the person's phone number",
+                    "fields": [
+                        {
+                            "name": "blockStaffPhoneTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Staff-phoneLink"
+                            }
+                        },
+                        {
+                            "name": "blockStaffPhoneMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Staff-phone"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Biography",
+                    "description": "Styles for the person's biography or description",
+                    "fields": [
+                        {
+                            "name": "blockStaffBioMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "defaultValue": "20px 0 0 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Staff-bio"
                             }
                         }
                     ]
