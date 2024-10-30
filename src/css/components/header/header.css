@@ -7,6 +7,30 @@
     padding: var(--Header-padding-sm, 20px 0);
 }
 
+.Header-skipToMain {
+    align-items: center;
+    display: flex;
+    height: 1px;
+    justify-content: center;
+    left: -10000px;
+    overflow: hidden;
+    position: absolute;
+    top: 5px;
+    width: 1px;
+    z-index: 100;
+}
+
+.Header-skipToMain:focus {
+    background-color: var(--Header-skipMain-background, #fff);
+    color: var(--Header-skipMain-color);
+    font-weight: var(-Header-skipMain-font-weight, bold);
+    height: auto;
+    left: 10px;
+    padding: var(--Header-skipMain-padding, 5px 10px);
+    text-decoration: underline;
+    width: auto;
+}
+
 .Header-logoLink {
     color: var(--Header-text-logo-color);
     display: contents; /* This fixes an issue where in Firefox the link tag would collapse around and SVG logo. */
