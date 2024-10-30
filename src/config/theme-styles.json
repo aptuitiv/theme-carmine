@@ -155,6 +155,7 @@
                             "name": "bannerTextShadow",
                             "label": "Text shadow",
                             "type": "textShadow",
+                            "defaultValue": "1px 1px 0 rgba(0, 0, 0, 0.4)",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-text-shadow"
@@ -165,7 +166,7 @@
                             "label": "Overlay color",
                             "type": "color",
                             "description": "The background color of an overlay that sits on top of the banner image or video and below the text.",
-                            "defaultValue": "#00263e6e",
+                            "defaultValue": "rgba(68, 68, 68, 0.3)",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-overlay"
@@ -239,10 +240,20 @@
                             }
                         },
                         {
+                            "name": "bannerContentH1FontSize",
+                            "label": "Heading 1 content font size",
+                            "type": "fontSize",
+                            "defaultValue": "6rem",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Banner-content-h1-font-size"
+                            }
+                        },
+                        {
                             "name": "bannerContentFontSize",
                             "label": "Paragraph content font size",
                             "type": "fontSize",
-                            "defaultValue": "20px",
+                            "defaultValue": "2rem",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Banner-content-font-size"
