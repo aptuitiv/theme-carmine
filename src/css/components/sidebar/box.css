@@ -1,0 +1,31 @@
+/* =========================================================================== *\
+    Sidebar Box Styles
+\* =========================================================================== */
+
+/* @define SidebarBox */
+.SidebarBox {
+    margin-bottom: 40px;
+}
+
+.SidebarBox:last-child {
+    margin-bottom: 0;
+}
+
+.SidebarBox-heading {
+    align-items: center;
+    background: transparent;
+    display: flex;
+    gap: 5px;
+}
+
+.SidebarBox-item {
+    border-bottom: 1px solid #e1e1e1;
+    margin: 10px 0;
+    padding-bottom: 14px;
+}
+
+.SidebarBox-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
