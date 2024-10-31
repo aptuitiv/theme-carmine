@@ -151,6 +151,7 @@
 @import 'cacao-css/dist/margin/combined-import';
 
 /* Margin (lg) */
+@import 'cacao-css/dist/margin/lg/bottom.css';
 @import 'cacao-css/dist/margin/lg/top.css';
 
 /* --------------------------------------------*
