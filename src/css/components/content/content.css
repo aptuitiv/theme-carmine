@@ -1,8 +1,11 @@
 /* =========================================================================== *\
     Content
-    To be used as a wrapper around content for padding
-    <div class="Container">
-        <div class="Content">{{ _page.content() }}</div>
+    To be used as a wrapper around content for padding.
+
+    <div class="Container Container--pad ContentBg">
+        <div class="Content clearfix">
+            <main id="main">{% block main _page.content() %}</main>
+        </div>
     </div>
 \* =========================================================================== */
 
