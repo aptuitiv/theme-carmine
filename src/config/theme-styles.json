@@ -3048,7 +3048,7 @@
                             "name": "headerTextLogoFontSizeSm",
                             "label": "Font size (small screens)",
                             "type": "size",
-                            "defaultValue": "40px",
+                            "defaultValue": "4rem",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Header-text-logo-font-size-sm"
@@ -3063,7 +3063,7 @@
                             "useTextAlign": false,
                             "useTextDecoration": false,
                             "fontSize": {
-                                "defaultValue": "60px"
+                                "defaultValue": "6rem"
                             },
                             "render": {
                                 "type": "css-head",
@@ -3760,7 +3760,7 @@
                             "name": "notificationCloseFontSize",
                             "label": "Button size",
                             "type": "fontSize",
-                            "defaultValue": "20px",
+                            "defaultValue": "2rem",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Notification-close-font-size"
