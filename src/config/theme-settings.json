@@ -44,8 +44,8 @@
                     }
                 },
                 {
-                    "name": "footerShowPhone",
-                    "label": "Show phone number",
+                    "name": "footerShowAddress",
+                    "label": "Show address",
                     "type": "switch",
                     "defaultValue": "yes"
                 },
@@ -56,8 +56,8 @@
                     "defaultValue": "no"
                 },
                 {
-                    "name": "footerShowAddress",
-                    "label": "Show address",
+                    "name": "footerShowPhone",
+                    "label": "Show phone number",
                     "type": "switch",
                     "defaultValue": "yes"
                 },
