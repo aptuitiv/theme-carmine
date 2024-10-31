@@ -4006,6 +4006,142 @@
             ]
         },
         {
+            "name": "Sidebar Navigation",
+            "description": "Styles for the sidebar navigation used in two-column page templates.",
+            "groups": [
+                {
+                    "name": "Heading",
+                    "description": "The heading above each block of sidebar content",
+                    "fields": [
+                        {
+                            "name": "sidebarHeadingTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "fontSize": {
+                                "defaultValue": "2rem"
+                            },
+                            "fontWeight": {
+                                "defaultValue": "700"
+                            },
+                            "useHover": true,
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".SidebarBox-heading"
+                            }
+                        },
+                        {
+                            "name": "sidebarHeadingBorder",
+                            "label": "Border",
+                            "type": "border",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".SidebarBox-heading"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Secondary content",
+                    "description": "This is used for smaller text in the sidebar. The blog sidebar uses this for dates and post counts.",
+                    "fields": [
+                        {
+                            "name": "sidebarSecondaryTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "color": {
+                                "defaultValue": "#4D4D4D"
+                            },
+                            "fontSize": {
+                                "defaultValue": "1.4rem"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".SidebarBox-secondary"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Links",
+                    "fields": [
+                        {
+                            "name": "sideNavBackground",
+                            "label": "Background",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarNav-background"
+                            }
+                        },
+                        {
+                            "name": "sideNavBackgroundHover",
+                            "label": "Background (hover)",
+                            "type": "color",
+                            "defaultValue": "#008576",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarNav-background-hover"
+                            }
+                        },
+                        {
+                            "name": "sideNavTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "useHover": true,
+                            "useTextAlign": false,
+                            "usePadding": true,
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarNav"
+                            }
+                        },
+                        {
+                            "name": "sideNavCurrentColor",
+                            "label": "Current link color",
+                            "description": "The link for the page page number a given user is on.",
+                            "type": "color",
+                            "defaultValue": "#008576",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarNav-current-color"
+                            }
+                        }
+                    ]
+                },
+
+                {
+                    "name": "Parent Link",
+                    "description": "Styles for the current page's parent link.",
+                    "fields": [
+                        {
+                            "name": "sideNavParentTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "useHover": true,
+                            "useTextAlign": false,
+                            "usePadding": true,
+                            "padding": {
+                                "defaultValue": "0 0 8px 0"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarNav-parent"
+                            }
+                        },
+                        {
+                            "name": "sideNavBorder",
+                            "label": "Border",
+                            "type": "border",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".SidebarNav-link--isParent"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Tables",
             "description": "Styles for themed tables.",
             "groups": [
