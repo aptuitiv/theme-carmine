@@ -1832,7 +1832,7 @@
                     "name": "breadcrumbsLinkColorHover",
                     "label": "Link color (hover)",
                     "type": "color",
-                    "defaultValue": "#008576",
+                    "defaultValue": "#0000CD",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Breadcrumbs-link-colorHover"
@@ -1852,7 +1852,7 @@
                     "name": "breadcrumbPadding",
                     "label": "Padding",
                     "type": "padding",
-                    "defaultValue": "0 20px 1em 20px",
+                    "defaultValue": "0 0 1em 0",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Breadcrumbs-padding"
@@ -1862,7 +1862,7 @@
                     "name": "breadcrumbPaddingSm",
                     "label": "Padding",
                     "type": "padding",
-                    "defaultValue": "1em 10px  0 10px",
+                    "defaultValue": "0 0 1em 0",
                     "render": {
                         "type": "css-head",
                         "cssVariable": "--Breadcrumbs-padding-sm"
