@@ -89,7 +89,7 @@
         padding: var(--MainNav-item-padding);
     }
 
-    .MainNav-item--small {
+    .MainNav-item--smallScreen {
         display: none;
     }
 }
