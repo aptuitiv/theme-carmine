@@ -1771,6 +1771,37 @@
                         "type": "css-head",
                         "cssVariable": "--body-background"
                     }
+                },
+                {
+                    "name": "contentBackground",
+                    "label": "Content background",
+                    "description": "The background of the main content.",
+                    "type": "color",
+                    "defaultValue": "#ffffff",
+                    "render": {
+                        "type": "css-head",
+                        "cssVariable": "--Content-background"
+                    }
+                },
+                {
+                    "name": "contentPadding",
+                    "label": "Content padding",
+                    "type": "padding",
+                    "defaultValue": "30px 0",
+                    "render": {
+                        "type": "css-head",
+                        "cssVariable": "--Content-padding"
+                    }
+                },
+                {
+                    "name": "contentPaddingSm",
+                    "label": "Content padding (small screens)",
+                    "type": "padding",
+                    "defaultValue": "30px 0",
+                    "render": {
+                        "type": "css-head",
+                        "cssVariable": "--Content-padding-sm"
+                    }
                 }
             ]
         },
