@@ -23,7 +23,7 @@ export default {
         }
     ],
     css: {
-        buildFiles: 'main.css'
+        buildFiles: '*.css'
     },
     eslint: {
         ignores: ['fslightbox.js']
