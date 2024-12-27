@@ -91,6 +91,7 @@
         padding: var(--Dropdown-padding, 0);
         position: absolute;
         top: 100%;
+        transform: var(--Dropdown-transform);
         width: max-content;
         z-index: 999;
     }
