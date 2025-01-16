@@ -122,6 +122,12 @@
                     "name": "Information",
                     "fields": [
                         {
+                            "name": "headerShowAddress",
+                            "label": "Show address",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        },
+                        {
                             "name": "headerShowPhone",
                             "label": "Show phone",
                             "type": "switch",

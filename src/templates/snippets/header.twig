@@ -69,6 +69,22 @@
                                 {% endfor %}
                             </div>
                         {% endif %}
+                        {% if _core.theme.settings.headerShowAddress == 'yes' %}
+                            <div>
+                                {% if _core.settings.companyAddressStreet %}
+                                    {{ _core.settings.companyAddressStreet }}{{ _core.settings.companyAddressCity ? ', ' }}
+                                {% endif %}
+                                {% if _core.settings.companyAddressCity %}
+                                    {{ _core.settings.companyAddressCity }}{{ _core.settings.companyAddressState ? ', ' }}
+                                {% endif %}
+                                {% if _core.settings.companyAddressState %}
+                                    {{ _core.settings.companyAddressState }}{{ _core.settings.companyAddressPostalCode ? ', ' }}
+                                {% endif %}
+                                {% if _core.settings.companyAddressPostalCode %}
+                                    {{ _core.settings.companyAddressPostalCode }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
                         {% if _core.settings.companyPhone and _core.theme.settings.headerShowPhone == 'yes' %}
                             <a href="tel:{{ _core.settings.companyPhone|replace({'(': '', ')': '', '}': '', '-': '', ' ': ''}) }}" class="Header-link">
                                 {{ _core.settings.companyPhone }}
