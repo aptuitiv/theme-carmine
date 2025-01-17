@@ -16,7 +16,8 @@
     width: var(--IconGrid-icon-size);
 }
 
-.IconGrid-item {
+/* The selector is more specific so that the styles are applied when in a container that may override styles, like a .Wrapper */
+.IconGrid .IconGrid-item {
     align-items: center;
     background-color: var(--IconGrid-background-color);
     border: var(--ImageGrid-border);
@@ -28,7 +29,8 @@
     text-decoration: none;
 }
 
-.IconGrid-link:hover {
+/* The selector is more specific so that the styles are applied when in a container that may override styles, like a .Wrapper */
+.IconGrid .IconGrid-link:hover {
     background-color: var(--IconGrid-background-color-hover);
     border: var(--IconGrid-border-hover);
     color: var(--IconGrid-text-hover);

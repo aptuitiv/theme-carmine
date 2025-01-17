@@ -920,6 +920,7 @@
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".IconGrid-item"
+                                "cssSelector": ".IconGrid-item, .IconGrid-item .IconGrid-text"
                             }
                         }
                     ]
