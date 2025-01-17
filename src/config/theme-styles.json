@@ -911,15 +911,9 @@
                             "name": "blockIconGridTypography",
                             "label": "Typography",
                             "type": "typography",
-                            "color": {
-                                "defaultValue": "#fff"
-                            },
-                            "useLetterSpacing": false,
                             "useTextAlign": false,
-                            "useTextTransform": false,
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".IconGrid-item"
                                 "cssSelector": ".IconGrid-item, .IconGrid-item .IconGrid-text"
                             }
                         }
@@ -955,7 +949,6 @@
                                 "type": "css-head",
                                 "cssVariable": "--IconGrid-text-decoration-hover"
                             }
-
                         },
                         {
                             "name": "blockIconGridBorderHover",
@@ -978,13 +971,9 @@
                                 "cssVariable": "--IconGrid-scale-stepper"
                             }
                         }
-
                     ]
-                }    
-
+                }
             ]
-
-            
         },
         {
             "name": "Blocks - Image Bar",
