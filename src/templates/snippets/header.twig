@@ -95,6 +95,11 @@
                                 {{ _core.settings.companyEmail }}
                             </a>
                         {% endif %}
+                        {% if _core.theme.settings.headerShowHours == 'yes' && _core.theme.settings.headerHours %}
+                            <div class="Header-hours">
+                                {{ _core.theme.settings.headerHours }}
+                            </div>
+                        {% endif %}
                         {% if _core.theme.settings.headerButtons|first.button and _core.theme.settings.headerShowButtons == 'yes' %}
                             <div class="flex flex-col flex-row-md g-2 mt-1">
                                 {% for button in _core.theme.settings.headerButtons %}

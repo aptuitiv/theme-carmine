@@ -164,6 +164,18 @@
                             "label": "Show social icons",
                             "type": "switch",
                             "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerShowHours",
+                            "label": "Show hours of operation",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerHours",
+                            "label": "Hours of operation",
+                            "description": "If you want to show the hours of operation in the header then enter them here.",
+                            "type": "textarea"
                         }
                     ]
                 }
