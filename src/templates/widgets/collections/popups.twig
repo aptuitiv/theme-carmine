@@ -16,7 +16,7 @@
             {# Check if popup cookie is not present #}
             {% if popup.id not in cookieIds %}
                 {% set show = true %}
-                {% if popup.pages == 'home' && !_page.isHome %}
+                {% if popup.pages == 'home' && !_page.isHome %} 
                     {% set show = false %}
                 {% endif %}
                 {% if popup.pages == 'specific' %}
