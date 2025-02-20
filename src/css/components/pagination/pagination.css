@@ -39,12 +39,12 @@
 }
 
 .Pagination-item--isActive {
-    background-color: var(--Pagination-item-background--active);
-    border: var(--Pagination-item-border--active);
-    border-radius: var(--Pagination-item-border-radius--active);
-    color: var(--Pagination-item-color--active);
-    font-weight: var(--Pagination-item-font-weight--active);
-    text-decoration: var(--Pagination-item-text-decoration--active);
+    background-color: var(--Pagination-item-background-active);
+    border: var(--Pagination-item-border-active);
+    border-radius: var(--Pagination-item-border-radius-active);
+    color: var(--Pagination-item-color-active);
+    font-weight: var(--Pagination-item-font-weight-active);
+    text-decoration: var(--Pagination-item-text-decoration-active);
 }
 
 .Pagination-icon {

@@ -4194,7 +4194,7 @@
                             "defaultValue": "#871E0F",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Pagination-item-background--active"
+                                "cssVariable": "--Pagination-item-background-active"
                             }
                         },
                         {
@@ -4204,7 +4204,7 @@
                             "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Pagination-item-color--active"
+                                "cssVariable": "--Pagination-item-color-active"
                             }
                         },
                         {
@@ -4214,7 +4214,7 @@
                             "defaultValue": "1px solid #871E0F",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Pagination-item-border--active"
+                                "cssVariable": "--Pagination-item-border-active"
                             }
                         },
                         {
@@ -4224,7 +4224,7 @@
                             "defaultValue": "3px",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Pagination-item-border-radius--active"
+                                "cssVariable": "--Pagination-item-border-radius-active"
                             }
                         },
                         {
@@ -4234,7 +4234,7 @@
                             "defaultValue": "bold",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Pagination-item-font-weight--active"
+                                "cssVariable": "--Pagination-item-font-weight-active"
                             }
                         },
                         {
@@ -4244,7 +4244,7 @@
                             "defaultValue": "none",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Pagination-item-text-decoration--active"
+                                "cssVariable": "--Pagination-item-text-decoration-active"
                             }
                         }
                     ]
