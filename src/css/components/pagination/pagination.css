@@ -27,9 +27,9 @@
     text-decoration: var(--Pagination-item-text-decoration);
 }
 
-.Pagination-item:active,
-.Pagination-item:focus,
-.Pagination-item:hover {
+.Pagination .Pagination-item:active,
+.Pagination .Pagination-item:focus,
+.Pagination .Pagination-item:hover {
     background-color: var(--Pagination-item-background-hover);
     border: var(--Pagination-item-border-hover);
     border-radius: var(--Pagination-item-border-radius-hover);
@@ -51,8 +51,8 @@
     margin: 0 !important;
 }
 
-.Pagination-item--next,
-.Pagination-item--prev {
+.Pagination-item--next:hover,
+.Pagination-item--prev:hover {
     background-color: var(--Pagination-item-next-prev-background);
     border: var(--Pagination-item-next-prev-border);
     border-radius: var(--Pagination-item-next-prev-border-radius);

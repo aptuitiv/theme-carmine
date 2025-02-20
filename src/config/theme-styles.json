@@ -3986,7 +3986,7 @@
         {
             "name": "Pagination",
             "description": "Styles for the pagination at the bottom of app pages.",
-            "sections": [
+            "groups": [
                 {
                     "name": "General",
                     "fields": [
@@ -4025,7 +4025,7 @@
                             "label": "Typography",
                             "type": "typography",
                             "collapsable": false,
-                            "useHover": true,
+                            "useHover": false,
                             "useTextAlign": false,
                             "render": {
                                 "type": "css-head",
@@ -4250,7 +4250,7 @@
                     ]
                 },
                 {
-                    "name": "Page item (next and previous)",
+                    "name": "Previous and Next links",
                     "fields": [
                         {
                             "name": "paginationItemNextPrevColor",
