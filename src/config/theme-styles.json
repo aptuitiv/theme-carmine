@@ -3992,6 +3992,7 @@
                     "fields": [
                         {
                             "name": "paginationPadding",
+                            "description": "Padding around all of the pagination",
                             "label": "Padding",
                             "type": "padding",
                             "defaultValue": "20px 0",
@@ -4002,6 +4003,7 @@
                         },
                         {
                             "name": "paginationMargin",
+                            "description": "Margin around all of the pagination",
                             "label": "Margin",
                             "type": "margin",
                             "defaultValue": "20px 0",
@@ -4290,6 +4292,51 @@
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Pagination-item-next-prev-border-radius"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Previous and Next links (hover)",
+                    "fields": [
+                        {
+                            "name": "paginationItemNextPrevColorHover",
+                            "label": "Text color",
+                            "type": "color",
+                            "defaultValue": "#333",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-next-prev-color-hover"
+                            }
+                        },
+                        {
+                            "name": "paginationItemNextPrevBackgroundHover",
+                            "label": "Background color",
+                            "type": "color",
+                            "defaultValue": "#fff",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-next-prev-background-hover"
+                            }
+                        },
+                        {
+                            "name": "paginationItemNextPrevBorderHover",
+                            "label": "Border",
+                            "type": "border",
+                            "defaultValue": "1px solid #ddd",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-next-prev-border-hover"
+                            }
+                        },
+                        {
+                            "name": "paginationItemNextPrevBorderRadiusHover",
+                            "label": "Border radius",
+                            "type": "borderRadius",
+                            "defaultValue": "3px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Pagination-item-next-prev-border-radius-hover"
                             }
                         }
                     ]

@@ -51,12 +51,20 @@
     margin: 0 !important;
 }
 
-.Pagination-item--next:hover,
-.Pagination-item--prev:hover {
+.Pagination-item--next,
+.Pagination-item--prev {
     background-color: var(--Pagination-item-next-prev-background);
     border: var(--Pagination-item-next-prev-border);
     border-radius: var(--Pagination-item-next-prev-border-radius);
     color: var(--Pagination-item-next-prev-color);
+}
+
+.Pagination-item--next:hover,
+.Pagination-item--prev:hover {
+    background-color: var(--Pagination-item-next-prev-background-hover);
+    border: var(--Pagination-item-next-prev-border-hover);
+    border-radius: var(--Pagination-item-next-prev-border-radius-hover);
+    color: var(--Pagination-item-next-prev-color-hover);
 }
 
 .Pagination .Pagination-item:first-child {
