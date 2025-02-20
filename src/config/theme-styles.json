@@ -4012,7 +4012,7 @@
                                 "cssVariable": "--Pagination-margin"
                             }
                         },
-                        {
+                        { 
                             "name": "paginationGapSize",
                             "label": "Gap between items",
                             "type": "size",
