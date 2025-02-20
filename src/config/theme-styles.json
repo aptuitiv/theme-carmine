@@ -3992,8 +3992,8 @@
                     "fields": [
                         {
                             "name": "paginationPadding",
-                            "description": "Padding around all of the pagination",
                             "label": "Padding",
+                            "description": "Padding around all of the pagination",
                             "type": "padding",
                             "defaultValue": "20px 0",
                             "render": {
@@ -4003,8 +4003,8 @@
                         },
                         {
                             "name": "paginationMargin",
-                            "description": "Margin around all of the pagination",
                             "label": "Margin",
+                            "description": "Margin around all of the pagination",
                             "type": "margin",
                             "defaultValue": "20px 0",
                             "render": {
