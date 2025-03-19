@@ -7,13 +7,14 @@
     align-items: var(--Banner-align-horizontal, center);
     display: flex;
     flex-direction: column;
-    justify-content: var(--Banner-align-vertical, center);
+    justify-content: var(--Banner-align-vertical-with-media, center);
     position: relative;
 }
 
 .Banner--noMedia {
     aspect-ratio: var(--Banner-content-aspect-ratio);
     background-color: var(--Banner-background);
+    justify-content: var(--Banner-align-vertical, center);
 }
 
 /* ------------------------------------ *\
@@ -74,7 +75,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--Banner-overlay-image-sm-gap, 0);
-    justify-content: var(--Banner-align-vertical, center);
+    justify-content: var(--Banner-align-vertical-with-media, center);
     max-width: var(--Banner-overlay-image-grid-width, 1400px);
     min-height: 100%;
     position: relative;
@@ -87,7 +88,7 @@
 
 @media (--m-md) {
     .Banner-contentImageWrap {
-        align-items: var(--Banner-align-vertical, center);
+        align-items: var(--Banner-align-vertical-with-media, center);
         display: grid;
         gap: 0;
         grid-template-columns: var(--Banner-overlay-image-grid-md, 1fr 1fr);
