@@ -209,9 +209,9 @@
                             "type": "select",
                             "defaultValue": "center",
                             "options": {
-                                "start": "Left",
+                                "start": "Top",
                                 "center": "Center",
-                                "end": "Right"
+                                "end": "Bottom"
                             },
                             "render": {
                                 "type": "css-head",
