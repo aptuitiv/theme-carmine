@@ -1,17 +1,6 @@
 {
     "groups": [
         {
-            "name": "Breadcrumb",
-            "fields": [
-                {
-                    "name": "showBreadcrumb",
-                    "label": "Show Breadcrumb Text",
-                    "type": "switch",
-                    "defaultValue": "yes"
-                }
-            ]
-        },
-        {
             "name": "Blocks - Google Ratings Bar",
             "description": "Settings for the Google Ratings Bar",
             "fields": [
@@ -36,10 +25,21 @@
                     "name": "blogMainPageBannerImage",
                     "label": "Banner Image",
                     "type": "image",
+                    "description": "The image will be cropped on the page to match the Banner Bar settings. See Styles - Blocks Banner Bar - Banner Bar Images for more information.",
                     "path": "images",
                     "maxWidth": "2000",
-                    "useAttributes": false,
-                    "description": "The image will be cropped on the page to match the Banner Bar settings. See Styles - Blocks Banner Bar - Banner Bar Images for more information."
+                    "useAttributes": false
+                }
+            ]
+        },
+        {
+            "name": "Breadcrumb",
+            "fields": [
+                {
+                    "name": "showBreadcrumb",
+                    "label": "Show Breadcrumb Text",
+                    "type": "switch",
+                    "defaultValue": "yes"
                 }
             ]
         },
@@ -174,8 +174,8 @@
                         {
                             "name": "headerHours",
                             "label": "Hours of operation",
-                            "description": "If you want to show the hours of operation in the header then enter them here.",
-                            "type": "textarea"
+                            "type": "textarea",
+                            "description": "If you want to show the hours of operation in the header then enter them here."
                         }
                     ]
                 }
