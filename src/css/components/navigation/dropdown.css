@@ -106,6 +106,7 @@
     }
 
     .Dropdown:hover > .Dropdown-menu,
+    .Dropdown.is-active > .Dropdown-menu,
     .Dropdown-item:hover > .Dropdown-menu {
         display: block;
     }
