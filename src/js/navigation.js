@@ -238,6 +238,10 @@ const navAccess = {
             el.classList.add('is-active');
             // change the aria-expanded and aria-hidden values on the <ul> tag
             el.querySelector('a').setAttribute('aria-expanded', 'true');
+            const dropdownMenu = el.querySelector('ul.js-dropdownMenu');
+            if (dropdownMenu) {
+                dropdownMenu.setAttribute('aria-hidden', 'false');
+            }
         }
     },
 
@@ -251,6 +255,10 @@ const navAccess = {
         parent.parentNode.classList.remove('is-active');
         // change the aria-expanded and aria-hidden values on the <ul> tag
         parent.setAttribute('aria-expanded', 'false');
+        const dropdownMenu = parent.querySelector('ul.js-dropdownMenu');
+        if (dropdownMenu) {
+            dropdownMenu.setAttribute('aria-hidden', 'true');
+        }
     },
 
     /**
