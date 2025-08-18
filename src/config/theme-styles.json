@@ -3042,7 +3042,7 @@
                         },
                         {
                             "name": "selectInputPadding",
-                            "label": "Vertical padding",
+                            "label": "Padding",
                             "type": "padding",
                             "defaultValue": "5px",
                             "render": {
@@ -3098,7 +3098,12 @@
                                 "type": "css-head",
                                 "cssVariable": "--FormRequired-color"
                             }
-                        },
+                        }
+                    ]
+                },
+                {
+                    "name": "Required Fields Message",
+                    "fields": [
                         {
                             "name": "formRequiredShowMessage",
                             "label": "Show the \"Required fields\" message below the form",
