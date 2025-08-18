@@ -3227,7 +3227,6 @@
                             "label": "Typography",
                             "type": "typography",
                             "collapsable": false,
-                            "useTextShadow": true,
                             "useTextAlign": false,
                             "color": {
                                 "defaultValue": "#fff"
