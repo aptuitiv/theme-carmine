@@ -146,13 +146,15 @@
 }
 
 /* postcss-bem-linter: ignore */
-.Banner-content h1 {
+.Banner-content h1,
+.Banner-content .h1 {
     font-size: var(--Banner-content-h1-font-size-sm, var(--base-typography-h1-font-size-sm, 5rem));
 }
 
 @media (--m-md) {
     /* postcss-bem-linter: ignore */
-    .Banner-content h1 {
+    .Banner-content h1,
+    .Banner-content .h1 {
         font-size: var(--Banner-content-h1-font-size, var(--base-typography-h1-font-size, 4rem));
     }
 }
