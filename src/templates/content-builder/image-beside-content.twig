@@ -1,35 +1,43 @@
 {% if image and content %}
+    {% set ncClass = "nc-1 nc-2-lg" %}
     {% set imageCol = 'col-1-1 col-1-2-lg' %}
     {% set contentCol = 'col-1-1 col-1-2-lg' %}
-    {% set nc_value = 'nc-1 nc-2-lg' %}
     {% if imageSize == 'Third' %}
         {% set imageCol = 'col-1-1 col-1-2-md col-1-3-lg' %}
         {% set contentCol = 'col-1-1 col-1-2-md col-2-3-lg' %}
-        {% set nc_value = 'nc-1 nc-2-md nc-3-lg' %}
+        {% set ncClass = "nc-1 nc-2-md" %}
     {% elseif imageSize == 'Quarter' %}
         {% set imageCol = 'col-1-1 col-1-2-md col-1-4-lg' %}
         {% set contentCol = 'col-1-1 col-1-2-md col-3-4-lg' %}
-        {% set nc_value = 'nc-1 nc-2-md' %}
+        {% set ncClass = "nc-1 nc-2-md" %}
     {% endif %}
     {% if imagePosition == 'Right' %}
         {% set imageCol = imageCol ~ ' order-2-lg' %}
         {% set contentCol = contentCol ~ ' order-1-lg' %}
     {% endif %}
 
-    <div class="Container Container--pad">
-        <div class="grid {{ nc_value }} py-2 py-4-lg g-2 g-4-lg">
+    <div class="Container Container--spaced Container--pad">
+        <div class="grid g-2 g-4-lg {{ ncClass }}">
             <div class="{{ imageCol }}">
                 {% do image.resize(800) %}
                 {% do image.lazy() %}
                 {% set image.class = "w-100" %}
-                <div class="flex align-center h-100">
+                {% if verticalAlignment == 'center' || verticalAlignment == 'center-image' %}
+                    <div class="flex align-center h-100">
+                        {{ image.tag }}
+                    </div>
+                {% else %}
                     {{ image.tag }}
-                </div>
+                {% endif %}
             </div>
             <div class="{{ contentCol }}">
-                <div class="flex align-center h-100">
+                {% if verticalAlignment == 'center' %}
+                    <div class="flex align-center h-100">
+                        <div class="clearfix first-child-st-0 last-child-sb-0">{{ content }}</div>
+                    </div>
+                {% else %}
                     <div class="clearfix first-child-st-0 last-child-sb-0">{{ content }}</div>
-                </div>
+                {% endif %}
             </div>
         </div>
     </div>
