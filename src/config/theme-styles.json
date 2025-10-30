@@ -108,9 +108,7 @@
                             "label": "Icon size",
                             "type": "size",
                             "defaultValue": "12px",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Accordion-icon-size"
@@ -1688,9 +1686,7 @@
                             "name": "size",
                             "label": "Size",
                             "type": "size",
-                            "allowedUnits": [
-                                "px"
-                            ]
+                            "allowedUnits": ["px"]
                         }
                     ]
                 }
@@ -2338,9 +2334,7 @@
                             "label": "Border size",
                             "type": "size",
                             "defaultValue": "1px",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--CalendarGrid-cell-border-size"
@@ -2433,9 +2427,7 @@
                             "type": "size",
                             "description": "The outline size of the current day cell. Use an outline instead of a background color for a subtle highlight",
                             "default": "2px",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--CalendarGrid-today-cell-outline-size"
@@ -2488,9 +2480,7 @@
                             "label": "Border size",
                             "type": "size",
                             "defaultValue": "1px",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--CalendarMiniGrid-cell-border-size"
@@ -2864,9 +2854,7 @@
                             "name": "textInputBorderWidth",
                             "label": "Border width",
                             "type": "size",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "defaultValue": "1px",
                             "render": {
                                 "type": "css-head",
@@ -2932,9 +2920,7 @@
                             "name": "selectInputBorderWidth",
                             "label": "Border width",
                             "type": "size",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "defaultValue": "1px",
                             "render": {
                                 "type": "css-head",
@@ -3635,9 +3621,7 @@
                             "name": "dropdownMinWidth",
                             "label": "Minimum width",
                             "type": "size",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "defaultValue": "220",
                             "render": {
                                 "type": "css-head",
@@ -3648,9 +3632,7 @@
                             "name": "dropdownMaxWidth",
                             "label": "Maximum width",
                             "type": "size",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "defaultValue": "300",
                             "render": {
                                 "type": "css-head",
@@ -4881,9 +4863,7 @@
                             "label": "Horizontal rule size",
                             "type": "size",
                             "defaultValue": "1px",
-                            "allowedUnits": [
-                                "px"
-                            ],
+                            "allowedUnits": ["px"],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-hrule-width"
