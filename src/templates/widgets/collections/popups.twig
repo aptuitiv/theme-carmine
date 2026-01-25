@@ -16,7 +16,7 @@
             {# Check if popup cookie is not present #}
             {% if popup.id not in cookieIds %}
                 {% set show = true %}
-                {% if popup.pages == 'home' && !_page.isHome %} 
+                {% if popup.pages == 'home' && !_page.isHome %}
                     {% set show = false %}
                 {% endif %}
                 {% if popup.pages == 'specific' %}
@@ -34,7 +34,7 @@
                                     <div class="Modal-title">{{ popup.heading }}</div>
                                     <button class="Modal-close" data-micromodal-close></button>
                                 </div>
-                                <div class="Modal-content last-child-sb-0">
+                                <div class="Modal-content last-child-mb-0">
                                     {{ popup.content }}
                                 </div>
                             </div>
