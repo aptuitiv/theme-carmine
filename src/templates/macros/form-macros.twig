@@ -477,7 +477,8 @@
 {% endmacro %}
 
 {# Form fields required message
-    showRequiredMessage: (string) The value of the showRequiredMessage setting
+    showRequiredMessage: (string) The value of the showRequiredMessage setting. This comes from a custom value set on the "form" tag.
+                {% set form.showRequiredMessage = 'no' %}
 #}
 {% macro requiredMessage(showRequiredMessage) %}
     {% if _core.theme.settings.formRequiredShowMessage == 'yes' && showRequiredMessage != 'no' %}
