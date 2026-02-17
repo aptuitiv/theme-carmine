@@ -108,7 +108,9 @@
                             "label": "Icon size",
                             "type": "size",
                             "defaultValue": "12px",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Accordion-icon-size"
@@ -1041,6 +1043,141 @@
             ]
         },
         {
+            "name": "Blocks - Image Gallery / Slider",
+            "description": "Styles for the \"Image Gallery\" block. This includes styles when it's displayed as a Grid or as a Slider.",
+            "groups": [
+                {
+                    "name": "Grid - General",
+                    "description": "General styles for the image gallery when it's displayed as a Grid.",
+                    "fields": [
+                        {
+                            "name": "blocksImageGalleryGridMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "defaultValue": "2.5rem 0 2.5rem 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--ImageGallery-margin"
+                            }
+                        },
+                        {
+                            "name": "blocksImageGalleryGridGap",
+                            "label": "Gap between images",
+                            "type": "size",
+                            "defaultValue": "20px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--ImageGallery-gap"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Slider - General",
+                    "description": "General styles for the image gallery when it's displayed as a Slider.",
+                    "fields": [
+                        {
+                            "name": "blocksImageSliderMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "defaultValue": "2.5rem 0 2.5rem 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-margin"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Slider - Content",
+                    "description": "Styles for the content that shows on the slider.",
+                    "fields": [
+                        {
+                            "name": "blocksImageSliderContentBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "defaultValue": "#fff",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-content-background"
+                            }
+                        },
+                        {
+                            "name": "blocksImageSliderContentBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "defaultValue": "#333",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-content-background-hover"
+                            }
+                        },
+                        {
+                            "name": "blocksImageSliderTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useHover": true,
+                            "usePadding": true,
+                            "padding": {
+                                "defaultValue": "20px"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-content"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Slider - Arrows",
+                    "description": "Styles for the arrows on the slider.",
+                    "fields": [
+                        {
+                            "name": "blocksImageSliderArrowBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "defaultValue": "#fff",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-arrow-background"
+                            }
+                        },
+                        {
+                            "name": "blocksImageSliderArrowColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "defaultValue": "#fff",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-arrow-color-hover"
+                            }
+                        },
+                        {
+                            "name": "blocksImageSliderArrowColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "defaultValue": "#333",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-arrow-color"
+                            }
+                        },
+                        {
+                            "name": "blocksImageSliderArrowBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "defaultValue": "#333",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Slider-arrow-background-hover"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Blocks - Image Grid",
             "description": "Styles for the \"Image Grid\" block.",
             "groups": [
@@ -1274,141 +1411,6 @@
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--ImageGridItem-overlay-background-hover"
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "name": "Blocks - Image Gallery / Slider",
-            "description": "Styles for the \"Image Gallery\" block. This includes styles when it's displayed as a Grid or as a Slider.",
-            "groups": [
-                {
-                    "name": "Grid - General",
-                    "description": "General styles for the image gallery when it's displayed as a Grid.",
-                    "fields": [
-                        {
-                            "name": "blocksImageGalleryGridMargin",
-                            "label": "Margin",
-                            "type": "margin",
-                            "defaultValue": "2.5rem 0 2.5rem 0",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--ImageGallery-margin"
-                            }
-                        },
-                        {
-                            "name": "blocksImageGalleryGridGap",
-                            "label": "Gap between images",
-                            "type": "size",
-                            "defaultValue": "20px",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--ImageGallery-gap"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slider - General",
-                    "description": "General styles for the image gallery when it's displayed as a Slider.",
-                    "fields": [
-                        {
-                            "name": "blocksImageSliderMargin",
-                            "label": "Margin",
-                            "type": "margin",
-                            "defaultValue": "2.5rem 0 2.5rem 0",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-margin"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slider - Content",
-                    "description": "Styles for the content that shows on the slider.",
-                    "fields": [
-                        {
-                            "name": "blocksImageSliderContentBackground",
-                            "label": "Background color",
-                            "type": "color",
-                            "defaultValue": "#fff",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-background"
-                            }
-                        },
-                        {
-                            "name": "blocksImageSliderContentBackgroundHover",
-                            "label": "Background color (hover)",
-                            "type": "color",
-                            "defaultValue": "#333",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content-background-hover"
-                            }
-                        },
-                        {
-                            "name": "blocksImageSliderTypography",
-                            "label": "Typography",
-                            "type": "typography",
-                            "collapsable": false,
-                            "useHover": true,
-                            "usePadding": true,
-                            "padding": {
-                                "defaultValue": "20px"
-                            },
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-content"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Slider - Arrows",
-                    "description": "Styles for the arrows on the slider.",
-                    "fields": [
-                        {
-                            "name": "blocksImageSliderArrowBackground",
-                            "label": "Background color",
-                            "type": "color",
-                            "defaultValue": "#fff",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-arrow-background"
-                            }
-                        },
-                        {
-                            "name": "blocksImageSliderArrowColorHover",
-                            "label": "Text color (hover)",
-                            "type": "color",
-                            "defaultValue": "#fff",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-arrow-color-hover"
-                            }
-                        },
-                        {
-                            "name": "blocksImageSliderArrowColor",
-                            "label": "Text color",
-                            "type": "color",
-                            "defaultValue": "#333",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-arrow-color"
-                            }
-                        },
-                        {
-                            "name": "blocksImageSliderArrowBackgroundHover",
-                            "label": "Background color (hover)",
-                            "type": "color",
-                            "defaultValue": "#333",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Slider-arrow-background-hover"
                             }
                         }
                     ]
@@ -1686,7 +1688,9 @@
                             "name": "size",
                             "label": "Size",
                             "type": "size",
-                            "allowedUnits": ["px"]
+                            "allowedUnits": [
+                                "px"
+                            ]
                         }
                     ]
                 }
@@ -2334,7 +2338,9 @@
                             "label": "Border size",
                             "type": "size",
                             "defaultValue": "1px",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--CalendarGrid-cell-border-size"
@@ -2427,7 +2433,9 @@
                             "type": "size",
                             "description": "The outline size of the current day cell. Use an outline instead of a background color for a subtle highlight",
                             "default": "2px",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--CalendarGrid-today-cell-outline-size"
@@ -2480,7 +2488,9 @@
                             "label": "Border size",
                             "type": "size",
                             "defaultValue": "1px",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--CalendarMiniGrid-cell-border-size"
@@ -2854,7 +2864,9 @@
                             "name": "textInputBorderWidth",
                             "label": "Border width",
                             "type": "size",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "defaultValue": "1px",
                             "render": {
                                 "type": "css-head",
@@ -2920,7 +2932,9 @@
                             "name": "selectInputBorderWidth",
                             "label": "Border width",
                             "type": "size",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "defaultValue": "1px",
                             "render": {
                                 "type": "css-head",
@@ -3104,6 +3118,16 @@
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--FormButton-text-align"
+                            }
+                        },
+                        {
+                            "name": "formButtonMargin",
+                            "label": "Margin",
+                            "type": "margin",
+                            "defaultValue": "0",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--FormButton-margin"
                             }
                         },
                         {
@@ -3621,7 +3645,9 @@
                             "name": "dropdownMinWidth",
                             "label": "Minimum width",
                             "type": "size",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "defaultValue": "220",
                             "render": {
                                 "type": "css-head",
@@ -3632,7 +3658,9 @@
                             "name": "dropdownMaxWidth",
                             "label": "Maximum width",
                             "type": "size",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "defaultValue": "300",
                             "render": {
                                 "type": "css-head",
@@ -4863,7 +4891,9 @@
                             "label": "Horizontal rule size",
                             "type": "size",
                             "defaultValue": "1px",
-                            "allowedUnits": ["px"],
+                            "allowedUnits": [
+                                "px"
+                            ],
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--base-typography-hrule-width"
