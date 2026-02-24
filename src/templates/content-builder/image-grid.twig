@@ -128,37 +128,49 @@
     <div class="Container Container--pad">
         <div class="ImageGrid grid {{ ncClass }}">
             {% for column in images %}
+                {% set hasLink = (linkType == 'link' and column.link) or linkType == 'lightbox' %}
+                {% set linkHref = linkType == 'lightbox' ? column.image.src : (column.link|url) %}
                 <div class="{{ class }}">
-                    {% if linkType == 'link' %}
-                        {% if column.link %}
-                            <a href="{{ column.link|url }}" class="ImageGridItem">
-                        {% else %}
-                            <div class="ImageGridItem">
+                    <div class="ImageGridItem">
+                        {% if column.title and titleTextPosition == 'above' %}
+                            <div class="ImageGridItem-titleAbove">
+                                {% if hasLink %}
+                                    <a href="{{ linkHref }}" class="ImageGridItem-link"{% if linkType == 'lightbox' %} data-fslightbox data-type="image" data-caption="{{ column.title }}"{% endif %}>{{ column.title }}</a>
+                                {% else %}
+                                    {{ column.title }}
+                                {% endif %}
+                            </div>
                         {% endif %}
-                    {% elseif linkType == 'lightbox' %}
-                        <a href="{{ column.image.src }}" class="ImageGridItem" data-fslightbox data-type="image" data-caption="{{ column.title }}">
-                    {% endif %}
-                    {{ _self.textAboveBelow(column, titleTextPosition, 'above') }}
-                    {% if column.image %}
-                        {% set column.image.class = "w-100" %}
-                        {% do column.image.alt.default(column.title) %}
-                        {% do column.image.crop(imageAspectRatio) %}
-                        {% do column.image.lazy() %}
+                        {% if column.image %}
+                            {% set column.image.class = "w-100" %}
+                            {% do column.image.alt.default(column.title) %}
+                            {% do column.image.crop(imageAspectRatio) %}
+                            {% do column.image.lazy() %}
 
-                        <div class="ImageGridItem-image">
-                            {{ column.image.tag }}
-                            {{ _self.textOnImage(column, titleTextPosition) }}
-                        </div>
-                    {% endif %}
-                    {{ _self.textAboveBelow(column, titleTextPosition, 'below') }}
-                    {% if column.content %}
-                        <div class="ImageGridItem-content">{{ column.content }}</div>
-                    {% endif %}
-                    {% if linkType == 'link' %}
-                        {% if column.link %}</a>{% else %}</div>{% endif %}
-                    {% elseif linkType == 'lightbox' %}
-                        </a>
-                    {% endif %}
+                            <div class="ImageGridItem-image">
+                                {% if hasLink %}
+                                    <a href="{{ linkHref }}" class="ImageGridItem-link"{% if linkType == 'lightbox' %} data-fslightbox data-type="image" data-caption="{{ column.title }}"{% endif %}>
+                                {% endif %}
+                                {{ column.image.tag }}
+                                {{ _self.textOnImage(column, titleTextPosition) }}
+                                {% if hasLink %}
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        {% if column.title and titleTextPosition == 'below' %}
+                            <div class="ImageGridItem-titleBelow">
+                                {% if hasLink %}
+                                    <a href="{{ linkHref }}" class="ImageGridItem-link"{% if linkType == 'lightbox' %} data-fslightbox data-type="image" data-caption="{{ column.title }}"{% endif %}>{{ column.title }}</a>
+                                {% else %}
+                                    {{ column.title }}
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        {% if column.content %}
+                            <div class="ImageGridItem-content">{{ column.content }}</div>
+                        {% endif %}
+                    </div>
                 </div>
             {% endfor %}
         </div>
