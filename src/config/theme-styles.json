@@ -4560,6 +4560,24 @@
                     "description": "The heading above each block of sidebar content",
                     "fields": [
                         {
+                            "name": "sidebarHeadingBackground",
+                            "label": "Background",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarBox-heading-background"
+                            }
+                        },
+                        {
+                            "name": "sidebarHeadingBackgroundHover",
+                            "label": "Background (hover)",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SidebarBox-heading-background-hover"
+                            }
+                        },
+                        {
                             "name": "sidebarHeadingTypography",
                             "label": "Typography",
                             "type": "typography",
@@ -4570,6 +4588,13 @@
                                 "defaultValue": "700"
                             },
                             "useHover": true,
+                            "usePadding": true,
+                            "padding": {
+                                "defaultValue": "0"
+                            },
+                            "textAlignRender": {
+                                "cssProperty": "justify-content"
+                            },
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".SidebarBox-heading"
@@ -4582,27 +4607,6 @@
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".SidebarBox-heading"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Secondary content",
-                    "description": "This is used for smaller text in the sidebar. The blog sidebar uses this for dates and post counts.",
-                    "fields": [
-                        {
-                            "name": "sidebarSecondaryTypography",
-                            "label": "Typography",
-                            "type": "typography",
-                            "color": {
-                                "defaultValue": "#4D4D4D"
-                            },
-                            "fontSize": {
-                                "defaultValue": "1.4rem"
-                            },
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".SidebarBox-secondary"
                             }
                         }
                     ]
@@ -4680,6 +4684,27 @@
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".SidebarNav-link--isParent"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Secondary content",
+                    "description": "This is used for smaller text in the sidebar. The blog sidebar uses this for dates and post counts.",
+                    "fields": [
+                        {
+                            "name": "sidebarSecondaryTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "color": {
+                                "defaultValue": "#4D4D4D"
+                            },
+                            "fontSize": {
+                                "defaultValue": "1.4rem"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".SidebarBox-secondary"
                             }
                         }
                     ]
