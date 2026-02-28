@@ -14,11 +14,7 @@
             {# Wrap mode: image floats with text wrapping around it #}
             {% do image.addSrcSet('500w').resize({w: 500}) %}
             {% set wrapperClass = 'ImageWrapper' %}
-            {% if imagePosition == 'Right' %}
-                {% set wrapperClass = wrapperClass ~ ' ImageWrapper--right' %}
-            {% else %}
-                {% set wrapperClass = wrapperClass ~ ' ImageWrapper--left' %}
-            {% endif %}
+            {% set wrapperClass = wrapperClass ~ ' ImageWrapper--' ~ imagePosition %}
             <div class="clearfix">
                 <div class="{{ wrapperClass }}">{{ image.tag }}{{ captionHtml }}</div>
                 {{ content }}
