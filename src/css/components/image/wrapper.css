@@ -47,3 +47,20 @@
         max-width: var(--image-max-width-md);
     }
 }
+
+/* Size modifiers for wrap mode */
+
+.ImageWrapper--half {
+    --image-max-width-sm: 50%;
+    --image-max-width-md: 50%;
+}
+
+.ImageWrapper--third {
+    --image-max-width-sm: 50%;
+    --image-max-width-md: 33.333%;
+}
+
+.ImageWrapper--quarter {
+    --image-max-width-sm: 50%;
+    --image-max-width-md: 25%;
+}
