@@ -55,6 +55,11 @@
     --image-max-width-md: 50%;
 }
 
+.ImageWrapper--two-third {
+    --image-max-width-sm: 50%;
+    --image-max-width-md: 66.666%;
+}
+
 .ImageWrapper--third {
     --image-max-width-sm: 50%;
     --image-max-width-md: 33.333%;
