@@ -2877,144 +2877,179 @@
             "description": "Styles for all forms on the website.",
             "groups": [
                 {
-                    "name": "Text Field",
+                    "name": "Button",
                     "fields": [
                         {
-                            "name": "textInputBackground",
-                            "label": "Background color",
-                            "type": "color",
-                            "defaultValue": "#fff",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--TextInput-background"
+                            "name": "formButtonSize",
+                            "label": "Button size",
+                            "type": "radio",
+                            "defaultValue": "defaultValue",
+                            "options": {
+                                "defaultValue": "Default",
+                                "sm": "Small",
+                                "lg": "Large"
                             }
                         },
                         {
-                            "name": "textInputColor",
-                            "label": "Text color",
-                            "type": "color",
-                            "defaultValue": "#333",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--TextInput-color"
+                            "name": "formButtonStyle",
+                            "label": "Button style",
+                            "type": "radio",
+                            "defaultValue": "defaultValue",
+                            "options": {
+                                "defaultValue": "Default",
+                                "alt": "Alternate 1",
+                                "alt2": "Alternate 2"
                             }
                         },
                         {
-                            "name": "textInputBorderRadius",
-                            "label": "Border radius",
-                            "type": "borderRadius",
-                            "after": "px",
+                            "name": "formButtonAlign",
+                            "label": "Button alignment",
+                            "type": "textAlign",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--FormButton-text-align"
+                            }
+                        },
+                        {
+                            "name": "formButtonMargin",
+                            "label": "Margin",
+                            "type": "margin",
                             "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--TextInput-border-radius"
+                                "cssVariable": "--FormButton-margin"
                             }
                         },
                         {
-                            "name": "textInputBorderWidth",
-                            "label": "Border width",
+                            "name": "formButtonFullWidthSmallScreens",
+                            "label": "Have the button be full width on small screens",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        }
+                    ]
+                },
+                {
+                    "name": "Checkbox",
+                    "description": "Styles for the checkbox",
+                    "fields": [
+                        {
+                            "name": "checkboxBackgroundColor",
+                            "label": "Background color",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Checkbox-background-color"
+                            }
+                        },
+                        {
+                            "name": "checkboxBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "defaultValue": "#3D3D3D",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Checkbox-border-color"
+                            }
+                        },
+                        {
+                            "name": "checkboxBorderSize",
+                            "label": "Checkbox border size",
                             "type": "size",
-                            "allowedUnits": ["px"],
                             "defaultValue": "1px",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--TextInput-border-width"
+                                "cssVariable": "--Checkbox-border-size"
                             }
                         },
                         {
-                            "name": "textInputBorderColor",
-                            "label": "Border color",
-                            "type": "color",
-                            "defaultValue": "#777",
+                            "name": "checkboxBorderRadius",
+                            "label": "Border radius",
+                            "type": "borderRadius",
+                            "defaultValue": "4px",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--TextInput-border-color"
+                                "cssVariable": "--Checkbox-border-radius"
                             }
                         },
                         {
-                            "name": "textInputPadding",
-                            "label": "Padding",
-                            "type": "padding",
+                            "name": "checkboxColor",
+                            "label": "Checkbox color",
+                            "type": "color",
+                            "description": "The color of the checkmark when the field is selected",
+                            "defaultValue": "#3D3D3D",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Checkbox-color"
+                            }
+                        },
+                        {
+                            "name": "checkboxSize",
+                            "label": "Checkbox field height and width",
+                            "type": "size",
+                            "defaultValue": "16px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Checkbox-size"
+                            }
+                        },
+                        {
+                            "name": "checkboxCheckmarkHeight",
+                            "label": "Checkmark height",
+                            "type": "size",
+                            "defaultValue": "10px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Checkbox-checkmark-height"
+                            }
+                        },
+                        {
+                            "name": "checkboxCheckmarkWidth",
+                            "label": "Checkmark width",
+                            "type": "size",
                             "defaultValue": "5px",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--TextInput-padding"
+                                "cssVariable": "--Checkbox-checkmark-width"
+                            }
+                        },
+                        {
+                            "name": "checkboxCheckmarkThickness",
+                            "label": "Checkmark thickness",
+                            "type": "size",
+                            "defaultValue": "2px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Checkbox-checkmark-thickness"
                             }
                         }
                     ]
                 },
                 {
-                    "name": "Select Menu",
+                    "name": "Field Descriptions",
                     "fields": [
                         {
-                            "name": "selectInputBackground",
-                            "label": "Background color",
-                            "type": "color",
-                            "defaultValue": "#fff",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--SelectInput-background"
+                            "name": "formDescriptionPosition",
+                            "label": "Where to display the description",
+                            "type": "radio",
+                            "defaultValue": "belowExceptRadioCheckbox",
+                            "options": {
+                                "above": "Above the field",
+                                "below": "Below the field",
+                                "belowExceptRadioCheckbox": "Below the field unless the field type is radio or checkbox"
                             }
                         },
                         {
-                            "name": "selectInputColor",
-                            "label": "Text color",
-                            "type": "color",
-                            "defaultValue": "#333",
+                            "name": "formDescriptionTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useMargin": true,
+                            "fontSize": {
+                                "defaultValue": "1.4rem"
+                            },
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--SelectInput-color"
-                            }
-                        },
-                        {
-                            "name": "selectInputBorderRadius",
-                            "label": "Border radius",
-                            "type": "borderRadius",
-                            "defaultValue": "0",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--SelectInput-border-radius"
-                            }
-                        },
-                        {
-                            "name": "selectInputBorderWidth",
-                            "label": "Border width",
-                            "type": "size",
-                            "allowedUnits": ["px"],
-                            "defaultValue": "1px",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--SelectInput-border-width"
-                            }
-                        },
-                        {
-                            "name": "selectInputBorderColor",
-                            "label": "Border color",
-                            "type": "color",
-                            "defaultValue": "#777",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--SelectInput-border-color"
-                            }
-                        },
-                        {
-                            "name": "selectInputArrowColor",
-                            "label": "Arrow color",
-                            "type": "color",
-                            "defaultValue": "#777",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--SelectInput-arrow-color"
-                            }
-                        },
-                        {
-                            "name": "selectInputPadding",
-                            "label": "Padding",
-                            "type": "padding",
-                            "defaultValue": "5px",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--SelectInput-padding"
+                                "cssSelector": ".FormDescription"
                             }
                         }
                     ]
@@ -3038,6 +3073,119 @@
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".FormLabel"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "File upload field",
+                    "description": "Styles for the file upload field on a form",
+                    "fields": [
+                        {
+                            "name": "fileUploadButtonBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "defaultValue": "#5D5D5D",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--FileButton-background"
+                            }
+                        },
+                        {
+                            "name": "fileUploadButtonBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "defaultValue": "#5D5D5D",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--FileButton-border-color"
+                            }
+                        },
+                        {
+                            "name": "fileUploadButtonColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "defaultValue": "#ffffff",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--FileButton-color"
+                            }
+                        },
+                        {
+                            "name": "fileUploadButtonBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "defaultValue": "#3D3D3D",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--FileButton-background-hover"
+                            }
+                        },
+                        {
+                            "name": "fileUploadButtonBorderColorHover",
+                            "label": "Border color (hover)",
+                            "type": "color",
+                            "defaultValue": "#3D3D3D",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--FileButton-border-color-hover"
+                            }
+                        },
+                        {
+                            "name": "fileUploadButtonColorHover",
+                            "label": "Text color (hover)",
+                            "type": "color",
+                            "defaultValue": "#ffffff",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--FileButton-color-hover"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Form Overlay",
+                    "description": "Styles for the overlay which pops up on a form submission.",
+                    "fields": [
+                        {
+                            "name": "formOverlayBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "defaultValue": "#000000b3",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".FormOverlay",
+                                "cssProperty": "background-color"
+                            }
+                        },
+                        {
+                            "name": "formOverlayTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "color": {
+                                "defaultValue": "#fff"
+                            },
+                            "fontSize": {
+                                "defaultValue": "3rem"
+                            },
+                            "textShadow": {
+                                "defaultValue": "0 1px 2px rgba(0, 0, 0, 0.5)"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".FormOverlay"
+                            }
+                        },
+                        {
+                            "name": "formOverlayTextShadow",
+                            "label": "Text shadow",
+                            "type": "textShadow",
+                            "defaultValue": "0 1px 2px rgba(0, 0, 0, 0.5)",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".FormOverlay-text"
                             }
                         }
                     ]
@@ -3103,130 +3251,154 @@
                     ]
                 },
                 {
-                    "name": "Field Descriptions",
+                    "name": "Select Menu",
                     "fields": [
                         {
-                            "name": "formDescriptionPosition",
-                            "label": "Where to display the description",
-                            "type": "radio",
-                            "defaultValue": "belowExceptRadioCheckbox",
-                            "options": {
-                                "above": "Above the field",
-                                "below": "Below the field",
-                                "belowExceptRadioCheckbox": "Below the field unless the field type is radio or checkbox"
-                            }
-                        },
-                        {
-                            "name": "formDescriptionTypography",
-                            "label": "Typography",
-                            "type": "typography",
-                            "collapsable": false,
-                            "useMargin": true,
-                            "fontSize": {
-                                "defaultValue": "1.4rem"
-                            },
+                            "name": "selectMenuBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".FormDescription"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Button",
-                    "fields": [
-                        {
-                            "name": "formButtonSize",
-                            "label": "Button size",
-                            "type": "radio",
-                            "defaultValue": "defaultValue",
-                            "options": {
-                                "defaultValue": "Default",
-                                "sm": "Small",
-                                "lg": "Large"
+                                "cssVariable": "--SelectMenu-background"
                             }
                         },
                         {
-                            "name": "formButtonStyle",
-                            "label": "Button style",
-                            "type": "radio",
-                            "defaultValue": "defaultValue",
-                            "options": {
-                                "defaultValue": "Default",
-                                "alt": "Alternate 1",
-                                "alt2": "Alternate 2"
-                            }
-                        },
-                        {
-                            "name": "formButtonAlign",
-                            "label": "Button alignment",
-                            "type": "textAlign",
+                            "name": "selectMenuColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--FormButton-text-align"
+                                "cssVariable": "--SelectMenu-color"
                             }
                         },
                         {
-                            "name": "formButtonMargin",
-                            "label": "Margin",
-                            "type": "margin",
+                            "name": "selectMenuBorderRadius",
+                            "label": "Border radius",
+                            "type": "borderRadius",
                             "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--FormButton-margin"
+                                "cssVariable": "--SelectMenu-border-radius"
                             }
                         },
                         {
-                            "name": "formButtonFullWidthSmallScreens",
-                            "label": "Have the button be full width on small screens",
-                            "type": "switch",
-                            "defaultValue": "yes"
+                            "name": "selectMenuBorderWidth",
+                            "label": "Border width",
+                            "type": "size",
+                            "allowedUnits": ["px"],
+                            "defaultValue": "1px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectMenu-border-width"
+                            }
+                        },
+                        {
+                            "name": "selectMenuBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "defaultValue": "#777",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectMenu-border-color"
+                            }
+                        },
+                        {
+                            "name": "selectMenuArrowType",
+                            "label": "Arrow type",
+                            "type": "select",
+                            "defaultValue": "triangle",
+                            "options": {
+                                "caret": "Caret",
+                                "triangle": "Triangle"
+                            }
+                        },
+                        {
+                            "name": "selectMenuArrowColor",
+                            "label": "Arrow color",
+                            "type": "color",
+                            "defaultValue": "#777",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectMenu-arrow-color"
+                            }
+                        },
+                        {
+                            "name": "selectMenuPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "defaultValue": "5px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--SelectMenu-padding"
+                            }
                         }
                     ]
                 },
                 {
-                    "name": "Form Overlay",
-                    "description": "Styles for the overlay which pops up on a form submission.",
+                    "name": "Text Field",
                     "fields": [
                         {
-                            "name": "formOverlayBackground",
+                            "name": "textInputBackground",
                             "label": "Background color",
                             "type": "color",
-                            "defaultValue": "#000000b3",
+                            "defaultValue": "#fff",
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".FormOverlay",
-                                "cssProperty": "background-color"
+                                "cssVariable": "--TextInput-background"
                             }
                         },
                         {
-                            "name": "formOverlayTypography",
-                            "label": "Typography",
-                            "type": "typography",
-                            "collapsable": false,
-                            "useTextAlign": false,
-                            "color": {
-                                "defaultValue": "#fff"
-                            },
-                            "fontSize": {
-                                "defaultValue": "3rem"
-                            },
-                            "textShadow": {
-                                "defaultValue": "0 1px 2px rgba(0, 0, 0, 0.5)"
-                            },
+                            "name": "textInputColor",
+                            "label": "Text color",
+                            "type": "color",
+                            "defaultValue": "#333",
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".FormOverlay"
+                                "cssVariable": "--TextInput-color"
                             }
                         },
                         {
-                            "name": "formOverlayTextShadow",
-                            "label": "Text shadow",
-                            "type": "textShadow",
-                            "defaultValue": "0 1px 2px rgba(0, 0, 0, 0.5)",
+                            "name": "textInputBorderRadius",
+                            "label": "Border radius",
+                            "type": "borderRadius",
+                            "after": "px",
+                            "defaultValue": "0",
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".FormOverlay-text"
+                                "cssVariable": "--TextInput-border-radius"
+                            }
+                        },
+                        {
+                            "name": "textInputBorderWidth",
+                            "label": "Border width",
+                            "type": "size",
+                            "allowedUnits": ["px"],
+                            "defaultValue": "1px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-border-width"
+                            }
+                        },
+                        {
+                            "name": "textInputBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "defaultValue": "#777",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-border-color"
+                            }
+                        },
+                        {
+                            "name": "textInputPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "defaultValue": "5px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--TextInput-padding"
                             }
                         }
                     ]
