@@ -63,6 +63,7 @@
         "@splidejs/splide-extension-video": "^0.8.0",
         "cacao-css": "^8.0.1",
         "just-validate": "^4.3.0",
+        "lodash": "^4.17.23",
         "masonry-layout": "^4.2.2",
         "micromodal": "^0.6.1"
     },
