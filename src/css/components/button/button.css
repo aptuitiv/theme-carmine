@@ -32,6 +32,7 @@
     font-weight: var(--Button-typography-font-weight);
     letter-spacing: var(--Button-typography-letter-spacing);
     line-height: var(--Button-typography-line-height);
+    justify-content: center;
     margin: 0;
     padding: var(--Button-padding);
     text-align: center;
