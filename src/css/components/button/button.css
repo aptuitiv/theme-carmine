@@ -30,9 +30,9 @@
     font-size: var(--Button-typography-font-size);
     font-style: var(--Button-typography-font-style);
     font-weight: var(--Button-typography-font-weight);
+    justify-content: center;
     letter-spacing: var(--Button-typography-letter-spacing);
     line-height: var(--Button-typography-line-height);
-    justify-content: center;
     margin: 0;
     padding: var(--Button-padding);
     text-align: center;
