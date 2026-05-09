@@ -51,6 +51,7 @@
 
 .Header-logo {
     max-width: var(--Header-logo-width);
+    transition: max-width 250ms ease, width 250ms ease;
     width: 100%;
 }
 
@@ -97,4 +98,48 @@
     aspect-ratio: 1/1;
     display: inline-flex;
     justify-content: center;
+}
+
+/* =========================================================================== *\
+    Sticky header
+\* =========================================================================== */
+
+/* stylelint-disable-next-line plugin/selector-bem-pattern -- Utility class applied to <html> by header.twig when sticky is enabled. */
+.has-sticky-header {
+    scroll-padding-top: var(--Header-sticky-anchor-offset, 100px);
+}
+
+.Header--sticky {
+    background: var(--Header-sticky-background, #fff);
+    position: sticky;
+    top: 0;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+    z-index: var(--Header-sticky-z-index, 100);
+}
+
+.Header--sticky.is-sticky {
+    box-shadow: var(--Header-sticky-box-shadow, 0 2px 6px rgb(0 0 0 / 15%));
+}
+
+.Header.is-sticky .Header-logo {
+    max-width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+}
+
+.Header.is-sticky .Header-logo[src$='.svg'] {
+    width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+}
+
+.Header--hideSocialWhenSticky.is-sticky .Header-socialIcons,
+.Header--hideAddressWhenSticky.is-sticky .Header-address,
+.Header--hidePhoneWhenSticky.is-sticky .Header-phone,
+.Header--hideEmailWhenSticky.is-sticky .Header-email,
+.Header--hideHoursWhenSticky.is-sticky .Header-hours,
+.Header--hideButtonsWhenSticky.is-sticky .Header-buttons {
+    display: none;
+}
+
+@media (width <= 1023.98px) {
+    .Header--hideOnScroll.is-hidden {
+        transform: translateY(-100%);
+    }
 }

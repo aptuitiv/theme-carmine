@@ -188,6 +188,87 @@
                             "description": "If you want to show the hours of operation in the header then enter them here."
                         }
                     ]
+                },
+                {
+                    "name": "Sticky header behavior",
+                    "fields": [
+                        {
+                            "name": "headerStickyEnabled",
+                            "label": "Enable sticky header",
+                            "type": "switch",
+                            "description": "When enabled the header stays visible at the top of the page as the user scrolls.",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyLogoScale",
+                            "label": "Logo size when sticky",
+                            "type": "stepper",
+                            "description": "Percentage of the normal logo width while the header is sticky. 100 = unchanged, 75 = three-quarters size.",
+                            "after": "%",
+                            "defaultValue": "75",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-sticky-logo-scale-pct",
+                                "template": "{{ value }}"
+                            }
+                        },
+                        {
+                            "name": "headerStickyAnchorOffset",
+                            "label": "Anchor link offset",
+                            "type": "stepper",
+                            "description": "How far above an in-page anchor target the page should scroll so the sticky header doesn't cover it. Only applied when the sticky header is enabled.",
+                            "after": "px",
+                            "defaultValue": "100",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-sticky-anchor-offset",
+                                "template": "{{ value }}px"
+                            }
+                        },
+                        {
+                            "name": "headerStickyHideOnScroll",
+                            "label": "Hide on scroll down (small screens)",
+                            "type": "switch",
+                            "description": "On small screens, hide the header when scrolling down and reveal it when scrolling up. Requires the sticky header to be enabled.",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyHideSocial",
+                            "label": "Hide social icons when sticky",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyHideAddress",
+                            "label": "Hide address when sticky",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHidePhone",
+                            "label": "Hide phone when sticky",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyHideEmail",
+                            "label": "Hide email when sticky",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHideHours",
+                            "label": "Hide hours when sticky",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHideButtons",
+                            "label": "Hide buttons when sticky",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        }
+                    ]
                 }
             ]
         },
