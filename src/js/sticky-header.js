@@ -28,10 +28,10 @@ const stickyHeader = {
 
     featuresSupported() {
         return (
-            'IntersectionObserver' in window
-            && typeof CSS !== 'undefined'
-            && typeof CSS.supports === 'function'
-            && CSS.supports('position', 'sticky')
+            'IntersectionObserver' in window &&
+            typeof CSS !== 'undefined' &&
+            typeof CSS.supports === 'function' &&
+            CSS.supports('position', 'sticky')
         );
     },
 
@@ -39,15 +39,25 @@ const stickyHeader = {
         const sentinel = document.createElement('div');
         sentinel.style = `position: absolute; z-index: -1; width: 1px; height: ${this.header.clientHeight / 2}px;`;
         this.header.parentNode.insertBefore(sentinel, this.header);
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.intersectionRatio <= this.config.lowThreshold) {
-                    this.header.classList.add('is-sticky');
-                } else if (entry.intersectionRatio >= this.config.highThreshold) {
-                    this.header.classList.remove('is-sticky');
-                }
-            });
-        }, { threshold: [this.config.lowThreshold, this.config.highThreshold] });
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.intersectionRatio <= this.config.lowThreshold) {
+                        this.header.classList.add('is-sticky');
+                    } else if (
+                        entry.intersectionRatio >= this.config.highThreshold
+                    ) {
+                        this.header.classList.remove('is-sticky');
+                    }
+                });
+            },
+            {
+                threshold: [
+                    this.config.lowThreshold,
+                    this.config.highThreshold,
+                ],
+            },
+        );
         observer.observe(sentinel);
     },
 
