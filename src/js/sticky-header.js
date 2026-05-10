@@ -2,9 +2,11 @@
     Sticky header behavior
 
     Adds .is-sticky to the header when it crosses the viewport top, using an
-    IntersectionObserver against a JS-injected sentinel. When js-hideOnScroll
+    IntersectionObserver against a JS-injected sentinel. When Header--hideOnScroll
     is also present, the header hides on scroll-down / reveals on scroll-up
-    below the 1024px nav breakpoint.
+    below the 1024px nav breakpoint by animating the sticky element's `top`
+    value to a measured negative-offsetHeight (so it slides to just-off-screen
+    without leaving a blank gap that `transform: translateY` would).
 =========================================================================== */
 
 const stickyHeader = {
@@ -24,6 +26,18 @@ const stickyHeader = {
         if (this.header.classList.contains('Header--hideOnScroll')) {
             this.setupScrollListener();
         }
+    },
+
+    hide() {
+        if (this.header.classList.contains('is-hidden')) return;
+        this.header.style.top = `-${this.header.offsetHeight}px`;
+        this.header.classList.add('is-hidden');
+    },
+
+    show() {
+        if (!this.header.classList.contains('is-hidden')) return;
+        this.header.style.top = '';
+        this.header.classList.remove('is-hidden');
     },
 
     featuresSupported() {
@@ -78,23 +92,23 @@ const stickyHeader = {
     handleScroll() {
         const currentScrollY = window.scrollY;
         if (window.innerWidth >= this.smallScreenBreakpoint) {
-            this.header.classList.remove('is-hidden');
+            this.show();
             this.lastScrollY = currentScrollY;
             return;
         }
         if (currentScrollY < 50) {
-            this.header.classList.remove('is-hidden');
+            this.show();
         } else if (currentScrollY > this.lastScrollY) {
-            this.header.classList.add('is-hidden');
+            this.hide();
         } else if (currentScrollY < this.lastScrollY) {
-            this.header.classList.remove('is-hidden');
+            this.show();
         }
         this.lastScrollY = currentScrollY;
     },
 
     handleResize() {
         if (window.innerWidth >= this.smallScreenBreakpoint) {
-            this.header.classList.remove('is-hidden');
+            this.show();
         }
     },
 };

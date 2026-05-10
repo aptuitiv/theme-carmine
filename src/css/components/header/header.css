@@ -118,7 +118,7 @@
     position: sticky;
     top: 0;
     transition:
-        transform 250ms ease,
+        top 500ms ease,
         box-shadow 250ms ease;
     z-index: var(--Header-sticky-z-index, 100);
 }
@@ -146,10 +146,4 @@
 .Header--hideHoursWhenSticky.is-sticky .Header-hours,
 .Header--hideButtonsWhenSticky.is-sticky .Header-buttons {
     display: none;
-}
-
-@media (width <= 1023.98px) {
-    .Header--hideOnScroll.is-hidden {
-        transform: translateY(-100%);
-    }
 }
