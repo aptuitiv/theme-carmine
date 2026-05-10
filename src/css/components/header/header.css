@@ -67,6 +67,7 @@
 
 .Header-textLogo {
     font-size: var(--Header-text-logo-font-size-sm);
+    transition: font-size 250ms ease;
 }
 
 .Header-link {
@@ -132,6 +133,10 @@
 
 .Header.is-sticky .Header-logo[src$='.svg'] {
     width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+}
+
+.Header.is-sticky .Header-textLogo {
+    font-size: calc(var(--Header-text-logo-font-size-sm) * var(--Header-sticky-logo-scale-pct, 75) / 100);
 }
 
 .Header--hideSocialWhenSticky.is-sticky .Header-socialIcons,
