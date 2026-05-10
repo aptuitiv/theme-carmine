@@ -1,6 +1,23 @@
 {% import 'macros/macros' as macros %}
 <!doctype html>
-<html lang="en"{% if _core.theme.settings.headerStickyEnabled == 'yes' %} class="has-sticky-header"{% endif %}>
+{% set stickyEnabled = _core.theme.settings.headerStickyEnabled == 'yes' %}
+{% set stickyCollapseLg = stickyEnabled and (
+    _core.theme.settings.headerStickyHideSocial == 'yes'
+    or _core.theme.settings.headerStickyHideAddress == 'yes'
+    or _core.theme.settings.headerStickyHidePhone == 'yes'
+    or _core.theme.settings.headerStickyHideEmail == 'yes'
+    or _core.theme.settings.headerStickyHideHours == 'yes'
+    or _core.theme.settings.headerStickyHideButtons == 'yes'
+) %}
+{% set stickyCollapseSm = stickyEnabled and (
+    _core.theme.settings.headerStickyHideSocialSm == 'yes'
+    or _core.theme.settings.headerStickyHideAddressSm == 'yes'
+    or _core.theme.settings.headerStickyHidePhoneSm == 'yes'
+    or _core.theme.settings.headerStickyHideEmailSm == 'yes'
+    or _core.theme.settings.headerStickyHideHoursSm == 'yes'
+    or _core.theme.settings.headerStickyHideButtonsSm == 'yes'
+) %}
+<html lang="en"{% if stickyEnabled %} class="has-sticky-header{% if stickyCollapseLg %} has-sticky-collapse-lg{% endif %}{% if stickyCollapseSm %} has-sticky-collapse-sm{% endif %}"{% endif %}>
 <head>
     <meta charset="utf-8">
     <title>{{ _page.title }}</title>
