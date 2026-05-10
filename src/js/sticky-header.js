@@ -58,10 +58,12 @@ const stickyHeader = {
                 entries.forEach((entry) => {
                     if (entry.intersectionRatio <= this.config.lowThreshold) {
                         this.header.classList.add('is-sticky');
+                        this.resyncScrollY();
                     } else if (
                         entry.intersectionRatio >= this.config.highThreshold
                     ) {
                         this.header.classList.remove('is-sticky');
+                        this.resyncScrollY();
                     }
                 });
             },
@@ -73,6 +75,20 @@ const stickyHeader = {
             },
         );
         observer.observe(sentinel);
+    },
+
+    /**
+     * Re-baseline lastScrollY after a layout shift caused by toggling
+     * .is-sticky (e.g. per-element hide-when-sticky rules collapsing
+     * elements via `display: none`). Without this, the next scroll event
+     * can read a smaller scrollY than lastScrollY — scroll anchoring's
+     * silent adjustment — and be misread as scroll-up, which flips the
+     * header back into view mid-hide and produces a jitter.
+     */
+    resyncScrollY() {
+        requestAnimationFrame(() => {
+            this.lastScrollY = window.scrollY;
+        });
     },
 
     setupScrollListener() {
