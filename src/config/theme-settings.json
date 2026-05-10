@@ -213,19 +213,6 @@
                             }
                         },
                         {
-                            "name": "headerStickyAnchorOffset",
-                            "label": "Anchor link offset",
-                            "type": "stepper",
-                            "description": "How far above an in-page anchor target the page should scroll so the sticky header doesn't cover it. Only applied when the sticky header is enabled.",
-                            "after": "px",
-                            "defaultValue": "100",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-sticky-anchor-offset",
-                                "template": "{{ value }}px"
-                            }
-                        },
-                        {
                             "name": "headerStickyHideOnScroll",
                             "label": "Hide on scroll down (small screens)",
                             "type": "switch",
