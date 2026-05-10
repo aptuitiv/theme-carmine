@@ -4,8 +4,8 @@
     Single scroll listener drives both the .is-sticky toggle and the
     hide-on-scroll behavior at small screens. Using scroll position
     (instead of an IntersectionObserver against a sentinel) gives us a
-    single source of truth and explicit hysteresis around the threshold,
-    so we never oscillate.
+    single source of truth and explicit buffer zones around the
+    thresholds, so we never oscillate.
 
     Companion CSS: `html.has-sticky-header { overflow-anchor: none }` —
     without that, when CSS-driven hide-when-sticky rules collapse content
@@ -31,9 +31,9 @@ const stickyHeader = {
     smallScreenBreakpoint: 1024,
     config: {
         // Once sticky, don't disengage until scrollY drops this many px
-        // BELOW the natural threshold. Prevents micro-toggling at the
-        // boundary (touch input, layout shifts, etc.).
-        stickyHysteresis: 30,
+        // BELOW the natural threshold. The buffer prevents micro-toggling
+        // at the boundary (touch input, layout shifts, etc.).
+        stickyBuffer: 30,
         // Minimum px of scroll movement required to toggle hide/show.
         // Filters tiny touchscreen scroll noise.
         hideDelta: 5,
@@ -98,14 +98,14 @@ const stickyHeader = {
         );
         let stickyChangedThisFrame = false;
 
-        // Sticky engagement with hysteresis. The disengage threshold is
-        // clamped to 0 so that headers whose natural offsetTop is at or
-        // near 0 (the typical case) can still un-stick when the user
+        // Sticky engagement with a buffer zone. The disengage threshold
+        // is clamped to 0 so that headers whose natural offsetTop is at
+        // or near 0 (the typical case) can still un-stick when the user
         // scrolls all the way back to the top — otherwise the disengage
         // bound goes negative and the class is never removed.
         const disengageAt = Math.max(
             0,
-            this.naturalOffsetTop - this.config.stickyHysteresis,
+            this.naturalOffsetTop - this.config.stickyBuffer,
         );
         if (!this.isSticky && scrollY > this.naturalOffsetTop) {
             this.isSticky = true;
