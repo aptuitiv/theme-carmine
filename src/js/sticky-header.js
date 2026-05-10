@@ -98,7 +98,15 @@ const stickyHeader = {
         );
         let stickyChangedThisFrame = false;
 
-        // Sticky engagement with hysteresis.
+        // Sticky engagement with hysteresis. The disengage threshold is
+        // clamped to 0 so that headers whose natural offsetTop is at or
+        // near 0 (the typical case) can still un-stick when the user
+        // scrolls all the way back to the top — otherwise the disengage
+        // bound goes negative and the class is never removed.
+        const disengageAt = Math.max(
+            0,
+            this.naturalOffsetTop - this.config.stickyHysteresis,
+        );
         if (!this.isSticky && scrollY > this.naturalOffsetTop) {
             this.isSticky = true;
             this.header.classList.add('is-sticky');
@@ -106,10 +114,7 @@ const stickyHeader = {
             // Defer remeasure to next frame so CSS-driven layout collapse
             // from the .is-sticky class has settled before we sample.
             requestAnimationFrame(() => this.updateAnchorOffset());
-        } else if (
-            this.isSticky &&
-            scrollY < this.naturalOffsetTop - this.config.stickyHysteresis
-        ) {
+        } else if (this.isSticky && scrollY <= disengageAt) {
             this.isSticky = false;
             this.header.classList.remove('is-sticky');
             stickyChangedThisFrame = true;
