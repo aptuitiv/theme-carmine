@@ -3,7 +3,8 @@
 \* =========================================================================== */
 
 /* @define Header */
-.Header {
+
+.Header-inner {
     padding: var(--Header-padding-sm, 20px 0);
 }
 
@@ -51,7 +52,9 @@
 
 .Header-logo {
     max-width: var(--Header-logo-width);
-    transition: max-width 250ms ease, width 250ms ease;
+    transition:
+        max-width 250ms ease,
+        width 250ms ease;
     width: 100%;
 }
 
@@ -88,7 +91,7 @@
 }
 
 @media (--m-lg) {
-    .Header {
+    .Header-inner {
         padding: var(--Header-padding, 20px 0);
     }
 }
@@ -113,7 +116,9 @@
     background: var(--Header-sticky-background, #fff);
     position: sticky;
     top: 0;
-    transition: transform 250ms ease, box-shadow 250ms ease;
+    transition:
+        transform 250ms ease,
+        box-shadow 250ms ease;
     z-index: var(--Header-sticky-z-index, 100);
 }
 
