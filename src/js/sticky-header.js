@@ -36,7 +36,7 @@ const stickyHeader = {
 
     show() {
         if (!this.header.classList.contains('is-hidden')) return;
-        this.header.style.top = '';
+        this.header.style.top = '0px';
         this.header.classList.remove('is-hidden');
     },
 
