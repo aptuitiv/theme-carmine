@@ -139,11 +139,24 @@
     font-size: calc(var(--Header-text-logo-font-size-sm) * var(--Header-sticky-logo-scale-pct, 75) / 100);
 }
 
-.Header--hideSocialWhenSticky.is-sticky .Header-socialIcons,
-.Header--hideAddressWhenSticky.is-sticky .Header-address,
-.Header--hidePhoneWhenSticky.is-sticky .Header-phone,
-.Header--hideEmailWhenSticky.is-sticky .Header-email,
-.Header--hideHoursWhenSticky.is-sticky .Header-hours,
-.Header--hideButtonsWhenSticky.is-sticky .Header-buttons {
-    display: none;
+@media (--m-lg) {
+    .Header--hideSocialWhenSticky.is-sticky .Header-socialIcons,
+    .Header--hideAddressWhenSticky.is-sticky .Header-address,
+    .Header--hidePhoneWhenSticky.is-sticky .Header-phone,
+    .Header--hideEmailWhenSticky.is-sticky .Header-email,
+    .Header--hideHoursWhenSticky.is-sticky .Header-hours,
+    .Header--hideButtonsWhenSticky.is-sticky .Header-buttons {
+        display: none !important;
+    }
+}
+
+@media (--m-lg-below) {
+    .Header--hideSocialWhenStickySm.is-sticky .Header-socialIcons,
+    .Header--hideAddressWhenStickySm.is-sticky .Header-address,
+    .Header--hidePhoneWhenStickySm.is-sticky .Header-phone,
+    .Header--hideEmailWhenStickySm.is-sticky .Header-email,
+    .Header--hideHoursWhenStickySm.is-sticky .Header-hours,
+    .Header--hideButtonsWhenStickySm.is-sticky .Header-buttons {
+        display: none !important;
+    }
 }

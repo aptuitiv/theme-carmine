@@ -188,74 +188,6 @@
                             "description": "If you want to show the hours of operation in the header then enter them here."
                         }
                     ]
-                },
-                {
-                    "name": "Sticky header behavior",
-                    "fields": [
-                        {
-                            "name": "headerStickyEnabled",
-                            "label": "Enable sticky header",
-                            "type": "switch",
-                            "description": "When enabled the header stays visible at the top of the page as the user scrolls.",
-                            "defaultValue": "no"
-                        },
-                        {
-                            "name": "headerStickyLogoScale",
-                            "label": "Logo size when sticky",
-                            "type": "stepper",
-                            "description": "Percentage of the normal logo width while the header is sticky. 100 = unchanged, 75 = three-quarters size.",
-                            "after": "%",
-                            "defaultValue": "75",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-sticky-logo-scale-pct",
-                                "template": "{{ value }}"
-                            }
-                        },
-                        {
-                            "name": "headerStickyHideOnScroll",
-                            "label": "Hide on scroll down (small screens)",
-                            "type": "switch",
-                            "description": "On small screens, hide the header when scrolling down and reveal it when scrolling up. Requires the sticky header to be enabled.",
-                            "defaultValue": "no"
-                        },
-                        {
-                            "name": "headerStickyHideSocial",
-                            "label": "Hide social icons when sticky",
-                            "type": "switch",
-                            "defaultValue": "no"
-                        },
-                        {
-                            "name": "headerStickyHideAddress",
-                            "label": "Hide address when sticky",
-                            "type": "switch",
-                            "defaultValue": "yes"
-                        },
-                        {
-                            "name": "headerStickyHidePhone",
-                            "label": "Hide phone when sticky",
-                            "type": "switch",
-                            "defaultValue": "no"
-                        },
-                        {
-                            "name": "headerStickyHideEmail",
-                            "label": "Hide email when sticky",
-                            "type": "switch",
-                            "defaultValue": "yes"
-                        },
-                        {
-                            "name": "headerStickyHideHours",
-                            "label": "Hide hours when sticky",
-                            "type": "switch",
-                            "defaultValue": "yes"
-                        },
-                        {
-                            "name": "headerStickyHideButtons",
-                            "label": "Hide buttons when sticky",
-                            "type": "switch",
-                            "defaultValue": "no"
-                        }
-                    ]
                 }
             ]
         },
@@ -319,6 +251,129 @@
                             "label": "URL to your page on this social network",
                             "type": "text",
                             "columnWidth": "2fr"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Sticky Header",
+            "description": "Make the header stay at the top of the page as the user scrolls, with control over what shrinks or hides at each screen size.",
+            "sidebarSize": "small",
+            "groups": [
+                {
+                    "name": "General",
+                    "fields": [
+                        {
+                            "name": "headerStickyEnabled",
+                            "label": "Enable sticky header",
+                            "type": "switch",
+                            "description": "When enabled the header stays visible at the top of the page as the user scrolls.",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyLogoScale",
+                            "label": "Logo size when sticky",
+                            "type": "stepper",
+                            "description": "Percentage of the normal logo width while the header is sticky. 100 = unchanged, 75 = three-quarters size.",
+                            "after": "%",
+                            "defaultValue": "75",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-sticky-logo-scale-pct",
+                                "template": "{{ value }}"
+                            }
+                        },
+                        {
+                            "name": "headerStickyHideOnScroll",
+                            "label": "Hide on scroll down (small screens)",
+                            "type": "switch",
+                            "description": "On small screens, hide the header when scrolling down and reveal it when scrolling up. Requires the sticky header to be enabled.",
+                            "defaultValue": "no"
+                        }
+                    ]
+                },
+                {
+                    "name": "Large screen show/hide",
+                    "description": "Hide individual elements when the header is sticky on large screens (1024px and wider).",
+                    "fields": [
+                        {
+                            "name": "headerStickyHideSocial",
+                            "label": "Hide social icons",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyHideAddress",
+                            "label": "Hide address",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHidePhone",
+                            "label": "Hide phone",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyHideEmail",
+                            "label": "Hide email",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHideHours",
+                            "label": "Hide hours",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHideButtons",
+                            "label": "Hide buttons",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        }
+                    ]
+                },
+                {
+                    "name": "Small screen show/hide",
+                    "description": "Hide individual elements when the header is sticky on small screens (below 1024px) — applies in the same range as the hide-on-scroll behavior.",
+                    "fields": [
+                        {
+                            "name": "headerStickyHideSocialSm",
+                            "label": "Hide social icons",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyHideAddressSm",
+                            "label": "Hide address",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHidePhoneSm",
+                            "label": "Hide phone",
+                            "type": "switch",
+                            "defaultValue": "no"
+                        },
+                        {
+                            "name": "headerStickyHideEmailSm",
+                            "label": "Hide email",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHideHoursSm",
+                            "label": "Hide hours",
+                            "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerStickyHideButtonsSm",
+                            "label": "Hide buttons",
+                            "type": "switch",
+                            "defaultValue": "no"
                         }
                     ]
                 }
