@@ -3445,34 +3445,136 @@
             "description": "Styles for the header of the website.",
             "groups": [
                 {
-                    "name": "Padding",
+                    "name": "General typography",
+                    "description": "General typography styles for the header",
                     "fields": [
                         {
-                            "name": "headerInnerPadding",
-                            "label": "Inner padding",
-                            "type": "padding",
-                            "description": "Padding around the logo, navigation, and other header content.",
-                            "defaultValue": "20px 0",
+                            "name": "headerTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "useTextDecoration": false,
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-inner-padding"
-                            }
-                        },
-                        {
-                            "name": "headerInnerPaddingSm",
-                            "label": "Inner padding (small screens)",
-                            "type": "padding",
-                            "description": "Padding around the logo, navigation, and other header content on small screens.",
-                            "defaultValue": "20px 0",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-inner-padding-sm"
+                                "cssSelector": ".Header-content"
                             }
                         }
                     ]
                 },
                 {
-                    "name": "Text Logo",
+                    "name": "Header buttons",
+                    "fields": [
+                        {
+                            "name": "headerButtonBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "background-color"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBackgroundHover",
+                            "label": "Background color (hover)",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "background-color",
+                                "state": "hover"
+                            }
+                        },
+                        {
+                            "name": "headerButtonTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useHover": true,
+                            "useTextAlign": false,
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderColor",
+                            "label": "Border color",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "border-color"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderColorHover",
+                            "label": "Border color (hover)",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "border-color",
+                                "state": "hover"
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderRadius",
+                            "label": "Border radius",
+                            "type": "borderRadius",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "config": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        },
+                        {
+                            "name": "headerButtonBorderWidth",
+                            "label": "Border width",
+                            "type": "size",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "cssProperty": "border-width"
+                            }
+                        },
+                        {
+                            "name": "headerButtonPadding",
+                            "label": "Padding",
+                            "type": "padding",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Button.Header-button",
+                                "config": {
+                                    "defaultValue": ""
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Header links",
+                    "description": "This is for other links in the footer like an email link.",
+                    "fields": [
+                        {
+                            "name": "headerLinkTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "useHover": true,
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Header-link"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Logo - Text",
                     "description": "Styles for the text logo if in use.",
                     "fields": [
                         {
@@ -3508,37 +3610,54 @@
                     ]
                 },
                 {
-                    "name": "General typography",
-                    "description": "General typography styles for the header",
+                    "name": "Padding",
                     "fields": [
                         {
-                            "name": "headerTypography",
-                            "label": "Typography",
-                            "type": "typography",
-                            "collapsable": false,
-                            "useTextAlign": false,
-                            "useTextDecoration": false,
+                            "name": "headerInnerPadding",
+                            "label": "Inner padding",
+                            "type": "padding",
+                            "description": "Padding around the logo, navigation, and other header content.",
+                            "defaultValue": "20px 0",
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".Header-content"
+                                "cssVariable": "--Header-inner-padding"
+                            }
+                        },
+                        {
+                            "name": "headerInnerPaddingSm",
+                            "label": "Inner padding (small screens)",
+                            "type": "padding",
+                            "description": "Padding around the logo, navigation, and other header content on small screens.",
+                            "defaultValue": "20px 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-inner-padding-sm"
                             }
                         }
                     ]
                 },
                 {
-                    "name": "Header links",
-                    "description": "This is for other links in the footer like an email link.",
+                    "name": "Phone number",
+                    "description": "Styles for the phone number in the header.",
                     "fields": [
                         {
-                            "name": "headerLinkTypography",
+                            "name": "headerPhoneNumberTypography",
                             "label": "Typography",
                             "type": "typography",
                             "collapsable": false,
-                            "useTextAlign": false,
-                            "useHover": true,
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".Header-link"
+                                "cssVariable": "--Header-phone"
+                            }
+                        },
+                        {
+                            "name": "headerPhoneNumberFontSizeSm",
+                            "label": "Font size (small screens)",
+                            "type": "size",
+                            "defaultValue": "1.6rem",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-phone-font-size-sm"
                             }
                         }
                     ]
@@ -3667,99 +3786,6 @@
                     ]
                 },
                 {
-                    "name": "Header buttons",
-                    "fields": [
-                        {
-                            "name": "headerButtonBackground",
-                            "label": "Background color",
-                            "type": "color",
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Button.Header-button",
-                                "cssProperty": "background-color"
-                            }
-                        },
-                        {
-                            "name": "headerButtonBackgroundHover",
-                            "label": "Background color (hover)",
-                            "type": "color",
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Button.Header-button",
-                                "cssProperty": "background-color",
-                                "state": "hover"
-                            }
-                        },
-                        {
-                            "name": "headerButtonTypography",
-                            "label": "Typography",
-                            "type": "typography",
-                            "collapsable": false,
-                            "useHover": true,
-                            "useTextAlign": false,
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Button.Header-button"
-                            }
-                        },
-                        {
-                            "name": "headerButtonBorderColor",
-                            "label": "Border color",
-                            "type": "color",
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Button.Header-button",
-                                "cssProperty": "border-color"
-                            }
-                        },
-                        {
-                            "name": "headerButtonBorderColorHover",
-                            "label": "Border color (hover)",
-                            "type": "color",
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Button.Header-button",
-                                "cssProperty": "border-color",
-                                "state": "hover"
-                            }
-                        },
-                        {
-                            "name": "headerButtonBorderRadius",
-                            "label": "Border radius",
-                            "type": "borderRadius",
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Button.Header-button",
-                                "config": {
-                                    "defaultValue": ""
-                                }
-                            }
-                        },
-                        {
-                            "name": "headerButtonBorderWidth",
-                            "label": "Border width",
-                            "type": "size",
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Button.Header-button",
-                                "cssProperty": "border-width"
-                            }
-                        },
-                        {
-                            "name": "headerButtonPadding",
-                            "label": "Padding",
-                            "type": "padding",
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Button.Header-button",
-                                "config": {
-                                    "defaultValue": ""
-                                }
-                            }
-                        }
-                    ]
-                },
-                {
                     "name": "Sticky Header",
                     "description": "Styles applied to the header when it's set to be sticky.",
                     "fields": [
@@ -3788,6 +3814,14 @@
                                 "cssVariable": "--Header-sticky-logo-scale-pct-sm",
                                 "template": "{{ value }}"
                             }
+                        },
+
+                        {
+                            "name": "headerStickyButtonsNoNewLines",
+                            "label": "Remove line breaks from buttons",
+                            "type": "switch",
+                            "description": "When enabled, if any header buttons have any break tags, they will be removed when the header is sticky.",
+                            "defaultValue": "no"
                         },
                         {
                             "name": "headerStickyBackground",

@@ -71,6 +71,25 @@
     transition: font-size 250ms ease;
 }
 
+.Header-phone {
+    color: var(--Header-phone-color);
+    font-family: var(--Header-phone-font-family);
+    font-size: var(--Header-phone-font-size-sm);
+    font-style: var(--Header-phone-font-style);
+    font-weight: var(--Header-phone-font-weight);
+    letter-spacing: var(--Header-phone-letter-spacing);
+    line-height: var(--Header-phone-line-height);
+    text-align: var(--Header-phone-text-align);
+    text-decoration: var(--Header-phone-text-decoration, 'none');
+    text-transform: var(--Header-phone-text-transform);
+}
+
+@media (--m-lg) {
+    .Header-phone {
+        font-size: var(--Header-phone-font-size);
+    }
+}
+
 .Header-link {
     line-height: 1;
     text-decoration: none;
@@ -159,6 +178,10 @@
 
 .Header.is-sticky .Header-textLogo {
     font-size: calc(var(--Header-text-logo-font-size-sm) * var(--Header-sticky-logo-scale-pct-sm, 75) / 100);
+}
+
+.Header.is-sticky .Header-button.no-break br {
+    display: none;
 }
 
 @media (--m-lg) {
