@@ -2778,6 +2778,16 @@
                                 "type": "css-head",
                                 "cssVariable": "--Footer-sm"
                             }
+                        },
+                        {
+                            "name": "footerContactGap",
+                            "label": "Vertical space between address, phone number, and email",
+                            "type": "size",
+                            "defaultValue": "5px",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Footer-contact-gap"
+                            }
                         }
                     ]
                 },
