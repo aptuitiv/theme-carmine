@@ -3767,12 +3767,25 @@
                             "name": "headerStickyLogoScale",
                             "label": "Logo size when sticky",
                             "type": "stepper",
-                            "description": "Percentage of the normal logo width while the header is sticky. 100 = unchanged, 75 = three-quarters size.",
+                            "description": "Percentage of the normal logo width while the header is sticky on large screens. 100 = unchanged, 75 = three-quarters size.",
                             "after": "%",
                             "defaultValue": "75",
                             "render": {
                                 "type": "css-head",
                                 "cssVariable": "--Header-sticky-logo-scale-pct",
+                                "template": "{{ value }}"
+                            }
+                        },
+                        {
+                            "name": "headerStickyLogoScaleSm",
+                            "label": "Logo size when sticky (small screens)",
+                            "type": "stepper",
+                            "description": "Percentage of the normal logo width while the header is sticky on small screens. 100 = unchanged, 75 = three-quarters size.",
+                            "after": "%",
+                            "defaultValue": "75",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-sticky-logo-scale-pct-sm",
                                 "template": "{{ value }}"
                             }
                         },

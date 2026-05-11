@@ -150,18 +150,30 @@
 }
 
 .Header.is-sticky .Header-logo {
-    max-width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+    max-width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct-sm, 75) / 100);
 }
 
 .Header.is-sticky .Header-logo[src$='.svg'] {
-    width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+    width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct-sm, 75) / 100);
 }
 
 .Header.is-sticky .Header-textLogo {
-    font-size: calc(var(--Header-text-logo-font-size-sm) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+    font-size: calc(var(--Header-text-logo-font-size-sm) * var(--Header-sticky-logo-scale-pct-sm, 75) / 100);
 }
 
 @media (--m-lg) {
+    .Header.is-sticky .Header-logo {
+        max-width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+    }
+
+    .Header.is-sticky .Header-logo[src$='.svg'] {
+        width: calc(var(--Header-logo-width) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+    }
+
+    .Header.is-sticky .Header-textLogo {
+        font-size: calc(var(--Header-text-logo-font-size) * var(--Header-sticky-logo-scale-pct, 75) / 100);
+    }
+
     .Header--hideSocialWhenSticky.is-sticky .Header-socialIcons,
     .Header--hideAddressWhenSticky.is-sticky .Header-address,
     .Header--hidePhoneWhenSticky.is-sticky .Header-phone,
