@@ -74,6 +74,20 @@
                     }
                 },
                 {
+                    "name": "footerShowSocial",
+                    "label": "Show social icons (large screens)",
+                    "type": "switch",
+                    "description": "Show the social icons in the footer on large screens. They render after the navigation and above the address.",
+                    "defaultValue": "no"
+                },
+                {
+                    "name": "footerShowSocialSm",
+                    "label": "Show social icons (small screens)",
+                    "type": "switch",
+                    "description": "Show the social icons in the footer on small screens. Use together with the large-screen toggle to control each independently.",
+                    "defaultValue": "no"
+                },
+                {
                     "name": "footerShowAddress",
                     "label": "Show address",
                     "type": "switch",
@@ -183,8 +197,15 @@
                         },
                         {
                             "name": "headerShowSocial",
-                            "label": "Show social icons",
+                            "label": "Show social icons (large screens)",
                             "type": "switch",
+                            "defaultValue": "yes"
+                        },
+                        {
+                            "name": "headerShowSocialSm",
+                            "label": "Show social icons (small screens)",
+                            "type": "switch",
+                            "description": "Show the social icons in the header on small screens. Disable this to hide them on phones / tablets while keeping them on desktop.",
                             "defaultValue": "yes"
                         },
                         {

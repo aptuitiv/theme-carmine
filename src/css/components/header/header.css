@@ -127,11 +127,28 @@
     }
 }
 
+.Header-socialIcons {
+    display: flex;
+    gap: 10px;
+}
+
 .Header-socialLink {
     align-items: center;
     aspect-ratio: 1/1;
     display: inline-flex;
     justify-content: center;
+}
+
+@media (--m-lg) {
+    .Header-socialIcons--hideLg {
+        display: none;
+    }
+}
+
+@media (--m-lg-below) {
+    .Header-socialIcons--hideSm {
+        display: none;
+    }
 }
 
 /* =========================================================================== *\

@@ -2864,6 +2864,83 @@
                     ]
                 },
                 {
+                    "name": "Social icons",
+                    "fields": [
+                        {
+                            "name": "footerSocialColor",
+                            "label": "Color",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-socialLink",
+                                "cssProperty": "color"
+                            }
+                        },
+                        {
+                            "name": "footerSocialColorHover",
+                            "label": "Color (hover)",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-socialLink",
+                                "cssProperty": "color",
+                                "state": "hover"
+                            }
+                        },
+                        {
+                            "name": "footerSocialBackground",
+                            "label": "Background",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-socialLink",
+                                "cssProperty": "background-color"
+                            }
+                        },
+                        {
+                            "name": "footerSocialBackgroundHover",
+                            "label": "Background (hover)",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-socialLink",
+                                "cssProperty": "background-color",
+                                "state": "hover"
+                            }
+                        },
+                        {
+                            "name": "footerSocialSize",
+                            "label": "Size",
+                            "type": "size",
+                            "defaultValue": "30px",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-socialLink",
+                                "cssProperty": "height"
+                            }
+                        },
+                        {
+                            "name": "footerSocialBorderRadius",
+                            "label": "Border radius",
+                            "type": "borderRadius",
+                            "defaultValue": "50%",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-socialLink"
+                            }
+                        },
+                        {
+                            "name": "footerSocialPadding",
+                            "label": "Padding around all the icons",
+                            "type": "padding",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-socialIcons"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "Footer credit",
                     "description": "Styles for the Aptuitiv credit text at the bottom of the footer.",
                     "fields": [
