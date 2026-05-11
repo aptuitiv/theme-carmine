@@ -140,6 +140,9 @@
                             <div class="Header-buttons flex flex-col flex-row-md g-2 mt-1">
                                 {% for button in _core.theme.settings.headerButtons %}
                                     {% set button.button.class = "Button Header-button" %}
+                                    {% if _core.theme.settings.headerStickyButtonsNoNewLines == 'yes' %}
+                                        {% set button.button.class = button.button.class ~ " no-break" %}
+                                    {% endif %}
                                     {{ button.button.tag }}
                                 {% endfor %}
                             </div>
