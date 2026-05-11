@@ -5,7 +5,8 @@
 /* @define Header */
 
 .Header-inner {
-    padding: var(--Header-padding-sm, 20px 0);
+    padding: var(--Header-inner-padding-sm, 20px 0);
+    transition: padding 250ms ease;
 }
 
 .Header-skipToMain {
@@ -93,7 +94,7 @@
 
 @media (--m-lg) {
     .Header-inner {
-        padding: var(--Header-padding, 20px 0);
+        padding: var(--Header-inner-padding, 20px 0);
     }
 }
 
@@ -168,6 +169,10 @@
     .Header--hideButtonsWhenSticky.is-sticky .Header-buttons {
         display: none !important;
     }
+
+    .Header.is-sticky .Header-inner {
+        padding: var(--Header-inner-padding-sticky, var(--Header-inner-padding, 20px 0));
+    }
 }
 
 @media (--m-lg-below) {
@@ -178,5 +183,9 @@
     .Header--hideHoursWhenStickySm.is-sticky .Header-hours,
     .Header--hideButtonsWhenStickySm.is-sticky .Header-buttons {
         display: none !important;
+    }
+
+    .Header.is-sticky .Header-inner {
+        padding: var(--Header-inner-padding-sticky-sm, var(--Header-inner-padding-sm, 20px 0));
     }
 }
