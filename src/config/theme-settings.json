@@ -271,19 +271,7 @@
                             "description": "When enabled the header stays visible at the top of the page as the user scrolls.",
                             "defaultValue": "no"
                         },
-                        {
-                            "name": "headerStickyLogoScale",
-                            "label": "Logo size when sticky",
-                            "type": "stepper",
-                            "description": "Percentage of the normal logo width while the header is sticky. 100 = unchanged, 75 = three-quarters size.",
-                            "after": "%",
-                            "defaultValue": "75",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-sticky-logo-scale-pct",
-                                "template": "{{ value }}"
-                            }
-                        },
+
                         {
                             "name": "headerStickyHideOnScroll",
                             "label": "Hide on scroll down (small screens)",

@@ -3468,28 +3468,6 @@
                                 "type": "css-head",
                                 "cssVariable": "--Header-inner-padding-sm"
                             }
-                        },
-                        {
-                            "name": "headerInnerPaddingSticky",
-                            "label": "Inner padding (sticky)",
-                            "type": "padding",
-                            "description": "Padding around the logo, navigation, and other header content when the header is sticky.",
-                            "defaultValue": "20px 0",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-inner-padding-sticky"
-                            }
-                        },
-                        {
-                            "name": "headerInnerPaddingStickySm",
-                            "label": "Inner padding (sticky) (small screens)",
-                            "type": "padding",
-                            "description": "Padding around the logo, navigation, and other header content when the header is sticky on small screens.",
-                            "defaultValue": "20px 0",
-                            "render": {
-                                "type": "css-head",
-                                "cssVariable": "--Header-inner-padding-sticky-sm"
-                            }
                         }
                     ]
                 },
@@ -3777,6 +3755,84 @@
                                 "config": {
                                     "defaultValue": ""
                                 }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Sticky Header",
+                    "description": "Styles applied to the header when it's set to be sticky.",
+                    "fields": [
+                        {
+                            "name": "headerStickyLogoScale",
+                            "label": "Logo size when sticky",
+                            "type": "stepper",
+                            "description": "Percentage of the normal logo width while the header is sticky. 100 = unchanged, 75 = three-quarters size.",
+                            "after": "%",
+                            "defaultValue": "75",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-sticky-logo-scale-pct",
+                                "template": "{{ value }}"
+                            }
+                        },
+                        {
+                            "name": "headerStickyBackground",
+                            "label": "Background color",
+                            "type": "color",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-sticky-background"
+                            }
+                        },
+                        {
+                            "name": "headerStickyBoxShadow",
+                            "label": "Box shadow",
+                            "type": "boxShadow",
+                            "description": "Drop shadow applied beneath the header once it's in its stuck state. Use any valid CSS box-shadow value.",
+                            "defaultValue": {
+                                "x": 0,
+                                "y": "1px",
+                                "blur": "6px",
+                                "spread": 0,
+                                "color": "rgba(0, 0, 0, 0.3)"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-sticky-box-shadow"
+                            }
+                        },
+                        {
+                            "name": "headerStickyZIndex",
+                            "label": "Z-index",
+                            "type": "stepper",
+                            "description": "Stacking order of the sticky header. Increase if other elements overlap it.",
+                            "defaultValue": "100",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-sticky-z-index"
+                            }
+                        },
+                        {
+                            "name": "headerInnerPaddingSticky",
+                            "label": "Inner padding (sticky)",
+                            "type": "padding",
+                            "description": "Padding around the logo, navigation, and other header content when the header is sticky.",
+                            "defaultValue": "20px 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-inner-padding-sticky"
+                            }
+                        },
+                        {
+                            "name": "headerInnerPaddingStickySm",
+                            "label": "Inner padding (sticky) (small screens)",
+                            "type": "padding",
+                            "description": "Padding around the logo, navigation, and other header content when the header is sticky on small screens.",
+                            "defaultValue": "20px 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-inner-padding-sticky-sm"
                             }
                         }
                     ]
