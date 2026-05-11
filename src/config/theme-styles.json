@@ -3448,23 +3448,47 @@
                     "name": "Padding",
                     "fields": [
                         {
-                            "name": "headerPadding",
-                            "label": "Padding",
+                            "name": "headerInnerPadding",
+                            "label": "Inner padding",
                             "type": "padding",
+                            "description": "Padding around the logo, navigation, and other header content.",
                             "defaultValue": "20px 0",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-padding"
+                                "cssVariable": "--Header-inner-padding"
                             }
                         },
                         {
-                            "name": "headerPaddingSm",
-                            "label": "Padding (small screens)",
+                            "name": "headerInnerPaddingSm",
+                            "label": "Inner padding (small screens)",
                             "type": "padding",
+                            "description": "Padding around the logo, navigation, and other header content on small screens.",
                             "defaultValue": "20px 0",
                             "render": {
                                 "type": "css-head",
-                                "cssVariable": "--Header-padding-sm"
+                                "cssVariable": "--Header-inner-padding-sm"
+                            }
+                        },
+                        {
+                            "name": "headerInnerPaddingSticky",
+                            "label": "Inner padding (sticky)",
+                            "type": "padding",
+                            "description": "Padding around the logo, navigation, and other header content when the header is sticky.",
+                            "defaultValue": "20px 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-inner-padding-sticky"
+                            }
+                        },
+                        {
+                            "name": "headerInnerPaddingStickySm",
+                            "label": "Inner padding (sticky) (small screens)",
+                            "type": "padding",
+                            "description": "Padding around the logo, navigation, and other header content when the header is sticky on small screens.",
+                            "defaultValue": "20px 0",
+                            "render": {
+                                "type": "css-head",
+                                "cssVariable": "--Header-inner-padding-sticky-sm"
                             }
                         }
                     ]
