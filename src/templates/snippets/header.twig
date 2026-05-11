@@ -57,7 +57,6 @@
     <div class="visually-hidden" aria-hidden="true">{{ source('snippets/svg-icons.twig') }}</div>
     {{ _api.widgets.collection.get('notifications') }}
     <header class="Header
-        {%- if _core.theme.settings.headerStickyEnabled == 'yes' %} Header--sticky{% endif -%}
         {%- if _core.theme.settings.headerStickyEnabled == 'yes' and _core.theme.settings.headerStickyHideOnScroll == 'yes' %} Header--hideOnScroll{% endif -%}
         {%- if _core.theme.settings.headerStickyHideSocial == 'yes' %} Header--hideSocialWhenSticky{% endif -%}
         {%- if _core.theme.settings.headerStickyHideAddress == 'yes' %} Header--hideAddressWhenSticky{% endif -%}

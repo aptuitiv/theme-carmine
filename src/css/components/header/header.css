@@ -134,7 +134,8 @@
     }
 }
 
-.Header--sticky {
+/* stylelint-disable-next-line plugin/selector-bem-pattern -- Scoped via the .has-sticky-header utility on <html>, applied by header.twig when sticky is enabled. */
+.has-sticky-header .Header {
     background: var(--Header-sticky-background, #fff);
     position: sticky;
     top: 0;

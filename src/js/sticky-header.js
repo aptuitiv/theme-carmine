@@ -40,7 +40,7 @@ const stickyHeader = {
     },
 
     init() {
-        this.header = document.querySelector('.Header--sticky');
+        this.header = document.querySelector('.has-sticky-header .Header');
         if (!this.header) return;
         if (!this.featuresSupported()) return;
         this.captureNaturalOffset();
