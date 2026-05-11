@@ -2834,6 +2834,21 @@
                     ]
                 },
                 {
+                    "name": "Phone number",
+                    "fields": [
+                        {
+                            "name": "footerPhoneTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "useMargin": true,
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-phone"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "Footer links",
                     "description": "This is for other links in the footer like an email link.",
                     "fields": [

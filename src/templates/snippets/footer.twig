@@ -42,7 +42,7 @@
                             </div>
                         {% endif %}
                         {% if _core.theme.settings.footerShowPhone == 'yes' %}
-                            <a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}">{{ _core.settings.companyPhone }}</a>
+                            <a href="tel:{{ _core.settings.companyPhone|replace({'(': '', '}': '', '-': '', ' ': ''}) }}" class="Footer-phone">{{ _core.settings.companyPhone }}</a>
                         {% endif %}
                         {% if _core.theme.settings.footerShowEmail == 'yes' %}
                             <a href="mailto:{{ _core.settings.companyEmail }}" class="Footer-link">{{ _core.settings.companyEmail }}</a>
