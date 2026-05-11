@@ -2792,20 +2792,73 @@
                     ]
                 },
                 {
-                    "name": "Typography",
+                    "name": "Footer credit",
+                    "description": "Styles for the Aptuitiv credit text at the bottom of the footer.",
                     "fields": [
                         {
-                            "name": "footerTypography",
+                            "name": "footerCreditTypography",
                             "label": "Typography",
                             "type": "typography",
                             "collapsable": false,
                             "useTextAlign": false,
+                            "useHover": true,
                             "color": {
                                 "defaultValue": "#fff"
                             },
+                            "colorHover": {
+                                "defaultValue": "#fff"
+                            },
+                            "fontSize": {
+                                "defaultValue": "1.4rem"
+                            },
+                            "textDecoration": {
+                                "defaultValue": "none"
+                            },
+                            "textDecorationHover": {
+                                "defaultValue": "underline"
+                            },
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".Footer"
+                                "cssSelector": ".Footer-attributeLink"
+                            }
+                        },
+                        {
+                            "name": "footerCreditPadding",
+                            "label": "Padding around the footer credit text",
+                            "type": "padding",
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-attribution"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Footer links",
+                    "description": "This is for other links in the footer like an email link.",
+                    "fields": [
+                        {
+                            "name": "footerLinkTypography",
+                            "label": "Typography",
+                            "type": "typography",
+                            "collapsable": false,
+                            "useTextAlign": false,
+                            "useHover": true,
+                            "color": {
+                                "defaultValue": "#fff"
+                            },
+                            "colorHover": {
+                                "defaultValue": "#fff"
+                            },
+                            "textDecoration": {
+                                "defaultValue": "none"
+                            },
+                            "textDecorationHover": {
+                                "defaultValue": "underline"
+                            },
+                            "render": {
+                                "type": "css-head",
+                                "cssSelector": ".Footer-link"
                             }
                         }
                     ]
@@ -2854,36 +2907,6 @@
                             "render": {
                                 "type": "css-head",
                                 "cssSelector": ".Footer-phone"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "Footer links",
-                    "description": "This is for other links in the footer like an email link.",
-                    "fields": [
-                        {
-                            "name": "footerLinkTypography",
-                            "label": "Typography",
-                            "type": "typography",
-                            "collapsable": false,
-                            "useTextAlign": false,
-                            "useHover": true,
-                            "color": {
-                                "defaultValue": "#fff"
-                            },
-                            "colorHover": {
-                                "defaultValue": "#fff"
-                            },
-                            "textDecoration": {
-                                "defaultValue": "none"
-                            },
-                            "textDecorationHover": {
-                                "defaultValue": "underline"
-                            },
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Footer-link"
                             }
                         }
                     ]
@@ -2966,43 +2989,20 @@
                     ]
                 },
                 {
-                    "name": "Footer credit",
-                    "description": "Styles for the Aptuitiv credit text at the bottom of the footer.",
+                    "name": "Typography",
                     "fields": [
                         {
-                            "name": "footerCreditTypography",
+                            "name": "footerTypography",
                             "label": "Typography",
                             "type": "typography",
                             "collapsable": false,
                             "useTextAlign": false,
-                            "useHover": true,
                             "color": {
                                 "defaultValue": "#fff"
                             },
-                            "colorHover": {
-                                "defaultValue": "#fff"
-                            },
-                            "fontSize": {
-                                "defaultValue": "1.4rem"
-                            },
-                            "textDecoration": {
-                                "defaultValue": "none"
-                            },
-                            "textDecorationHover": {
-                                "defaultValue": "underline"
-                            },
                             "render": {
                                 "type": "css-head",
-                                "cssSelector": ".Footer-attributeLink"
-                            }
-                        },
-                        {
-                            "name": "footerCreditPadding",
-                            "label": "Padding around the footer credit text",
-                            "type": "padding",
-                            "render": {
-                                "type": "css-head",
-                                "cssSelector": ".Footer-attribution"
+                                "cssSelector": ".Footer"
                             }
                         }
                     ]
