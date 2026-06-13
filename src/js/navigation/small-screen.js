@@ -25,6 +25,7 @@ const smallScreenNav = {
             if (window.innerWidth >= width) {
                 nav.style.display = '';
                 nav.style.opacity = '';
+                html.classList.remove('menu-open');
             }
         });
 
