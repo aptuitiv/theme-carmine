@@ -13,7 +13,7 @@
 
 @media (--m-lg-below) {
     .NavBar {
-        height: calc(100vh - var(--navbar-offset));
+        height: calc(100svh - var(--navbar-offset));
         left: 0;
         overflow-y: auto;
         position: fixed;
