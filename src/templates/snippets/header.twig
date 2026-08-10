@@ -24,19 +24,7 @@
     {{ _page.priorityHead() }}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ _page.meta() }}
-
-    {#
-        If the template name was set them load the correct critical CSS file and set
-        the main CSS file to load asynchronously.
-        Otherwise just load the CSS normal
-    #}
-    {% if template %}
-        {% set template = template|replace({'.twig': ''}) %}
-        {{ source('snippets/criticalcss-' ~ template ~ '.twig') }}
-        {% do _page.addCss('css/main.css'|theme_url, {'preload': true}) %}
-    {% else %}
-        <link type="text/css" rel="stylesheet" href="{{ 'css/main.css'|theme_url }}">
-    {% endif %}
+    <link type="text/css" rel="stylesheet" href="{{ 'css/main.css'|theme_url }}">
     {{ _page.css() }}
 
     {# Loadjs https://github.com/muicss/loadjs #}
