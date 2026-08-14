@@ -4,7 +4,7 @@
         <div class="SidebarBox-heading">Categories</div>
         {% for category in categories %}
             <div class="SidebarBox-item">
-                <a href="{{ category.url }}">{{ category.categoryName }}</a>
+                <a href="{{ category.url }}" aria-label="View all posts in the category: {{ category.categoryName|escape_quotes('double') }}">{{ category.categoryName }}</a>
                 <span class="SidebarBox-secondary"> - {{ category.postCount }} post{% if category.postCount > 1 %}s{% endif %}</span>
             </div>
         {% endfor %}

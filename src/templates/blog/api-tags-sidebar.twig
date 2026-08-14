@@ -4,7 +4,7 @@
         <div class="SidebarBox-heading">Tags</div>
         {% for tag in tags %}
             <div class="SidebarBox-item">
-                <a href="{{ tag.url }}">{{ tag.tagName }}</a>
+                <a href="{{ tag.url }}" aria-label="View all posts with the tag: {{ tag.tagName|escape_quotes('double') }}">{{ tag.tagName }}</a>
                 <span class="SidebarBox-secondary"> - {{ tag.postCount }} post{% if tag.postCount > 1 %}s{% endif %}</span>
             </div>
         {% endfor %}
