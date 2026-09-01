@@ -67,7 +67,7 @@
         {% endif %}
     {% endif %}
     {# Build the grid of item #}
-    <div class="Container Container--pad">
+    <div class="Container Container--pad{{ macros.blockMargin(margin) }}{{ macros.blockWidth(width) }}">
         <div class="ColumnContent grid {{ ncClass }}">
             {% for column in columns %}
                 <div class="{{ class }}">
