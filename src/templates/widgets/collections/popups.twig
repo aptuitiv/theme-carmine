@@ -14,7 +14,7 @@
             {% endif %}
             {# Check if popup cookie is not present #}
             {% if popup.id not in cookieIds %}
-                <div class="Modal Modal-slide" id="announcement-modal" aria-hidden="true" data-id="{{ popup.id }}">
+                <div class="Modal" id="announcement-modal" aria-hidden="true" data-id="{{ popup.id }}">
                     <div class="Modal-overlay" tabindex="-1" data-micromodal-close>
                         <div class="Modal-container" role="dialog" aria-modal="true">
                             <div class="Modal-header {% if popup.heading %}justify-between{% else %}justify-end{% endif %}">
