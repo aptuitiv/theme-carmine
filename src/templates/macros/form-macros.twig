@@ -470,28 +470,6 @@
     {{ _self.buildFieldDescription(field, 'below') }}
 {% endmacro %}
 
-{##
- # Build the field label
- # field: (object) The form field object
- # position: (string) The position of the label. Either 'above' or 'below'
- #}
-{% macro buildFieldDescription(field, position) %}
-    {% if field.description %}
-        {% set settingPosition = _core.theme.settings.formDescriptionPosition %}
-        {% if position == 'above' %}
-            {# See if the field label should be displayed above the field #}
-            {% if settingPosition == 'above' or (settingPosition == 'belowExceptRadioCheckbox' and field.fieldType in ['checkbox', 'multiCheckbox', 'radio']) %}
-                <div class="FormDescription FormDescription--withLabelMargin">{{ field.description }}</div>
-            {% endif %}
-        {% elseif position == 'below' %}
-            {# See if the field description should be displayed below the field #}
-            {% if settingPosition == 'below' or (settingPosition == 'belowExceptRadioCheckbox' and field.fieldType not in ['checkbox', 'multiCheckbox', 'radio']) %}
-                <div class="FormDescription">{{ field.description }}</div>
-            {% endif %}
-        {% endif %}
-    {% endif %}
-{% endmacro %}
-
 {#
     Sets the error container
     form: (object) The Twig form variable
