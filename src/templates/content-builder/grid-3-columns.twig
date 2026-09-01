@@ -12,12 +12,12 @@
 {% set alignment = '' %}
 {% if fields.verticalAlignment == 'center' %}
     {% set alignment = ' align-center' %}
-{% elseif fields.verticalAlignment == 'bottom' %} 
+{% elseif fields.verticalAlignment == 'bottom' %}
     {% set alignment = ' align-end' %}
 {% endif %}
 
 {# Build the grid #}
-<div class="Container Container--pad">
+<div class="{{ macros.blockMargin(margin) }}{{ macros.blockWidth(width, true) }}">
     <div class="grid g-4 nc-1 nc-3-sm{{ alignment }}">
         {% for key, column in columns %}
             <div class="{{ sizes[key] }}">

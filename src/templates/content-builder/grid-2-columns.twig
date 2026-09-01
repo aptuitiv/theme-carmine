@@ -19,12 +19,12 @@
 {% endif %}
 
 {# Build the grid #}
-<div class="Container Container--pad">
+<div class="{{ macros.blockMargin(margin) }}{{ macros.blockWidth(width, true) }}">
     <div class="grid g-4 nc-1 nc-2-sm{{ alignment }}">
         {% for key, column in columns %}
             <div class="{{ sizes[key] }}">
                 {% for element in column.elements %}
-                    {{ element.content }} 
+                    {{ element.content }}
                 {% endfor %}
             </div>
         {% endfor %}
