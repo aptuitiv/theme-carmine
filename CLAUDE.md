@@ -46,7 +46,7 @@ Configured in `.aptuitiv-buildrc.js`. Two output bundles:
 - **js/** — Global-object modules with `init()` methods. No module bundler; files are concatenated in the order specified in `.aptuitiv-buildrc.js`
 - **templates/** — Twig templates for BranchCMS
   - Page layouts: `one-column.twig`, `full-width.twig`, `narrow.twig`, two-column variants, `404.twig`
-  - `content-builder/` — ~35 block-type templates used by the CMS content builder
+  - `blocks/` — ~35 block-type templates used by the CMS content builder
   - `macros/` — Reusable Twig macros (`banner.twig`, `form-macros.twig`, `macros.twig`)
   - `snippets/` — Header, footer, and shared partials
 - **config/** — Theme JSON configs consumed by the CMS Theme Editor
