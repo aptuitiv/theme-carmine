@@ -1,4 +1,5 @@
 {% if columns|first.content %}
+    {% import 'macros/macros' as macros %}
     {# Set the image classes based on the number of columns #}
     {% set count = _core.theme.settings.blockColumnContentDefaultNumColumns %}
     {% if numberOfColumns not in ['Auto', 'Site default'] %}
