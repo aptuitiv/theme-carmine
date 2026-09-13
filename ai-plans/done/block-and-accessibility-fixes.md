@@ -66,3 +66,7 @@ Carmine isn't a good reference for these — each needs a new fix.
 - [ ] `npm run build` completes and `npm run stylelint` shows no new warnings
     - `npm run stylelint` passes. `npm run build` wasn't run.
 - [ ] Keyboard check: Tab from page load shows the skip link above the sticky header; focus inside the sticky header keeps it visible; accordion headings open with Enter/Space
+
+## Follow-up fixes (2026-09-13)
+
+- [x] **`blocks/columned-content.twig` width override** — removed the `width:` values from `count2`–`count6` and every `{% set width = countN.width %}` line. They overwrote the block's Width field, so the Width setting never took effect (same fix as image-grid, Carmine commit `1745710`).
