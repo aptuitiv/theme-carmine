@@ -46,6 +46,8 @@ const stickyHeader = {
         this.captureNaturalOffset();
         this.updateAnchorOffset();
         this.setupScrollListener();
+        // Bring a hidden header back when keyboard focus moves into it
+        this.header.addEventListener('focusin', () => this.show());
         window.addEventListener('resize', () => {
             this.captureNaturalOffset();
             this.updateAnchorOffset();
@@ -145,7 +147,8 @@ const stickyHeader = {
     },
 
     hide() {
-        if (this.isHidden) return;
+        // Never move the header offscreen while keyboard focus is inside it (WCAG 2.4.11)
+        if (this.isHidden || this.header.contains(document.activeElement)) return;
         this.header.style.top = `-${this.header.offsetHeight}px`;
         this.isHidden = true;
     },
