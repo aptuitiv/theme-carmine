@@ -52,6 +52,7 @@
         "stylelint": "aptuitiv-build stylelint",
         "templates": "aptuitiv-build push-templates",
         "theme-config": "aptuitiv-build push-theme-config",
+        "update-config": "aptuitiv-build update-config",
         "upload": "aptuitiv-build upload",
         "upload-css": "aptuitiv-build upload -p theme/custom/css",
         "upload-docs": "aptuitiv-build upload -p docs",
@@ -81,7 +82,7 @@
         "micromodal": "^0.7.0"
     },
     "engines": {
-        "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+        "node": ">=24.13.0"
     },
     "type": "module"
 }
