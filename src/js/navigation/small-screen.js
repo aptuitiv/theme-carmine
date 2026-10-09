@@ -91,7 +91,10 @@ const smallScreenNav = {
                     // Keep the ARIA state in sync with the open state so that screen
                     // readers can reach the items in a submenu opened by tapping.
                     const isOpen = link.classList.contains('is-active');
-                    link.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                    link.setAttribute(
+                        'aria-expanded',
+                        isOpen ? 'true' : 'false',
+                    );
                     const submenu = link.parentElement.querySelector(
                         ':scope > .js-dropdownMenu',
                     );

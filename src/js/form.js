@@ -28,8 +28,13 @@ function setFieldAriaState(field, isValid) {
         field.setAttribute('aria-invalid', 'true');
         // Just-Validate adds the error label to the field's parent, or to the parent of the
         // <label> when the field is inside a <label> tag.
-        const errorLabel = [field.parentElement, field.parentElement?.parentElement]
-            .map((el) => el?.querySelector(':scope > .just-validate-error-label'))
+        const errorLabel = [
+            field.parentElement,
+            field.parentElement?.parentElement,
+        ]
+            .map((el) =>
+                el?.querySelector(':scope > .just-validate-error-label'),
+            )
             .find((el) => el);
         if (errorLabel) {
             errorLabel.id = errorId;

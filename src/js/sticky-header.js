@@ -92,9 +92,8 @@ const stickyHeader = {
     },
 
     handleScroll() {
-        const {scrollY} = window;
-        const isLargeScreen =
-            window.innerWidth >= this.smallScreenBreakpoint;
+        const { scrollY } = window;
+        const isLargeScreen = window.innerWidth >= this.smallScreenBreakpoint;
         const hideEnabled = this.header.classList.contains(
             'Header--hideOnScroll',
         );
@@ -148,7 +147,8 @@ const stickyHeader = {
 
     hide() {
         // Never move the header offscreen while keyboard focus is inside it (WCAG 2.4.11)
-        if (this.isHidden || this.header.contains(document.activeElement)) return;
+        if (this.isHidden || this.header.contains(document.activeElement))
+            return;
         this.header.style.top = `-${this.header.offsetHeight}px`;
         this.isHidden = true;
     },

@@ -28,7 +28,10 @@
 .Notification-more:focus-visible {
     color: var(--Notification-more-color-hover, var(--Notification-more-color, var(--Notification-color)));
     font-style: var(--Notification-more-font-style-hover, var(--Notification-more-font-style, inherit));
-    text-decoration: var(--Notification-more-text-decoration-hover, var(--Notification-more-text-decoration, underline));
+    text-decoration: var(
+        --Notification-more-text-decoration-hover,
+        var(--Notification-more-text-decoration, underline)
+    );
 }
 
 @media (hover: hover) and (pointer: fine) {

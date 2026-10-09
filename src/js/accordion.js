@@ -49,7 +49,10 @@ const accordion = {
     setExpanded(container, isExpanded) {
         const heading = container.querySelector('.js-accordionHeading');
         if (heading) {
-            heading.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+            heading.setAttribute(
+                'aria-expanded',
+                isExpanded ? 'true' : 'false',
+            );
         }
     },
 
