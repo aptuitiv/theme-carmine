@@ -71,12 +71,12 @@
         "watch": "aptuitiv-build watch"
     },
     "devDependencies": {
-        "@aptuitiv/website-build-tools": "^1.39.0"
+        "@aptuitiv/website-build-tools": "^1.40.0"
     },
     "dependencies": {
         "@splidejs/splide": "^4.1.4",
         "@splidejs/splide-extension-video": "^0.8.0",
-        "cacao-css": "^8.0.1",
+        "cacao-css": "^8.3.0",
         "just-validate": "^4.3.0",
         "lodash": "^4.18.1",
         "masonry-layout": "^4.2.2",
