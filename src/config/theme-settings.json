@@ -304,7 +304,6 @@
                             "description": "When enabled the header stays visible at the top of the page as the user scrolls.",
                             "defaultValue": "no"
                         },
-
                         {
                             "name": "headerStickyHideOnScroll",
                             "label": "Hide on scroll down (small screens)",
